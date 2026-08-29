@@ -25,7 +25,7 @@ _Last updated: 2026-08-29_
 
 | Item | Who | Since | Status |
 |---|---|---|---|
-| Book the 45-min Calendly slot | Rita Ramakrishnan (AIChE) | 2026-08-29 | **You owe this** |
+| Calendar invite for the Thursday AIChE call | Rita Ramakrishnan (AIChE) | 2026-08-29 | Replied "Thursday" — no invite received yet |
 | HRIS + PEO question, and next step after the call | Bryce Lowery (Intalegence) | 2026-08-28 | Awaiting reply |
 | Strategic HR Business Partner application status | Kristen Ramerini (HSO) | 2026-08-26 | Awaiting reply |
 | Copy of EOB (promised in 24–48h) | EmblemHealth | 2026-08-27 | Overdue |

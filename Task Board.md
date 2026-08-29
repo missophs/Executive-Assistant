@@ -9,12 +9,13 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 ## 🔥 Today
 <!-- Must know today. Keep to 3. -->
 
-- [ ] **Book the AIChE Calendly slot** — Rita Ramakrishnan, 45 min · https://calendly.com/rita-ram/45-minute-session · due 2026-08-30 · #aiche
+- [ ] **Confirm the AIChE time** — you told Rita "Thursday" but there is no Calendly confirmation email and nothing on your Google Calendar · due 2026-08-31 · #aiche
 - [ ] Chase EmblemHealth EOB — promised in 24–48h on 8/27, now overdue · due 2026-08-31 · #admin
 
 ## ⏭ This Week
 
-- [ ] Prep for the AIChE conversation — it is screen AND hiring manager in one, so bring substance · due 2026-09-01 · #aiche
+- [ ] Prep for the AIChE conversation — screen AND hiring manager in one, so bring substance · due 2026-09-02 · #aiche
+- [ ] Check Thu 9/3 for a conflict — HR Networking Office Hours is 12:00–1:00 ET that day · due 2026-08-31 · #aiche
 - [ ] HR Networking & Job Search Group — Wed 12:00 ET, Zoom · due 2026-09-02 · #network
 - [ ] Decide on Executive Roundtable Thu 9/3 9:00 ET — currently declined · due 2026-09-02 · #network
 
@@ -38,3 +39,4 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 - [x] Virtual call with Bryce Lowery re: VP, People & Culture — 2026-08-28
 - [x] Sent additional background to Bryce for candidate profile — 2026-08-28
 - [x] Replied to Bryce with HRIS / PEO question — 2026-08-28
+- [x] Replied to Rita Ramakrishnan at AIChE, confirmed Thursday — 2026-08-29
