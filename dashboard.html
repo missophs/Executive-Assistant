@@ -169,6 +169,11 @@ h1{
   border-top:1px solid var(--line); padding-top:20px; display:grid;
   grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:18px;
 }
+.howto{
+  grid-column:1/-1; background:var(--accent-soft); border-left:2px solid var(--accent);
+  padding:13px 16px; border-radius:2px; font-size:13px; color:var(--ink); line-height:1.6;
+}
+.howto b{font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--accent)}
 .step .when{font-family:"IBM Plex Mono",monospace; font-size:10px; text-transform:uppercase; letter-spacing:.11em; color:var(--faint); margin-bottom:5px}
 .step .what{color:var(--muted); font-size:12.5px; margin-top:4px}
 </style>
@@ -179,7 +184,7 @@ h1{
   <header class="mast">
     <div>
       <h1>Command Center</h1>
-      <p class="sub">Everything on your plate, in one view. Regenerate anytime with <code class="cmd">/dashboard</code>.</p>
+      <p class="sub">Everything on your plate, in one view. This is a report you read &mdash; typing happens in the assistant window.</p>
     </div>
     <div class="stamp"><b id="stampDate">&mdash;</b><span id="stampRel">&mdash;</span></div>
   </header>
@@ -215,6 +220,11 @@ h1{
   </div>
 
   <footer class="loop">
+    <div class="howto">
+      <strong>This page is a report &mdash; you can&rsquo;t type here.</strong>
+      To talk to your assistant, double-click <b>My Assistant</b> on your Desktop.
+      A black window opens. Type the commands below into <em>that</em> window.
+    </div>
     <div class="step"><div class="when">Morning</div><code class="cmd">/start</code><div class="what">Standup. What matters today, what&rsquo;s slipping.</div></div>
     <div class="step"><div class="when">All day</div><code class="cmd">Scratch Pad.md</code><div class="what">Dump raw thoughts. Don&rsquo;t organize.</div></div>
     <div class="step"><div class="when">Midday</div><code class="cmd">/sync</code><div class="what">Files the pile. Empties the pad.</div></div>
