@@ -9,13 +9,13 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 ## 🔥 Today
 <!-- Must know today. Keep to 3. -->
 
-- [ ] **Confirm the AIChE time** — you told Rita "Thursday" but there is no Calendly confirmation email and nothing on your Google Calendar · due 2026-08-31 · #aiche
+- [ ] **Rescue the AIChE invite from Trash** — Thu 9/3 10:00–10:45 ET from rita@iksana.com. Until you restore it, it is not on your calendar and you get no reminder · due 2026-08-30 · #aiche
 - [ ] Chase EmblemHealth EOB — promised in 24–48h on 8/27, now overdue · due 2026-08-31 · #admin
 
 ## ⏭ This Week
 
 - [ ] Prep for the AIChE conversation — screen AND hiring manager in one, so bring substance · due 2026-09-02 · #aiche
-- [ ] Check Thu 9/3 for a conflict — HR Networking Office Hours is 12:00–1:00 ET that day · due 2026-08-31 · #aiche
+- [ ] Fix email triage — it trashed the AIChE interview invite AND the standup email. Real interviews are landing in Trash · due 2026-08-31 · #tooling
 - [ ] HR Networking & Job Search Group — Wed 12:00 ET, Zoom · due 2026-09-02 · #network
 - [ ] Decide on Executive Roundtable Thu 9/3 9:00 ET — currently declined · due 2026-09-02 · #network
 

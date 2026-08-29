@@ -25,7 +25,7 @@ _Last updated: 2026-08-29_
 
 | Item | Who | Since | Status |
 |---|---|---|---|
-| Calendar invite for the Thursday AIChE call | Rita Ramakrishnan (AIChE) | 2026-08-29 | Replied "Thursday" — no invite received yet |
+| Restore the AIChE invite from Trash | Melissa | 2026-08-29 | Thu 9/3 10:00–10:45 ET, from rita@iksana.com |
 | HRIS + PEO question, and next step after the call | Bryce Lowery (Intalegence) | 2026-08-28 | Awaiting reply |
 | Strategic HR Business Partner application status | Kristen Ramerini (HSO) | 2026-08-26 | Awaiting reply |
 | Copy of EOB (promised in 24–48h) | EmblemHealth | 2026-08-27 | Overdue |
@@ -39,6 +39,10 @@ _Last updated: 2026-08-29_
 ## Applications use several inboxes
 
 You apply from more than one address — `melissaw212@`, `melhr212@`, and `dhwconsulting3@`. HSO and Dropbox confirmations landed in `melhr212@`, not your main inbox. Worth checking all of them, or forwarding to one.
+
+## Known problem: mail triage is too aggressive
+
+Your automated email triage sent the **AIChE interview invitation** to Trash, and also trashed the standup email. Real, high-value mail from unknown senders is being discarded. Rita's address is `rita@iksana.com` (AIChE uses Workable, so recruiter mail arrives from unfamiliar domains). Worth allow-listing recruiter and ATS domains.
 
 ## Working Preferences
 
