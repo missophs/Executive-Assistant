@@ -16,7 +16,7 @@ _Last updated: 2026-08-29_
 
 ## People
 
-- **Rita Ramakrishnan** — Interim Chief People Officer, AIChE. Reached out 8/29 re: Head of People. Running the initial screen and the hiring manager conversation as one combined 45-minute session, so it carries more weight than a normal first call.
+- **Rita Ramakrishnan** — Interim Chief People Officer, AIChE. **Interview confirmed: Thu 9/3, 10:00–10:45 AM ET, Google Meet.** Reached out 8/29 re: Head of People. Running the initial screen and the hiring manager conversation as one combined 45-minute session, so it carries more weight than a normal first call.
 - **Bryce Lowery** — Intalegence, executive search. Running a confidential VP People & Culture search for a mission-driven education company. Virtual call held Fri 8/28. Building your candidate profile from the call + resume. Open question outstanding: HRIS, and whether benefits are in-house or PEO.
 - **Kristen Ramerini** — HSO. Responded to cold outreach on the Strategic HR Business Partner role; pointed to their standard process. You had already applied via the posting. HSO recently taken on by Bain Capital.
 - **Frank Wittenauer** — organizes the HR Networking & Job Search Group (Wed 12pm ET) and the non-job-related Open Office Hours (Thu 12pm ET). Maintains the shared recruiter roster and LinkedIn group.
@@ -25,7 +25,6 @@ _Last updated: 2026-08-29_
 
 | Item | Who | Since | Status |
 |---|---|---|---|
-| Restore the AIChE invite from Trash | Melissa | 2026-08-29 | Thu 9/3 10:00–10:45 ET, from rita@iksana.com |
 | HRIS + PEO question, and next step after the call | Bryce Lowery (Intalegence) | 2026-08-28 | Awaiting reply |
 | Strategic HR Business Partner application status | Kristen Ramerini (HSO) | 2026-08-26 | Awaiting reply |
 | Copy of EOB (promised in 24–48h) | EmblemHealth | 2026-08-27 | Overdue |

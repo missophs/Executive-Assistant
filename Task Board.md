@@ -9,12 +9,11 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 ## 🔥 Today
 <!-- Must know today. Keep to 3. -->
 
-- [ ] **Rescue the AIChE invite from Trash** — Thu 9/3 10:00–10:45 ET from rita@iksana.com. Until you restore it, it is not on your calendar and you get no reminder · due 2026-08-30 · #aiche
 - [ ] Chase EmblemHealth EOB — promised in 24–48h on 8/27, now overdue · due 2026-08-31 · #admin
 
 ## ⏭ This Week
 
-- [ ] Prep for the AIChE conversation — screen AND hiring manager in one, so bring substance · due 2026-09-02 · #aiche
+- [ ] **Prep for AIChE, Thu 9/3 10:00 AM ET** — Rita is running the screen AND the hiring manager conversation in one 45-min session. Bring substance, not just background · due 2026-09-02 · #aiche
 - [ ] Fix email triage — it trashed the AIChE interview invite AND the standup email. Real interviews are landing in Trash · due 2026-08-31 · #tooling
 - [ ] HR Networking & Job Search Group — Wed 12:00 ET, Zoom · due 2026-09-02 · #network
 - [ ] Decide on Executive Roundtable Thu 9/3 9:00 ET — currently declined · due 2026-09-02 · #network
@@ -40,3 +39,4 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 - [x] Sent additional background to Bryce for candidate profile — 2026-08-28
 - [x] Replied to Bryce with HRIS / PEO question — 2026-08-28
 - [x] Replied to Rita Ramakrishnan at AIChE, confirmed Thursday — 2026-08-29
+- [x] Rescued the AIChE invite from Trash and accepted it — Thu 9/3 10:00 ET — 2026-08-29

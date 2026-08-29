@@ -6,7 +6,7 @@ Job search pipeline. One row per role. `/sync` updates this from the Scratch Pad
 
 | Company | Role | Stage | Applied | Last contact | Next action | Contact |
 |---|---|---|---|---|---|---|
-| AIChE (American Institute of Chemical Engineers) | Head of People | Screen | — | 2026-08-29 | **Thu 9/3, 10:00–10:45 AM ET** — invite is in TRASH, restore it or it stays off your calendar | Rita Ramakrishnan, Interim CPO |
+| AIChE (American Institute of Chemical Engineers) | Head of People | Screen | — | 2026-08-29 | **Interview confirmed: Thu 9/3, 10:00–10:45 AM ET, Google Meet.** Prep is the only thing left | Rita Ramakrishnan, Interim CPO |
 | Intalegence (confidential client — education) | VP, People & Culture | Screen | — | 2026-08-28 | Nothing owed — you replied Friday, ball is with Bryce | Bryce Lowery |
 | HSO | Strategic HR Business Partner | Applied | 2026-08-25 | 2026-08-26 | Nothing owed — Kristen has it | Kristen Ramerini |
 | Dropbox | (applied via posting) | Applied | 2026-08-22 | 2026-08-22 | Auto-ack only, no human contact yet | — |
