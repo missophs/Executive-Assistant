@@ -1,4 +1,4 @@
-# Executive Assistant
+# Ellie — Executive Assistant
 
 A file-based EA that runs in Claude Code. Three commands, one vault, no app to log into.
 
