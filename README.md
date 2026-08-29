@@ -23,12 +23,43 @@ Daily Notes/       One YYYY-MM-DD.md per day. The permanent record.
 .claude/memory.md  Rolling context between sessions.
 ```
 
-## Setup
+## Setup (once)
 
-1. Clone and open in Claude Code: `claude` from the repo root. **Accept the trust dialog the first time** — without it, the project permissions in `.claude/settings.json` are ignored and the assistant can't write to `.claude/memory.md`.
-2. Set your time zone in `CLAUDE.md` under **Context About Me**.
-3. Connect Google Calendar if you want `/start` to see your day. Without it, `/start` falls back to scanning the board and memory for dates.
+1. **Open the folder in Claude Code.** In Terminal:
+   ```
+   cd ~/Executive-Assistant
+   claude
+   ```
+2. **Say yes to the trust dialog.** It appears the first time only. Until you do, the permissions in `.claude/settings.json` are ignored and the assistant cannot write to `.claude/memory.md` — meaning nothing carries over between days.
+3. **Connect Google Calendar** if you want `/start` to see your day. Without it, `/start` falls back to scanning the board and memory for dates.
 4. Run `/start`.
+
+## Working together
+
+**Always work from inside this folder.** `cd ~/Executive-Assistant && claude`. The commands use relative paths, so they only find your board and notes from here.
+
+**Permissions are already set so the boring stuff never interrupts you.** The assistant can freely read and write inside the vault — board, scratch pad, daily notes, meetings, memory. That's the friction it exists to absorb.
+
+Everything else still stops and asks:
+
+| Pre-approved, no prompt | Always asks first |
+|---|---|
+| Updating `Task Board.md` | Sending or drafting email |
+| Clearing `Scratch Pad.md` | Creating or moving calendar events |
+| Writing daily notes | Posting to Slack |
+| Summarizing files in `Meetings/` | Touching files outside this folder |
+| Updating `.claude/memory.md` | Anything on the internet |
+
+`rm` and `git push` are blocked outright.
+
+**The loop:**
+
+- Morning — `/start`
+- All day — dump raw thoughts into `Scratch Pad.md`, drop transcripts into `Meetings/`. Don't organize. That's the point.
+- Midday, or whenever the pile feels big — `/sync`
+- End of day — `/wrap-up`
+
+**If something looks wrong,** press Esc to stop it mid-action. Everything lives in plain Markdown files and in git, so nothing is unrecoverable — `git diff` shows exactly what changed today.
 
 ## How to use it
 

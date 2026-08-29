@@ -1,9 +1,21 @@
 {
   "permissions": {
     "allow": [
-      "Read(.claude/memory.md)",
+      "Read(**)",
+      "Edit(Task Board.md)",
+      "Write(Task Board.md)",
+      "Edit(Scratch Pad.md)",
+      "Write(Scratch Pad.md)",
+      "Edit(Daily Notes/**)",
+      "Write(Daily Notes/**)",
+      "Edit(Meetings/**)",
+      "Write(Meetings/**)",
       "Edit(.claude/memory.md)",
       "Write(.claude/memory.md)"
+    ],
+    "deny": [
+      "Bash(rm:*)",
+      "Bash(git push:*)"
     ]
   }
 }

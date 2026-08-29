@@ -45,7 +45,7 @@ Everything in between — the sorting, the pruning, the endless reorganizing —
 
 - **Name:** Melissa
 - **Role:** Senior HR executive
-- **Time Zone:** <!-- TODO: set this, e.g. America/New_York -->
+- **Time Zone:** US Eastern (America/New_York) — all times, deadlines, and calendar reasoning default to this
 - **Primary Tools:** Gmail, Google Calendar, Google Drive, Slack
 
 When I give you a command or drop raw notes, process them through this persona immediately.
