@@ -6,225 +6,240 @@
 <title>Command Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
 :root{
-  --ground:#E9ECEF; --surface:#FBFCFD; --raised:#F2F4F6;
-  --ink:#13161B; --muted:#69727F; --faint:#98A1AC;
-  --line:#D3D8DE; --line-soft:#E2E6EA;
-  --accent:#0E6C74; --accent-soft:#0E6C7418;
-  --go:#2F7D4F; --wait:#8F6209; --stop:#A33A2E;
-  --wait-soft:#8F620915; --stop-soft:#A33A2E15;
-  --shadow:0 1px 2px rgba(19,22,27,.05), 0 4px 14px rgba(19,22,27,.045);
+  --ground:#eef0f4; --surface:#ffffff; --raised:#f7f9fb; --sunken:#e7eaf0;
+  --ink:#141726; --ink-2:#41485c; --muted:#6b7488; --faint:#9aa2b4;
+  --line:#e2e6ee; --line-2:#eef1f6;
+  --navy-1:#1a1a2e; --navy-2:#16213e; --navy-3:#0f3460;
+  --hero-ink:#ffffff;
+  --red:#d64545; --red-bg:#fdf2f2; --red-pill:#fbe0e0; --red-ink:#9b2c2c;
+  --amber:#c9880f; --amber-bg:#fdf9ee; --amber-pill:#fbeeca; --amber-ink:#7a4f07;
+  --blue:#2f6fd0; --blue-bg:#f0f5fd; --blue-pill:#dbe8fb; --blue-ink:#1d4d96;
+  --green:#2f9160; --green-bg:#f0faf4; --green-pill:#d5f0e0; --green-ink:#1d6642;
+  --violet:#6f52c9; --violet-bg:#f6f3fd;
+  --shadow-s:0 1px 2px rgba(20,23,38,.05);
+  --shadow-m:0 2px 4px rgba(20,23,38,.04), 0 8px 24px rgba(20,23,38,.06);
+  --shadow-hero:0 10px 34px rgba(15,52,96,.28);
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --ground:#0F1216; --surface:#171B21; --raised:#1D222A;
-    --ink:#E4E8ED; --muted:#8A939F; --faint:#69727F;
-    --line:#262C34; --line-soft:#1F242B;
-    --accent:#45B8C0; --accent-soft:#45B8C01F;
-    --go:#4CAF7A; --wait:#D9A73C; --stop:#E0705F;
-    --wait-soft:#D9A73C1F; --stop-soft:#E0705F1F;
-    --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 20px rgba(0,0,0,.3);
+    --ground:#0b0e14; --surface:#141926; --raised:#1a2030; --sunken:#10141e;
+    --ink:#e9edf5; --ink-2:#b3bccd; --muted:#8b95aa; --faint:#5f6880;
+    --line:#242b3b; --line-2:#1c2231;
+    --navy-1:#151a2c; --navy-2:#16213e; --navy-3:#1b4a80;
+    --red:#e8756f; --red-bg:#2a1719; --red-pill:#3d1f22; --red-ink:#f0a5a0;
+    --amber:#e0a93c; --amber-bg:#2a2116; --amber-pill:#3d301a; --amber-ink:#edc47a;
+    --blue:#6aa5f0; --blue-bg:#151f30; --blue-pill:#1c2c44; --blue-ink:#a8c9f5;
+    --green:#5cbb8a; --green-bg:#152418; --green-pill:#1b3325; --green-ink:#96dbb4;
+    --violet:#9b84e8; --violet-bg:#1c1830;
+    --shadow-s:0 1px 2px rgba(0,0,0,.4);
+    --shadow-m:0 2px 4px rgba(0,0,0,.3), 0 10px 28px rgba(0,0,0,.35);
+    --shadow-hero:0 10px 34px rgba(0,0,0,.5);
   }
 }
 :root[data-theme="dark"]{
-  --ground:#0F1216; --surface:#171B21; --raised:#1D222A;
-  --ink:#E4E8ED; --muted:#8A939F; --faint:#69727F;
-  --line:#262C34; --line-soft:#1F242B;
-  --accent:#45B8C0; --accent-soft:#45B8C01F;
-  --go:#4CAF7A; --wait:#D9A73C; --stop:#E0705F;
-  --wait-soft:#D9A73C1F; --stop-soft:#E0705F1F;
-  --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 20px rgba(0,0,0,.3);
+  --ground:#0b0e14; --surface:#141926; --raised:#1a2030; --sunken:#10141e;
+  --ink:#e9edf5; --ink-2:#b3bccd; --muted:#8b95aa; --faint:#5f6880;
+  --line:#242b3b; --line-2:#1c2231;
+  --navy-1:#151a2c; --navy-2:#16213e; --navy-3:#1b4a80;
+  --red:#e8756f; --red-bg:#2a1719; --red-pill:#3d1f22; --red-ink:#f0a5a0;
+  --amber:#e0a93c; --amber-bg:#2a2116; --amber-pill:#3d301a; --amber-ink:#edc47a;
+  --blue:#6aa5f0; --blue-bg:#151f30; --blue-pill:#1c2c44; --blue-ink:#a8c9f5;
+  --green:#5cbb8a; --green-bg:#152418; --green-pill:#1b3325; --green-ink:#96dbb4;
+  --violet:#9b84e8; --violet-bg:#1c1830;
+  --shadow-s:0 1px 2px rgba(0,0,0,.4);
+  --shadow-m:0 2px 4px rgba(0,0,0,.3), 0 10px 28px rgba(0,0,0,.35);
+  --shadow-hero:0 10px 34px rgba(0,0,0,.5);
 }
 
 *{box-sizing:border-box}
 body{
   margin:0; background:var(--ground); color:var(--ink);
-  font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-family:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   font-size:14px; line-height:1.55; -webkit-font-smoothing:antialiased;
 }
-.wrap{max-width:1180px; margin:0 auto; padding:32px 24px 64px; display:flex; flex-direction:column; gap:22px}
+.wrap{max-width:1160px; margin:0 auto; padding:28px 22px 56px; display:flex; flex-direction:column; gap:20px}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums}
 
-/* masthead */
-.mast{display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap}
-h1{
-  font-family:"Bricolage Grotesque","IBM Plex Sans",sans-serif;
-  font-weight:700; font-size:clamp(28px,4.4vw,42px); letter-spacing:-.025em;
-  margin:0; line-height:1; text-wrap:balance;
+/* ── hero ── */
+.hero{
+  background:linear-gradient(135deg,var(--navy-1) 0%,var(--navy-2) 55%,var(--navy-3) 100%);
+  color:var(--hero-ink); border-radius:16px; padding:30px 34px;
+  box-shadow:var(--shadow-hero); display:flex; justify-content:space-between;
+  align-items:flex-start; gap:26px; flex-wrap:wrap; position:relative; overflow:hidden;
 }
-.mast .sub{color:var(--muted); margin:7px 0 0; font-size:13.5px; max-width:52ch}
-.stamp{
-  font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:11.5px;
-  color:var(--muted); text-align:right; line-height:1.7; white-space:nowrap;
+.hero::after{
+  content:""; position:absolute; right:-70px; top:-70px; width:260px; height:260px;
+  border-radius:50%; background:radial-gradient(circle,rgba(255,255,255,.09),transparent 68%);
 }
-.stamp b{display:block; color:var(--ink); font-weight:600; font-size:13px; letter-spacing:.01em}
+.hero .eyebrow{
+  font-family:"IBM Plex Mono",monospace; font-size:10.5px; text-transform:uppercase;
+  letter-spacing:.18em; opacity:.6;
+}
+.hero h1{font-size:clamp(26px,4vw,38px); font-weight:800; letter-spacing:-.03em; margin:7px 0 0; line-height:1.05}
+.hero .when{font-size:13.5px; opacity:.72; margin-top:7px}
+.badges{display:flex; flex-direction:column; gap:7px; position:relative; z-index:1}
+.badge{
+  background:rgba(255,255,255,.13); border:1px solid rgba(255,255,255,.09);
+  border-radius:999px; padding:5px 14px; font-size:12.5px; white-space:nowrap;
+}
+.badge b{font-weight:700}
+.badge.hot{background:rgba(214,69,69,.3); border-color:rgba(255,150,150,.3)}
 
-/* status strip */
-.strip{
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(132px,1fr));
-  background:var(--surface); border:1px solid var(--line); border-radius:3px;
-  overflow:hidden; box-shadow:var(--shadow);
+/* ── stat cards ── */
+.stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px}
+.stat{
+  background:var(--surface); border:1px solid var(--line); border-radius:13px;
+  padding:17px 19px; box-shadow:var(--shadow-s);
 }
-.metric{padding:14px 16px 15px; border-right:1px solid var(--line-soft)}
-.metric:last-child{border-right:0}
-.metric .n{
-  font-family:"Bricolage Grotesque",sans-serif; font-weight:700;
-  font-size:29px; line-height:1; letter-spacing:-.02em; font-variant-numeric:tabular-nums;
+.stat .n{font-size:31px; font-weight:800; line-height:1; letter-spacing:-.03em; font-variant-numeric:tabular-nums}
+.stat .k{
+  font-family:"IBM Plex Mono",monospace; font-size:9.5px; text-transform:uppercase;
+  letter-spacing:.14em; color:var(--muted); margin-top:9px;
 }
-.metric .k{
-  font-family:"IBM Plex Mono",monospace; font-size:10px; text-transform:uppercase;
-  letter-spacing:.11em; color:var(--muted); margin-top:7px;
-}
-.metric.alert .n{color:var(--stop)}
-.metric .n.zero{color:var(--faint)}
+.stat.is-red .n{color:var(--red)} .stat.is-blue .n{color:var(--blue)}
+.stat.is-green .n{color:var(--green)} .stat.is-amber .n{color:var(--amber)}
+.stat .n.zero{color:var(--faint)}
 
-/* layout */
-.grid{display:grid; grid-template-columns:1fr 322px; gap:22px; align-items:start}
-@media (max-width:900px){ .grid{grid-template-columns:1fr} }
-.col{display:flex; flex-direction:column; gap:22px; min-width:0}
+/* ── layout ── */
+.grid{display:grid; grid-template-columns:1fr 330px; gap:20px; align-items:start}
+@media (max-width:920px){ .grid{grid-template-columns:1fr} }
+.col{display:flex; flex-direction:column; gap:20px; min-width:0}
 
-/* panels */
-.panel{background:var(--surface); border:1px solid var(--line); border-radius:3px; box-shadow:var(--shadow); overflow:hidden}
-.phead{
-  display:flex; align-items:baseline; justify-content:space-between; gap:12px;
-  padding:13px 17px; border-bottom:1px solid var(--line-soft); background:var(--raised);
-}
-.phead h2{
-  font-family:"IBM Plex Mono",monospace; font-size:10.5px; font-weight:600;
-  text-transform:uppercase; letter-spacing:.13em; margin:0; color:var(--ink);
-}
+/* ── panels ── */
+.panel{background:var(--surface); border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow-m); overflow:hidden}
+.phead{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px 20px 13px}
+.phead h2{font-size:15px; font-weight:700; letter-spacing:-.015em; margin:0}
 .phead .note{font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--muted); font-variant-numeric:tabular-nums}
-.pbody{padding:17px}
+.rule{height:3px; margin:0 20px 15px; border-radius:2px}
+.rule.red{background:var(--red)} .rule.blue{background:var(--blue)}
+.rule.amber{background:var(--amber)} .rule.green{background:var(--green)} .rule.violet{background:var(--violet)}
+.pbody{padding:0 20px 20px}
 
-/* today */
-.today{list-style:none; margin:0; padding:0; display:flex; flex-direction:column}
-.today li{display:flex; gap:14px; padding:14px 17px; border-bottom:1px solid var(--line-soft)}
-.today li:last-child{border-bottom:0}
-.today .rank{
-  font-family:"Bricolage Grotesque",sans-serif; font-weight:700; font-size:15px;
-  color:var(--accent); font-variant-numeric:tabular-nums; padding-top:1px; flex:none; width:18px;
-}
-.today .task{font-weight:600; font-size:14.5px; letter-spacing:-.005em}
-.today .why{color:var(--muted); font-size:12.5px; margin-top:3px}
-.today .due{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--muted); margin-top:5px; font-variant-numeric:tabular-nums}
+/* ── priority cards ── */
+.prio{display:flex; flex-direction:column; gap:11px}
+.pcard{border-radius:12px; padding:15px 18px; border-left:5px solid var(--muted); background:var(--raised)}
+.pcard.r1{background:var(--red-bg); border-left-color:var(--red)}
+.pcard.r2{background:var(--amber-bg); border-left-color:var(--amber)}
+.pcard.r3{background:var(--blue-bg); border-left-color:var(--blue)}
+.pcard .task{font-size:15px; font-weight:700; letter-spacing:-.01em}
+.pcard .why{font-size:13px; color:var(--ink-2); margin-top:4px}
+.pcard .due{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--muted); margin-top:8px}
 
-/* pipeline */
-.lanes{display:flex; flex-direction:column}
-.lane{display:grid; grid-template-columns:118px 1fr; border-bottom:1px solid var(--line-soft)}
-.lane:last-child{border-bottom:0}
-.lane-l{
-  padding:14px 14px 14px 17px; border-right:1px solid var(--line-soft);
-  display:flex; flex-direction:column; gap:5px; background:var(--raised);
+/* ── pipeline ── */
+.track{display:flex; gap:6px; margin-bottom:16px}
+.seg{flex:1; text-align:center}
+.seg .bar{height:5px; border-radius:3px; background:var(--sunken); margin-bottom:7px}
+.seg.on .bar{background:var(--blue)}
+.seg .lbl{font-family:"IBM Plex Mono",monospace; font-size:9px; text-transform:uppercase; letter-spacing:.09em; color:var(--muted); display:block}
+.seg .ct{font-size:15px; font-weight:800; margin-top:2px; font-variant-numeric:tabular-nums}
+.seg .ct.zero{color:var(--faint)}
+.roles{display:flex; flex-direction:column; gap:10px}
+.role{
+  display:flex; align-items:center; gap:14px; padding:13px 16px;
+  background:var(--raised); border:1px solid var(--line-2); border-radius:12px;
 }
-.lane-name{font-family:"IBM Plex Mono",monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted)}
-.lane-n{font-family:"Bricolage Grotesque",sans-serif; font-weight:700; font-size:19px; line-height:1; font-variant-numeric:tabular-nums}
-.lane-n.zero{color:var(--faint)}
-.lane-r{padding:11px 14px; display:flex; flex-wrap:wrap; gap:8px; align-items:flex-start; min-height:52px}
-.card{
-  border:1px solid var(--line); border-left:2px solid var(--accent); border-radius:2px;
-  padding:8px 11px; background:var(--surface); min-width:172px; flex:0 1 auto;
-}
-.card.stale{border-left-color:var(--stop)}
-.card .co{font-weight:600; font-size:13.5px; letter-spacing:-.005em}
-.card .ro{color:var(--muted); font-size:12px; margin-top:1px}
-.card .meta{
-  font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--faint);
-  margin-top:6px; display:flex; gap:9px; flex-wrap:wrap; font-variant-numeric:tabular-nums;
-}
-.card .meta .flag{color:var(--stop); font-weight:500}
-.lane-empty{color:var(--faint); font-family:"IBM Plex Mono",monospace; font-size:11px; align-self:center}
+.role.stale{background:var(--red-bg); border-color:var(--red-pill)}
+.role .who{flex:1; min-width:0}
+.role .co{font-size:14.5px; font-weight:700; letter-spacing:-.01em}
+.role .ro{font-size:12.5px; color:var(--muted); margin-top:1px}
+.role .rt{text-align:right; flex:none; display:flex; flex-direction:column; align-items:flex-end; gap:5px}
+.pill{border-radius:999px; padding:3px 11px; font-size:10.5px; font-weight:700; white-space:nowrap; letter-spacing:.02em}
+.pill.blue{background:var(--blue-pill); color:var(--blue-ink)}
+.pill.green{background:var(--green-pill); color:var(--green-ink)}
+.pill.amber{background:var(--amber-pill); color:var(--amber-ink)}
+.pill.red{background:var(--red-pill); color:var(--red-ink)}
+.role .nx{font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--faint)}
 
-/* rail lists */
-.rail-list{list-style:none; margin:0; padding:0}
-.rail-list li{padding:11px 17px; border-bottom:1px solid var(--line-soft); display:flex; gap:11px; align-items:baseline}
-.rail-list li:last-child{border-bottom:0}
-.rail-list .txt{flex:1; min-width:0}
-.rail-list .nm{font-weight:600}
-.rail-list .who{color:var(--muted); font-size:12px; margin-top:2px}
-.days{
-  font-family:"IBM Plex Mono",monospace; font-size:10.5px; font-weight:600; flex:none;
-  padding:2px 6px; border-radius:2px; background:var(--accent-soft); color:var(--accent);
-  font-variant-numeric:tabular-nums;
-}
-.days.warn{background:var(--wait-soft); color:var(--wait)}
-.days.late{background:var(--stop-soft); color:var(--stop)}
-.bullets{margin:0; padding:0 0 0 16px}
-.bullets li{margin-bottom:7px}
-.bullets li:last-child{margin-bottom:0}
+/* ── rail ── */
+.rail{display:flex; flex-direction:column}
+.rail li{list-style:none; display:flex; gap:11px; align-items:flex-start; padding:12px 0; border-bottom:1px solid var(--line-2)}
+.rail li:last-child{border-bottom:0; padding-bottom:0}
+.rail li:first-child{padding-top:0}
+.rail .txt{flex:1; min-width:0}
+.rail .t1{font-size:13.5px; font-weight:600; line-height:1.4}
+.rail .t2{font-size:12px; color:var(--muted); margin-top:2px}
+.bullets{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:11px}
+.bullets li{font-size:13.5px; color:var(--ink-2); padding-left:15px; position:relative; line-height:1.5}
+.bullets li::before{content:""; position:absolute; left:0; top:8px; width:5px; height:5px; border-radius:50%; background:var(--violet)}
 
-/* empty states */
-.empty{
-  border:1px dashed var(--line); border-radius:2px; padding:20px 18px;
-  text-align:center; color:var(--muted); font-size:13px;
-}
-.empty .lead{color:var(--ink); font-weight:600; margin-bottom:5px; font-size:13.5px}
-.empty code, code.cmd{
-  font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(--accent-soft);
-  color:var(--accent); padding:2px 6px; border-radius:2px; font-weight:500;
-}
+/* ── empty ── */
+.empty{border:1px dashed var(--line); border-radius:12px; padding:22px 18px; text-align:center; color:var(--muted); font-size:13px}
+.empty .lead{color:var(--ink); font-weight:700; margin-bottom:5px; font-size:13.5px}
+code.cmd{font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(--blue-pill); color:var(--blue-ink); padding:2px 7px; border-radius:5px; font-weight:600}
 
-/* footer */
-.loop{
-  border-top:1px solid var(--line); padding-top:20px; display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:18px;
-}
+/* ── footer ── */
 .howto{
-  grid-column:1/-1; background:var(--accent-soft); border-left:2px solid var(--accent);
-  padding:13px 16px; border-radius:2px; font-size:13px; color:var(--ink); line-height:1.6;
+  background:var(--surface); border:1px solid var(--line); border-left:5px solid var(--blue);
+  border-radius:13px; padding:16px 20px; font-size:13.5px; color:var(--ink-2); line-height:1.6;
+  box-shadow:var(--shadow-s);
 }
-.howto b{font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--accent)}
-.step .when{font-family:"IBM Plex Mono",monospace; font-size:10px; text-transform:uppercase; letter-spacing:.11em; color:var(--faint); margin-bottom:5px}
-.step .what{color:var(--muted); font-size:12.5px; margin-top:4px}
+.howto strong{color:var(--ink)}
+.loop{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px}
+.step{background:var(--surface); border:1px solid var(--line); border-radius:13px; padding:15px 17px; box-shadow:var(--shadow-s)}
+.step .when{font-family:"IBM Plex Mono",monospace; font-size:9.5px; text-transform:uppercase; letter-spacing:.14em; color:var(--faint); margin-bottom:7px}
+.step .what{color:var(--muted); font-size:12.5px; margin-top:6px; line-height:1.5}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <header class="mast">
+  <header class="hero">
     <div>
+      <div class="eyebrow">Executive Assistant</div>
       <h1>Command Center</h1>
-      <p class="sub">Everything on your plate, in one view. This is a report you read &mdash; typing happens in the assistant window.</p>
+      <div class="when" id="stampDate">&mdash;</div>
     </div>
-    <div class="stamp"><b id="stampDate">&mdash;</b><span id="stampRel">&mdash;</span></div>
+    <div class="badges" id="badges"></div>
   </header>
 
-  <section class="strip" id="strip"></section>
+  <section class="stats" id="stats"></section>
 
   <div class="grid">
     <div class="col">
       <section class="panel">
         <div class="phead"><h2>Today&rsquo;s Focus</h2><span class="note" id="todayNote"></span></div>
-        <div id="todayWrap"></div>
+        <div class="rule red"></div>
+        <div class="pbody" id="todayWrap"></div>
       </section>
+
       <section class="panel">
         <div class="phead"><h2>Application Pipeline</h2><span class="note" id="pipeNote"></span></div>
-        <div id="pipeWrap"></div>
+        <div class="rule blue"></div>
+        <div class="pbody" id="pipeWrap"></div>
       </section>
     </div>
 
     <div class="col">
       <section class="panel">
         <div class="phead"><h2>Waiting On</h2><span class="note" id="waitNote"></span></div>
-        <div id="waitWrap"></div>
+        <div class="rule amber"></div>
+        <div class="pbody" id="waitWrap"></div>
       </section>
+
       <section class="panel">
         <div class="phead"><h2>Priorities</h2></div>
-        <div id="prioWrap"></div>
+        <div class="rule violet"></div>
+        <div class="pbody" id="prioWrap"></div>
       </section>
+
       <section class="panel">
         <div class="phead"><h2>People</h2></div>
-        <div id="pplWrap"></div>
+        <div class="rule green"></div>
+        <div class="pbody" id="pplWrap"></div>
       </section>
     </div>
   </div>
 
+  <div class="howto">
+    <strong>This page is a report &mdash; you can&rsquo;t type here.</strong>
+    To talk to your assistant, double-click <strong>My Assistant</strong> on your Desktop, or open
+    <strong>claude.ai/code</strong> and pick Executive-Assistant. Type the commands below there.
+  </div>
+
   <footer class="loop">
-    <div class="howto">
-      <strong>This page is a report &mdash; you can&rsquo;t type here.</strong>
-      To talk to your assistant, double-click <b>My Assistant</b> on your Desktop.
-      A black window opens. Type the commands below into <em>that</em> window.
-    </div>
     <div class="step"><div class="when">Morning</div><code class="cmd">/start</code><div class="what">Standup. What matters today, what&rsquo;s slipping.</div></div>
     <div class="step"><div class="when">All day</div><code class="cmd">Scratch Pad.md</code><div class="what">Dump raw thoughts. Don&rsquo;t organize.</div></div>
     <div class="step"><div class="when">Midday</div><code class="cmd">/sync</code><div class="what">Files the pile. Empties the pad.</div></div>
@@ -234,7 +249,7 @@ h1{
 </div>
 
 <script>
-/* Regenerated by /dashboard — edit DATA only. All dates YYYY-MM-DD. */
+/* Regenerated by /dashboard - edit DATA only. All dates YYYY-MM-DD. */
 const DATA = {
   generated: "2026-08-29",
   today: [
@@ -271,103 +286,88 @@ const DATA = {
   ]
 };
 
-const STAGES = ["Researching","Applied","Screen","Interview","Final","Offer"];
-const STALE_DAYS = 10;
-
-const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const today = DATA.generated ? new Date(DATA.generated + "T00:00:00") : new Date();
-function daysSince(d){
-  if(!d) return null;
-  const t = new Date(d + "T00:00:00");
-  if(isNaN(t)) return null;
-  return Math.round((today - t) / 86400000);
-}
-function emptyBlock(lead, hint){
-  return '<div class="pbody"><div class="empty"><div class="lead">' + lead + '</div>' + hint + '</div></div>';
-}
+const STAGES=["Researching","Applied","Screen","Interview","Final","Offer"];
+const STALE_DAYS=10;
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const today=DATA.generated?new Date(DATA.generated+"T00:00:00"):new Date();
+function daysSince(d){ if(!d) return null; const t=new Date(d+"T00:00:00"); if(isNaN(t)) return null; return Math.round((today-t)/86400000); }
+function emptyBlock(lead,hint){ return '<div class="empty"><div class="lead">'+lead+'</div>'+hint+'</div>'; }
 
 document.getElementById("stampDate").textContent =
-  today.toLocaleDateString("en-US",{weekday:"long", month:"long", day:"numeric"});
-document.getElementById("stampRel").textContent = "generated " + DATA.generated;
+  today.toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric",year:"numeric"});
 
-const active = DATA.pipeline.filter(p => p.stage !== "Closed");
-const interviewing = active.filter(p => ["Screen","Interview","Final"].includes(p.stage)).length;
-const stale = active.filter(p => (daysSince(p.lastContact) ?? 0) >= STALE_DAYS).length;
-const metrics = [
-  {n: active.length, k: "Active roles"},
-  {n: interviewing, k: "In process"},
-  {n: DATA.waiting.length, k: "Awaiting reply"},
-  {n: DATA.today.length + DATA.week.length, k: "Open tasks"},
-  {n: stale, k: "Gone quiet", cls: stale ? "alert" : ""}
-];
-document.getElementById("strip").innerHTML = metrics.map(m =>
-  '<div class="metric ' + (m.cls || "") + '"><div class="n' + (m.n === 0 ? " zero" : "") + '">' +
-  m.n + '</div><div class="k">' + m.k + '</div></div>'
-).join("");
+const active=DATA.pipeline.filter(p=>p.stage!=="Closed");
+const interviewing=active.filter(p=>["Screen","Interview","Final"].includes(p.stage)).length;
+const stale=active.filter(p=>(daysSince(p.lastContact)??0)>=STALE_DAYS).length;
+const openTasks=DATA.today.length+DATA.week.length;
 
-const tw = document.getElementById("todayWrap");
+document.getElementById("badges").innerHTML=
+  '<div class="badge"><b>'+active.length+'</b> active roles</div>'+
+  '<div class="badge"><b>'+interviewing+'</b> in process</div>'+
+  '<div class="badge'+(stale?' hot':'')+'"><b>'+stale+'</b> gone quiet</div>';
+
+document.getElementById("stats").innerHTML=[
+  {n:active.length,k:"Active roles",c:"is-blue"},
+  {n:interviewing,k:"In process",c:"is-green"},
+  {n:DATA.waiting.length,k:"Awaiting reply",c:"is-amber"},
+  {n:openTasks,k:"Open tasks",c:""},
+  {n:stale,k:"Gone quiet",c:stale?"is-red":""}
+].map(m=>'<div class="stat '+m.c+'"><div class="n'+(m.n===0?" zero":"")+'">'+m.n+'</div><div class="k">'+m.k+'</div></div>').join("");
+
+const tw=document.getElementById("todayWrap");
 if(DATA.today.length){
-  document.getElementById("todayNote").textContent = DATA.today.length + " of 3";
-  tw.innerHTML = '<ul class="today">' + DATA.today.map((t,i) =>
-    '<li><div class="rank">' + (i+1) + '</div><div><div class="task">' + esc(t.task) + '</div>' +
-    (t.why ? '<div class="why">' + esc(t.why) + '</div>' : '') +
-    (t.due ? '<div class="due">due ' + esc(t.due) + '</div>' : '') +
-    '</div></li>'
-  ).join("") + '</ul>';
-} else {
-  tw.innerHTML = emptyBlock("Nothing set for today.",
-    'Run <code>/start</code> and it will pick your top three off the Task Board.');
+  document.getElementById("todayNote").textContent=DATA.today.length+" of 3";
+  tw.innerHTML='<div class="prio">'+DATA.today.map((t,i)=>
+    '<div class="pcard r'+Math.min(i+1,3)+'"><div class="task">'+esc(t.task)+'</div>'+
+    (t.why?'<div class="why">'+esc(t.why)+'</div>':'')+
+    (t.due?'<div class="due">Due '+esc(t.due)+'</div>':'')+'</div>').join("")+'</div>';
+}else{
+  tw.innerHTML=emptyBlock("Nothing set for today.",'Run <code class="cmd">/start</code> and it will pick your top three off the Task Board.');
 }
 
-const pw = document.getElementById("pipeWrap");
+const pw=document.getElementById("pipeWrap");
 if(active.length){
-  document.getElementById("pipeNote").textContent = active.length + " active";
-  pw.innerHTML = '<div class="lanes">' + STAGES.map(stage => {
-    const inStage = active.filter(p => p.stage === stage);
-    const cards = inStage.length
-      ? inStage.map(p => {
-          const d = daysSince(p.lastContact);
-          const isStale = d !== null && d >= STALE_DAYS;
-          return '<div class="card' + (isStale ? ' stale' : '') + '">' +
-            '<div class="co">' + esc(p.company) + '</div>' +
-            '<div class="ro">' + esc(p.role) + '</div>' +
-            '<div class="meta">' +
-              (d !== null ? '<span' + (isStale ? ' class="flag"' : '') + '>' + d + 'd quiet</span>' : '') +
-              (p.nextAction ? '<span>' + esc(p.nextAction) + '</span>' : '') +
-            '</div></div>';
-        }).join("")
-      : '<span class="lane-empty">&mdash;</span>';
-    return '<div class="lane"><div class="lane-l"><span class="lane-name">' + stage +
-      '</span><span class="lane-n' + (inStage.length ? '' : ' zero') + '">' + inStage.length +
-      '</span></div><div class="lane-r">' + cards + '</div></div>';
-  }).join("") + '</div>';
-} else {
-  pw.innerHTML = emptyBlock("No applications tracked yet.",
-    'Drop roles into <code>Scratch Pad.md</code> as you apply, then run <code>/sync</code>. They land here by stage.');
+  document.getElementById("pipeNote").textContent=active.length+" active";
+  const track='<div class="track">'+STAGES.map(s=>{
+    const n=active.filter(p=>p.stage===s).length;
+    return '<div class="seg'+(n?' on':'')+'"><div class="bar"></div><span class="lbl">'+s+
+      '</span><span class="ct'+(n?'':' zero')+'">'+n+'</span></div>';
+  }).join("")+'</div>';
+  const order=s=>STAGES.indexOf(s);
+  const rows='<div class="roles">'+active.slice().sort((a,b)=>order(b.stage)-order(a.stage)).map(p=>{
+    const d=daysSince(p.lastContact); const isStale=d!==null&&d>=STALE_DAYS;
+    const tone=p.stage==="Offer"?"green":p.stage==="Final"||p.stage==="Interview"?"blue":p.stage==="Screen"?"blue":"amber";
+    return '<div class="role'+(isStale?' stale':'')+'"><div class="who"><div class="co">'+esc(p.company)+
+      '</div><div class="ro">'+esc(p.role)+'</div></div><div class="rt"><span class="pill '+(isStale?"red":tone)+'">'+
+      esc(p.stage)+(d!==null?' &middot; '+d+'d':'')+'</span>'+
+      (p.nextAction?'<span class="nx">'+esc(p.nextAction)+'</span>':'')+'</div></div>';
+  }).join("")+'</div>';
+  pw.innerHTML=track+rows;
+}else{
+  pw.innerHTML=emptyBlock("No applications tracked yet.",'Drop roles into <code class="cmd">Scratch Pad.md</code> as you apply, then run <code class="cmd">/sync</code>.');
 }
 
-const ww = document.getElementById("waitWrap");
+const ww=document.getElementById("waitWrap");
 if(DATA.waiting.length){
-  ww.innerHTML = '<ul class="rail-list">' + DATA.waiting.map(w => {
-    const d = daysSince(w.since);
-    const cls = d === null ? "" : d >= 10 ? " late" : d >= 5 ? " warn" : "";
-    return '<li><div class="txt"><div>' + esc(w.item) + '</div>' +
-      (w.who ? '<div class="who">' + esc(w.who) + '</div>' : '') + '</div>' +
-      (d !== null ? '<span class="days' + cls + '">' + d + 'd</span>' : '') + '</li>';
-  }).join("") + '</ul>';
-} else {
-  ww.innerHTML = emptyBlock("Nobody owes you anything.", "Follow-ups appear here with a day count once they exist.");
+  ww.innerHTML='<ul class="rail">'+DATA.waiting.map(w=>{
+    const d=daysSince(w.since);
+    const cls=d===null?"blue":d>=10?"red":d>=5?"amber":"blue";
+    return '<li><div class="txt"><div class="t1">'+esc(w.item)+'</div>'+
+      (w.who?'<div class="t2">'+esc(w.who)+'</div>':'')+'</div>'+
+      (d!==null?'<span class="pill '+cls+'">'+d+'d</span>':'')+'</li>';
+  }).join("")+'</ul>';
+}else{
+  ww.innerHTML=emptyBlock("Nobody owes you anything.","Follow-ups appear here with a day count once they exist.");
 }
 
-document.getElementById("prioWrap").innerHTML = DATA.priorities.length
-  ? '<div class="pbody"><ul class="bullets">' + DATA.priorities.map(p => '<li>' + esc(p) + '</li>').join("") + '</ul></div>'
-  : emptyBlock("Memory is empty.", 'Run <code>/wrap-up</code> tonight to write your first one.');
+document.getElementById("prioWrap").innerHTML=DATA.priorities.length
+  ? '<ul class="bullets">'+DATA.priorities.map(p=>'<li>'+esc(p)+'</li>').join("")+'</ul>'
+  : emptyBlock("Memory is empty.",'Run <code class="cmd">/wrap-up</code> tonight to write your first one.');
 
-document.getElementById("pplWrap").innerHTML = DATA.people.length
-  ? '<ul class="rail-list">' + DATA.people.map(p =>
-      '<li><div class="txt"><div class="nm">' + esc(p.name) + '</div>' +
-      '<div class="who">' + esc(p.note) + '</div></div></li>').join("") + '</ul>'
-  : emptyBlock("No contacts yet.", "Recruiters and hiring managers land here as you meet them.");
+document.getElementById("pplWrap").innerHTML=DATA.people.length
+  ? '<ul class="rail">'+DATA.people.map(p=>'<li><div class="txt"><div class="t1">'+esc(p.name)+
+      '</div><div class="t2">'+esc(p.note)+'</div></div></li>').join("")+'</ul>'
+  : emptyBlock("No contacts yet.","Recruiters and hiring managers land here as you meet them.");
 </script>
 </body>
 </html>
