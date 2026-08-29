@@ -6,8 +6,10 @@ Job search pipeline. One row per role. `/sync` updates this from the Scratch Pad
 
 | Company | Role | Stage | Applied | Last contact | Next action | Contact |
 |---|---|---|---|---|---|---|
-| Intalegence (confidential client — education) | VP, People & Culture | Screen | — | 2026-08-28 | Awaiting Bryce's reply re: HRIS + PEO; confirm next step | Bryce Lowery |
-| HSO | Strategic HR Business Partner | Applied | 2026-08-26 | 2026-08-26 | Follow up if no word by 2026-09-02 | Kristen Ramerini |
+| AIChE (American Institute of Chemical Engineers) | Head of People | Screen | — | 2026-08-29 | **Book the Calendly slot** — 45 min, combined screen + hiring manager | Rita Ramakrishnan, Interim CPO |
+| Intalegence (confidential client — education) | VP, People & Culture | Screen | — | 2026-08-28 | Nothing owed — you replied Friday, ball is with Bryce | Bryce Lowery |
+| HSO | Strategic HR Business Partner | Applied | 2026-08-25 | 2026-08-26 | Nothing owed — Kristen has it | Kristen Ramerini |
+| Dropbox | (applied via posting) | Applied | 2026-08-22 | 2026-08-22 | Auto-ack only, no human contact yet | — |
 
 ---
 
