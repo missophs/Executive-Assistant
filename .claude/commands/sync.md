@@ -11,6 +11,7 @@ I've been dumping notes. Sort them properly. This is handing you a pile of loose
 
 1. **Read `Scratch Pad.md`.** Process every line. For each item, decide what it actually is:
    - **Task** → goes to `Task Board.md`
+   - **Job application** (a company, role, recruiter, interview, or status change) → goes to `Applications.md`; add the follow-up action to `Task Board.md` too
    - **Context / decision / person detail** → goes to `Memory.md`
    - **Event or observation** → goes into today's daily note
    - **Ambiguous** → keep it in the pad under `## Needs clarification` and ask me about it at the end
@@ -21,7 +22,8 @@ I've been dumping notes. Sort them properly. This is handing you a pile of loose
    - Then add `> Processed on YYYY-MM-DD` as the first line of the source file so it isn't re-processed.
 3. **Update `Task Board.md`.** Add every new action item assigned to me. Give each a priority and, where one exists, a due date. Don't duplicate anything already on the board — merge instead.
 4. **Update today's daily note** at `Daily Notes/YYYY-MM-DD.md`. Create it from the template if it doesn't exist. Append what happened: meetings processed, decisions, notes captured, tasks added.
-5. **Clear `Scratch Pad.md`.** Reset it to an empty template — but ONLY for items you successfully filed. Anything under `## Needs clarification` stays.
+5. **Update `Applications.md`** if any stage changed. Set `Last contact` to today for anything you touched.
+6. **Clear `Scratch Pad.md`.** Reset it to an empty template — but ONLY for items you successfully filed. Anything under `## Needs clarification` stays.
 
 ## Output Format
 

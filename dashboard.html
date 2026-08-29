@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Command Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#E9ECEF; --surface:#FBFCFD; --raised:#F2F4F6;
+  --ink:#13161B; --muted:#69727F; --faint:#98A1AC;
+  --line:#D3D8DE; --line-soft:#E2E6EA;
+  --accent:#0E6C74; --accent-soft:#0E6C7418;
+  --go:#2F7D4F; --wait:#8F6209; --stop:#A33A2E;
+  --wait-soft:#8F620915; --stop-soft:#A33A2E15;
+  --shadow:0 1px 2px rgba(19,22,27,.05), 0 4px 14px rgba(19,22,27,.045);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0F1216; --surface:#171B21; --raised:#1D222A;
+    --ink:#E4E8ED; --muted:#8A939F; --faint:#69727F;
+    --line:#262C34; --line-soft:#1F242B;
+    --accent:#45B8C0; --accent-soft:#45B8C01F;
+    --go:#4CAF7A; --wait:#D9A73C; --stop:#E0705F;
+    --wait-soft:#D9A73C1F; --stop-soft:#E0705F1F;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 20px rgba(0,0,0,.3);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0F1216; --surface:#171B21; --raised:#1D222A;
+  --ink:#E4E8ED; --muted:#8A939F; --faint:#69727F;
+  --line:#262C34; --line-soft:#1F242B;
+  --accent:#45B8C0; --accent-soft:#45B8C01F;
+  --go:#4CAF7A; --wait:#D9A73C; --stop:#E0705F;
+  --wait-soft:#D9A73C1F; --stop-soft:#E0705F1F;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 20px rgba(0,0,0,.3);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:14px; line-height:1.55; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1180px; margin:0 auto; padding:32px 24px 64px; display:flex; flex-direction:column; gap:22px}
+
+/* masthead */
+.mast{display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap}
+h1{
+  font-family:"Bricolage Grotesque","IBM Plex Sans",sans-serif;
+  font-weight:700; font-size:clamp(28px,4.4vw,42px); letter-spacing:-.025em;
+  margin:0; line-height:1; text-wrap:balance;
+}
+.mast .sub{color:var(--muted); margin:7px 0 0; font-size:13.5px; max-width:52ch}
+.stamp{
+  font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:11.5px;
+  color:var(--muted); text-align:right; line-height:1.7; white-space:nowrap;
+}
+.stamp b{display:block; color:var(--ink); font-weight:600; font-size:13px; letter-spacing:.01em}
+
+/* status strip */
+.strip{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(132px,1fr));
+  background:var(--surface); border:1px solid var(--line); border-radius:3px;
+  overflow:hidden; box-shadow:var(--shadow);
+}
+.metric{padding:14px 16px 15px; border-right:1px solid var(--line-soft)}
+.metric:last-child{border-right:0}
+.metric .n{
+  font-family:"Bricolage Grotesque",sans-serif; font-weight:700;
+  font-size:29px; line-height:1; letter-spacing:-.02em; font-variant-numeric:tabular-nums;
+}
+.metric .k{
+  font-family:"IBM Plex Mono",monospace; font-size:10px; text-transform:uppercase;
+  letter-spacing:.11em; color:var(--muted); margin-top:7px;
+}
+.metric.alert .n{color:var(--stop)}
+.metric .n.zero{color:var(--faint)}
+
+/* layout */
+.grid{display:grid; grid-template-columns:1fr 322px; gap:22px; align-items:start}
+@media (max-width:900px){ .grid{grid-template-columns:1fr} }
+.col{display:flex; flex-direction:column; gap:22px; min-width:0}
+
+/* panels */
+.panel{background:var(--surface); border:1px solid var(--line); border-radius:3px; box-shadow:var(--shadow); overflow:hidden}
+.phead{
+  display:flex; align-items:baseline; justify-content:space-between; gap:12px;
+  padding:13px 17px; border-bottom:1px solid var(--line-soft); background:var(--raised);
+}
+.phead h2{
+  font-family:"IBM Plex Mono",monospace; font-size:10.5px; font-weight:600;
+  text-transform:uppercase; letter-spacing:.13em; margin:0; color:var(--ink);
+}
+.phead .note{font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.pbody{padding:17px}
+
+/* today */
+.today{list-style:none; margin:0; padding:0; display:flex; flex-direction:column}
+.today li{display:flex; gap:14px; padding:14px 17px; border-bottom:1px solid var(--line-soft)}
+.today li:last-child{border-bottom:0}
+.today .rank{
+  font-family:"Bricolage Grotesque",sans-serif; font-weight:700; font-size:15px;
+  color:var(--accent); font-variant-numeric:tabular-nums; padding-top:1px; flex:none; width:18px;
+}
+.today .task{font-weight:600; font-size:14.5px; letter-spacing:-.005em}
+.today .why{color:var(--muted); font-size:12.5px; margin-top:3px}
+.today .due{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--muted); margin-top:5px; font-variant-numeric:tabular-nums}
+
+/* pipeline */
+.lanes{display:flex; flex-direction:column}
+.lane{display:grid; grid-template-columns:118px 1fr; border-bottom:1px solid var(--line-soft)}
+.lane:last-child{border-bottom:0}
+.lane-l{
+  padding:14px 14px 14px 17px; border-right:1px solid var(--line-soft);
+  display:flex; flex-direction:column; gap:5px; background:var(--raised);
+}
+.lane-name{font-family:"IBM Plex Mono",monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted)}
+.lane-n{font-family:"Bricolage Grotesque",sans-serif; font-weight:700; font-size:19px; line-height:1; font-variant-numeric:tabular-nums}
+.lane-n.zero{color:var(--faint)}
+.lane-r{padding:11px 14px; display:flex; flex-wrap:wrap; gap:8px; align-items:flex-start; min-height:52px}
+.card{
+  border:1px solid var(--line); border-left:2px solid var(--accent); border-radius:2px;
+  padding:8px 11px; background:var(--surface); min-width:172px; flex:0 1 auto;
+}
+.card.stale{border-left-color:var(--stop)}
+.card .co{font-weight:600; font-size:13.5px; letter-spacing:-.005em}
+.card .ro{color:var(--muted); font-size:12px; margin-top:1px}
+.card .meta{
+  font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--faint);
+  margin-top:6px; display:flex; gap:9px; flex-wrap:wrap; font-variant-numeric:tabular-nums;
+}
+.card .meta .flag{color:var(--stop); font-weight:500}
+.lane-empty{color:var(--faint); font-family:"IBM Plex Mono",monospace; font-size:11px; align-self:center}
+
+/* rail lists */
+.rail-list{list-style:none; margin:0; padding:0}
+.rail-list li{padding:11px 17px; border-bottom:1px solid var(--line-soft); display:flex; gap:11px; align-items:baseline}
+.rail-list li:last-child{border-bottom:0}
+.rail-list .txt{flex:1; min-width:0}
+.rail-list .nm{font-weight:600}
+.rail-list .who{color:var(--muted); font-size:12px; margin-top:2px}
+.days{
+  font-family:"IBM Plex Mono",monospace; font-size:10.5px; font-weight:600; flex:none;
+  padding:2px 6px; border-radius:2px; background:var(--accent-soft); color:var(--accent);
+  font-variant-numeric:tabular-nums;
+}
+.days.warn{background:var(--wait-soft); color:var(--wait)}
+.days.late{background:var(--stop-soft); color:var(--stop)}
+.bullets{margin:0; padding:0 0 0 16px}
+.bullets li{margin-bottom:7px}
+.bullets li:last-child{margin-bottom:0}
+
+/* empty states */
+.empty{
+  border:1px dashed var(--line); border-radius:2px; padding:20px 18px;
+  text-align:center; color:var(--muted); font-size:13px;
+}
+.empty .lead{color:var(--ink); font-weight:600; margin-bottom:5px; font-size:13.5px}
+.empty code, code.cmd{
+  font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(--accent-soft);
+  color:var(--accent); padding:2px 6px; border-radius:2px; font-weight:500;
+}
+
+/* footer */
+.loop{
+  border-top:1px solid var(--line); padding-top:20px; display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:18px;
+}
+.step .when{font-family:"IBM Plex Mono",monospace; font-size:10px; text-transform:uppercase; letter-spacing:.11em; color:var(--faint); margin-bottom:5px}
+.step .what{color:var(--muted); font-size:12.5px; margin-top:4px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="mast">
+    <div>
+      <h1>Command Center</h1>
+      <p class="sub">Everything on your plate, in one view. Regenerate anytime with <code class="cmd">/dashboard</code>.</p>
+    </div>
+    <div class="stamp"><b id="stampDate">&mdash;</b><span id="stampRel">&mdash;</span></div>
+  </header>
+
+  <section class="strip" id="strip"></section>
+
+  <div class="grid">
+    <div class="col">
+      <section class="panel">
+        <div class="phead"><h2>Today&rsquo;s Focus</h2><span class="note" id="todayNote"></span></div>
+        <div id="todayWrap"></div>
+      </section>
+      <section class="panel">
+        <div class="phead"><h2>Application Pipeline</h2><span class="note" id="pipeNote"></span></div>
+        <div id="pipeWrap"></div>
+      </section>
+    </div>
+
+    <div class="col">
+      <section class="panel">
+        <div class="phead"><h2>Waiting On</h2><span class="note" id="waitNote"></span></div>
+        <div id="waitWrap"></div>
+      </section>
+      <section class="panel">
+        <div class="phead"><h2>Priorities</h2></div>
+        <div id="prioWrap"></div>
+      </section>
+      <section class="panel">
+        <div class="phead"><h2>People</h2></div>
+        <div id="pplWrap"></div>
+      </section>
+    </div>
+  </div>
+
+  <footer class="loop">
+    <div class="step"><div class="when">Morning</div><code class="cmd">/start</code><div class="what">Standup. What matters today, what&rsquo;s slipping.</div></div>
+    <div class="step"><div class="when">All day</div><code class="cmd">Scratch Pad.md</code><div class="what">Dump raw thoughts. Don&rsquo;t organize.</div></div>
+    <div class="step"><div class="when">Midday</div><code class="cmd">/sync</code><div class="what">Files the pile. Empties the pad.</div></div>
+    <div class="step"><div class="when">End of day</div><code class="cmd">/wrap-up</code><div class="what">Closes out. Saves memory for tomorrow.</div></div>
+  </footer>
+
+</div>
+
+<script>
+/* Regenerated by /dashboard — edit DATA only. All dates YYYY-MM-DD. */
+const DATA = {
+  generated: "2026-08-29",
+  today: [],
+  week: [],
+  pipeline: [],
+  waiting: [],
+  priorities: [],
+  people: []
+};
+
+const STAGES = ["Researching","Applied","Screen","Interview","Final","Offer"];
+const STALE_DAYS = 10;
+
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const today = DATA.generated ? new Date(DATA.generated + "T00:00:00") : new Date();
+function daysSince(d){
+  if(!d) return null;
+  const t = new Date(d + "T00:00:00");
+  if(isNaN(t)) return null;
+  return Math.round((today - t) / 86400000);
+}
+function emptyBlock(lead, hint){
+  return '<div class="pbody"><div class="empty"><div class="lead">' + lead + '</div>' + hint + '</div></div>';
+}
+
+document.getElementById("stampDate").textContent =
+  today.toLocaleDateString("en-US",{weekday:"long", month:"long", day:"numeric"});
+document.getElementById("stampRel").textContent = "generated " + DATA.generated;
+
+const active = DATA.pipeline.filter(p => p.stage !== "Closed");
+const interviewing = active.filter(p => ["Screen","Interview","Final"].includes(p.stage)).length;
+const stale = active.filter(p => (daysSince(p.lastContact) ?? 0) >= STALE_DAYS).length;
+const metrics = [
+  {n: active.length, k: "Active roles"},
+  {n: interviewing, k: "In process"},
+  {n: DATA.waiting.length, k: "Awaiting reply"},
+  {n: DATA.today.length + DATA.week.length, k: "Open tasks"},
+  {n: stale, k: "Gone quiet", cls: stale ? "alert" : ""}
+];
+document.getElementById("strip").innerHTML = metrics.map(m =>
+  '<div class="metric ' + (m.cls || "") + '"><div class="n' + (m.n === 0 ? " zero" : "") + '">' +
+  m.n + '</div><div class="k">' + m.k + '</div></div>'
+).join("");
+
+const tw = document.getElementById("todayWrap");
+if(DATA.today.length){
+  document.getElementById("todayNote").textContent = DATA.today.length + " of 3";
+  tw.innerHTML = '<ul class="today">' + DATA.today.map((t,i) =>
+    '<li><div class="rank">' + (i+1) + '</div><div><div class="task">' + esc(t.task) + '</div>' +
+    (t.why ? '<div class="why">' + esc(t.why) + '</div>' : '') +
+    (t.due ? '<div class="due">due ' + esc(t.due) + '</div>' : '') +
+    '</div></li>'
+  ).join("") + '</ul>';
+} else {
+  tw.innerHTML = emptyBlock("Nothing set for today.",
+    'Run <code>/start</code> and it will pick your top three off the Task Board.');
+}
+
+const pw = document.getElementById("pipeWrap");
+if(active.length){
+  document.getElementById("pipeNote").textContent = active.length + " active";
+  pw.innerHTML = '<div class="lanes">' + STAGES.map(stage => {
+    const inStage = active.filter(p => p.stage === stage);
+    const cards = inStage.length
+      ? inStage.map(p => {
+          const d = daysSince(p.lastContact);
+          const isStale = d !== null && d >= STALE_DAYS;
+          return '<div class="card' + (isStale ? ' stale' : '') + '">' +
+            '<div class="co">' + esc(p.company) + '</div>' +
+            '<div class="ro">' + esc(p.role) + '</div>' +
+            '<div class="meta">' +
+              (d !== null ? '<span' + (isStale ? ' class="flag"' : '') + '>' + d + 'd quiet</span>' : '') +
+              (p.nextAction ? '<span>' + esc(p.nextAction) + '</span>' : '') +
+            '</div></div>';
+        }).join("")
+      : '<span class="lane-empty">&mdash;</span>';
+    return '<div class="lane"><div class="lane-l"><span class="lane-name">' + stage +
+      '</span><span class="lane-n' + (inStage.length ? '' : ' zero') + '">' + inStage.length +
+      '</span></div><div class="lane-r">' + cards + '</div></div>';
+  }).join("") + '</div>';
+} else {
+  pw.innerHTML = emptyBlock("No applications tracked yet.",
+    'Drop roles into <code>Scratch Pad.md</code> as you apply, then run <code>/sync</code>. They land here by stage.');
+}
+
+const ww = document.getElementById("waitWrap");
+if(DATA.waiting.length){
+  ww.innerHTML = '<ul class="rail-list">' + DATA.waiting.map(w => {
+    const d = daysSince(w.since);
+    const cls = d === null ? "" : d >= 10 ? " late" : d >= 5 ? " warn" : "";
+    return '<li><div class="txt"><div>' + esc(w.item) + '</div>' +
+      (w.who ? '<div class="who">' + esc(w.who) + '</div>' : '') + '</div>' +
+      (d !== null ? '<span class="days' + cls + '">' + d + 'd</span>' : '') + '</li>';
+  }).join("") + '</ul>';
+} else {
+  ww.innerHTML = emptyBlock("Nobody owes you anything.", "Follow-ups appear here with a day count once they exist.");
+}
+
+document.getElementById("prioWrap").innerHTML = DATA.priorities.length
+  ? '<div class="pbody"><ul class="bullets">' + DATA.priorities.map(p => '<li>' + esc(p) + '</li>').join("") + '</ul></div>'
+  : emptyBlock("Memory is empty.", 'Run <code>/wrap-up</code> tonight to write your first one.');
+
+document.getElementById("pplWrap").innerHTML = DATA.people.length
+  ? '<ul class="rail-list">' + DATA.people.map(p =>
+      '<li><div class="txt"><div class="nm">' + esc(p.name) + '</div>' +
+      '<div class="who">' + esc(p.note) + '</div></div></li>').join("") + '</ul>'
+  : emptyBlock("No contacts yet.", "Recruiters and hiring managers land here as you meet them.");
+</script>
+</body>
+</html>

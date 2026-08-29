@@ -30,6 +30,7 @@ Everything in between — the sorting, the pruning, the endless reorganizing —
 | File / Folder | Purpose |
 |---|---|
 | `Task Board.md` | Single source of truth for open work. |
+| `Applications.md` | Job search pipeline. One row per role, tracked by stage. |
 | `Scratch Pad.md` | Raw inbox. I dump here; you empty it. |
 | `Meetings/` | Raw transcripts and meeting notes, unprocessed until you summarize them. |
 | `Daily Notes/` | One `YYYY-MM-DD.md` per day. The permanent record. |
@@ -40,6 +41,7 @@ Everything in between — the sorting, the pruning, the endless reorganizing —
 - `/start` — morning standup. What's on my plate, what's time-sensitive, what to do first.
 - `/sync` — mid-day. Process Scratch Pad + new meeting notes, update the board, clear the pad.
 - `/wrap-up` — end of day. Final sweep, day summary, write memory for tomorrow.
+- `/dashboard` — regenerate the visual command center and open it.
 
 ## Context About Me
 
