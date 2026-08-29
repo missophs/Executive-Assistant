@@ -20,7 +20,7 @@ Task Board.md      Open work. Single source of truth.
 Scratch Pad.md     Raw inbox. Dump here; /sync empties it.
 Meetings/          Drop transcripts here. /sync summarizes them.
 Daily Notes/       One YYYY-MM-DD.md per day. The permanent record.
-.claude/memory.md  Rolling context between sessions.
+Memory.md  Rolling context between sessions.
 ```
 
 ## Setup (once)
@@ -30,7 +30,7 @@ Daily Notes/       One YYYY-MM-DD.md per day. The permanent record.
    cd ~/Executive-Assistant
    claude
    ```
-2. **Say yes to the trust dialog.** It appears the first time only. Until you do, the permissions in `.claude/settings.json` are ignored and the assistant cannot write to `.claude/memory.md` — meaning nothing carries over between days.
+2. **Say yes to the trust dialog.** It appears the first time only. Until you do, the permissions in `.claude/settings.json` are ignored and the assistant cannot write to `Memory.md` — meaning nothing carries over between days.
 3. **Connect Google Calendar** if you want `/start` to see your day. Without it, `/start` falls back to scanning the board and memory for dates.
 4. Run `/start`.
 
@@ -48,7 +48,7 @@ Everything else still stops and asks:
 | Clearing `Scratch Pad.md` | Creating or moving calendar events |
 | Writing daily notes | Posting to Slack |
 | Summarizing files in `Meetings/` | Touching files outside this folder |
-| Updating `.claude/memory.md` | Anything on the internet |
+| Updating `Memory.md` | Anything on the internet |
 
 `rm` and `git push` are blocked outright.
 

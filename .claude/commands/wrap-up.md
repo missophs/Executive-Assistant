@@ -15,7 +15,7 @@ Nothing falls through the cracks. This is the last pass before I stop for the da
    - Flag anything that slipped — on the board 3+ days with no movement.
    - Reorder tomorrow's priorities to the top.
 3. **Update today's daily note** at `Daily Notes/YYYY-MM-DD.md`. Add an `## End of Day` section: what got done, what moved, what's still open, and anything notable.
-4. **Write memory.** Update `.claude/memory.md` with anything that should survive to tomorrow:
+4. **Write memory.** Update `Memory.md` with anything that should survive to tomorrow:
    - New or changed priorities
    - People context (who I'm waiting on, who's waiting on me)
    - Follow-ups with dates

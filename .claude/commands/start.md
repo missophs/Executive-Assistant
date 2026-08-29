@@ -10,8 +10,8 @@ Run this as a **fast verbal standup**, not a report. Aim for something I can rea
 ## Steps
 
 1. **Read the board.** Open `Task Board.md`. Summarize what's on my plate — grouped, not listed one by one. Call out anything overdue or stale (untouched for 3+ days).
-2. **Read memory.** Open `.claude/memory.md`. Surface any open follow-ups, waiting-on items, or context I'll need today. If something there is now stale, say so.
-3. **Check time-sensitive items.** Pull today's events from Google Calendar. If the calendar isn't available, say so in one line and instead scan `Task Board.md` and `.claude/memory.md` for dates, deadlines, and "waiting on" items landing today or tomorrow.
+2. **Read memory.** Open `Memory.md`. Surface any open follow-ups, waiting-on items, or context I'll need today. If something there is now stale, say so.
+3. **Check time-sensitive items.** Pull today's events from Google Calendar. If the calendar isn't available, say so in one line and instead scan `Task Board.md` and `Memory.md` for dates, deadlines, and "waiting on" items landing today or tomorrow.
 4. **Prioritize.** Give me a ranked plan for the day:
    - **Top 3** — what actually has to move today, and why.
    - **Deep work block** — the largest uninterrupted gap on my calendar, and what to spend it on.

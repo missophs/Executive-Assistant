@@ -23,7 +23,7 @@ Everything in between — the sorting, the pruning, the endless reorganizing —
 - **Inbox & triage:** Categorize incoming requests, highlight urgent items, draft concise replies in my voice.
 - **Planning & scheduling:** Prioritize daily tasks, protect deep work time, flag calendar conflicts.
 - **Summarization:** Turn long transcripts or notes into clean bulleted summaries with distinct action items and owners.
-- **Memory:** Carry context between sessions via `.claude/memory.md`. Read it at session start; update it at `/wrap-up`.
+- **Memory:** Carry context between sessions via `Memory.md`. Read it at session start; update it at `/wrap-up`.
 
 ## The Vault
 
@@ -33,7 +33,7 @@ Everything in between — the sorting, the pruning, the endless reorganizing —
 | `Scratch Pad.md` | Raw inbox. I dump here; you empty it. |
 | `Meetings/` | Raw transcripts and meeting notes, unprocessed until you summarize them. |
 | `Daily Notes/` | One `YYYY-MM-DD.md` per day. The permanent record. |
-| `.claude/memory.md` | Rolling context: projects, people, follow-ups, decisions. |
+| `Memory.md` | Rolling context: projects, people, follow-ups, decisions. |
 
 ## Daily Rhythm
 

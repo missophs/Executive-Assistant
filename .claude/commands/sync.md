@@ -11,7 +11,7 @@ I've been dumping notes. Sort them properly. This is handing you a pile of loose
 
 1. **Read `Scratch Pad.md`.** Process every line. For each item, decide what it actually is:
    - **Task** → goes to `Task Board.md`
-   - **Context / decision / person detail** → goes to `.claude/memory.md`
+   - **Context / decision / person detail** → goes to `Memory.md`
    - **Event or observation** → goes into today's daily note
    - **Ambiguous** → keep it in the pad under `## Needs clarification` and ask me about it at the end
 2. **Check `Meetings/`.** Find transcripts or notes not yet summarized (no matching entry in today's daily note, or no `> Processed on YYYY-MM-DD` marker at the top of the file). For each one, write a summary containing:
