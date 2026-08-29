@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(.claude/memory.md)",
+      "Edit(.claude/memory.md)",
+      "Write(.claude/memory.md)"
+    ]
+  }
+}
