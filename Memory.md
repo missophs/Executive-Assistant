@@ -62,7 +62,7 @@ If it ever breaks or needs rebuilding, this is the exact recipe:
 
 **Backup: the Google Drive file titled `Tell Ellie`.** Type into it from any device.
 
-Ellie empties both at 7:30 AM, 1:00 PM, and 5:00 PM, and reports what she filed under
+Ellie empties both at 7:30 AM, 1:00 PM, and 5:00 PM **seven days a week**, and reports what she filed under
 "Filed Your Notes" in the standup email.
 
 Note: her captures are found by sender, not subject - the routines search
