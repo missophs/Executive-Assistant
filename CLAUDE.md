@@ -35,6 +35,7 @@ Everything in between — the sorting, the pruning, the endless reorganizing —
 | `Meetings/` | Raw transcripts and meeting notes, unprocessed until you summarize them. |
 | `Daily Notes/` | One `YYYY-MM-DD.md` per day. The permanent record. |
 | `Memory.md` | Rolling context: projects, people, follow-ups, decisions. |
+| `routines/` | Backup of the three cloud routines that email her. See `routines/README.md`. |
 
 ## Daily Rhythm
 
