@@ -47,6 +47,8 @@ Your automated email triage sent the **AIChE interview invitation** to Trash, an
 
 **Primary: the "Tell Ellie" iOS Shortcut** (built 2026-08-29, icon on her iPhone home screen).
 Tap the icon -> talk -> it sends. Also works hands-free: "Hey Siri, Tell Ellie."
+**Verified working 2026-08-29:** silent send confirmed (no compose window), From and To both
+`melissaw212@gmail.com`, icon on the home screen. Two test captures sent that evening.
 
 If it ever breaks or needs rebuilding, this is the exact recipe:
 - Shortcuts app -> Library -> `+`
