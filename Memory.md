@@ -43,6 +43,30 @@ You apply from more than one address — `melissaw212@`, `melhr212@`, and `dhwco
 
 Your automated email triage sent the **AIChE interview invitation** to Trash, and also trashed the standup email. Real, high-value mail from unknown senders is being discarded. Rita's address is `rita@iksana.com` (AIChE uses Workable, so recruiter mail arrives from unfamiliar domains). Worth allow-listing recruiter and ATS domains.
 
+## How Melissa Captures Things
+
+**Primary: the "Tell Ellie" iOS Shortcut** (built 2026-08-29, icon on her iPhone home screen).
+Tap the icon -> talk -> it sends. Also works hands-free: "Hey Siri, Tell Ellie."
+
+If it ever breaks or needs rebuilding, this is the exact recipe:
+- Shortcuts app -> Library -> `+`
+- Action 1: **Dictate Text**
+- Action 2: **Send Email** (NOT "Email Address" - that one only stores an address)
+- Message = the `Dictated Text` variable (iOS fills this in automatically)
+- Subject = `Tell Ellie`
+- Recipients = `melissaw212@gmail.com` typed literally, not the contact bubble
+- **Show Compose Sheet = OFF** so it sends without a confirmation tap
+- Rename to `Tell Ellie`, then Add to Home Screen
+
+**Backup: the Google Drive file titled `Tell Ellie`.** Type into it from any device.
+
+Ellie empties both at 7:30 AM, 1:00 PM, and 5:00 PM, and reports what she filed under
+"Filed Your Notes" in the standup email.
+
+Note: her captures are found by sender, not subject - the routines search
+`from:melissaw212@gmail.com to:melissaw212@gmail.com`. If the From address on a capture
+is ever anything other than her Gmail, Ellie will not see it.
+
 ## Working Preferences
 
 - Terse and direct. Lead with the answer. No filler.
