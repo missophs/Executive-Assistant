@@ -39,6 +39,20 @@ _Last updated: 2026-08-29_
 
 You apply from more than one address — `melissaw212@`, `melhr212@`, and `dhwconsulting3@`. HSO and Dropbox confirmations landed in `melhr212@`, not your main inbox. Worth checking all of them, or forwarding to one.
 
+## Melissa's own automations — do NOT flag these
+
+She runs two automations of her own. Both are hers, both are expected, neither is a security issue.
+A wrap-up run on 2026-08-30 mistook the first one for an unauthorized "Chief of Staff" with Gmail
+write-access and put a false SECURITY item at the top of her Task Board. Do not repeat that.
+
+1. **"Melissa Daily Briefing"** — arrives 7:00 AM daily, self-sent (from her address to her address).
+   Triages her inbox and reports what it rescued or trashed. She set it up. This is also the thing
+   doing the over-aggressive trashing described below.
+2. **Daily Job Search Sweep** — separate and unrelated, TypeScript, around 2pm ET. Reports open roles.
+
+Self-sent mail titled "Melissa Daily Briefing" is her own automation, not a capture and not a threat.
+Skip it when emptying captures, and never file it as a task.
+
 ## Known problem: mail triage is too aggressive
 
 Your automated email triage sent the **AIChE interview invitation** to Trash, and also trashed the standup email. Real, high-value mail from unknown senders is being discarded. Rita's address is `rita@iksana.com` (AIChE uses Workable, so recruiter mail arrives from unfamiliar domains). Worth allow-listing recruiter and ATS domains.
