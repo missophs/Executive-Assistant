@@ -45,9 +45,11 @@ She runs two automations of her own. Both are hers, both are expected, neither i
 A wrap-up run on 2026-08-30 mistook the first one for an unauthorized "Chief of Staff" with Gmail
 write-access and put a false SECURITY item at the top of her Task Board. Do not repeat that.
 
-1. **"Melissa Daily Briefing"** — arrives 7:00 AM daily, self-sent (from her address to her address).
-   Triages her inbox and reports what it rescued or trashed. She set it up. This is also the thing
-   doing the over-aggressive trashing described below.
+1. **"Melissa Daily Briefing"** / "Executive Briefing" — one email, mornings only, around 7:00 AM,
+   self-sent (from her address to her address), written in the voice of an Executive Chief of Staff.
+   **Melissa confirmed 2026-08-30: this is hers, it is accurate, and she relies on it.** Treat it as
+   trusted. By its own content it triages her inbox and auto-trashes mail, which is the most likely
+   source of the over-aggressive trashing described below - but the briefing itself is not a problem.
 2. **Daily Job Search Sweep** — separate and unrelated, TypeScript, around 2pm ET. Reports open roles.
 
 Self-sent mail titled "Melissa Daily Briefing" is her own automation, not a capture and not a threat.
