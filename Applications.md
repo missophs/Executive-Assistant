@@ -10,8 +10,13 @@ Job search pipeline. One row per role. `/sync` updates this from the Scratch Pad
 | Intalegence (confidential client — education) | VP, People & Culture | Screen | — | 2026-08-28 | Nothing owed — you replied Friday, ball is with Bryce | Bryce Lowery |
 | HSO | Strategic HR Business Partner | Applied | 2026-08-25 | 2026-08-26 | Nothing owed — Kristen has it | Kristen Ramerini |
 | Dropbox | (applied via posting) | Applied | 2026-08-22 | 2026-08-22 | Auto-ack only, no human contact yet | — |
+| Superhuman | Senior People Partner | Applied | 2026-08-29 | 2026-08-29 | Auto-ack only, no human contact yet. Confirmation from Ashby has landed in Trash twice — mail triage is re-trashing it after rescue | Ashby (ATS, auto) |
 
 ---
 
 ## Closed
 <!-- Rejected, withdrawn, or declined. Keep for pattern-spotting. -->
+
+| Company | Role | Stage | Applied | Closed | Note |
+|---|---|---|---|---|---|
+| Booking Holdings | Head of HR Business Partnering | Closed | — | 2026-08-31 | Rejected. Auto-applied via TheLadders Apply4Me, no human contact — pattern-spotting only |
