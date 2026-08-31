@@ -10,11 +10,12 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 <!-- Must know today. Keep to 3. -->
 
 - [ ] Chase EmblemHealth EOB — promised in 24–48h on 8/27, now overdue · due 2026-08-31 · #admin
+- [ ] Call the dentist — captured via Tell Ellie 8/29 evening ("Monday"), missed until today, now overdue · due 2026-08-31 · #admin
 
 ## ⏭ This Week
 
 - [ ] **Prep for AIChE, Thu 9/3 10:00 AM ET** — Rita is running the screen AND the hiring manager conversation in one 45-min session. Bring substance, not just background · due 2026-09-02 · #aiche
-- [ ] Fix email triage — it trashed the AIChE interview invite AND the standup email. Real interviews are landing in Trash · due 2026-08-31 · #tooling
+- [ ] Fix email triage — it trashed the AIChE interview invite, the standup email, AND the Superhuman/Ashby application confirmation (rescued 8/30, back in Trash by 8/31 — something is re-trashing rescued mail) · due 2026-08-31 · #tooling
 - [ ] HR Networking & Job Search Group — Wed 12:00 ET, Zoom · due 2026-09-02 · #network
 - [ ] Decide on Executive Roundtable Thu 9/3 9:00 ET — currently declined · due 2026-09-02 · #network
 - [ ] Book nail appointment with Dana — for "next Tuesday" (assuming 9/8, confirm if you meant 9/1) · due 2026-09-01 · #personal
