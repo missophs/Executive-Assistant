@@ -4,7 +4,7 @@ Rolling context between sessions. Read at the start of every session, updated du
 
 **Keep this short.** Quick-reference, not a journal. Prune anything resolved or stale.
 
-_Last updated: 2026-08-29_
+_Last updated: 2026-08-31_
 
 ---
 
@@ -65,6 +65,8 @@ Skip it when emptying captures, and never file it as a task.
 ## Known problem: mail triage is too aggressive
 
 Your automated email triage sent the **AIChE interview invitation** to Trash, and also trashed the standup email. Real, high-value mail from unknown senders is being discarded. Rita's address is `rita@iksana.com` (AIChE uses Workable, so recruiter mail arrives from unfamiliar domains). Worth allow-listing recruiter and ATS domains.
+
+It's not a one-time incident: the Superhuman/Ashby application confirmation was rescued from Trash on 8/30 and was back in Trash by 8/31. Something is re-trashing mail after it's rescued — most likely your own Daily Briefing automation running again the next morning.
 
 ## How Melissa Captures Things
 
