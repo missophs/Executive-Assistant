@@ -26,27 +26,10 @@ STEP 5 - Commit vault changes with a one-line message. If nothing changed, commi
 STEP 6 - EMAIL HER ONLY IF SOMETHING HAPPENED. If you filed nothing, created no drafts, and found nothing urgent, send NOTHING. Silence is the correct output for a quiet midday.
   If something did happen, send a short HTML email via Gmail `send_message` to melissaw212@gmail.com, contentType HTML, subject `Filed - <Weekday> midday`:
 
-<div style="font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;padding:20px;color:#1a1a2e">
-<div style="max-width:560px;margin:0 auto">
-  <div style="background:linear-gradient(135deg,#1a1a2e 0%,#16213e 60%,#0f3460 100%);color:#fff;border-radius:14px;padding:20px 24px;margin-bottom:16px">
-    <div style="font-size:11px;opacity:.65;text-transform:uppercase;letter-spacing:1.2px">Ellie &middot; Midday</div>
-    <div style="font-size:20px;font-weight:700;margin-top:4px">Filed your notes</div>
-  </div>
-  <div style="background:#f0fff4;border-left:5px solid #38a169;border-radius:10px;padding:14px 18px;margin-bottom:10px">
-    <div style="font-size:13px;color:#4a5568">[ONE LINE PER ITEM: what it was, where it went.]</div>
-  </div>
-  [IF drafts:]
-  <div style="background:#faf5ff;border-left:5px solid #805ad5;border-radius:10px;padding:14px 18px;margin-bottom:10px">
-    <div style="font-size:14px;font-weight:700">Draft ready &mdash; [TO WHOM]</div>
-    <div style="font-size:13px;color:#4a5568;margin-top:4px">[WHAT IT SAYS. Gmail &rarr; Drafts to review and send.]</div>
-  </div>
-  [IF anything ambiguous:]
-  <div style="background:#fffff0;border-left:5px solid #d69e2e;border-radius:10px;padding:14px 18px">
-    <div style="font-size:13px;color:#4a5568"><strong>Needs your call:</strong> [ITEM]</div>
-  </div>
-  <div style="margin-top:18px;padding-top:12px;border-top:1px solid #e2e8f0;font-size:11px;color:#a0aec0;text-align:center">&mdash; Ellie</div>
-</div>
-</div>
+Read `routines/email-template.md` from the repo and build the email exactly as it specifies.
+Use the **Midday Sweep** masthead colour, eyebrow, headline, subline and section list from section 4
+of that file, and the row patterns from section 3. Omit any section with no real content.
+NEVER use a CSS gradient anywhere - Gmail strips it and the header text becomes invisible.
 
 RULES:
 - Never invent a company, person, role, date, or number.

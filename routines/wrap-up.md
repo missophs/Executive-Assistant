@@ -34,51 +34,10 @@ STEP 6 - REFRESH HER PHONE BOARD. Melissa reads a plain-text mirror of her vault
 
 STEP 7 - Send an HTML email via Gmail `send_message` to melissaw212@gmail.com, contentType HTML (plain-text fallback if required). Subject: `Wrap-Up - <Weekday>, <Month> <Day>`.
 
-Use EXACTLY this skeleton, inline styles as written. Omit any block with no real content.
-
-<div style="font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;padding:20px;color:#1a1a2e">
-<div style="max-width:640px;margin:0 auto">
-
-  <div style="background:linear-gradient(135deg,#2d1b4e 0%,#1a1a2e 60%,#16213e 100%);color:#fff;border-radius:14px;padding:26px 28px;margin-bottom:18px">
-    <div style="font-size:11px;opacity:.65;text-transform:uppercase;letter-spacing:1.2px">Ellie &middot; End of Day</div>
-    <div style="font-size:24px;font-weight:700;margin-top:5px">[WEEKDAY], [MONTH] [DAY]</div>
-    <div style="font-size:13px;opacity:.75;margin-top:6px">[N] done today &middot; [N] still open &middot; [N] awaiting reply</div>
-  </div>
-
-  <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin:0 0 4px">Closed Out Today</div>
-  <div style="height:3px;background:#38a169;border-radius:2px;margin-bottom:12px"></div>
-  <table style="width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden">
-    [FOR EACH:]<tr><td style="padding:10px 14px;border-bottom:1px solid #edf2f7;font-size:13px">&#10003; [WHAT SHE DID]</td></tr>
-    [If none:]<tr><td style="padding:12px 14px;font-size:13px;color:#718096">Nothing closed today.</td></tr>
-  </table>
-
-  <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin:22px 0 4px">Carrying Into Tomorrow</div>
-  <div style="height:3px;background:#d69e2e;border-radius:2px;margin-bottom:12px"></div>
-  [Up to 3, most important first:]
-  <div style="background:#fffff0;border-left:5px solid #d69e2e;border-radius:10px;padding:14px 18px;margin-bottom:10px">
-    <div style="font-size:15px;font-weight:700">[ACTION]</div>
-    <div style="font-size:13px;color:#4a5568;margin-top:4px">[WHY IT MATTERS]</div>
-  </div>
-
-  [ONLY if something is 3+ days stale, otherwise omit this whole section including header and divider:]
-  <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin:22px 0 4px">Slipping</div>
-  <div style="height:3px;background:#e53e3e;border-radius:2px;margin-bottom:12px"></div>
-  <div style="background:#fff5f5;border-left:5px solid #e53e3e;border-radius:10px;padding:14px 18px;margin-bottom:10px">
-    <div style="font-size:14px;font-weight:700">[WHO / WHAT]</div>
-    <div style="font-size:13px;color:#4a5568;margin-top:4px">[N] days with no movement. [WHAT TO DO]</div>
-  </div>
-
-  <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin:22px 0 4px">Tomorrow</div>
-  <div style="height:3px;background:#3182ce;border-radius:2px;margin-bottom:12px"></div>
-  <table style="width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden">
-    [FOR EACH event tomorrow:]<tr><td style="padding:10px 14px;border-bottom:1px solid #edf2f7;font-size:12px;font-weight:700;color:#3182ce;width:120px;white-space:nowrap">[TIME]</td><td style="padding:10px 14px;border-bottom:1px solid #edf2f7;font-size:13px">[EVENT]</td></tr>
-    [If none:]<tr><td style="padding:12px 14px;font-size:13px;color:#718096">Calendar is clear.</td></tr>
-  </table>
-
-  <div style="margin-top:22px;padding-top:14px;border-top:1px solid #e2e8f0;font-size:11px;color:#a0aec0;text-align:center">&mdash; Ellie &middot; board updated</div>
-
-</div>
-</div>
+Read `routines/email-template.md` from the repo and build the email exactly as it specifies.
+Use the **Wrap-Up** masthead colour, eyebrow, headline, subline and section list from section 4
+of that file, and the row patterns from section 3. Omit any section with no real content.
+NEVER use a CSS gradient anywhere - Gmail strips it and the header text becomes invisible.
 
 RULES:
 - Never invent a company, person, role, date, or number.

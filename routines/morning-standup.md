@@ -34,75 +34,10 @@ STEP 7 - Commit vault changes with a one-line message. If nothing changed, commi
 
 STEP 8 - Send an HTML standup via Gmail `send_message` to melissaw212@gmail.com, contentType HTML (plain-text fallback if required). Subject: `Standup - <Weekday>, <Month> <Day>`.
 
-Use EXACTLY this skeleton, inline styles as written. Omit any block with no real content.
-
-<div style="font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;padding:20px;color:#1a1a2e">
-<div style="max-width:640px;margin:0 auto">
-
-  <div style="background:linear-gradient(135deg,#1a1a2e 0%,#16213e 60%,#0f3460 100%);color:#fff;border-radius:14px;padding:26px 28px;margin-bottom:18px">
-    <div style="font-size:11px;opacity:.65;text-transform:uppercase;letter-spacing:1.2px">Ellie &middot; Morning Standup</div>
-    <div style="font-size:24px;font-weight:700;margin-top:5px">[WEEKDAY], [MONTH] [DAY]</div>
-    <div style="font-size:13px;opacity:.75;margin-top:6px">[N] active roles &middot; [N] awaiting reply &middot; [N] open tasks</div>
-  </div>
-
-  [ONLY IF you rescued something from Trash - goes FIRST:]
-  <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin:0 0 4px">Rescued From Trash</div>
-  <div style="height:3px;background:#e53e3e;border-radius:2px;margin-bottom:12px"></div>
-  <div style="background:#fff5f5;border-left:5px solid #e53e3e;border-radius:10px;padding:14px 18px;margin-bottom:10px">
-    <div style="font-size:14px;font-weight:700">[SENDER] &mdash; [SUBJECT]</div>
-    <div style="font-size:13px;color:#4a5568;margin-top:4px">[WHY IT MATTERS. Back in your inbox, starred.]</div>
-  </div>
-
-  [ONLY IF you filed captures in Step 2:]
-  <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin:22px 0 4px">Filed Your Notes</div>
-  <div style="height:3px;background:#2f9160;border-radius:2px;margin-bottom:12px"></div>
-  <div style="background:#f0fff4;border-left:5px solid #38a169;border-radius:10px;padding:14px 18px;margin-bottom:10px">
-    <div style="font-size:13px;color:#4a5568">[ONE LINE PER NOTE: what it was, where it went. Then if anything was ambiguous: "Needs your call: [item]".]</div>
-  </div>
-
-  [IF you created drafts:]
-  <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin:22px 0 4px">Drafts Ready For You</div>
-  <div style="height:3px;background:#805ad5;border-radius:2px;margin-bottom:12px"></div>
-  <div style="background:#faf5ff;border-left:5px solid #805ad5;border-radius:10px;padding:14px 18px;margin-bottom:10px">
-    <div style="font-size:14px;font-weight:700">[TO WHOM] &mdash; [SUBJECT]</div>
-    <div style="font-size:13px;color:#4a5568;margin-top:4px">[WHAT IT SAYS. Note any [PLACEHOLDER] she must fill in.]</div>
-  </div>
-  <div style="font-size:12px;color:#718096;margin:0 0 4px">Open Gmail &rarr; Drafts to review and send.</div>
-
-  <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin:22px 0 4px">Top 3 Today</div>
-  <div style="height:3px;background:#e53e3e;border-radius:2px;margin-bottom:12px"></div>
-  [Up to 3. Card 1: bg #fff5f5 border #e53e3e. Card 2: #fffff0 / #d69e2e. Card 3: #f0f5fd / #3182ce:]
-  <div style="background:#fff5f5;border-left:5px solid #e53e3e;border-radius:10px;padding:14px 18px;margin-bottom:10px">
-    <div style="font-size:15px;font-weight:700">[ACTION]</div>
-    <div style="font-size:13px;color:#4a5568;margin-top:4px">[ONE LINE WHY]</div>
-    [optional:]<div style="font-size:12px;color:#718096;margin-top:6px">Due [DATE]</div>
-  </div>
-
-  <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin:22px 0 4px">New Since Yesterday</div>
-  <div style="height:3px;background:#38a169;border-radius:2px;margin-bottom:12px"></div>
-  <div style="background:#f0fff4;border-left:5px solid #38a169;border-radius:10px;padding:14px 18px;margin-bottom:10px">
-    <div style="font-size:14px;font-weight:700">[WHO / COMPANY]</div>
-    <div style="font-size:13px;color:#4a5568;margin-top:4px">[WHAT THEY WANT]</div>
-  </div>
-  [If nothing new:] <div style="background:#f7fafc;border-left:5px solid #718096;border-radius:10px;padding:14px 18px;color:#4a5568;font-size:13px">Nothing new overnight.</div>
-
-  <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin:22px 0 4px">Calendar</div>
-  <div style="height:3px;background:#3182ce;border-radius:2px;margin-bottom:12px"></div>
-  <table style="width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden">
-    [FOR EACH:]<tr><td style="padding:10px 14px;border-bottom:1px solid #edf2f7;font-size:12px;font-weight:700;color:#3182ce;width:120px;white-space:nowrap">[TIME]</td><td style="padding:10px 14px;border-bottom:1px solid #edf2f7;font-size:13px">[EVENT]</td></tr>
-    [If none:]<tr><td style="padding:12px 14px;font-size:13px;color:#718096">Nothing scheduled.</td></tr>
-  </table>
-
-  <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin:22px 0 4px">Gone Quiet</div>
-  <div style="height:3px;background:#d69e2e;border-radius:2px;margin-bottom:12px"></div>
-  <table style="width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden">
-    [FOR EACH:]<tr><td style="padding:10px 14px;border-bottom:1px solid #edf2f7;font-size:13px"><strong>[WHO]</strong><br><span style="color:#718096;font-size:12px">[WHAT SHE IS WAITING FOR]</span></td><td style="padding:10px 14px;border-bottom:1px solid #edf2f7;text-align:right;white-space:nowrap"><span style="background:[#fed7d7 if 10+ days, #fefcbf if 5-9, #bee3f8 if under 5];color:[#9b2c2c / #744210 / #2a4365];border-radius:12px;padding:3px 10px;font-size:11px;font-weight:700">[N]d</span></td></tr>
-  </table>
-
-  <div style="margin-top:22px;padding-top:14px;border-top:1px solid #e2e8f0;font-size:11px;color:#a0aec0;text-align:center">&mdash; Ellie</div>
-
-</div>
-</div>
+Read `routines/email-template.md` from the repo and build the email exactly as it specifies.
+Use the **Morning Standup** masthead colour, eyebrow, headline, subline and section list from section 4
+of that file, and the row patterns from section 3. Omit any section with no real content.
+NEVER use a CSS gradient anywhere - Gmail strips it and the header text becomes invisible.
 
 STEP 9 - REFRESH HER PHONE BOARD. She reads a plain-text mirror of her vault on her phone: the Google Drive file titled `Ellie`.
   IMPORTANT: Google Drive cannot rewrite an existing file's contents. `update_file` only changes title and parent. To refresh it you must replace the file:
