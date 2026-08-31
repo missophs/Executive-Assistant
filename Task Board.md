@@ -17,6 +17,7 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 - [ ] Fix email triage — it trashed the AIChE interview invite AND the standup email. Real interviews are landing in Trash · due 2026-08-31 · #tooling
 - [ ] HR Networking & Job Search Group — Wed 12:00 ET, Zoom · due 2026-09-02 · #network
 - [ ] Decide on Executive Roundtable Thu 9/3 9:00 ET — currently declined · due 2026-09-02 · #network
+- [ ] Book nail appointment with Dana — for "next Tuesday" (assuming 9/8, confirm if you meant 9/1) · due 2026-09-01 · #personal
 
 ## 📋 Backlog
 
