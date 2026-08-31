@@ -3,6 +3,10 @@
 Every email Ellie sends uses this exact design. It is one framed white card on a grey ground,
 with each section in its own bordered box.
 
+**Verified 2026-08-30** in real Gmail on a live send (Wrap-Up, 8:21 PM ET). Masthead text readable,
+boxes intact, delivered to the inbox rather than Trash. Melissa's words: "It's perfect."
+Do not change this design without testing an actual send - a browser render is not proof.
+
 **Hard rules — these exist because of real bugs:**
 
 - **Never use a CSS gradient.** Gmail strips `background:linear-gradient(...)` and the header

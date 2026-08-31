@@ -39,6 +39,13 @@ _Last updated: 2026-08-29_
 
 You apply from more than one address — `melissaw212@`, `melhr212@`, and `dhwconsulting3@`. HSO and Dropbox confirmations landed in `melhr212@`, not your main inbox. Worth checking all of them, or forwarding to one.
 
+## Ellie's emails — design is settled
+
+The look of every Ellie email is defined in `routines/email-template.md`, which all three cloud
+routines read at run time. Verified working in real Gmail on 2026-08-30. The earlier design used a
+CSS gradient for the header; Gmail strips gradients, so the header rendered with no background and
+the white text was invisible. Solid `bgcolor` tables only. Change the template, not the routines.
+
 ## Melissa's own automations — do NOT flag these
 
 She runs two automations of her own. Both are hers, both are expected, neither is a security issue.
