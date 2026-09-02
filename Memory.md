@@ -77,6 +77,8 @@ On 9/2, both the Morning Standup (11:41 ET) and its Correction (11:45 ET) told y
 
 Until this is root-caused: treat "added to X" / "draft is waiting for you" claims in any Ellie email as unverified. Confirm against the actual file (or `git log`) or the actual Gmail draft list before assuming the work is done.
 
+Same pattern showed up a third way: the 9/2 "Ellie" phone-board file (the Google Drive mirror) claimed a real Tell Ellie capture from 8/31 7:33pm ("Remind me to do my mom and Barbara's phone and call anthem about my benefits") had been "rescued from Trash and filed today." It was still sitting in Trash, unfiled, when the 9/2 wrap-up checked. Also unfiled and found the same way: an 8/30 4:36pm capture ("download graphite for Claude"), an 8/31 11:56pm capture flagged urgent for 8:40 AM 9/1 ("do LinkedIn"), and an 8/30 1:21am capture ("prep questions for Rita"). All were sent from her own address to her own address with subject "Tell Ellie," so a plain `newer_than:Nd` Gmail search without `includeTrash:true` will miss them if they've been auto-trashed — worth searching Trash explicitly for `subject:"Tell Ellie"` on every run, not just relying on the standard capture sweep.
+
 ## How Melissa Captures Things
 
 **Primary: the "Tell Ellie" iOS Shortcut** (built 2026-08-29, icon on her iPhone home screen).
