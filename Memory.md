@@ -4,7 +4,7 @@ Rolling context between sessions. Read at the start of every session, updated du
 
 **Keep this short.** Quick-reference, not a journal. Prune anything resolved or stale.
 
-_Last updated: 2026-08-31_
+_Last updated: 2026-09-02_
 
 ---
 
@@ -17,17 +17,20 @@ _Last updated: 2026-08-31_
 ## People
 
 - **Rita Ramakrishnan** — Interim Chief People Officer, AIChE. **Interview confirmed: Thu 9/3, 10:00–10:45 AM ET, Google Meet.** Reached out 8/29 re: Head of People. Running the initial screen and the hiring manager conversation as one combined 45-minute session, so it carries more weight than a normal first call.
-- **Bryce Lowery** — Intalegence, executive search. Running a confidential VP People & Culture search for a mission-driven education company. Virtual call held Fri 8/28. Building your candidate profile from the call + resume. Open question outstanding: HRIS, and whether benefits are in-house or PEO.
+- **Bryce Lowery** — Intalegence, executive search. Running a confidential VP People & Culture search for a mission-driven education company. Virtual call held Fri 8/28. You checked in 9/2; he confirmed you've been submitted to the client and is chasing feedback. HRIS/PEO question from 8/28 still hasn't been directly answered.
 - **Kristen Ramerini** — HSO. Responded to cold outreach on the Strategic HR Business Partner role; pointed to their standard process. You had already applied via the posting. HSO recently taken on by Bain Capital.
 - **Frank Wittenauer** — organizes the HR Networking & Job Search Group (Wed 12pm ET) and the non-job-related Open Office Hours (Thu 12pm ET). Maintains the shared recruiter roster and LinkedIn group.
+- **Elisa Russo, MBA HRM, SHRM-CP** — Lead Recruiter, CUNY. Reached out via LinkedIn InMail 9/1 re: Vice Chancellor for Human Resources. Confirmed receipt of your 8/31 application; her team will reach out if you're selected for a first-round interview. No interview scheduled yet.
+- **Maneeha Arshad** — independent recruiter, LinkedIn InMail. Cold outreach for an unnamed Chief People Officer role in the US; asked for your resume/email on 9/1 and again 9/2 without naming the company or comp. No reply sent — needs your decision to engage.
 
 ## Follow-Ups
 
 | Item | Who | Since | Status |
 |---|---|---|---|
-| HRIS + PEO question, and next step after the call | Bryce Lowery (Intalegence) | 2026-08-28 | Awaiting reply |
+| Client feedback after submission | Bryce Lowery (Intalegence) | 2026-09-02 | Awaiting reply |
 | Strategic HR Business Partner application status | Kristen Ramerini (HSO) | 2026-08-26 | Awaiting reply |
 | Copy of EOB (promised in 24–48h) | EmblemHealth | 2026-08-27 | Overdue |
+| Reply re: CPO opportunity (no company/comp given) | Maneeha Arshad (recruiter) | 2026-09-01 | Needs your decision to engage |
 
 ## Decisions & Context
 
@@ -66,7 +69,13 @@ Skip it when emptying captures, and never file it as a task.
 
 Your automated email triage sent the **AIChE interview invitation** to Trash, and also trashed the standup email. Real, high-value mail from unknown senders is being discarded. Rita's address is `rita@iksana.com` (AIChE uses Workable, so recruiter mail arrives from unfamiliar domains). Worth allow-listing recruiter and ATS domains.
 
-It's not a one-time incident: the Superhuman/Ashby application confirmation was rescued from Trash on 8/30 and was back in Trash by 8/31. Something is re-trashing mail after it's rescued — most likely your own Daily Briefing automation running again the next morning.
+It's not a one-time incident: the Superhuman/Ashby application confirmation was rescued from Trash on 8/30, back in Trash by 8/31, and rescued a third time as of 9/2's standup. Something is re-trashing mail after it's rescued — most likely your own Daily Briefing automation running again the next morning.
+
+## Known problem: Standup/Sync/Correction emails can report actions that never happened
+
+On 9/2, both the Morning Standup (11:41 ET) and its Correction (11:45 ET) told you CUNY, Teleport, RWT Consulting, and a PayPal rejection had been "added to Applications.md," and that a reply draft to Maneeha Arshad had been created and then updated in Gmail. **None of that was true.** `git log` showed no commit that day and a clean working tree (nothing even staged), and no such Gmail draft existed at all. The underlying job-search facts in those emails were accurate (verified independently against the source Gmail threads and filed for real during the 9/2 wrap-up) — the automation just never wrote the file or created the draft it claimed to.
+
+Until this is root-caused: treat "added to X" / "draft is waiting for you" claims in any Ellie email as unverified. Confirm against the actual file (or `git log`) or the actual Gmail draft list before assuming the work is done.
 
 ## How Melissa Captures Things
 
