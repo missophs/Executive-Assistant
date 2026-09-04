@@ -34,6 +34,11 @@ _Last updated: 2026-09-04_
 | Copy of EOB (promised in 24–48h) | EmblemHealth | 2026-08-27 | Overdue |
 | Reply re: CPO opportunity (no company/comp given) | Maneeha Arshad (recruiter) | 2026-09-01 | Needs your decision to engage |
 
+## Saved Links
+
+- Chris Titus Tech (TikTok) — https://www.tiktok.com/t/ZTUF4Lxkr/ — sent to self 9/4
+- prompt-master (GitHub, nidhinjs) — https://github.com/nidhinjs/prompt-master — sent to self 9/4
+
 ## Decisions & Context
 
 - Told Bryce you are flexible on comp — anchored at low-to-mid $200Ks rather than naming a hard floor. He said that works given bonus/equity potential.
