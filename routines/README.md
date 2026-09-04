@@ -1,12 +1,21 @@
-# Ellie — Cloud Routines (backup)
+# Ellie — Cloud Routines (live source)
 
-These three routines run in Anthropic's cloud, not on this machine. They are configured at
-https://claude.ai/code/routines and live only there — **this folder is the only backup of their
-prompts.** If a routine is deleted or corrupted, recreate it from the matching file here.
+These three routines run in Anthropic's cloud, not on this machine. **These files ARE the routines.**
 
-Edits made here do **not** take effect. Editing the live routine is a separate step.
+As of 2026-09-04 each cloud trigger holds only a short loader that says "read
+`routines/<name>.md` from the repo and follow it exactly." All the real instructions live here.
+Edit the file, push, and the next run picks it up — no trigger update needed.
 
-_Backed up: 2026-08-30_
+Before this change the full prompt was pasted into the trigger and these files were only a backup,
+so the two drifted apart. Do not go back to that.
+
+Two consequences worth knowing:
+- **A change is only live once it is pushed to GitHub.** The cloud clones the repo at run time.
+  An uncommitted edit on this machine does nothing.
+- **Do not rename or delete these files.** If the loader cannot read its file it sends Melissa a
+  `Ellie - routine file missing` email and stops, rather than improvising.
+
+_Last updated: 2026-09-04_
 
 ## The three routines
 

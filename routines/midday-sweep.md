@@ -4,8 +4,9 @@ STEP 1 - Read the repo: `Task Board.md`, `Applications.md`, `Memory.md`.
 
 STEP 2 - COLLECT HER CAPTURES. Melissa captures on the go two ways. Check both.
   (a) Notes she emailed herself. Gmail search:
-      - `newer_than:1d from:melissaw212@gmail.com to:melissaw212@gmail.com`
-      - `newer_than:1d from:melissaw212@gmail.com to:melweiss212@gmail.com`
+      - `in:anywhere newer_than:1d from:melissaw212@gmail.com to:melissaw212@gmail.com`
+      - `in:anywhere newer_than:1d from:melissaw212@gmail.com to:melweiss212@gmail.com`
+      Her captures skip her inbox by design - a Gmail filter archives them on arrival so she is not pinged every time she talks to you. `in:anywhere` is REQUIRED; searching the inbox finds nothing.
   (b) A Google Drive note. Google-Drive `search_files` with query: title contains 'Tell Ellie'
       If found, `read_file_content` on it. Everything in it is a new capture.
 
@@ -15,6 +16,11 @@ STEP 3 - FILE EACH ITEM into the vault:
     - a person, preference, decision, or context -> `Memory.md`
     - a saved link with no action -> one line under a `## Saved Links` heading in `Memory.md`
   Skip anything already on the board. Never duplicate. If an item is genuinely ambiguous, leave it and mention it in the email.
+  COMPLETION CAPTURES - a capture can CLOSE a task, not just create one. If a capture says something is done, finished, handled, taken care of, or cancelled ("mark the dentist done", "dentist is done", "cancel the dentist task"), it is NOT a new task. Find the matching open task on `Task Board.md`, tick it, and move it to `## ✅ Done` with today's date. Cancelled items move to Done too, noted as cancelled.
+    - No matching task on the board: add it to `## ✅ Done` as a completed line with today's date. Never drop it.
+    - More than one plausible match: mark NOTHING, leave them all open, and ask her which one she meant in the email.
+    - Match on meaning, not exact wording. "the dentist thing", "dentist appt", "dentist" all point at the same task.
+  Report everything you closed this way under "Marked Done" in the email.
   If a capture asks you to draft something (for example "draft a follow-up to Bryce"), use Gmail `create_draft` to write it. NEVER `send_message` or `reply` - drafts only, in her voice, four sentences or fewer, bracketed placeholders like [CONFIRM TIME] for anything you do not know. Max 2 drafts.
 
 STEP 4 - CLEAR THE DRIVE NOTE. If you found and processed a 'Tell Ellie' file, empty it so she starts clean:
@@ -23,7 +29,7 @@ STEP 4 - CLEAR THE DRIVE NOTE. If you found and processed a 'Tell Ellie' file, e
 
 STEP 5 - Commit vault changes with a one-line message. If nothing changed, commit nothing.
 
-STEP 6 - EMAIL HER ONLY IF SOMETHING HAPPENED. If you filed nothing, created no drafts, and found nothing urgent, send NOTHING. Silence is the correct output for a quiet midday.
+STEP 6 - EMAIL HER ONLY IF SOMETHING HAPPENED. If you filed nothing, marked nothing done, created no drafts, and found nothing urgent, send NOTHING. Silence is the correct output for a quiet midday.
   If something did happen, send a short HTML email via Gmail `send_message` to melissaw212@gmail.com, contentType HTML, subject `Filed - <Weekday> midday`:
 
 Read `routines/email-template.md` from the repo and build the email exactly as it specifies.

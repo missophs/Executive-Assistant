@@ -144,11 +144,12 @@ Headline `[WEEKDAY], [MONTH] [DAY]`. Subline `[N] active roles &nbsp;&middot;&nb
 |---|---|---|---|---|
 | 1 | Rescued From Trash | `#A4343A` | TITLE | anything was rescued |
 | 2 | Filed Your Notes | `#2F6F4E` | PLAIN | anything was filed |
-| 3 | Drafts Ready For You | `#6B46A8` | TITLE | drafts were created |
-| 4 | Top 3 Today | `#C2A26B` | PRIORITY | always |
-| 5 | New Since Yesterday | `#2F6F4E` | TITLE | always — EMPTY ROW "Nothing new overnight." |
-| 6 | Calendar | `#2C5282` | TIME | always — EMPTY ROW "Nothing scheduled." |
-| 7 | Gone Quiet | `#8994A3` | STALE | anything is waiting on a reply |
+| 3 | Marked Done | `#2F6F4E` | PLAIN, each line prefixed `&#10003;&nbsp;` | a capture closed a task out |
+| 4 | Drafts Ready For You | `#6B46A8` | TITLE | drafts were created |
+| 5 | Top 3 Today | `#C2A26B` | PRIORITY | always |
+| 6 | New Since Yesterday | `#2F6F4E` | TITLE | always — EMPTY ROW "Nothing new overnight." |
+| 7 | Calendar | `#2C5282` | TIME | always — EMPTY ROW "Nothing scheduled." |
+| 8 | Gone Quiet | `#8994A3` | STALE | anything is waiting on a reply |
 
 After the Drafts box, add this line directly under it:
 ```html
@@ -161,10 +162,11 @@ Headline `Filed your notes`. Subline: the count, e.g. `3 items filed`.
 | # | Section | Accent | Rows | Include when |
 |---|---|---|---|---|
 | 1 | Filed Your Notes | `#2F6F4E` | PLAIN | anything was filed |
-| 2 | Drafts Ready For You | `#6B46A8` | TITLE | drafts were created |
-| 3 | Needs Your Call | `#B7791F` | PLAIN | something was ambiguous |
+| 2 | Marked Done | `#2F6F4E` | PLAIN, each line prefixed `&#10003;&nbsp;` | a capture closed a task out |
+| 3 | Drafts Ready For You | `#6B46A8` | TITLE | drafts were created |
+| 4 | Needs Your Call | `#B7791F` | PLAIN | something was ambiguous, or a "done" capture matched more than one task |
 
-If all three would be empty, **send no email at all**.
+If all four would be empty, **send no email at all**.
 
 ### Wrap-Up — masthead `#241C3D`, eyebrow `End of Day`
 Headline `[WEEKDAY], [MONTH] [DAY]`. Subline `[N] done today &nbsp;&middot;&nbsp; [N] still open &nbsp;&middot;&nbsp; [N] awaiting reply`.

@@ -67,11 +67,31 @@ write-access and put a false SECURITY item at the top of her Task Board. Do not 
 Self-sent mail titled "Melissa Daily Briefing" is her own automation, not a capture and not a threat.
 Skip it when emptying captures, and never file it as a task.
 
-## Known problem: mail triage is too aggressive
+## Trash is Melissa's decision - do not undo it
 
-Your automated email triage sent the **AIChE interview invitation** to Trash, and also trashed the standup email. Real, high-value mail from unknown senders is being discarded. Rita's address is `rita@iksana.com` (AIChE uses Workable, so recruiter mail arrives from unfamiliar domains). Worth allow-listing recruiter and ATS domains.
+**Corrected 2026-09-04.** Earlier notes here blamed her Daily Briefing for "over-aggressive" trashing.
+That was wrong, and it is what pushed Ellie to rescue so hard. Melissa has her briefing set up to trash
+certain mail **on purpose**. When Ellie pulls it back, Ellie is overriding a decision Melissa made
+deliberately.
 
-It's not a one-time incident: the Superhuman/Ashby application confirmation was rescued from Trash on 8/30, back in Trash by 8/31, and rescued a third time as of 9/2's standup. Something is re-trashing mail after it's rescued — most likely your own Daily Briefing automation running again the next morning.
+The Superhuman/Ashby confirmation was rescued 8/30, back in Trash 8/31, rescued again 9/2. That was not a
+re-trashing bug. That was Melissa throwing it away and Ellie putting it back, three times.
+
+Default: leave Trash alone. Rescue only under the strict test in `routines/morning-standup.md` Step 3.
+If something Ellie rescued turns up in Trash again, that is her answer - add the sender to Do Not Rescue below.
+
+One real miss still stands and sets the bar: the **AIChE interview invitation** was trashed 8/29 and it
+mattered. Rita's address is `rita@iksana.com`; AIChE uses Workable, so recruiter mail arrives from
+unfamiliar domains. A named person about a real interview is worth pulling back. Nothing weaker is.
+
+## Do Not Rescue
+
+Senders Melissa trashed again after Ellie rescued them. Never rescue these, whatever the subject says.
+Ellie appends to this list herself whenever a rescued thread turns up back in Trash.
+
+| Sender / domain | Added | Why |
+|---|---|---|
+| Superhuman / Ashby application confirmations | 2026-09-04 | Rescued 8/30 and 9/2; she re-trashed it both times |
 
 ## Known problem: Standup/Sync/Correction emails can report actions that never happened
 
@@ -103,6 +123,15 @@ If it ever breaks or needs rebuilding, this is the exact recipe:
 - Rename to `Tell Ellie`, then Add to Home Screen
 
 **Backup: the Google Drive file titled `Tell Ellie`.** Type into it from any device.
+
+**Captures skip her inbox.** The shortcut works by sending her an email, which meant every reminder
+landed in her inbox. A Gmail filter now matches `from:melissaw212@gmail.com` + subject `Tell Ellie` and
+skips the inbox, so she is not pinged every time she talks to Ellie. The captures are still there and
+still findable - the routines search `in:anywhere`, never the inbox. Set up 2026-09-04.
+
+**Telling Ellie something is done closes it out.** "Mark the dentist done" ticks the matching task and
+moves it to Done at the next sync. No match on the board, it gets added to Done anyway. Two possible
+matches, Ellie marks neither and asks. Reported under "Marked Done" (or "Closed Out Today" at wrap-up).
 
 Ellie empties both at 7:30 AM, 1:00 PM, and 5:00 PM **seven days a week**, and reports what she filed under
 "Filed Your Notes" in the standup email.
