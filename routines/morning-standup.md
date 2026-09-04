@@ -43,7 +43,9 @@ STEP 6 - PREPARE DRAFTS. Every message where MELISSA OWES A REPLY or a follow-up
   - Never invent facts, availability, dates, or commitments. Use bracketed placeholders like [CONFIRM TIME].
   - Cap at 3, highest value first. Never draft to a no-reply address, mailing list, or automated sender.
 
-STEP 7 - Commit vault changes with a one-line message. If nothing changed, commit nothing.
+STEP 7 - Commit vault changes with a one-line message, then PUSH TO GITHUB and VERIFY the push landed. If nothing changed, commit nothing.
+  Raw `git push origin main` is DENIED in this environment. It fails, and because the next run clones fresh from GitHub, every vault edit you made is lost. Confirmed 2026-09-04 after two days of live interview data went missing exactly this way. Push through the GitHub API instead (`push_files`) - that path works.
+  VERIFY before you report anything: `git fetch origin main` and confirm your commit is on `origin/main`. If it is not there, say so plainly in the standup under a heading `VAULT WRITE FAILED` and list exactly what did not save. Never write "filed", "added", "logged", "marked done" or "updated" about anything you have not verified is on GitHub. A false "filed" has already cost her days on real interview scheduling.
 
 STEP 8 - Send an HTML standup via Gmail `send_message` to melissaw212@gmail.com, contentType HTML (plain-text fallback if required). Subject: `Standup - <Weekday>, <Month> <Day>`.
 

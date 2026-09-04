@@ -16,7 +16,9 @@ Skip marketing, receipts, shipping, newsletters, bulk job digests.
 
 STEP 4 - Reconcile. Captures she left in Step 2 are the strongest signal - if she said something is done, it is done. Beyond those, for each open task decide from her sent mail whether it is DONE, still OPEN, or SLIPPING (3+ days, no movement). Never ask her to redo something her sent mail shows she already did.
 
-STEP 5 - Update the vault. Move confirmed-done items to Done with today's date. Update `Applications.md` stages and Last-contact dates. Update `Memory.md` follow-ups, prune anything resolved. Commit with a one-line message. If nothing changed, commit nothing.
+STEP 5 - Update the vault. Move confirmed-done items to Done with today's date. Update `Applications.md` stages and Last-contact dates. Update `Memory.md` follow-ups, prune anything resolved. Commit with a one-line message, then PUSH TO GITHUB and VERIFY the push landed. If nothing changed, commit nothing.
+  Raw `git push origin main` is DENIED in this environment. It fails, and because the next run clones fresh from GitHub, every vault edit you made is lost. Confirmed 2026-09-04 after two days of live interview data went missing exactly this way. Push through the GitHub API instead (`push_files`) - that path works.
+  VERIFY before you report anything: `git fetch origin main` and confirm your commit is on `origin/main`. If it is not there, say so plainly in the email under a heading `VAULT WRITE FAILED` and list exactly what did not save. Never write "filed", "added", "logged", "marked done" or "updated" about anything you have not verified is on GitHub. A false "filed" has already cost her days on real interview scheduling.
 
 STEP 6 - REFRESH HER PHONE BOARD. Melissa reads a plain-text mirror of her vault on her phone. It is the Google Drive file titled `Ellie`.
   IMPORTANT: Google Drive cannot rewrite an existing file's contents. `update_file` only changes title and parent. To refresh it you must replace the file:

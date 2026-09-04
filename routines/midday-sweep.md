@@ -27,7 +27,9 @@ STEP 4 - CLEAR THE DRIVE NOTE. If you found and processed a 'Tell Ellie' file, e
   Google Drive cannot rewrite a file's contents. So: note the old file's id, then `create_file` a NEW file titled exactly `Tell Ellie` with contentMimeType `text/plain` and textContent set to a single line reading `Type anything here. Ellie files it at 1pm and 5pm.` Then `trash_file` on the OLD file id. Never trash any other file.
   Never delete or trash her emails. Filing them is enough.
 
-STEP 5 - Commit vault changes with a one-line message. If nothing changed, commit nothing.
+STEP 5 - Commit vault changes with a one-line message, then PUSH TO GITHUB and VERIFY the push landed. If nothing changed, commit nothing.
+  Raw `git push origin main` is DENIED in this environment. It fails, and because the next run clones fresh from GitHub, every vault edit you made is lost. Confirmed 2026-09-04 after two days of live interview data went missing exactly this way. Push through the GitHub API instead (`push_files`) - that path works.
+  VERIFY before you report anything: `git fetch origin main` and confirm your commit is on `origin/main`. If it is not there, say so plainly in the email under a heading `VAULT WRITE FAILED` and list exactly what did not save. Never write "filed", "added", "logged", "marked done" or "updated" about anything you have not verified is on GitHub.
 
 STEP 6 - EMAIL HER ONLY IF SOMETHING HAPPENED. If you filed nothing, marked nothing done, created no drafts, and found nothing urgent, send NOTHING. Silence is the correct output for a quiet midday.
   If something did happen, send a short HTML email via Gmail `send_message` to melissaw212@gmail.com, contentType HTML, subject `Filed - <Weekday> midday`:
