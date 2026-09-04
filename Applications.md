@@ -6,9 +6,9 @@ Job search pipeline. One row per role. `/sync` updates this from the Scratch Pad
 
 | Company | Role | Stage | Applied | Last contact | Next action | Contact |
 |---|---|---|---|---|---|---|
-| AIChE (American Institute of Chemical Engineers) | Head of People | Screen | — | 2026-08-29 | **Interview confirmed: Thu 9/3, 10:00–10:45 AM ET, Google Meet.** Prep is the only thing left | Rita Ramakrishnan, Interim CPO |
+| AIChE (American Institute of Chemical Engineers) | Head of People | Interview | — | 2026-09-03 | Interview held 9/3, 10:00–10:45 AM ET (screen + hiring-manager conversation combined); thank-you sent same day with resume/portfolio links. Awaiting Rita's decision | Rita Ramakrishnan, Interim CPO |
 | Intalegence (confidential client — education) | VP, People & Culture | Screen | — | 2026-09-02 | Nothing owed — you followed up 9/2; Bryce confirmed you've been submitted to the client and is chasing feedback | Bryce Lowery |
-| CUNY (City University of New York) | Vice Chancellor for Human Resources | Applied | 2026-08-31 | 2026-09-01 | Nothing owed — application confirmed; recruiter says her team will reach out if you're selected for a first-round interview | Elisa Russo, Lead Recruiter (LinkedIn) |
+| CUNY (City University of New York) | Vice Chancellor for Human Resources | Interview | 2026-08-31 | 2026-09-03 | **Interview confirmed: Fri 9/11, 3:00–4:00 PM ET, Microsoft Teams.** Panel: Elisa Russo & Sujata Malhotra | Elisa Russo, Lead Recruiter; Jonathan Campbell (scheduling) |
 | HSO | Strategic HR Business Partner | Applied | 2026-08-25 | 2026-08-26 | Nothing owed — Kristen has it | Kristen Ramerini |
 | Dropbox | (applied via posting) | Applied | 2026-08-22 | 2026-08-22 | Auto-ack only, no human contact yet | — |
 | Superhuman | Senior People Partner | Applied | 2026-08-29 | 2026-08-29 | Auto-ack only, no human contact yet. Confirmation from Ashby has landed in Trash repeatedly — mail triage is re-trashing it after rescue | Ashby (ATS, auto) |
