@@ -44,6 +44,10 @@ _Last updated: 2026-09-05_
 - LinkedIn skills (GitHub, sergebulaev) — https://github.com/sergebulaev/linkedin-skills — sent to self 9/5
 - Free Resources | Ten Fold — https://guides.tenfoldmarketing.com/optin — sent to self 9/5
 - ChatGPT share (untitled) — https://chatgpt.com/share/6a9b7d79-ce64-83ea-b0bf-4b2c014840d2 — sent to self 9/5
+- LinkedIn AI Search: Can Your Profile Match Recruiter Intent? (Kevin D. Turner) — https://www.linkedin.com/pulse/linkedin-ai-search-can-your-profile-match-recruiter-intent-turner--wdcwe — sent to self 9/5
+- Claude & HR (LinkedIn) — https://lnkd.in/p/gu378qMD — sent to self 9/5
+- Claude (LinkedIn) — https://lnkd.in/p/gKasEsmy — sent to self 9/5
+- Claude Code Prompt Library (docs) — https://code.claude.com/docs/en/prompt-library — sent to self 9/5
 
 ## Decisions & Context
 
