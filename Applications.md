@@ -25,3 +25,4 @@ Job search pipeline. One row per role. `/sync` updates this from the Scratch Pad
 | Booking Holdings | Head of HR Business Partnering | Closed | — | 2026-08-31 | Rejected. Auto-applied via TheLadders Apply4Me, no human contact — pattern-spotting only |
 | PayPal | Senior Manager, People Business Partner | Closed | — | 2026-08-31 | Rejected (role closed) via Workday auto-notice — no human contact, pattern-spotting only |
 | IPC Systems | Global People Partner (12-month maternity cover) | Closed | — | 2026-09-02 | Inbound LinkedIn InMail interview invite (Silvana Chumaceiro, $120–135K, hybrid NYC). You engaged same day; recruiter declined, citing fit/comp expectations — role was below target anyway |
+| Fedcap | VP of HR Business Partners | Closed | — | 2026-09-04 | Rejected via recruiter email (Becky Soley, Talent Acquisition) — moved forward with other candidates, no interview reached. Was not previously tracked in this vault |

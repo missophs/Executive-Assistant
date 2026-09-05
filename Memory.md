@@ -4,7 +4,7 @@ Rolling context between sessions. Read at the start of every session, updated du
 
 **Keep this short.** Quick-reference, not a journal. Prune anything resolved or stale.
 
-_Last updated: 2026-09-04_
+_Last updated: 2026-09-05_
 
 ---
 
@@ -38,6 +38,12 @@ _Last updated: 2026-09-04_
 
 - Chris Titus Tech (TikTok) — https://www.tiktok.com/t/ZTUF4Lxkr/ — sent to self 9/4
 - prompt-master (GitHub, nidhinjs) — https://github.com/nidhinjs/prompt-master — sent to self 9/4
+- ChatGPT share, "Disability" — https://chatgpt.com/share/6a996279-f2ec-83ea-a8f9-8db69586b14c — sent to self 9/3, missed until tonight
+- How to use ChatGPT and Claude like a power user in 2026 — https://www.the-ai-corner.com/p/chatgpt-claude-power-user-setup-guide-2026 — sent to self 9/5
+- The intent.md File (Actionable AI) — https://theactionableai.com/guides/claude-intent-md/read — sent to self 9/5
+- LinkedIn skills (GitHub, sergebulaev) — https://github.com/sergebulaev/linkedin-skills — sent to self 9/5
+- Free Resources | Ten Fold — https://guides.tenfoldmarketing.com/optin — sent to self 9/5
+- ChatGPT share (untitled) — https://chatgpt.com/share/6a9b7d79-ce64-83ea-b0bf-4b2c014840d2 — sent to self 9/5
 
 ## Decisions & Context
 
