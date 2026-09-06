@@ -27,6 +27,9 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 - [ ] Confirm "do LinkedIn" task from 8/31 11:56pm capture (flagged urgent for 8:40 AM on 9/1) — that window passed 2 days ago with no record either way. Still needed, or drop it? · #sourcing
 - [ ] Download Graphite (for Claude Code) — captured via Tell Ellie 8/30, never filed until tonight · #personal
 - [ ] Triage 2 job links sent to self 9/5 (subjects "Job" / "Jobs", no company or role given in the capture) — https://www.linkedin.com/jobs/view/4461989394/ ; https://lnkd.in/p/gvRUTxa4 · #sourcing
+- [ ] Triage LinkedIn job alert — Assistant Vice President Human Resources @ Columbia University, $220–265K, + 3 more (LinkedIn alert, 9/6) · #sourcing
+- [ ] Triage LinkedIn job alert — Senior Director, People Strategy & Advisory @ BNY, + 16 more (LinkedIn alert, 9/6) · #sourcing
+- [ ] Check LinkedIn message from "Sakshi" — unread, content not visible in email digest, needs the LinkedIn app to read · #sourcing
 
 ## ⏳ Waiting On
 <!-- Blocked on someone else. Note who and since when. -->

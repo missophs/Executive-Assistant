@@ -48,6 +48,9 @@ _Last updated: 2026-09-05_
 - Claude & HR (LinkedIn) — https://lnkd.in/p/gu378qMD — sent to self 9/5
 - Claude (LinkedIn) — https://lnkd.in/p/gKasEsmy — sent to self 9/5
 - Claude Code Prompt Library (docs) — https://code.claude.com/docs/en/prompt-library — sent to self 9/5
+- Substack profile (pamannai) — https://substack.com/@pamannai — sent to self 9/6
+- 5_Claude_Code_Plugins_Setup_Guide.pdf (Google Drive) — https://drive.google.com/file/d/1w37oPfRq8aDvjUJ45ugMDNZpCxg77Q4-/view — sent to self 9/6
+- The 24 Claude Setup (Made For More) — https://madeformore.ai/guides/24-claude-setup — sent to self 9/6
 
 ## Decisions & Context
 
