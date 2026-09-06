@@ -10,7 +10,6 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 <!-- Must know today. Keep to 3. -->
 
 - [ ] Insurance calls, both overdue — EmblemHealth for the EOB (1-800-447-8255, promised 24–48h on 8/27) and Anthem re: your benefits. Call, don't email — EmblemHealth's own reply confirms their inbox is unmonitored · due 2026-08-31 · #admin
-- [ ] Call the dentist — captured via Tell Ellie 8/29 evening ("Monday"), missed, now overdue · due 2026-08-31 · #admin
 - [ ] Book nail appointment with Dana — for "next Tuesday" (assuming 9/8, confirm if you meant 9/1, which has now passed) · due 2026-09-01 · #personal
 
 ## ⏭ This Week
@@ -43,6 +42,7 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 ## ✅ Done
 <!-- Cleared during /start and /wrap-up. Archive monthly. -->
 
+- [x] Call the dentist — cancelled per Tell Ellie capture 9/6 ("Cancel the dentist") — 2026-09-06
 - [x] Vault-write/reporting bug closed out — independently verified tonight via `git fetch origin main`: today's Standup (c5ce2b7) and Midday (b63575b) commits both landed on `origin/main` cleanly, local HEAD and origin match with 0 ahead/0 behind. Fix applied 9/4 evening (push via GitHub API instead of raw `git push`, which this environment denies) held for a full day across two automated runs — 2026-09-05
 - [x] Investigate: Standup/Wrap-Up emails reporting vault updates that never happened — root cause confirmed and fix verified (see item above). Keep spot-checking `git log` after any email that claims "filed"/"added"/"pushed" for a while longer before fully trusting it unchecked — 2026-09-05
 - [x] AIChE interview held with Rita, 10:00–10:45 AM ET — screen + hiring-manager conversation combined, went well; thank-you sent same day with resume/portfolio links. Real, verified against Gmail; the vault had never been updated with this despite 3 days of automations claiming it was — 2026-09-03
