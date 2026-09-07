@@ -10,7 +10,6 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 <!-- Must know today. Keep to 3. -->
 
 - [ ] Insurance calls, both overdue — EmblemHealth for the EOB (1-800-447-8255, promised 24–48h on 8/27) and Anthem re: your benefits. Call, don't email — EmblemHealth's own reply confirms their inbox is unmonitored · due 2026-08-31 · #admin
-- [ ] Book nail appointment with Dana — for "next Tuesday" (assuming 9/8, confirm if you meant 9/1, which has now passed) · due 2026-09-01 · #personal
 
 ## ⏭ This Week
 
@@ -29,6 +28,8 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 - [ ] Triage LinkedIn job alert — Assistant Vice President Human Resources @ Columbia University, $220–265K, + 3 more (LinkedIn alert, 9/6) · #sourcing
 - [ ] Triage LinkedIn job alert — Senior Director, People Strategy & Advisory @ BNY, + 16 more (LinkedIn alert, 9/6) · #sourcing
 - [ ] Check LinkedIn message from "Sakshi" — unread, content not visible in email digest, needs the LinkedIn app to read · #sourcing
+- [ ] Triage Head of People and Culture @ NAACP Legal Defense and Educational Fund (LDF), $210–225K (Indeed match, 9/7, landed in swm3016@) · #sourcing
+- [ ] Triage LinkedIn job alert — People Lead @ Sesame, $220–280K, + 3 more (LinkedIn alert, 9/6) · #sourcing
 
 ## ⏳ Waiting On
 <!-- Blocked on someone else. Note who and since when. -->
@@ -42,6 +43,7 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 ## ✅ Done
 <!-- Cleared during /start and /wrap-up. Archive monthly. -->
 
+- [x] Book nail appointment with Dana — confirmed done via calendar: "Nails" event on your calendar Tue 9/8, 10:00–11:00 AM ET — 2026-09-07
 - [x] Call the dentist — cancelled per Tell Ellie capture 9/6 ("Cancel the dentist") — 2026-09-06
 - [x] Vault-write/reporting bug closed out — independently verified tonight via `git fetch origin main`: today's Standup (c5ce2b7) and Midday (b63575b) commits both landed on `origin/main` cleanly, local HEAD and origin match with 0 ahead/0 behind. Fix applied 9/4 evening (push via GitHub API instead of raw `git push`, which this environment denies) held for a full day across two automated runs — 2026-09-05
 - [x] Investigate: Standup/Wrap-Up emails reporting vault updates that never happened — root cause confirmed and fix verified (see item above). Keep spot-checking `git log` after any email that claims "filed"/"added"/"pushed" for a while longer before fully trusting it unchecked — 2026-09-05

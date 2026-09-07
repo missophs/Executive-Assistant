@@ -4,7 +4,7 @@ Rolling context between sessions. Read at the start of every session, updated du
 
 **Keep this short.** Quick-reference, not a journal. Prune anything resolved or stale.
 
-_Last updated: 2026-09-05_
+_Last updated: 2026-09-07_
 
 ---
 
@@ -52,6 +52,10 @@ _Last updated: 2026-09-05_
 - 5_Claude_Code_Plugins_Setup_Guide.pdf (Google Drive) — https://drive.google.com/file/d/1w37oPfRq8aDvjUJ45ugMDNZpCxg77Q4-/view — sent to self 9/6
 - The 24 Claude Setup (Made For More) — https://madeformore.ai/guides/24-claude-setup — sent to self 9/6
 - The Agent Skills Directory — https://www.skills.sh/ — sent to self 9/6
+- claude-complete-setup-guide.md (file) — sent to self 9/6
+- THE AUTOMATION GUY (file) — sent to self 9/6
+- Research Any Stock Like a Wall Street Analyst, with Claude — https://www.valuebyraph.com/equity-research-with-claude/ — sent to self 9/6
+- Build 2 HR dashboards using the CHRO (.skill) inside Claude in 10 minutes — https://thehroffice.substack.com/p/build-2-hr-dashboards-using-the-chro — sent to self 9/7
 
 ## Decisions & Context
 
