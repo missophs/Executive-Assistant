@@ -4,7 +4,7 @@ Rolling context between sessions. Read at the start of every session, updated du
 
 **Keep this short.** Quick-reference, not a journal. Prune anything resolved or stale.
 
-_Last updated: 2026-09-07_
+_Last updated: 2026-09-08_
 
 ---
 
@@ -56,6 +56,7 @@ _Last updated: 2026-09-07_
 - THE AUTOMATION GUY (file) — sent to self 9/6
 - Research Any Stock Like a Wall Street Analyst, with Claude — https://www.valuebyraph.com/equity-research-with-claude/ — sent to self 9/6
 - Build 2 HR dashboards using the CHRO (.skill) inside Claude in 10 minutes — https://thehroffice.substack.com/p/build-2-hr-dashboards-using-the-chro — sent to self 9/7
+- "Become a Member" (Founders Club) — malformed ad-tracking link, unresolved template variables ({{campaign_name}} etc.) — https://go.foundersclubofficial.com/intro-fc-meta-form — sent to self 9/8, looks broken/accidental rather than a real save
 
 ## Decisions & Context
 

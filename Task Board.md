@@ -30,6 +30,10 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 - [ ] Check LinkedIn message from "Sakshi" — unread, content not visible in email digest, needs the LinkedIn app to read · #sourcing
 - [ ] Triage Head of People and Culture @ NAACP Legal Defense and Educational Fund (LDF), $210–225K (Indeed match, 9/7, landed in swm3016@) · #sourcing
 - [ ] Triage LinkedIn job alert — People Lead @ Sesame, $220–280K, + 3 more (LinkedIn alert, 9/6) · #sourcing
+- [ ] Triage LinkedIn job alert — VP, People Business Partners & Talent Development @ Clio, + 4 more (LinkedIn alert, 9/7) · #sourcing
+- [ ] Triage LinkedIn job alert — Head of Global People Operations & Transformation @ DDN, + 32 more (LinkedIn alert, 9/6) · #sourcing
+- [ ] Clarify screenshot sent to self 9/7 11:15 AM (to melweiss212@) — no caption, still unresolved as of 9/8. Can't tell if it's a task, a saved item, or nothing · #personal
+- [ ] Clarify "NYU Langone Health - Note from Care Team" PDF sent to self 9/7 (9:14 PM ET, to melweiss212@) — no caption, can't read attachment content, don't know if it relates to the EmblemHealth/Anthem insurance calls or something separate · #personal
 
 ## ⏳ Waiting On
 <!-- Blocked on someone else. Note who and since when. -->
