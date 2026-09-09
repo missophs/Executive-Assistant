@@ -9,7 +9,7 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 ## 🔥 Today
 <!-- Must know today. Keep to 3. -->
 
-- [ ] Insurance calls, both overdue — EmblemHealth for the EOB (1-800-447-8255, promised 24–48h on 8/27) and Anthem re: your benefits. Call, don't email — EmblemHealth's own reply confirms their inbox is unmonitored · due 2026-08-31 · #admin
+- [ ] Insurance calls, both overdue — EmblemHealth for the EOB (1-800-447-8255, promised 24–48h on 8/27) and Anthem re: your benefits. Call, don't email — EmblemHealth's own reply confirms their inbox is unmonitored. Anthem sent a new EOB notification 9/9 — log in to view before you call, may cover part of this · due 2026-08-31 · #admin
 
 ## ⏭ This Week
 
@@ -34,6 +34,8 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 - [ ] Triage LinkedIn job alert — Head of Global People Operations & Transformation @ DDN, + 32 more (LinkedIn alert, 9/6) · #sourcing
 - [ ] Clarify screenshot sent to self 9/7 11:15 AM (to melweiss212@) — no caption, still unresolved as of 9/8. Can't tell if it's a task, a saved item, or nothing · #personal
 - [ ] Clarify "NYU Langone Health - Note from Care Team" PDF sent to self 9/7 (9:14 PM ET, to melweiss212@) — no caption, can't read attachment content, don't know if it relates to the EmblemHealth/Anthem insurance calls or something separate · #personal
+- [ ] Suspected phishing email in Trash, NOT rescued — "Completed: dentsu Offer Letter" (DocuSign, sender dse_NA3@docusign.net, "recruiter" Kelly Reynolds, sent to melweiss212@ 9/8 7:21 PM). Dentsu is your former employer — your separation agreement completed 3/2026 — and it claims a new offer to "join the dentsu team," with an attached PDF dated 2024-04-12, not a live 2026 document. Left in Trash. Tell Ellie if you want it reported or handled differently — doing nothing leaves it in Trash · #security
+- [ ] Triage 2 large scanned-PDF sends to self 9/8 evening, no caption — "Work history" (9:39 PM) and "Dis 1" (9:32 PM), both to melweiss212@. Can't read PDF content to tell what these are or what's needed · #personal
 
 ## ⏳ Waiting On
 <!-- Blocked on someone else. Note who and since when. -->
