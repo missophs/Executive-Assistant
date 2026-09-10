@@ -4,20 +4,20 @@ Rolling context between sessions. Read at the start of every session, updated du
 
 **Keep this short.** Quick-reference, not a journal. Prune anything resolved or stale.
 
-_Last updated: 2026-09-10_
+_Last updated: 2026-09-10 (wrap-up)_
 
 ---
 
 ## Current Priorities
 
-- Land a senior HR role — VP / CHRO level. AIChE (Head of People) is at Interview stage, awaiting Rita's decision post-interview (9/3). CUNY (Vice Chancellor for HR) now has an interview confirmed for Fri 9/11, 3–4 PM ET. Intalegence (VP People & Culture) remains at screen stage.
+- Land a senior HR role — VP / CHRO level. AIChE (Head of People) is at Interview stage, awaiting Rita's decision post-interview (9/3) — now 7 days with no reply. CUNY (Vice Chancellor for HR) interview is tomorrow, Fri 9/11, 3–4 PM ET, Microsoft Teams. Intalegence (VP People & Culture) closed 9/10 — rejected, no feedback given.
 - Comp target: low-to-mid $200Ks base, flexible on total package (bonus/equity in play at Intalegence).
 - Based in NY. Raised it with Bryce as a possible blocker; he confirmed it is not.
 
 ## People
 
 - **Rita Ramakrishnan** — Interim Chief People Officer, AIChE. Interview held Thu 9/3, 10:00–10:45 AM ET (screen + hiring-manager conversation combined). Went well; thank-you sent same day with resume/portfolio links. Awaiting her decision as of 9/3.
-- **Bryce Lowery** — Intalegence, executive search. Running a confidential VP People & Culture search for a mission-driven education company. Virtual call held Fri 8/28. You checked in 9/2; he confirmed you've been submitted to the client and is chasing feedback. HRIS/PEO question from 8/28 still hasn't been directly answered.
+- **Bryce Lowery** — Intalegence, executive search. Ran a confidential VP People & Culture search for a mission-driven education company. Emailed 9/10: hiring manager and team decided not to move forward, no feedback given. You replied same day thanking him and asking to be kept in mind for future roles. Closed.
 - **Kristen Ramerini** — HSO. Responded to cold outreach on the Strategic HR Business Partner role; pointed to their standard process. You had already applied via the posting. HSO recently taken on by Bain Capital.
 - **Frank Wittenauer** — organizes the HR Networking & Job Search Group (Wed 12pm ET) and the non-job-related Open Office Hours (Thu 12pm ET). Maintains the shared recruiter roster and LinkedIn group.
 - **Elisa Russo, MBA HRM, SHRM-CP** — Lead Recruiter, CUNY. Reached out via LinkedIn InMail 9/1 re: Vice Chancellor for Human Resources. Interview now confirmed: Fri 9/11, 3:00–4:00 PM ET, Microsoft Teams, panel of Elisa Russo & Sujata Malhotra.
@@ -28,9 +28,8 @@ _Last updated: 2026-09-10_
 
 | Item | Who | Since | Status |
 |---|---|---|---|
-| Decision on Head of People, after 9/3 interview | Rita Ramakrishnan (AIChE) | 2026-09-03 | Awaiting reply |
-| Client feedback after submission | Bryce Lowery (Intalegence) | 2026-09-02 | Awaiting reply |
-| Strategic HR Business Partner application status | Kristen Ramerini (HSO) | 2026-08-26 | Awaiting reply |
+| Decision on Head of People, after 9/3 interview | Rita Ramakrishnan (AIChE) | 2026-09-03 | Awaiting reply — slipping, 7 days |
+| Strategic HR Business Partner application status | Kristen Ramerini (HSO) | 2026-08-26 | Awaiting reply — slipping, 15 days |
 | Reply re: CPO opportunity (no company/comp given) | Maneeha Arshad (recruiter) | 2026-09-01 | Needs your decision to engage |
 
 ## Saved Links

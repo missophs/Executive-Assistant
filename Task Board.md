@@ -42,13 +42,13 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 <!-- Blocked on someone else. Note who and since when. -->
 
 - [ ] Decision on Head of People — Rita Ramakrishnan, AIChE, after 9/3 interview + same-day thank-you · since 2026-09-03
-- [ ] Client feedback after submission — Bryce Lowery, Intalegence · since 2026-09-02
 - [ ] Application status, Strategic HR Business Partner — Kristen Ramerini, HSO · since 2026-08-26
 - [ ] Verification response — Amanda Greene, C-Suite Career Corp · since 2026-08-25
 
 ## ✅ Done
 <!-- Cleared during /start and /wrap-up. Archive monthly. -->
 
+- [x] Closed out Intalegence (VP, People & Culture) — Bryce Lowery emailed 9/10: hiring manager and team decided not to move forward, no feedback given. You replied same day thanking him and asking to be kept in mind for future roles — 2026-09-10
 - [x] EmblemHealth EOB — arrived by email 9/9 10:09 AM ET, PDF attached, from C1057ac@emblemhealth.com ("Please see attached requested EOB"). No callback needed; Anthem call still open above — 2026-09-10
 - [x] Book nail appointment with Dana — confirmed done via calendar: "Nails" event on your calendar Tue 9/8, 10:00–11:00 AM ET — 2026-09-07
 - [x] Call the dentist — cancelled per Tell Ellie capture 9/6 ("Cancel the dentist") — 2026-09-06
