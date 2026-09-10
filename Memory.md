@@ -4,7 +4,7 @@ Rolling context between sessions. Read at the start of every session, updated du
 
 **Keep this short.** Quick-reference, not a journal. Prune anything resolved or stale.
 
-_Last updated: 2026-09-08_
+_Last updated: 2026-09-10_
 
 ---
 
@@ -31,7 +31,6 @@ _Last updated: 2026-09-08_
 | Decision on Head of People, after 9/3 interview | Rita Ramakrishnan (AIChE) | 2026-09-03 | Awaiting reply |
 | Client feedback after submission | Bryce Lowery (Intalegence) | 2026-09-02 | Awaiting reply |
 | Strategic HR Business Partner application status | Kristen Ramerini (HSO) | 2026-08-26 | Awaiting reply |
-| Copy of EOB (promised in 24–48h) | EmblemHealth | 2026-08-27 | Overdue |
 | Reply re: CPO opportunity (no company/comp given) | Maneeha Arshad (recruiter) | 2026-09-01 | Needs your decision to engage |
 
 ## Saved Links
@@ -57,6 +56,10 @@ _Last updated: 2026-09-08_
 - Research Any Stock Like a Wall Street Analyst, with Claude — https://www.valuebyraph.com/equity-research-with-claude/ — sent to self 9/6
 - Build 2 HR dashboards using the CHRO (.skill) inside Claude in 10 minutes — https://thehroffice.substack.com/p/build-2-hr-dashboards-using-the-chro — sent to self 9/7
 - "Become a Member" (Founders Club) — malformed ad-tracking link, unresolved template variables ({{campaign_name}} etc.) — https://go.foundersclubofficial.com/intro-fc-meta-form — sent to self 9/8, looks broken/accidental rather than a real save
+- ChatGPT share (untitled) — https://chatgpt.com/share/6aa1e3c4-b640-83ea-9905-12e1cb53aac3 — sent to self 9/9
+- Why I Switched from Claude to ChatGPT Codex (sabrina.dev) — https://www.sabrina.dev/p/why-i-switched-from-claude-to-chatgpt — sent to self 9/9
+- The Day-Zero Stack: 5 Claude Code Installs (Prime AI) — link carries an embedded `mcp_token=` auth token in the URL, don't forward it as-is — sent to self 9/9
+- 10-Prompts-You-Need-For-GPT-6-Astra.pdf (Google Drive) — link also carries an embedded `mcp_token=` auth token, same caution — https://drive.google.com/file/d/1lpWcw45Kiq81Rc6etJ89MFGBYVTBIVAQ/view — sent to self 9/9
 
 ## Decisions & Context
 

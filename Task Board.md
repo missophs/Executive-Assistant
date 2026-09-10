@@ -9,7 +9,7 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 ## 🔥 Today
 <!-- Must know today. Keep to 3. -->
 
-- [ ] Insurance calls, both overdue — EmblemHealth for the EOB (1-800-447-8255, promised 24–48h on 8/27) and Anthem re: your benefits. Call, don't email — EmblemHealth's own reply confirms their inbox is unmonitored. Anthem sent a new EOB notification 9/9 — log in to view before you call, may cover part of this · due 2026-08-31 · #admin
+- [ ] Anthem call re: your benefits — Anthem sent a new EOB notification 9/9, log in to view before you call, may cover part of this. EmblemHealth: no longer needed — see Done, EOB arrived by email 9/9 · due 2026-08-31 · #admin
 
 ## ⏭ This Week
 
@@ -36,6 +36,7 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 - [ ] Clarify "NYU Langone Health - Note from Care Team" PDF sent to self 9/7 (9:14 PM ET, to melweiss212@) — no caption, can't read attachment content, don't know if it relates to the EmblemHealth/Anthem insurance calls or something separate · #personal
 - [ ] Suspected phishing email in Trash, NOT rescued — "Completed: dentsu Offer Letter" (DocuSign, sender dse_NA3@docusign.net, "recruiter" Kelly Reynolds, sent to melweiss212@ 9/8 7:21 PM). Dentsu is your former employer — your separation agreement completed 3/2026 — and it claims a new offer to "join the dentsu team," with an attached PDF dated 2024-04-12, not a live 2026 document. Left in Trash. Tell Ellie if you want it reported or handled differently — doing nothing leaves it in Trash · #security
 - [ ] Triage 2 large scanned-PDF sends to self 9/8 evening, no caption — "Work history" (9:39 PM) and "Dis 1" (9:32 PM), both to melweiss212@. Can't read PDF content to tell what these are or what's needed · #personal
+- [ ] New message in NYU Langone Health MyChart portal — two notifications 9/8 (3:41 PM and 3:56 PM ET), no content in the email itself, log in to view · #personal
 
 ## ⏳ Waiting On
 <!-- Blocked on someone else. Note who and since when. -->
@@ -43,12 +44,12 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 - [ ] Decision on Head of People — Rita Ramakrishnan, AIChE, after 9/3 interview + same-day thank-you · since 2026-09-03
 - [ ] Client feedback after submission — Bryce Lowery, Intalegence · since 2026-09-02
 - [ ] Application status, Strategic HR Business Partner — Kristen Ramerini, HSO · since 2026-08-26
-- [ ] Copy of EOB — EmblemHealth · since 2026-08-27
 - [ ] Verification response — Amanda Greene, C-Suite Career Corp · since 2026-08-25
 
 ## ✅ Done
 <!-- Cleared during /start and /wrap-up. Archive monthly. -->
 
+- [x] EmblemHealth EOB — arrived by email 9/9 10:09 AM ET, PDF attached, from C1057ac@emblemhealth.com ("Please see attached requested EOB"). No callback needed; Anthem call still open above — 2026-09-10
 - [x] Book nail appointment with Dana — confirmed done via calendar: "Nails" event on your calendar Tue 9/8, 10:00–11:00 AM ET — 2026-09-07
 - [x] Call the dentist — cancelled per Tell Ellie capture 9/6 ("Cancel the dentist") — 2026-09-06
 - [x] Vault-write/reporting bug closed out — independently verified tonight via `git fetch origin main`: today's Standup (c5ce2b7) and Midday (b63575b) commits both landed on `origin/main` cleanly, local HEAD and origin match with 0 ahead/0 behind. Fix applied 9/4 evening (push via GitHub API instead of raw `git push`, which this environment denies) held for a full day across two automated runs — 2026-09-05
