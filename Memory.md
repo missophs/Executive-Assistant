@@ -60,6 +60,8 @@ _Last updated: 2026-09-10_
 - Why I Switched from Claude to ChatGPT Codex (sabrina.dev) — https://www.sabrina.dev/p/why-i-switched-from-claude-to-chatgpt — sent to self 9/9
 - The Day-Zero Stack: 5 Claude Code Installs (Prime AI) — link carries an embedded `mcp_token=` auth token in the URL, don't forward it as-is — sent to self 9/9
 - 10-Prompts-You-Need-For-GPT-6-Astra.pdf (Google Drive) — link also carries an embedded `mcp_token=` auth token, same caution — https://drive.google.com/file/d/1lpWcw45Kiq81Rc6etJ89MFGBYVTBIVAQ/view — sent to self 9/9
+- 38 Ways AI Writing Gives Itself Away (+ My Humanizer Skill) (Learn AI With Mariah) — link carries an embedded `mcp_token=` auth token, don't forward as-is — https://learnaiwithmariah.com/guides/ai-writing-tells/ — sent to self 9/10
+- "Remote job" — listicle of ~30 job-search websites (SimplyHired etc.) — sent to self 9/10, landed in Trash (not rescued, per Trash policy below); content not fully readable, no URL extracted
 
 ## Decisions & Context
 
