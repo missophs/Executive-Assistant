@@ -4,7 +4,7 @@ Rolling context between sessions. Read at the start of every session, updated du
 
 **Keep this short.** Quick-reference, not a journal. Prune anything resolved or stale.
 
-_Last updated: 2026-09-10 (wrap-up)_
+_Last updated: 2026-09-11 (midday sweep)_
 
 ---
 
@@ -23,6 +23,7 @@ _Last updated: 2026-09-10 (wrap-up)_
 - **Elisa Russo, MBA HRM, SHRM-CP** — Lead Recruiter, CUNY. Reached out via LinkedIn InMail 9/1 re: Vice Chancellor for Human Resources. Interview now confirmed: Fri 9/11, 3:00–4:00 PM ET, Microsoft Teams, panel of Elisa Russo & Sujata Malhotra.
 - **Jonathan Campbell** — CUNY, sent the formal interview request 9/3; you replied same day confirming availability "next week." Scheduling handled via CUNY's Bookings system from there.
 - **Maneeha Arshad** — independent recruiter, LinkedIn InMail. Cold outreach for an unnamed Chief People Officer role in the US; asked for your resume/email on 9/1 and again 9/2 without naming the company or comp. No reply sent — needs your decision to engage.
+- **Vikas Shahi** — orthopedist. Name captured via Tell Ellie 9/11, subject "Orthopedist," no further context (referral? appointment needed?).
 
 ## Follow-Ups
 
@@ -61,6 +62,9 @@ _Last updated: 2026-09-10 (wrap-up)_
 - 10-Prompts-You-Need-For-GPT-6-Astra.pdf (Google Drive) — link also carries an embedded `mcp_token=` auth token, same caution — https://drive.google.com/file/d/1lpWcw45Kiq81Rc6etJ89MFGBYVTBIVAQ/view — sent to self 9/9
 - 38 Ways AI Writing Gives Itself Away (+ My Humanizer Skill) (Learn AI With Mariah) — link carries an embedded `mcp_token=` auth token, don't forward as-is — https://learnaiwithmariah.com/guides/ai-writing-tells/ — sent to self 9/10
 - "Remote job" — listicle of ~30 job-search websites (SimplyHired etc.) — sent to self 9/10, landed in Trash (not rescued, per Trash policy below); content not fully readable, no URL extracted
+- Claude skill — https://lnkd.in/p/gT3wgPKF — sent to self 9/11
+- LinkedIn link (untitled) — https://lnkd.in/p/guJQCpun — sent to self 9/11
+- PeopleFlow — AI-powered HR Service Delivery (chatgpt.site demo) — https://peopleflow-hr-service-delivery.aleksandra-jaworska8.chatgpt.site/ — sent to self 9/11 (sent twice, ~30 min apart)
 
 ## Decisions & Context
 
