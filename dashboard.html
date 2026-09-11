@@ -360,7 +360,18 @@ if(DATA.today.length){
       const card=b.closest('.pcard');
       local={...local,[card.dataset.id]:b.checked};
       card.classList.toggle('done',b.checked);
-      if(db){ try{ await db.doc("state/checks").set({ids:local}); }catch(e){} }
+      if(db){
+        try{ await db.doc("state/checks").set({ids:local}); }catch(e){}
+        const id=card.dataset.id;
+        const taskText=card.querySelector('.task')?.textContent||'';
+        try{
+          if(b.checked){
+            await db.collection("completions").doc(id).set({task:taskText,checkedAt:new Date().toISOString()});
+          }else{
+            await db.collection("completions").doc(id).delete();
+          }
+        }catch(e){}
+      }
     }));
   })();
 }else{
