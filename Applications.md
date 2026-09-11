@@ -13,6 +13,7 @@ Job search pipeline. One row per role. `/sync` updates this from the Scratch Pad
 | Superhuman | Senior People Partner | Applied | 2026-08-29 | 2026-08-29 | Auto-ack only, no human contact yet. Confirmation from Ashby has landed in Trash repeatedly — mail triage is re-trashing it after rescue | Ashby (ATS, auto) |
 | Teleport | Senior People Business Partner - GTM | Applied | 2026-09-01 | 2026-09-01 | Auto-ack only, no human contact yet | Ashby (ATS, auto) |
 | RWT Consulting | (applied via LinkedIn Easy Apply) | Applied | 2026-08-31 | 2026-08-31 | Auto-ack only, no human contact yet | — |
+| Spectrum (Charter Communications) | Director, Human Resources | Applied | 2026-09-11 | 2026-09-11 | Auto-ack only, no human contact yet. Confirmation landed in swm3016@ — a fourth inbox, not previously tracked | iCIMS (ATS, auto) |
 
 ---
 

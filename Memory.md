@@ -4,7 +4,7 @@ Rolling context between sessions. Read at the start of every session, updated du
 
 **Keep this short.** Quick-reference, not a journal. Prune anything resolved or stale.
 
-_Last updated: 2026-09-11 (midday sweep)_
+_Last updated: 2026-09-11 (wrap-up)_
 
 ---
 
@@ -29,8 +29,8 @@ _Last updated: 2026-09-11 (midday sweep)_
 
 | Item | Who | Since | Status |
 |---|---|---|---|
-| Decision on Head of People, after 9/3 interview | Rita Ramakrishnan (AIChE) | 2026-09-03 | Awaiting reply — slipping, 7 days |
-| Strategic HR Business Partner application status | Kristen Ramerini (HSO) | 2026-08-26 | Awaiting reply — slipping, 15 days |
+| Decision on Head of People, after 9/3 interview | Rita Ramakrishnan (AIChE) | 2026-09-03 | Awaiting reply — slipping, 8 days |
+| Strategic HR Business Partner application status | Kristen Ramerini (HSO) | 2026-08-26 | Awaiting reply — slipping, 16 days |
 | Reply re: CPO opportunity (no company/comp given) | Maneeha Arshad (recruiter) | 2026-09-01 | Needs your decision to engage |
 
 ## Saved Links

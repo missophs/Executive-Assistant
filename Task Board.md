@@ -30,7 +30,7 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 - [ ] Triage LinkedIn job alert — Assistant Vice President Human Resources @ Columbia University, $220–265K, + 3 more (LinkedIn alert, 9/6) · #sourcing
 - [ ] Triage LinkedIn job alert — Senior Director, People Strategy & Advisory @ BNY, + 16 more (LinkedIn alert, 9/6) · #sourcing
 - [ ] Check LinkedIn message from "Sakshi" — unread, content not visible in email digest, needs the LinkedIn app to read · #sourcing
-- [ ] Triage Head of People and Culture @ NAACP Legal Defense and Educational Fund (LDF), $210–225K (Indeed match, 9/7, landed in swm3016@) · #sourcing
+- [ ] Triage Head of People and Culture @ NAACP Legal Defense and Educational Fund (LDF), $210–225K (Indeed match, 9/7, landed in swm3016@) — direct apply link also sent to self 9/11 5:34 PM ET, to melweiss212@ (UKG job board posting) · #sourcing
 - [ ] Triage LinkedIn job alert — People Lead @ Sesame, $220–280K, + 3 more (LinkedIn alert, 9/6) · #sourcing
 - [ ] Triage LinkedIn job alert — VP, People Business Partners & Talent Development @ Clio, + 4 more (LinkedIn alert, 9/7) · #sourcing
 - [ ] Triage LinkedIn job alert — Head of Global People Operations & Transformation @ DDN, + 32 more (LinkedIn alert, 9/6) · #sourcing
