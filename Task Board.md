@@ -9,11 +9,13 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 ## 🔥 Today
 <!-- Must know today. Keep to 3. -->
 
+- [ ] CUNY (Vice Chancellor for HR) interview TODAY, 3:00–4:00 PM ET, Microsoft Teams — panel Elisa Russo & Sujata Malhotra. Confirmed by CUNY's own Bookings reminder email 9/10 7:00 PM. Note: one synced calendar copy shows 4–5 PM due to a timezone-label glitch — the reminder email is authoritative, 3–4 PM is correct · due 2026-09-11 · #cuny
 - [ ] Anthem call re: your benefits — Anthem sent a new EOB notification 9/9, log in to view before you call, may cover part of this. EmblemHealth: no longer needed — see Done, EOB arrived by email 9/9 · due 2026-08-31 · #admin
 
 ## ⏭ This Week
 
-- [ ] Reply re: CUNY thank-you follow-through — none needed now, but watch for Rita's (AIChE) decision and CUNY's next-round scheduling · #aiche
+- [ ] Send CUNY thank-you follow-up after today's interview · #cuny
+- [ ] Rita's (AIChE) decision after 9/3 interview — now 8 days with no reply, no action needed from you yet · #aiche
 
 ## 📋 Backlog
 
@@ -37,6 +39,9 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 - [ ] Suspected phishing email in Trash, NOT rescued — "Completed: dentsu Offer Letter" (DocuSign, sender dse_NA3@docusign.net, "recruiter" Kelly Reynolds, sent to melweiss212@ 9/8 7:21 PM). Dentsu is your former employer — your separation agreement completed 3/2026 — and it claims a new offer to "join the dentsu team," with an attached PDF dated 2024-04-12, not a live 2026 document. Left in Trash. Tell Ellie if you want it reported or handled differently — doing nothing leaves it in Trash · #security
 - [ ] Triage 2 large scanned-PDF sends to self 9/8 evening, no caption — "Work history" (9:39 PM) and "Dis 1" (9:32 PM), both to melweiss212@. Can't read PDF content to tell what these are or what's needed · #personal
 - [ ] New message in NYU Langone Health MyChart portal — two notifications 9/8 (3:41 PM and 3:56 PM ET), no content in the email itself, log in to view · #personal
+- [ ] Triage LinkedIn job alert — VP, People @ Backblaze (Nasdaq: BLZE, reports to CHRO), + 10 more (LinkedIn alert, 9/11) · #sourcing
+- [ ] Triage LinkedIn job alert — Vice President, People & Culture @ Greenbox Capital, + 2 more (LinkedIn alert, 9/11) · #sourcing
+- [ ] Triage LinkedIn job alert — Vice President Human Resources @ PeopleOps Jobs, + 39 more (LinkedIn alert, 9/11) · #sourcing
 
 ## ⏳ Waiting On
 <!-- Blocked on someone else. Note who and since when. -->
