@@ -4,13 +4,13 @@ Rolling context between sessions. Read at the start of every session, updated du
 
 **Keep this short.** Quick-reference, not a journal. Prune anything resolved or stale.
 
-_Last updated: 2026-09-11 (wrap-up)_
+_Last updated: 2026-09-12 (standup)_
 
 ---
 
 ## Current Priorities
 
-- Land a senior HR role — VP / CHRO level. AIChE (Head of People) is at Interview stage, awaiting Rita's decision post-interview (9/3) — now 7 days with no reply. CUNY (Vice Chancellor for HR) interview is tomorrow, Fri 9/11, 3–4 PM ET, Microsoft Teams. Intalegence (VP People & Culture) closed 9/10 — rejected, no feedback given.
+- Land a senior HR role — VP / CHRO level. AIChE (Head of People) is at Interview stage, awaiting Rita's decision post-interview (9/3) — now 9 days with no reply. CUNY (Vice Chancellor for HR) interview was held Fri 9/11, 3–4 PM ET, Microsoft Teams — thank-you not yet sent, draft ready in Gmail. Intalegence (VP People & Culture) closed 9/10 — rejected, no feedback given.
 - Comp target: low-to-mid $200Ks base, flexible on total package (bonus/equity in play at Intalegence).
 - Based in NY. Raised it with Bryce as a possible blocker; he confirmed it is not.
 
@@ -20,8 +20,9 @@ _Last updated: 2026-09-11 (wrap-up)_
 - **Bryce Lowery** — Intalegence, executive search. Ran a confidential VP People & Culture search for a mission-driven education company. Emailed 9/10: hiring manager and team decided not to move forward, no feedback given. You replied same day thanking him and asking to be kept in mind for future roles. Closed.
 - **Kristen Ramerini** — HSO. Responded to cold outreach on the Strategic HR Business Partner role; pointed to their standard process. You had already applied via the posting. HSO recently taken on by Bain Capital.
 - **Frank Wittenauer** — organizes the HR Networking & Job Search Group (Wed 12pm ET) and the non-job-related Open Office Hours (Thu 12pm ET). Maintains the shared recruiter roster and LinkedIn group.
-- **Elisa Russo, MBA HRM, SHRM-CP** — Lead Recruiter, CUNY. Reached out via LinkedIn InMail 9/1 re: Vice Chancellor for Human Resources. Interview now confirmed: Fri 9/11, 3:00–4:00 PM ET, Microsoft Teams, panel of Elisa Russo & Sujata Malhotra.
-- **Jonathan Campbell** — CUNY, sent the formal interview request 9/3; you replied same day confirming availability "next week." Scheduling handled via CUNY's Bookings system from there.
+- **Elisa Russo, MBA HRM, SHRM-CP** — Lead Recruiter, CUNY. Reached out via LinkedIn InMail 9/1 re: Vice Chancellor for Human Resources. Interview held Fri 9/11, 3:00–4:00 PM ET, Microsoft Teams, panel of Elisa Russo & Sujata Malhotra. No direct email on file for her — reachable only via LinkedIn or through Jonathan Campbell.
+- **Jonathan Campbell** — CUNY, sent the formal interview request 9/3; you replied same day confirming availability "next week." Scheduling handled via CUNY's Bookings system from there. Thank-you draft (post-interview) is addressed to him, asking him to pass thanks to Elisa and Sujata.
+- **Paul Marchand / Rashmi Mahajan** — Spectrum (Charter Communications). You sent both personalized outreach 9/11 after applying to Director, Human Resources via iCIMS. No replies yet.
 - **Maneeha Arshad** — independent recruiter, LinkedIn InMail. Cold outreach for an unnamed Chief People Officer role in the US; asked for your resume/email on 9/1 and again 9/2 without naming the company or comp. No reply sent — needs your decision to engage.
 - **Vikas Shahi** — orthopedist. Name captured via Tell Ellie 9/11, subject "Orthopedist," no further context (referral? appointment needed?).
 
@@ -29,8 +30,8 @@ _Last updated: 2026-09-11 (wrap-up)_
 
 | Item | Who | Since | Status |
 |---|---|---|---|
-| Decision on Head of People, after 9/3 interview | Rita Ramakrishnan (AIChE) | 2026-09-03 | Awaiting reply — slipping, 8 days |
-| Strategic HR Business Partner application status | Kristen Ramerini (HSO) | 2026-08-26 | Awaiting reply — slipping, 16 days |
+| Decision on Head of People, after 9/3 interview | Rita Ramakrishnan (AIChE) | 2026-09-03 | Awaiting reply — slipping, 9 days |
+| Strategic HR Business Partner application status | Kristen Ramerini (HSO) | 2026-08-26 | Awaiting reply — slipping, 17 days |
 | Reply re: CPO opportunity (no company/comp given) | Maneeha Arshad (recruiter) | 2026-09-01 | Needs your decision to engage |
 
 ## Saved Links
@@ -65,6 +66,7 @@ _Last updated: 2026-09-11 (wrap-up)_
 - Claude skill — https://lnkd.in/p/gT3wgPKF — sent to self 9/11
 - LinkedIn link (untitled) — https://lnkd.in/p/guJQCpun — sent to self 9/11
 - PeopleFlow — AI-powered HR Service Delivery (chatgpt.site demo) — https://peopleflow-hr-service-delivery.aleksandra-jaworska8.chatgpt.site/ — sent to self 9/11 (sent twice, ~30 min apart)
+- Blotato | #1 Social Media APIs for AI Agents, ChatGPT, & Claude — https://www.blotato.com/ — sent to self 9/12
 
 ## Decisions & Context
 

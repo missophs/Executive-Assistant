@@ -9,13 +9,12 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 ## 🔥 Today
 <!-- Must know today. Keep to 3. -->
 
-- [ ] CUNY (Vice Chancellor for HR) interview TODAY, 3:00–4:00 PM ET, Microsoft Teams — panel Elisa Russo & Sujata Malhotra. Confirmed by CUNY's own Bookings reminder email 9/10 7:00 PM. Note: one synced calendar copy shows 4–5 PM due to a timezone-label glitch — the reminder email is authoritative, 3–4 PM is correct · due 2026-09-11 · #cuny
+- [ ] CUNY thank-you follow-up — interview held yesterday (Fri 9/11, 3–4 PM ET) per calendar, confirmed with Jonathan Campbell, Elisa Russo & Sujata Malhotra. No thank-you sent yet. **Draft ready in Gmail** (reply to Jonathan Campbell, since no direct email on file for Elisa/Sujata) — review and send · due 2026-09-12 · #cuny
 - [ ] Anthem call re: your benefits — Anthem sent a new EOB notification 9/9, log in to view before you call, may cover part of this. EmblemHealth: no longer needed — see Done, EOB arrived by email 9/9 · due 2026-08-31 · #admin
 
 ## ⏭ This Week
 
-- [ ] Send CUNY thank-you follow-up after today's interview · #cuny
-- [ ] Rita's (AIChE) decision after 9/3 interview — now 8 days with no reply, no action needed from you yet · #aiche
+- [ ] Rita's (AIChE) decision after 9/3 interview — now 9 days with no reply, no action needed from you yet · #aiche
 
 ## 📋 Backlog
 
@@ -42,6 +41,7 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 - [ ] Triage LinkedIn job alert — VP, People @ Backblaze (Nasdaq: BLZE, reports to CHRO), + 10 more (LinkedIn alert, 9/11) · #sourcing
 - [ ] Triage LinkedIn job alert — Vice President, People & Culture @ Greenbox Capital, + 2 more (LinkedIn alert, 9/11) · #sourcing
 - [ ] Triage LinkedIn job alert — Vice President Human Resources @ PeopleOps Jobs, + 39 more (LinkedIn alert, 9/11) · #sourcing
+- [ ] Triage job link sent to self 9/12 12:50 AM ET — Principal People Partner @ Pie Insurance (Greenhouse posting, no caption/note attached, unclear if applied) — http://job-boards.greenhouse.io/pieinsurance/jobs/6180206004 · #sourcing
 
 ## ⏳ Waiting On
 <!-- Blocked on someone else. Note who and since when. -->
