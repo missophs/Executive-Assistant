@@ -9,7 +9,6 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 ## 🔥 Today
 <!-- Must know today. Keep to 3. -->
 
-- [ ] CUNY thank-you follow-up — interview held yesterday (Fri 9/11, 3–4 PM ET) per calendar, confirmed with Jonathan Campbell, Elisa Russo & Sujata Malhotra. No thank-you sent yet. **Draft ready in Gmail** (reply to Jonathan Campbell, since no direct email on file for Elisa/Sujata) — review and send · due 2026-09-12 · #cuny
 - [ ] Anthem call re: your benefits — Anthem sent a new EOB notification 9/9, log in to view before you call, may cover part of this. EmblemHealth: no longer needed — see Done, EOB arrived by email 9/9 · due 2026-08-31 · #admin
 
 ## ⏭ This Week
@@ -53,6 +52,7 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 ## ✅ Done
 <!-- Cleared during /start and /wrap-up. Archive monthly. -->
 
+- [x] CUNY thank-you follow-up — closed via dashboard checkbox — 2026-09-12
 - [x] Closed out Intalegence (VP, People & Culture) — Bryce Lowery emailed 9/10: hiring manager and team decided not to move forward, no feedback given. You replied same day thanking him and asking to be kept in mind for future roles — 2026-09-10
 - [x] EmblemHealth EOB — arrived by email 9/9 10:09 AM ET, PDF attached, from C1057ac@emblemhealth.com ("Please see attached requested EOB"). No callback needed; Anthem call still open above — 2026-09-10
 - [x] Book nail appointment with Dana — confirmed done via calendar: "Nails" event on your calendar Tue 9/8, 10:00–11:00 AM ET — 2026-09-07
