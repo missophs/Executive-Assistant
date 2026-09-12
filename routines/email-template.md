@@ -157,7 +157,7 @@ After the Drafts box, add this line directly under it:
 ```
 
 ### Midday Sweep — masthead `#1B3A5C`, eyebrow `Midday`
-Headline `Filed your notes`. Subline: the count, e.g. `3 items filed`.
+Headline `[WEEKDAY], [MONTH] [DAY]`. Subline: the count, e.g. `3 items filed`.
 
 | # | Section | Accent | Rows | Include when |
 |---|---|---|---|---|

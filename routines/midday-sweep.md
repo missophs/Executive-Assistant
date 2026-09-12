@@ -32,7 +32,7 @@ STEP 5 - Commit vault changes with a one-line message, then PUSH TO GITHUB and V
   VERIFY before you report anything: `git fetch origin main` and confirm your commit is on `origin/main`. If it is not there, say so plainly in the email under a heading `VAULT WRITE FAILED` and list exactly what did not save. Never write "filed", "added", "logged", "marked done" or "updated" about anything you have not verified is on GitHub.
 
 STEP 6 - EMAIL HER ONLY IF SOMETHING HAPPENED. If you filed nothing, marked nothing done, created no drafts, and found nothing urgent, send NOTHING. Silence is the correct output for a quiet midday.
-  If something did happen, send a short HTML email via Gmail `send_message` to melissaw212@gmail.com, contentType HTML, subject `Filed - <Weekday> midday`:
+  If something did happen, send a short HTML email via Gmail `send_message` to melissaw212@gmail.com, contentType HTML, subject `Midday Sweep - <Weekday>, <Month> <Day>`:
 
 Read `routines/email-template.md` from the repo and build the email exactly as it specifies.
 Use the **Midday Sweep** masthead colour, eyebrow, headline, subline and section list from section 4
