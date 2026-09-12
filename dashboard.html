@@ -55,6 +55,7 @@
 }
 
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
   margin:0; background:var(--ground); color:var(--ink);
   font-family:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
@@ -93,6 +94,7 @@ body{
 .stat{
   background:var(--surface); border:1px solid var(--line); border-radius:13px;
   padding:17px 19px; box-shadow:var(--shadow-s);
+  display:block; text-decoration:none; color:inherit; cursor:pointer;
 }
 .stat .n{font-size:31px; font-weight:800; line-height:1; letter-spacing:-.03em; font-variant-numeric:tabular-nums}
 .stat .k{
@@ -188,11 +190,11 @@ code.cmd{font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(-
     <div class="badges" id="badges"><div class="badge"><b>3</b> open tasks</div><div class="badge"><b>3</b> awaiting reply</div><div class="badge hot"><b>2</b> gone quiet</div></div>
   </header>
 
-  <section class="stats" id="stats"><div class="stat is-blue"><div class="n">3</div><div class="k">Open tasks</div></div><div class="stat is-amber"><div class="n">3</div><div class="k">Awaiting reply</div></div><div class="stat is-red"><div class="n">2</div><div class="k">Gone quiet</div></div></section>
+  <section class="stats" id="stats"><a class="stat is-blue" href="#todayPanel"><div class="n">3</div><div class="k">Open tasks</div></a><a class="stat is-amber" href="#waitPanel"><div class="n">3</div><div class="k">Awaiting reply</div></a><a class="stat is-red" href="#waitPanel"><div class="n">2</div><div class="k">Gone quiet</div></a></section>
 
   <div class="grid">
     <div class="col">
-      <section class="panel">
+      <section class="panel" id="todayPanel" style="scroll-margin-top:16px">
         <div class="phead"><h2>Today&rsquo;s Focus</h2><span class="note" id="todayNote">2 of 3</span></div>
         <div class="rule red"></div>
         <div class="pbody" id="todayWrap"><div class="prio">
@@ -201,7 +203,7 @@ code.cmd{font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(-
         </div></div>
       </section>
 
-      <section class="panel">
+      <section class="panel" id="waitPanel" style="scroll-margin-top:16px">
         <div class="phead"><h2>Waiting On</h2><span class="note" id="waitNote"></span></div>
         <div class="rule amber"></div>
         <div class="pbody" id="waitWrap"><ul class="rail">
@@ -303,10 +305,10 @@ document.getElementById("badges").innerHTML=
   '<div class="badge'+(staleWaiting?' hot':'')+'"><b>'+staleWaiting+'</b> gone quiet</div>';
 
 document.getElementById("stats").innerHTML=[
-  {n:openTasks,k:"Open tasks",c:"is-blue"},
-  {n:DATA.waiting.length,k:"Awaiting reply",c:"is-amber"},
-  {n:staleWaiting,k:"Gone quiet",c:staleWaiting?"is-red":""}
-].map(m=>'<div class="stat '+m.c+'"><div class="n'+(m.n===0?" zero":"")+'">'+m.n+'</div><div class="k">'+m.k+'</div></div>').join("");
+  {n:openTasks,k:"Open tasks",c:"is-blue",href:"#todayPanel"},
+  {n:DATA.waiting.length,k:"Awaiting reply",c:"is-amber",href:"#waitPanel"},
+  {n:staleWaiting,k:"Gone quiet",c:staleWaiting?"is-red":"",href:"#waitPanel"}
+].map(m=>'<a class="stat '+m.c+'" href="'+m.href+'"><div class="n'+(m.n===0?" zero":"")+'">'+m.n+'</div><div class="k">'+m.k+'</div></a>').join("");
 
 const tw=document.getElementById("todayWrap");
 if(DATA.today.length){
