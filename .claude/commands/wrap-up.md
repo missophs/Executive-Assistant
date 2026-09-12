@@ -1,6 +1,6 @@
 ---
 description: End of day — final sweep, day summary, and write memory for tomorrow
-allowed-tools: Read, Write, Edit, Glob, Bash
+allowed-tools: Read, Write, Edit, Glob, Bash, Artifact
 ---
 
 # /wrap-up — Close Out the Day
@@ -9,20 +9,21 @@ Nothing falls through the cracks. This is the last pass before I stop for the da
 
 ## Steps
 
-1. **Final sweep.** Check `Scratch Pad.md` and `Meetings/` for anything unprocessed. If there is, process it now the same way `/sync` does — don't just report that it's there.
-2. **Final board update.** Open `Task Board.md`:
-   - Ask me what I finished today, then move those to Done with the date.
+1. **Drain the Command Center checkbox queue.** Read the `completions` collection from the Command Center artifact (`https://claude.ai/code/artifact/ef023dc5-7573-4ac8-845f-ba8448315a5b`, via the Artifact tool's `read_db`). For each entry, find the matching line on `Task Board.md` by its task text, move it to Done with today's date, then delete that entry (`write_db` delete). Empty queue = nothing to do.
+2. **Final sweep.** Check `Scratch Pad.md` and `Meetings/` for anything unprocessed. If there is, process it now the same way `/sync` does — don't just report that it's there.
+3. **Final board update.** Open `Task Board.md`:
+   - Ask me what else I finished today (beyond what the checkbox queue already closed), then move those to Done with the date.
    - Flag anything that slipped — on the board 3+ days with no movement.
    - Reorder tomorrow's priorities to the top.
-3. **Update today's daily note** at `Daily Notes/YYYY-MM-DD.md`. Add an `## End of Day` section: what got done, what moved, what's still open, and anything notable.
-4. **Write memory.** Update `Memory.md` with anything that should survive to tomorrow:
+4. **Update today's daily note** at `Daily Notes/YYYY-MM-DD.md`. Add an `## End of Day` section: what got done, what moved, what's still open, and anything notable.
+5. **Write memory.** Update `Memory.md` with anything that should survive to tomorrow:
    - New or changed priorities
    - People context (who I'm waiting on, who's waiting on me)
    - Follow-ups with dates
    - Decisions made today and the reasoning behind them
 
    Keep it a quick-reference file, not a journal. Prune anything that's now resolved or stale — don't let it grow forever.
-5. **Give me the end-of-day summary.**
+6. **Give me the end-of-day summary.**
 
 ## Output Format
 

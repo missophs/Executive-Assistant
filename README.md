@@ -11,7 +11,7 @@ The premise: I want to have ideas and execute on them. The sorting, pruning, and
 | Morning | `/start` | Reads the board, memory, and calendar. Gives a ranked plan and asks what to clear. |
 | Throughout | `/sync` | Empties the Scratch Pad, summarizes new meeting notes, updates the board and daily note. |
 | End of day | `/wrap-up` | Final sweep, day summary, writes memory so tomorrow starts warm. |
-| Anytime | `/dashboard` | Regenerates the visual command center and opens it in your browser. |
+| Anytime | `/dashboard` | Regenerates the visual command center, publishes it, and opens it in your browser. |
 
 ## Files
 
@@ -25,6 +25,14 @@ Meetings/          Drop transcripts here. /sync summarizes them.
 Daily Notes/       One YYYY-MM-DD.md per day. The permanent record.
 Memory.md  Rolling context between sessions.
 ```
+
+## Command Center (dashboard)
+
+There is exactly one live copy: **https://claude.ai/code/artifact/ef023dc5-7573-4ac8-845f-ba8448315a5b** — this is what the phone home-screen shortcut should point to, and what `/dashboard` republishes on every run. `dashboard.html` in this repo is a backup copy for editing/git history, not the live page.
+
+Checking a box on the Command Center (phone or computer) queues it as done. It's finalized — moved to Done on `Task Board.md` — the next time you tell Ellie, or run `/sync` or `/wrap-up`. There is deliberately no live two-way sync between phone and computer; the queue drains on the next chat, not instantly.
+
+If you ever see two "Command Center" artifacts in your list, only the URL above is real — the other is a stale duplicate from before the checklist queue existed and should not be used.
 
 ## Setup (once)
 

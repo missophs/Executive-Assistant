@@ -139,30 +139,11 @@ body{
 .pcard .why{font-size:13px; color:var(--ink-2); margin-top:4px}
 .pcard .due{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--muted); margin-top:8px}
 
-/* ── pipeline ── */
-.track{display:flex; gap:6px; margin-bottom:16px}
-.seg{flex:1; text-align:center}
-.seg .bar{height:5px; border-radius:3px; background:var(--sunken); margin-bottom:7px}
-.seg.on .bar{background:var(--blue)}
-.seg .lbl{font-family:"IBM Plex Mono",monospace; font-size:9px; text-transform:uppercase; letter-spacing:.09em; color:var(--muted); display:block}
-.seg .ct{font-size:15px; font-weight:800; margin-top:2px; font-variant-numeric:tabular-nums}
-.seg .ct.zero{color:var(--faint)}
-.roles{display:flex; flex-direction:column; gap:10px}
-.role{
-  display:flex; align-items:center; gap:14px; padding:13px 16px;
-  background:var(--raised); border:1px solid var(--line-2); border-radius:12px;
-}
-.role.stale{background:var(--red-bg); border-color:var(--red-pill)}
-.role .who{flex:1; min-width:0}
-.role .co{font-size:14.5px; font-weight:700; letter-spacing:-.01em}
-.role .ro{font-size:12.5px; color:var(--muted); margin-top:1px}
-.role .rt{text-align:right; flex:none; display:flex; flex-direction:column; align-items:flex-end; gap:5px}
 .pill{border-radius:999px; padding:3px 11px; font-size:10.5px; font-weight:700; white-space:nowrap; letter-spacing:.02em}
 .pill.blue{background:var(--blue-pill); color:var(--blue-ink)}
 .pill.green{background:var(--green-pill); color:var(--green-ink)}
 .pill.amber{background:var(--amber-pill); color:var(--amber-ink)}
 .pill.red{background:var(--red-pill); color:var(--red-ink)}
-.role .nx{font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--faint)}
 
 /* ── rail ── */
 .rail{display:flex; flex-direction:column}
@@ -217,19 +198,13 @@ code.cmd{font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(-
       </section>
 
       <section class="panel">
-        <div class="phead"><h2>Application Pipeline</h2><span class="note" id="pipeNote"></span></div>
-        <div class="rule blue"></div>
-        <div class="pbody" id="pipeWrap"></div>
-      </section>
-    </div>
-
-    <div class="col">
-      <section class="panel">
         <div class="phead"><h2>Waiting On</h2><span class="note" id="waitNote"></span></div>
         <div class="rule amber"></div>
         <div class="pbody" id="waitWrap"></div>
       </section>
+    </div>
 
+    <div class="col">
       <section class="panel">
         <div class="phead"><h2>Priorities</h2></div>
         <div class="rule violet"></div>
@@ -245,10 +220,10 @@ code.cmd{font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(-
   </div>
 
   <div class="howto">
-    <strong>Checking a box marks it done in this view only &mdash; it doesn&rsquo;t touch the vault.</strong>
-    To actually close a task out, tell <strong>Ellie</strong> (Tell Ellie, or say it in chat) or run
-    <code class="cmd">/sync</code>. For anything else, open <strong>claude.ai/code</strong> and pick
-    Executive-Assistant.
+    <strong>Checking a box queues it as done.</strong> It gets finalized &mdash; moved to Done on the
+    Task Board &mdash; the next time you tell <strong>Ellie</strong> (Tell Ellie, or say it in chat) or run
+    <code class="cmd">/sync</code> or <code class="cmd">/wrap-up</code>. For anything else, open
+    <strong>claude.ai/code</strong> and pick Executive-Assistant.
   </div>
 
   <footer class="loop">
@@ -272,15 +247,6 @@ const DATA = {
     {task:"Send CUNY thank-you follow-up after today's interview", due:""},
     {task:"Rita's (AIChE) decision after 9/3 interview — now 8 days with no reply, no action needed from you yet", due:""}
   ],
-  pipeline: [
-    {company:"AIChE (American Institute of Chemical Engineers)", role:"Head of People", stage:"Interview", applied:"", lastContact:"2026-09-03", nextAction:"Awaiting Rita's decision — interview held 9/3, thank-you sent same day with resume/portfolio links"},
-    {company:"CUNY (City University of New York)", role:"Vice Chancellor for Human Resources", stage:"Interview", applied:"2026-08-31", lastContact:"2026-09-03", nextAction:"Interview confirmed Fri 9/11, 3:00–4:00 PM ET, MS Teams — panel Elisa Russo & Sujata Malhotra"},
-    {company:"HSO", role:"Strategic HR Business Partner", stage:"Applied", applied:"2026-08-25", lastContact:"2026-08-26", nextAction:"Nothing owed — Kristen has it"},
-    {company:"Dropbox", role:"(applied via posting)", stage:"Applied", applied:"2026-08-22", lastContact:"2026-08-22", nextAction:"Auto-ack only, no human contact yet"},
-    {company:"Superhuman", role:"Senior People Partner", stage:"Applied", applied:"2026-08-29", lastContact:"2026-08-29", nextAction:"Auto-ack only — Ashby confirmation keeps landing in Trash, re-trashed after rescue"},
-    {company:"Teleport", role:"Senior People Business Partner - GTM", stage:"Applied", applied:"2026-09-01", lastContact:"2026-09-01", nextAction:"Auto-ack only, no human contact yet"},
-    {company:"RWT Consulting", role:"(applied via LinkedIn Easy Apply)", stage:"Applied", applied:"2026-08-31", lastContact:"2026-08-31", nextAction:"Auto-ack only, no human contact yet"}
-  ],
   waiting: [
     {item:"Decision on Head of People, after 9/3 interview + same-day thank-you", who:"Rita Ramakrishnan, AIChE", since:"2026-09-03"},
     {item:"Application status, Strategic HR Business Partner", who:"Kristen Ramerini, HSO", since:"2026-08-26"},
@@ -301,7 +267,6 @@ const DATA = {
   ]
 };
 
-const STAGES=["Researching","Applied","Screen","Interview","Final","Offer"];
 const STALE_DAYS=10;
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const today=DATA.generated?new Date(DATA.generated+"T00:00:00"):new Date();
@@ -311,22 +276,18 @@ function emptyBlock(lead,hint){ return '<div class="empty"><div class="lead">'+l
 document.getElementById("stampDate").textContent =
   today.toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric",year:"numeric"});
 
-const active=DATA.pipeline.filter(p=>p.stage!=="Closed");
-const interviewing=active.filter(p=>["Screen","Interview","Final"].includes(p.stage)).length;
-const stale=active.filter(p=>(daysSince(p.lastContact)??0)>=STALE_DAYS).length;
 const openTasks=DATA.today.length+DATA.week.length;
+const staleWaiting=DATA.waiting.filter(w=>(daysSince(w.since)??0)>=STALE_DAYS).length;
 
 document.getElementById("badges").innerHTML=
-  '<div class="badge"><b>'+active.length+'</b> active roles</div>'+
-  '<div class="badge"><b>'+interviewing+'</b> in process</div>'+
-  '<div class="badge'+(stale?' hot':'')+'"><b>'+stale+'</b> gone quiet</div>';
+  '<div class="badge"><b>'+openTasks+'</b> open tasks</div>'+
+  '<div class="badge"><b>'+DATA.waiting.length+'</b> awaiting reply</div>'+
+  '<div class="badge'+(staleWaiting?' hot':'')+'"><b>'+staleWaiting+'</b> gone quiet</div>';
 
 document.getElementById("stats").innerHTML=[
-  {n:active.length,k:"Active roles",c:"is-blue"},
-  {n:interviewing,k:"In process",c:"is-green"},
+  {n:openTasks,k:"Open tasks",c:"is-blue"},
   {n:DATA.waiting.length,k:"Awaiting reply",c:"is-amber"},
-  {n:openTasks,k:"Open tasks",c:""},
-  {n:stale,k:"Gone quiet",c:stale?"is-red":""}
+  {n:staleWaiting,k:"Gone quiet",c:staleWaiting?"is-red":""}
 ].map(m=>'<div class="stat '+m.c+'"><div class="n'+(m.n===0?" zero":"")+'">'+m.n+'</div><div class="k">'+m.k+'</div></div>').join("");
 
 const tw=document.getElementById("todayWrap");
@@ -376,28 +337,6 @@ if(DATA.today.length){
   })();
 }else{
   tw.innerHTML=emptyBlock("Nothing set for today.",'Run <code class="cmd">/start</code> and it will pick your top three off the Task Board.');
-}
-
-const pw=document.getElementById("pipeWrap");
-if(active.length){
-  document.getElementById("pipeNote").textContent=active.length+" active";
-  const track='<div class="track">'+STAGES.map(s=>{
-    const n=active.filter(p=>p.stage===s).length;
-    return '<div class="seg'+(n?' on':'')+'"><div class="bar"></div><span class="lbl">'+s+
-      '</span><span class="ct'+(n?'':' zero')+'">'+n+'</span></div>';
-  }).join("")+'</div>';
-  const order=s=>STAGES.indexOf(s);
-  const rows='<div class="roles">'+active.slice().sort((a,b)=>order(b.stage)-order(a.stage)).map(p=>{
-    const d=daysSince(p.lastContact); const isStale=d!==null&&d>=STALE_DAYS;
-    const tone=p.stage==="Offer"?"green":p.stage==="Final"||p.stage==="Interview"?"blue":p.stage==="Screen"?"blue":"amber";
-    return '<div class="role'+(isStale?' stale':'')+'"><div class="who"><div class="co">'+esc(p.company)+
-      '</div><div class="ro">'+esc(p.role)+'</div></div><div class="rt"><span class="pill '+(isStale?"red":tone)+'">'+
-      esc(p.stage)+(d!==null?' &middot; '+d+'d':'')+'</span>'+
-      (p.nextAction?'<span class="nx">'+esc(p.nextAction)+'</span>':'')+'</div></div>';
-  }).join("")+'</div>';
-  pw.innerHTML=track+rows;
-}else{
-  pw.innerHTML=emptyBlock("No applications tracked yet.",'Drop roles into <code class="cmd">Scratch Pad.md</code> as you apply, then run <code class="cmd">/sync</code>.');
 }
 
 const ww=document.getElementById("waitWrap");
