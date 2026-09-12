@@ -138,6 +138,7 @@ body{
 .pcard .task{font-size:15px; font-weight:700; letter-spacing:-.01em}
 .pcard .why{font-size:13px; color:var(--ink-2); margin-top:4px}
 .pcard .due{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--muted); margin-top:8px}
+.pcard .pend{margin-top:8px}
 
 .pill{border-radius:999px; padding:3px 11px; font-size:10.5px; font-weight:700; white-space:nowrap; letter-spacing:.02em}
 .pill.blue{background:var(--blue-pill); color:var(--blue-ink)}
@@ -298,7 +299,9 @@ if(DATA.today.length){
       '<div class="row"><input type="checkbox" class="chk" aria-label="Mark done">'+
       '<div class="body"><div class="task">'+esc(t.task)+'</div>'+
       (t.why?'<div class="why">'+esc(t.why)+'</div>':'')+
-      (t.due?'<div class="due">Due '+esc(t.due)+'</div>':'')+'</div></div></div>';
+      (t.due?'<div class="due">Due '+esc(t.due)+'</div>':'')+
+      '<div class="pend pill amber" hidden>Pending — closes at next sync</div>'+
+      '</div></div></div>';
   }).join("")+'</div>';
 
   (async function(){
@@ -308,6 +311,7 @@ if(DATA.today.length){
     const apply=(ids)=>boxes.forEach(b=>{
       const card=b.closest('.pcard'); const on=!!ids[card.dataset.id];
       b.checked=on; card.classList.toggle('done',on);
+      const pend=card.querySelector('.pend'); if(pend) pend.hidden=!on;
     });
     let local={};
     if(db){
@@ -320,6 +324,7 @@ if(DATA.today.length){
       const card=b.closest('.pcard');
       local={...local,[card.dataset.id]:b.checked};
       card.classList.toggle('done',b.checked);
+      const pend=card.querySelector('.pend'); if(pend) pend.hidden=!b.checked;
       if(db){
         try{ await db.doc("state/checks").set({ids:local}); }catch(e){}
         const id=card.dataset.id;

@@ -30,6 +30,7 @@ Nothing falls through the cracks. This is the last pass before I stop for the da
 ```
 ## End of Day — [Day, Date]
 
+**Closed via Command Center checklist:** [n items, or "none"]
 **Done today:** [n items] — [short list]
 **Moved forward:** [items and why]
 **Still open:** [count, with the one that matters most]
