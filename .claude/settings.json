@@ -9,8 +9,7 @@
       "Edit(Memory.md)"
     ],
     "deny": [
-      "Bash(rm:*)",
-      "Bash(git push:*)"
+      "Bash(rm:*)"
     ]
   }
 }

@@ -61,7 +61,7 @@ Everything else still stops and asks:
 | Summarizing files in `Meetings/` | Touching files outside this folder |
 | Updating `Memory.md` | Anything on the internet |
 
-`rm` and `git push` are blocked outright.
+`rm` is blocked outright. `git push` is allowed — used to sync commits to GitHub after your approval.
 
 **The loop:**
 
