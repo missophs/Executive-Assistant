@@ -183,25 +183,32 @@ code.cmd{font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(-
     <div>
       <div class="eyebrow">Ellie &middot; Executive Assistant</div>
       <h1>Command Center</h1>
-      <div class="when" id="stampDate">&mdash;</div>
+      <div class="when" id="stampDate">Saturday, September 12, 2026</div>
     </div>
-    <div class="badges" id="badges"></div>
+    <div class="badges" id="badges"><div class="badge"><b>3</b> open tasks</div><div class="badge"><b>3</b> awaiting reply</div><div class="badge hot"><b>2</b> gone quiet</div></div>
   </header>
 
-  <section class="stats" id="stats"></section>
+  <section class="stats" id="stats"><div class="stat is-blue"><div class="n">3</div><div class="k">Open tasks</div></div><div class="stat is-amber"><div class="n">3</div><div class="k">Awaiting reply</div></div><div class="stat is-red"><div class="n">2</div><div class="k">Gone quiet</div></div></section>
 
   <div class="grid">
     <div class="col">
       <section class="panel">
-        <div class="phead"><h2>Today&rsquo;s Focus</h2><span class="note" id="todayNote"></span></div>
+        <div class="phead"><h2>Today&rsquo;s Focus</h2><span class="note" id="todayNote">2 of 3</span></div>
         <div class="rule red"></div>
-        <div class="pbody" id="todayWrap"></div>
+        <div class="pbody" id="todayWrap"><div class="prio">
+          <div class="pcard r1" data-id="2026-09-12-t0"><div class="row"><input type="checkbox" class="chk" aria-label="Mark done"><div class="body"><div class="task">CUNY thank-you follow-up</div><div class="why">Interview held Fri 9/11, 3&ndash;4 PM ET with Jonathan Campbell, Elisa Russo &amp; Sujata Malhotra. Draft ready in Gmail (reply to Jonathan &mdash; no direct email on file for Elisa/Sujata). Review and send.</div><div class="due">Due 2026-09-12</div><div class="pend pill amber" hidden>Pending &mdash; closes at next sync</div></div></div></div>
+          <div class="pcard r2" data-id="2026-09-12-t1"><div class="row"><input type="checkbox" class="chk" aria-label="Mark done"><div class="body"><div class="task">Anthem call re: benefits</div><div class="why">New EOB notification arrived 9/9 &mdash; log in to view before calling, may cover part of this.</div><div class="due">Due 2026-08-31</div><div class="pend pill amber" hidden>Pending &mdash; closes at next sync</div></div></div></div>
+        </div></div>
       </section>
 
       <section class="panel">
         <div class="phead"><h2>Waiting On</h2><span class="note" id="waitNote"></span></div>
         <div class="rule amber"></div>
-        <div class="pbody" id="waitWrap"></div>
+        <div class="pbody" id="waitWrap"><ul class="rail">
+          <li><div class="txt"><div class="t1">Decision on Head of People, after 9/3 interview + same-day thank-you</div><div class="t2">Rita Ramakrishnan, AIChE</div></div><span class="pill amber">9d</span></li>
+          <li><div class="txt"><div class="t1">Application status, Strategic HR Business Partner</div><div class="t2">Kristen Ramerini, HSO</div></div><span class="pill red">17d</span></li>
+          <li><div class="txt"><div class="t1">Verification response after your scam-check questions</div><div class="t2">Amanda Greene, C-Suite Career Corp</div></div><span class="pill red">18d</span></li>
+        </ul></div>
       </section>
     </div>
 
@@ -209,13 +216,24 @@ code.cmd{font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(-
       <section class="panel">
         <div class="phead"><h2>Priorities</h2></div>
         <div class="rule violet"></div>
-        <div class="pbody" id="prioWrap"></div>
+        <div class="pbody" id="prioWrap"><ul class="bullets">
+          <li>Land a senior HR role &mdash; VP/CHRO level. AIChE (Head of People) awaiting Rita's decision, 9 days since 9/3 interview. CUNY (Vice Chancellor for HR) interview held Fri 9/11 &mdash; thank-you not yet sent. Intalegence (VP People &amp; Culture) closed 9/10, rejected.</li>
+          <li>Comp target: low-to-mid $200Ks base, flexible on total package.</li>
+          <li>Based in NY &mdash; raised as a possible blocker with Bryce Lowery (Intalegence, since closed); he confirmed it isn't one.</li>
+        </ul></div>
       </section>
 
       <section class="panel">
         <div class="phead"><h2>People</h2></div>
         <div class="rule green"></div>
-        <div class="pbody" id="pplWrap"></div>
+        <div class="pbody" id="pplWrap"><ul class="rail">
+          <li><div class="txt"><div class="t1">Rita Ramakrishnan</div><div class="t2">Interim CPO, AIChE. Interview held 9/3, 10:00&ndash;10:45 AM ET; thank-you sent same day. Awaiting her decision, now 9 days.</div></div></li>
+          <li><div class="txt"><div class="t1">Elisa Russo</div><div class="t2">Lead Recruiter, CUNY. Interview held Fri 9/11, MS Teams, panel with Sujata Malhotra. No direct email on file &mdash; reachable via Jonathan Campbell.</div></div></li>
+          <li><div class="txt"><div class="t1">Jonathan Campbell</div><div class="t2">CUNY &mdash; sent the formal interview request 9/3. Thank-you draft is addressed to him, ready to send.</div></div></li>
+          <li><div class="txt"><div class="t1">Kristen Ramerini</div><div class="t2">HSO. Strategic HR Business Partner &mdash; application in their standard process, nothing owed.</div></div></li>
+          <li><div class="txt"><div class="t1">Maneeha Arshad</div><div class="t2">Independent recruiter &mdash; CPO opportunity, no company/comp given. Needs your decision to engage.</div></div></li>
+          <li><div class="txt"><div class="t1">Paul Marchand / Rashmi Mahajan</div><div class="t2">Spectrum (Charter Communications). Personalized outreach sent 9/11 after applying to Director, HR via iCIMS. No replies yet.</div></div></li>
+        </ul></div>
       </section>
     </div>
   </div>

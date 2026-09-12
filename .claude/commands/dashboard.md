@@ -23,7 +23,9 @@ Read the vault, regenerate `dashboard.html`, publish it, and open it.
      people: [ {name, note} ]           // Memory "People"
    }
    ```
-3. **Compute nothing by hand.** Day counts are derived in-page from the dates you supply. Always use `YYYY-MM-DD`.
+
+   **Also update the pre-baked HTML** inside `#stampDate`, `#badges`, `#stats`, `#todayNote`, `#todayWrap`, `#waitWrap`, `#prioWrap`, and `#pplWrap` so it matches `DATA` exactly (same markup the script below would generate, with day-counts computed by hand for this one step). This is deliberate duplication: a downloaded copy of this file, or anything that reads it without running JavaScript (iOS Quick Look, a link pasted into a chat for fetching), only ever sees this static markup — the `<script>` block then overwrites it with the live, interactive version when JS does run. If only `DATA` is updated and the static markup is left stale, the phone/download path silently regresses to old data.
+3. **Compute nothing by hand in the script.** Day counts are derived in-page from the dates you supply. Always use `YYYY-MM-DD`. (The one exception is the static markup from step 2, which has no script to compute for it.)
 4. **Publish it.** Use the Artifact tool to republish `dashboard.html` to the canonical Command Center artifact: `https://claude.ai/code/artifact/ef023dc5-7573-4ac8-845f-ba8448315a5b`. This is what the phone shortcut opens — skipping this step means the phone shows stale data. Do not publish a new artifact; always target this URL.
 5. **Open it locally too:** `open dashboard.html`
 6. **Report in one line:** what changed since the last render — tasks added/closed, anything now overdue.
