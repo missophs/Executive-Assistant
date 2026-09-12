@@ -120,7 +120,7 @@ body{
 
 /* ── priority cards ── */
 .prio{display:flex; flex-direction:column; gap:11px}
-.pcard{border-radius:12px; padding:15px 18px; border-left:5px solid var(--muted); background:var(--raised)}
+.pcard{border-radius:12px; padding:15px 18px; border-left:5px solid var(--muted); background:var(--raised); cursor:pointer}
 .pcard.r1{background:var(--red-bg); border-left-color:var(--red)}
 .pcard.r2{background:var(--amber-bg); border-left-color:var(--amber)}
 .pcard.r3{background:var(--blue-bg); border-left-color:var(--blue)}
@@ -324,6 +324,14 @@ if(DATA.today.length){
 
   (async function(){
     const boxes=[...tw.querySelectorAll('.chk')];
+    boxes.forEach(b=>{
+      const card=b.closest('.pcard');
+      card.addEventListener('click',e=>{
+        if(e.target===b) return;
+        b.checked=!b.checked;
+        b.dispatchEvent(new Event('change'));
+      });
+    });
     let db=null;
     try{ db=(window.claude&&window.claude.use)?await claude.use("db"):null; }catch(e){ db=null; }
     const apply=(ids)=>boxes.forEach(b=>{
