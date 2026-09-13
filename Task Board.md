@@ -10,10 +10,11 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 <!-- Must know today. Keep to 3. -->
 
 - [ ] Anthem call re: your benefits — Anthem sent a new EOB notification 9/9, log in to view before you call, may cover part of this. EmblemHealth: no longer needed — see Done, EOB arrived by email 9/9 · due 2026-08-31 · #admin
+- [ ] New UnitedHealthcare (UHC) Explanation of Benefits available online — separate insurer from Anthem/EmblemHealth, notification arrived 9/13 6:05 AM ET, no content in the email itself, log in to view · #admin
 
 ## ⏭ This Week
 
-- [ ] Rita's (AIChE) decision after 9/3 interview — now 9 days with no reply, no action needed from you yet · #aiche
+- [ ] Rita's (AIChE) decision after 9/3 interview — now 10 days with no reply, no action needed from you yet · #aiche
 
 ## 📋 Backlog
 

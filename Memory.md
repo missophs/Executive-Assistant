@@ -30,8 +30,8 @@ _Last updated: 2026-09-12 (standup)_
 
 | Item | Who | Since | Status |
 |---|---|---|---|
-| Decision on Head of People, after 9/3 interview | Rita Ramakrishnan (AIChE) | 2026-09-03 | Awaiting reply — slipping, 9 days |
-| Strategic HR Business Partner application status | Kristen Ramerini (HSO) | 2026-08-26 | Awaiting reply — slipping, 17 days |
+| Decision on Head of People, after 9/3 interview | Rita Ramakrishnan (AIChE) | 2026-09-03 | Awaiting reply — slipping, 10 days |
+| Strategic HR Business Partner application status | Kristen Ramerini (HSO) | 2026-08-26 | Awaiting reply — slipping, 18 days |
 | Reply re: CPO opportunity (no company/comp given) | Maneeha Arshad (recruiter) | 2026-09-01 | Needs your decision to engage |
 
 ## Saved Links
@@ -126,6 +126,7 @@ Ellie appends to this list herself whenever a rescued thread turns up back in Tr
 | Sender / domain | Added | Why |
 |---|---|---|
 | Superhuman / Ashby application confirmations | 2026-09-04 | Rescued 8/30 and 9/2; she re-trashed it both times |
+| no-reply@ashbyhq.com (Teamworks — Director of People confirmation) | 2026-09-13 | Found in Trash 9/13, not previously tracked. Treated the existing Superhuman entry as covering Ashby auto-ack confirmations generally (not just Superhuman) and left this one unrescued too — logged to Applications.md instead. Flag if this reading is wrong. |
 
 ## Resolved: vault-write bug (Standup/Sync/Wrap-Up reporting actions that never happened)
 

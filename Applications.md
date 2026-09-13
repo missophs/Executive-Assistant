@@ -14,6 +14,7 @@ Job search pipeline. One row per role. `/sync` updates this from the Scratch Pad
 | Teleport | Senior People Business Partner - GTM | Applied | 2026-09-01 | 2026-09-01 | Auto-ack only, no human contact yet | Ashby (ATS, auto) |
 | RWT Consulting | (applied via LinkedIn Easy Apply) | Applied | 2026-08-31 | 2026-08-31 | Auto-ack only, no human contact yet | — |
 | Spectrum (Charter Communications) | Director, Human Resources | Applied | 2026-09-11 | 2026-09-11 | Auto-ack via iCIMS. Also sent personalized outreach 9/11 to Paul Marchand and Rashmi Mahajan — awaiting reply from both | Paul Marchand; Rashmi Mahajan; iCIMS (ATS, auto) |
+| Teamworks | Director of People | Applied | — | 2026-09-12 | Auto-ack only, no human contact yet. Confirmation found in Trash 9/13 (not previously tracked) — not rescued, per Do Not Rescue policy on Ashby confirmations | Ashby (ATS, auto) |
 
 ---
 
