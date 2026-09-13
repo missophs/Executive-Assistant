@@ -67,6 +67,10 @@ _Last updated: 2026-09-12 (standup)_
 - LinkedIn link (untitled) — https://lnkd.in/p/guJQCpun — sent to self 9/11
 - PeopleFlow — AI-powered HR Service Delivery (chatgpt.site demo) — https://peopleflow-hr-service-delivery.aleksandra-jaworska8.chatgpt.site/ — sent to self 9/11 (sent twice, ~30 min apart)
 - Blotato | #1 Social Media APIs for AI Agents, ChatGPT, & Claude — https://www.blotato.com/ — sent to self 9/12
+- Building a company brain — Graph Engineering with Claude Code (Charlie Hills, Substack) — https://charliehills.substack.com/p/graph-engineering-claude-code — sent to self 9/13
+- Building a company brain — LinkedIn link (untitled) — https://lnkd.in/p/g9FuRGHF — sent to self 9/13
+- Free Cloud Computing Services - AWS Free Tier — https://aws.amazon.com/free/ — sent to self 9/13
+- How To Remove The New Claude Watermarks | Maverick AI — https://mavgpt.ai/resources/remove-claude-watermarks-2026 — sent to self 9/13
 
 ## Decisions & Context
 
