@@ -80,6 +80,9 @@ _(Rita Ramakrishnan/AIChE and Kristen Ramerini/HSO follow-ups removed from track
 - "claude LinkedIn profile" (content, no URL — LinkedIn About-section rewrite prompt) — sent to self 9/14
 - "Resume chat" (content, no URL — resume-scoring prompt) — sent to self 9/14
 - "Job search" — Auto-Apply with Cowork (content, no URL) — sent to self 9/14, landed in Trash
+- "Companies hiring remote" — https://lnkd.in/p/ggD6XEkh — sent to self 9/14
+- Oscar Health: About | LinkedIn — https://www.linkedin.com/company/oscar-health/about/ — sent to self 9/14
+- "top sites for a job" — https://lnkd.in/p/dWtPeAcB — sent to self 9/14
 
 ## Decisions & Context
 

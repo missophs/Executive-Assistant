@@ -41,6 +41,7 @@ _(none)_
 - [ ] Triage LinkedIn job alert — Vice President, People & Culture @ Greenbox Capital, + 2 more (LinkedIn alert, 9/11) · #sourcing
 - [ ] Triage LinkedIn job alert — Vice President Human Resources @ PeopleOps Jobs, + 39 more (LinkedIn alert, 9/11) · #sourcing
 - [ ] Triage job link sent to self 9/12 12:50 AM ET — Principal People Partner @ Pie Insurance (Greenhouse posting, no caption/note attached, unclear if applied) — http://job-boards.greenhouse.io/pieinsurance/jobs/6180206004 · #sourcing
+- [ ] Triage job link sent to self 9/14 9:03 AM ET — no company or role given in the capture — https://www.linkedin.com/jobs/view/4465207101/ · #sourcing
 
 ## ⏳ Waiting On
 <!-- Blocked on someone else. Note who and since when. -->
