@@ -14,13 +14,12 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 
 ## ⏭ This Week
 
-- [ ] Rita's (AIChE) decision after 9/3 interview — now 10 days with no reply, no action needed from you yet · #aiche
+_(none)_
 
 ## 📋 Backlog
 
 - [ ] Triage 2 unread LinkedIn alerts — Head of People @ advisorey ($200–275K), Head of HR Real Estate · #sourcing
 - [ ] Triage new leads — OrganOx, VP HR North America (LinkedIn alert, 9/2); Head of People @ Empathy, $180–200K (Indeed, 9/4, landed in swm3016@ — a fourth inbox not previously tracked) · #sourcing
-- [ ] Amanda Greene (C-Suite Career Corp) — you asked scam-verification questions 8/25, no reply since (8+ days) · #sourcing
 - [ ] Respond to Maneeha Arshad (recruiter, LinkedIn InMail) — Chief People Officer opportunity, no company or comp disclosed. She's asked for your resume/email twice (9/1 and 9/2). No reply sent yet — needs your decision to engage before a reply gets drafted · #sourcing
 - [ ] Clarify "do my mom and Barbara's phone" — exact wording from your 8/31 7:33pm Tell Ellie capture ("Remind me to do my mom and Barbara's phone and call anthem about my benefits"). Meaning unclear — confirm what this means · #personal
 - [ ] Confirm "do LinkedIn" task from 8/31 11:56pm capture (flagged urgent for 8:40 AM on 9/1) — that window passed 2 days ago with no record either way. Still needed, or drop it? · #sourcing
@@ -46,13 +45,14 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 ## ⏳ Waiting On
 <!-- Blocked on someone else. Note who and since when. -->
 
-- [ ] Decision on Head of People — Rita Ramakrishnan, AIChE, after 9/3 interview + same-day thank-you · since 2026-09-03
-- [ ] Application status, Strategic HR Business Partner — Kristen Ramerini, HSO · since 2026-08-26
-- [ ] Verification response — Amanda Greene, C-Suite Career Corp · since 2026-08-25
+_(none open)_
 
 ## ✅ Done
 <!-- Cleared during /start and /wrap-up. Archive monthly. -->
 
+- [x] Decision on Head of People, Rita Ramakrishnan (AIChE) — removed from tracking per Tell Ellie capture 9/13 9:27 PM ET ("Remove from my wrapup Rita Kristen and Amanda cause those are done already"). No outcome recorded — closing the follow-up per her instruction, not asserting a result — 2026-09-14
+- [x] Application status, Strategic HR Business Partner, Kristen Ramerini (HSO) — removed from tracking per same 9/13 9:27 PM ET capture — 2026-09-14
+- [x] Verification response, Amanda Greene (C-Suite Career Corp) — removed from tracking per same 9/13 9:27 PM ET capture — 2026-09-14
 - [x] CUNY thank-you follow-up — closed via dashboard checkbox — 2026-09-12
 - [x] Closed out Intalegence (VP, People & Culture) — Bryce Lowery emailed 9/10: hiring manager and team decided not to move forward, no feedback given. You replied same day thanking him and asking to be kept in mind for future roles — 2026-09-10
 - [x] EmblemHealth EOB — arrived by email 9/9 10:09 AM ET, PDF attached, from C1057ac@emblemhealth.com ("Please see attached requested EOB"). No callback needed; Anthem call still open above — 2026-09-10

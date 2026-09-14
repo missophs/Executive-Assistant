@@ -4,21 +4,21 @@ Rolling context between sessions. Read at the start of every session, updated du
 
 **Keep this short.** Quick-reference, not a journal. Prune anything resolved or stale.
 
-_Last updated: 2026-09-12 (standup)_
+_Last updated: 2026-09-14 (standup)_
 
 ---
 
 ## Current Priorities
 
-- Land a senior HR role — VP / CHRO level. AIChE (Head of People) is at Interview stage, awaiting Rita's decision post-interview (9/3) — now 9 days with no reply. CUNY (Vice Chancellor for HR) interview was held Fri 9/11, 3–4 PM ET, Microsoft Teams — thank-you not yet sent, draft ready in Gmail. Intalegence (VP People & Culture) closed 9/10 — rejected, no feedback given.
+- Land a senior HR role — VP / CHRO level. AIChE (Head of People) is at Interview stage post-9/3; Melissa asked 9/13 to stop tracking the decision follow-up (no outcome recorded). CUNY (Vice Chancellor for HR) interview held Fri 9/11, 3–4 PM ET, Microsoft Teams — thank-you sent 9/12 to Elisa Russo and Sujata Malhotra. Intalegence (VP People & Culture) closed 9/10 — rejected, no feedback given.
 - Comp target: low-to-mid $200Ks base, flexible on total package (bonus/equity in play at Intalegence).
 - Based in NY. Raised it with Bryce as a possible blocker; he confirmed it is not.
 
 ## People
 
-- **Rita Ramakrishnan** — Interim Chief People Officer, AIChE. Interview held Thu 9/3, 10:00–10:45 AM ET (screen + hiring-manager conversation combined). Went well; thank-you sent same day with resume/portfolio links. Awaiting her decision as of 9/3.
+- **Rita Ramakrishnan** — Interim Chief People Officer, AIChE. Interview held Thu 9/3, 10:00–10:45 AM ET (screen + hiring-manager conversation combined). Went well; thank-you sent same day with resume/portfolio links. Decision follow-up removed from active tracking 9/14 per Melissa's request — no outcome recorded.
 - **Bryce Lowery** — Intalegence, executive search. Ran a confidential VP People & Culture search for a mission-driven education company. Emailed 9/10: hiring manager and team decided not to move forward, no feedback given. You replied same day thanking him and asking to be kept in mind for future roles. Closed.
-- **Kristen Ramerini** — HSO. Responded to cold outreach on the Strategic HR Business Partner role; pointed to their standard process. You had already applied via the posting. HSO recently taken on by Bain Capital.
+- **Kristen Ramerini** — HSO. Responded to cold outreach on the Strategic HR Business Partner role; pointed to their standard process. You had already applied via the posting. HSO recently taken on by Bain Capital. Application-status follow-up removed from active tracking 9/14 per Melissa's request — no outcome recorded.
 - **Frank Wittenauer** — organizes the HR Networking & Job Search Group (Wed 12pm ET) and the non-job-related Open Office Hours (Thu 12pm ET). Maintains the shared recruiter roster and LinkedIn group.
 - **Elisa Russo, MBA HRM, SHRM-CP** — Lead Recruiter, CUNY. Reached out via LinkedIn InMail 9/1 re: Vice Chancellor for Human Resources. Interview held Fri 9/11, 3:00–4:00 PM ET, Microsoft Teams, panel of Elisa Russo & Sujata Malhotra. No direct email on file for her — reachable only via LinkedIn or through Jonathan Campbell.
 - **Jonathan Campbell** — CUNY, sent the formal interview request 9/3; you replied same day confirming availability "next week." Scheduling handled via CUNY's Bookings system from there. Thank-you draft (post-interview) is addressed to him, asking him to pass thanks to Elisa and Sujata.
@@ -30,9 +30,9 @@ _Last updated: 2026-09-12 (standup)_
 
 | Item | Who | Since | Status |
 |---|---|---|---|
-| Decision on Head of People, after 9/3 interview | Rita Ramakrishnan (AIChE) | 2026-09-03 | Awaiting reply — slipping, 10 days |
-| Strategic HR Business Partner application status | Kristen Ramerini (HSO) | 2026-08-26 | Awaiting reply — slipping, 18 days |
 | Reply re: CPO opportunity (no company/comp given) | Maneeha Arshad (recruiter) | 2026-09-01 | Needs your decision to engage |
+
+_(Rita Ramakrishnan/AIChE and Kristen Ramerini/HSO follow-ups removed from tracking 2026-09-14 per Tell Ellie capture 9/13 9:27 PM ET — "those are done already." No outcome recorded for either.)_
 
 ## Saved Links
 
@@ -71,6 +71,15 @@ _Last updated: 2026-09-12 (standup)_
 - Building a company brain — LinkedIn link (untitled) — https://lnkd.in/p/g9FuRGHF — sent to self 9/13
 - Free Cloud Computing Services - AWS Free Tier — https://aws.amazon.com/free/ — sent to self 9/13
 - How To Remove The New Claude Watermarks | Maverick AI — https://mavgpt.ai/resources/remove-claude-watermarks-2026 — sent to self 9/13
+- "ai privacy" — https://lnkd.in/p/gR7xDv6p — sent to self 9/13
+- Claude in Microsoft — https://lnkd.in/p/g9kYHQGb — sent to self 9/14
+- AI for Excel & PowerPoint — https://lnkd.in/p/gt_bzgSS — sent to self 9/14
+- How I Built an Animated GitHub Profile README (Avi Vashishta) — https://www.avivashishta.com/blog/build-animated-github-profile-readme — sent to self 9/13, again 9/14
+- "Claude portfolio app / resume web" (content, no URL — CV-to-portfolio-app pitch) — sent to self 9/14
+- "LinkedIn writing posts" (content, no URL — content-pillar/posting-calendar prompt) — sent to self 9/14
+- "claude LinkedIn profile" (content, no URL — LinkedIn About-section rewrite prompt) — sent to self 9/14
+- "Resume chat" (content, no URL — resume-scoring prompt) — sent to self 9/14
+- "Job search" — Auto-Apply with Cowork (content, no URL) — sent to self 9/14, landed in Trash
 
 ## Decisions & Context
 
