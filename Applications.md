@@ -13,7 +13,7 @@ Job search pipeline. One row per role. `/sync` updates this from the Scratch Pad
 | Superhuman | Senior People Partner | Applied | 2026-08-29 | 2026-08-29 | Auto-ack only, no human contact yet. Confirmation from Ashby has landed in Trash repeatedly — mail triage is re-trashing it after rescue | Ashby (ATS, auto) |
 | Teleport | Senior People Business Partner - GTM | Applied | 2026-09-01 | 2026-09-01 | Auto-ack only, no human contact yet | Ashby (ATS, auto) |
 | RWT Consulting | (applied via LinkedIn Easy Apply) | Applied | 2026-08-31 | 2026-08-31 | Auto-ack only, no human contact yet | — |
-| Spectrum (Charter Communications) | Director, Human Resources | Applied | 2026-09-11 | 2026-09-11 | Auto-ack via iCIMS. Also sent personalized outreach 9/11 to Paul Marchand and Rashmi Mahajan — awaiting reply from both | Paul Marchand; Rashmi Mahajan; iCIMS (ATS, auto) |
+| Spectrum (Charter Communications) | Director, Human Resources | Screen | 2026-09-11 | 2026-09-14 | **Phone screen scheduled: Wed 9/17, 2:30 PM ET.** Rashmi Mahajan will call 516-313-8888. Invite (ModernHire, .ics attached) landed in swm3016@ 9/14 — not yet on your calendar | Rashmi Mahajan; Paul Marchand (no reply yet); ModernHire (ATS, auto) |
 | Teamworks | Director of People | Applied | — | 2026-09-12 | Auto-ack only, no human contact yet. Confirmation found in Trash 9/13 (not previously tracked) — not rescued, per Do Not Rescue policy on Ashby confirmations | Ashby (ATS, auto) |
 
 ---

@@ -4,13 +4,13 @@ Rolling context between sessions. Read at the start of every session, updated du
 
 **Keep this short.** Quick-reference, not a journal. Prune anything resolved or stale.
 
-_Last updated: 2026-09-14 (standup)_
+_Last updated: 2026-09-14 (wrap-up)_
 
 ---
 
 ## Current Priorities
 
-- Land a senior HR role — VP / CHRO level. AIChE (Head of People) is at Interview stage post-9/3; Melissa asked 9/13 to stop tracking the decision follow-up (no outcome recorded). CUNY (Vice Chancellor for HR) interview held Fri 9/11, 3–4 PM ET, Microsoft Teams — thank-you sent 9/12 to Elisa Russo and Sujata Malhotra. Intalegence (VP People & Culture) closed 9/10 — rejected, no feedback given.
+- Land a senior HR role — VP / CHRO level. AIChE (Head of People) is at Interview stage post-9/3; Melissa asked 9/13 to stop tracking the decision follow-up (no outcome recorded). CUNY (Vice Chancellor for HR) interview held Fri 9/11, 3–4 PM ET, Microsoft Teams — thank-you sent 9/12 to Elisa Russo and Sujata Malhotra. Spectrum (Director, HR) moved to Screen 9/14 — phone screen scheduled Wed 9/17, 2:30 PM ET with Rashmi Mahajan, not yet on calendar. Intalegence (VP People & Culture) closed 9/10 — rejected, no feedback given.
 - Comp target: low-to-mid $200Ks base, flexible on total package (bonus/equity in play at Intalegence).
 - Based in NY. Raised it with Bryce as a possible blocker; he confirmed it is not.
 
@@ -22,7 +22,7 @@ _Last updated: 2026-09-14 (standup)_
 - **Frank Wittenauer** — organizes the HR Networking & Job Search Group (Wed 12pm ET) and the non-job-related Open Office Hours (Thu 12pm ET). Maintains the shared recruiter roster and LinkedIn group.
 - **Elisa Russo, MBA HRM, SHRM-CP** — Lead Recruiter, CUNY. Reached out via LinkedIn InMail 9/1 re: Vice Chancellor for Human Resources. Interview held Fri 9/11, 3:00–4:00 PM ET, Microsoft Teams, panel of Elisa Russo & Sujata Malhotra. No direct email on file for her — reachable only via LinkedIn or through Jonathan Campbell.
 - **Jonathan Campbell** — CUNY, sent the formal interview request 9/3; you replied same day confirming availability "next week." Scheduling handled via CUNY's Bookings system from there. Thank-you draft (post-interview) is addressed to him, asking him to pass thanks to Elisa and Sujata.
-- **Paul Marchand / Rashmi Mahajan** — Spectrum (Charter Communications). You sent both personalized outreach 9/11 after applying to Director, Human Resources via iCIMS. No replies yet.
+- **Rashmi Mahajan** — Spectrum (Charter Communications), re: Director, Human Resources. You sent personalized outreach 9/11; she replied via ModernHire 9/14 — phone screen scheduled Wed 9/17, 2:30 PM ET, she'll call 516-313-8888. Invite landed in swm3016@, not yet on your calendar. Paul Marchand (also emailed 9/11) still hasn't replied.
 - **Maneeha Arshad** — independent recruiter, LinkedIn InMail. Cold outreach for an unnamed Chief People Officer role in the US; asked for your resume/email on 9/1 and again 9/2 without naming the company or comp. No reply sent — needs your decision to engage.
 - **Vikas Shahi** — orthopedist. Name captured via Tell Ellie 9/11, subject "Orthopedist," no further context (referral? appointment needed?).
 
@@ -83,6 +83,7 @@ _(Rita Ramakrishnan/AIChE and Kristen Ramerini/HSO follow-ups removed from track
 - "Companies hiring remote" — https://lnkd.in/p/ggD6XEkh — sent to self 9/14
 - Oscar Health: About | LinkedIn — https://www.linkedin.com/company/oscar-health/about/ — sent to self 9/14
 - "top sites for a job" — https://lnkd.in/p/dWtPeAcB — sent to self 9/14
+- "pitch deck" — https://lnkd.in/p/gSyrETHi — sent to self 9/14
 
 ## Decisions & Context
 

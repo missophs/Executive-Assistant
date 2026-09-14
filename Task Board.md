@@ -9,6 +9,7 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 ## 🔥 Today
 <!-- Must know today. Keep to 3. -->
 
+- [ ] Add Spectrum phone screen to your calendar — Wed 9/17, 2:30 PM ET, Rashmi Mahajan will call you at 516-313-8888 (Director, Human Resources role). Confirmation arrived via ModernHire 9/14 to swm3016@gmail.com with a .ics attachment; not yet on your calendar — open the email and accept it, or Tell Ellie: add the Spectrum call to my calendar · due 2026-09-17 · #jobsearch
 - [ ] Anthem call re: your benefits — Anthem sent a new EOB notification 9/9, log in to view before you call, may cover part of this. EmblemHealth: no longer needed — see Done, EOB arrived by email 9/9 · due 2026-08-31 · #admin
 - [ ] New UnitedHealthcare (UHC) Explanation of Benefits available online — separate insurer from Anthem/EmblemHealth, notification arrived 9/13 6:05 AM ET, no content in the email itself, log in to view · #admin
 
