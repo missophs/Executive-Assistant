@@ -84,6 +84,9 @@ _(Rita Ramakrishnan/AIChE and Kristen Ramerini/HSO follow-ups removed from track
 - Oscar Health: About | LinkedIn — https://www.linkedin.com/company/oscar-health/about/ — sent to self 9/14
 - "top sites for a job" — https://lnkd.in/p/dWtPeAcB — sent to self 9/14
 - "pitch deck" — https://lnkd.in/p/gSyrETHi — sent to self 9/14
+- "graph" — https://lnkd.in/p/gE3xEbry — sent to self 9/15
+- Resume/CV AI prompt library, "chat resume" (content, no URL — CV X-Ray Analyzer, JD Decoder, ATS Optimizer, Achievement Transformer, Recruiter Mind Reader, Final CV Audit prompts) — sent to self 9/15, two sends same thread
+- LinkedIn link (untitled) — https://lnkd.in/p/gwRTGp3f — sent to self 9/15, landed in Trash
 
 ## Decisions & Context
 
