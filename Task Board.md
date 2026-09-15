@@ -9,6 +9,7 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 ## 🔥 Today
 <!-- Must know today. Keep to 3. -->
 
+- [ ] Identify the company for today's "Interview at 1pm" (1:00–2:00 PM ET) — added directly to your calendar 9/14 11:15 PM ET, one minute after your Tell Ellie capture ("for tomorrow add phone interview for actually at 1 PM"). Already on your calendar, nothing to book — but no company/role is recorded anywhere in the vault, so it can't be tracked in Applications.md or prepped for a thank-you note. Tell Ellie which company/role this is · due 2026-09-15 · #jobsearch
 - [ ] Add Spectrum phone screen to your calendar — Wed 9/17, 2:30 PM ET, Rashmi Mahajan will call you at 516-313-8888 (Director, Human Resources role). Confirmation arrived via ModernHire 9/14 to swm3016@gmail.com with a .ics attachment; not yet on your calendar — open the email and accept it, or Tell Ellie: add the Spectrum call to my calendar · due 2026-09-17 · #jobsearch
 - [ ] Anthem call re: your benefits — Anthem sent a new EOB notification 9/9, log in to view before you call, may cover part of this. EmblemHealth: no longer needed — see Done, EOB arrived by email 9/9 · due 2026-08-31 · #admin
 - [ ] New UnitedHealthcare (UHC) Explanation of Benefits available online — separate insurer from Anthem/EmblemHealth, notification arrived 9/13 6:05 AM ET, no content in the email itself, log in to view · #admin
@@ -43,6 +44,8 @@ _(none)_
 - [ ] Triage LinkedIn job alert — Vice President Human Resources @ PeopleOps Jobs, + 39 more (LinkedIn alert, 9/11) · #sourcing
 - [ ] Triage job link sent to self 9/12 12:50 AM ET — Principal People Partner @ Pie Insurance (Greenhouse posting, no caption/note attached, unclear if applied) — http://job-boards.greenhouse.io/pieinsurance/jobs/6180206004 · #sourcing
 - [ ] Triage job link sent to self 9/14 9:03 AM ET — no company or role given in the capture — https://www.linkedin.com/jobs/view/4465207101/ · #sourcing
+- [ ] Triage 4 lab-result PDFs sent to self 9/14 10:27–10:30 PM ET, to melweiss212@, no caption — Lipid Profile, CBC Panel w/Platelets & Differential (sent twice), Comprehensive Metabolic Panel. Can't read attachment content — may relate to the open NYU Langone Health MyChart items above · #personal
+- [ ] Recruiter InMail in Trash, NOT rescued — "Chief of Staff @ Conduit Health" from Nasreen Bharoocha (Recruiter/HR Consultant, real named person, real company — virtual health platform, ~40 employees, Series B). Cold pitch for a Chief of Staff/People Ops role, no comp given. Borderline call: real person + real role, but small startup and unsolicited, so left in Trash per the "when in doubt, don't rescue" rule. Tell Ellie if you want it rescued · #sourcing
 
 ## ⏳ Waiting On
 <!-- Blocked on someone else. Note who and since when. -->
