@@ -4,7 +4,7 @@ Rolling context between sessions. Read at the start of every session, updated du
 
 **Keep this short.** Quick-reference, not a journal. Prune anything resolved or stale.
 
-_Last updated: 2026-09-14 (wrap-up)_
+_Last updated: 2026-09-15 (wrap-up)_
 
 ---
 
@@ -13,6 +13,7 @@ _Last updated: 2026-09-14 (wrap-up)_
 - Land a senior HR role — VP / CHRO level. AIChE (Head of People) is at Interview stage post-9/3; Melissa asked 9/13 to stop tracking the decision follow-up (no outcome recorded). CUNY (Vice Chancellor for HR) interview held Fri 9/11, 3–4 PM ET, Microsoft Teams — thank-you sent 9/12 to Elisa Russo and Sujata Malhotra. Spectrum (Director, HR) moved to Screen 9/14 — phone screen scheduled Wed 9/17, 2:30 PM ET with Rashmi Mahajan, not yet on calendar. Intalegence (VP People & Culture) closed 9/10 — rejected, no feedback given.
 - Comp target: low-to-mid $200Ks base, flexible on total package (bonus/equity in play at Intalegence).
 - Based in NY. Raised it with Bryce as a possible blocker; he confirmed it is not.
+- Today's calendar block "Interview at 1pm" (9/15, 1:00–2:00 PM ET, self-added 9/14 11:15 PM after a Tell Ellie capture) came and went with no company/role ever identified and nothing in sent mail tying back to it. Separately, Nasreen Bharoocha (Conduit Health) sent a real interview invite today for Wed 9/16, 1:00–1:30 PM ET — not yet accepted, and overlapping the HR Networking Group Zoom call. Treated as two distinct unresolved items unless Melissa says otherwise.
 
 ## People
 
@@ -23,14 +24,16 @@ _Last updated: 2026-09-14 (wrap-up)_
 - **Elisa Russo, MBA HRM, SHRM-CP** — Lead Recruiter, CUNY. Reached out via LinkedIn InMail 9/1 re: Vice Chancellor for Human Resources. Interview held Fri 9/11, 3:00–4:00 PM ET, Microsoft Teams, panel of Elisa Russo & Sujata Malhotra. No direct email on file for her — reachable only via LinkedIn or through Jonathan Campbell.
 - **Jonathan Campbell** — CUNY, sent the formal interview request 9/3; you replied same day confirming availability "next week." Scheduling handled via CUNY's Bookings system from there. Thank-you draft (post-interview) is addressed to him, asking him to pass thanks to Elisa and Sujata.
 - **Rashmi Mahajan** — Spectrum (Charter Communications), re: Director, Human Resources. You sent personalized outreach 9/11; she replied via ModernHire 9/14 — phone screen scheduled Wed 9/17, 2:30 PM ET, she'll call 516-313-8888. Invite landed in swm3016@, not yet on your calendar. Paul Marchand (also emailed 9/11) still hasn't replied.
-- **Maneeha Arshad** — independent recruiter, LinkedIn InMail. Cold outreach for an unnamed Chief People Officer role in the US; asked for your resume/email on 9/1 and again 9/2 without naming the company or comp. No reply sent — needs your decision to engage.
+- **Maneeha Arshad** — independent recruiter, LinkedIn InMail. Cold outreach for an unnamed Chief People Officer role in the US; asked for your resume/email on 9/1 and again 9/2 without naming the company or comp. No reply sent — needs your decision to engage. Now 14 days with no movement.
+- **Nasreen Bharoocha** — Recruiter/HR Consultant, Conduit Health (virtual health platform, ~40 employees, Series B). Cold InMail 9/8 re: Chief of Staff/People Ops — left in Trash, unrescued (small startup, unsolicited). Went ahead anyway and sent a calendar invite 9/15 for an interview: first today 1–1:30 PM ET (arrived after the fact), then rescheduled same afternoon to Wed 9/16, 1:00–1:30 PM ET, Google Meet. Sitting on your calendar unaccepted; overlaps the recurring HR Networking Group Zoom call. Needs your accept/decline call.
 - **Vikas Shahi** — orthopedist. Name captured via Tell Ellie 9/11, subject "Orthopedist," no further context (referral? appointment needed?).
 
 ## Follow-Ups
 
 | Item | Who | Since | Status |
 |---|---|---|---|
-| Reply re: CPO opportunity (no company/comp given) | Maneeha Arshad (recruiter) | 2026-09-01 | Needs your decision to engage |
+| Reply re: CPO opportunity (no company/comp given) | Maneeha Arshad (recruiter) | 2026-09-01 | Needs your decision to engage — 14 days, no movement |
+| Accept/decline interview invite (conflicts with HR Networking Group) | Nasreen Bharoocha (Conduit Health) | 2026-09-15 | Needs your decision — see Task Board |
 
 _(Rita Ramakrishnan/AIChE and Kristen Ramerini/HSO follow-ups removed from tracking 2026-09-14 per Tell Ellie capture 9/13 9:27 PM ET — "those are done already." No outcome recorded for either.)_
 

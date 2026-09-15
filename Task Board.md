@@ -9,9 +9,10 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 ## 🔥 Today
 <!-- Must know today. Keep to 3. -->
 
-- [ ] Identify the company for today's "Interview at 1pm" (1:00–2:00 PM ET) — added directly to your calendar 9/14 11:15 PM ET, one minute after your Tell Ellie capture ("for tomorrow add phone interview for actually at 1 PM"). Already on your calendar, nothing to book — but no company/role is recorded anywhere in the vault, so it can't be tracked in Applications.md or prepped for a thank-you note. Tell Ellie which company/role this is · due 2026-09-15 · #jobsearch
-- [ ] Add Spectrum phone screen to your calendar — Wed 9/17, 2:30 PM ET, Rashmi Mahajan will call you at 516-313-8888 (Director, Human Resources role). Confirmation arrived via ModernHire 9/14 to swm3016@gmail.com with a .ics attachment; not yet on your calendar — open the email and accept it, or Tell Ellie: add the Spectrum call to my calendar · due 2026-09-17 · #jobsearch
-- [ ] Anthem call re: your benefits — Anthem sent a new EOB notification 9/9, log in to view before you call, may cover part of this. EmblemHealth: no longer needed — see Done, EOB arrived by email 9/9 · due 2026-08-31 · #admin
+- [ ] Identify the company for today's "Interview at 1pm" (1:00–2:00 PM ET) — added directly to your calendar 9/14 11:15 PM ET, one minute after your Tell Ellie capture ("for tomorrow add phone interview for actually at 1 PM"). The block came and went today with no company/role ever recorded, and nothing in your sent mail today ties back to it — still can't be tracked in Applications.md or prepped for a thank-you note. Not the same event as the new Conduit Health invite below (different company, different provenance) unless you tell Ellie otherwise. Tell Ellie which company/role this is · due 2026-09-15 · #jobsearch
+- [ ] Accept or decline the Conduit Health interview invite — Nasreen Bharoocha (the recruiter whose Chief of Staff/People Ops cold InMail was left in Trash 9/8) sent a calendar invite today for **Wed 9/16, 1:00–1:30 PM ET, Google Meet**, first for today (arrived 1:57 PM, after the fact, never showed as accepted), then rescheduled to tomorrow at 2:47 PM. It's now sitting on your calendar as **needsAction** — Ellie cannot accept/decline for you. It also **overlaps your recurring HR Networking & Job Search Group Zoom call (Wed 12:00–1:30 PM ET)**. Tell Ellie: accept Conduit Health and skip networking group — or Tell Ellie: decline Conduit Health · due 2026-09-16 · #jobsearch
+- [ ] Add Spectrum phone screen to your calendar — Wed 9/17, 2:30 PM ET, Rashmi Mahajan will call you at 516-313-8888 (Director, Human Resources role). Confirmation arrived via ModernHire 9/14 to swm3016@gmail.com with a .ics attachment; still not on your calendar — open the email and accept it, or Tell Ellie: add the Spectrum call to my calendar · due 2026-09-17 · #jobsearch
+- [ ] Anthem call re: your benefits — overdue since 8/31 (15+ days, no movement found in today's sent mail either). Anthem sent a new EOB notification 9/9, log in to view before you call, may cover part of this. EmblemHealth: no longer needed — see Done, EOB arrived by email 9/9 · due 2026-08-31 · #admin
 - [ ] New UnitedHealthcare (UHC) Explanation of Benefits available online — separate insurer from Anthem/EmblemHealth, notification arrived 9/13 6:05 AM ET, no content in the email itself, log in to view · #admin
 
 ## ⏭ This Week
@@ -44,8 +45,6 @@ _(none)_
 - [ ] Triage LinkedIn job alert — Vice President Human Resources @ PeopleOps Jobs, + 39 more (LinkedIn alert, 9/11) · #sourcing
 - [ ] Triage job link sent to self 9/12 12:50 AM ET — Principal People Partner @ Pie Insurance (Greenhouse posting, no caption/note attached, unclear if applied) — http://job-boards.greenhouse.io/pieinsurance/jobs/6180206004 · #sourcing
 - [ ] Triage job link sent to self 9/14 9:03 AM ET — no company or role given in the capture — https://www.linkedin.com/jobs/view/4465207101/ · #sourcing
-- [ ] Triage 4 lab-result PDFs sent to self 9/14 10:27–10:30 PM ET, to melweiss212@, no caption — Lipid Profile, CBC Panel w/Platelets & Differential (sent twice), Comprehensive Metabolic Panel. Can't read attachment content — may relate to the open NYU Langone Health MyChart items above · #personal
-- [ ] Recruiter InMail in Trash, NOT rescued — "Chief of Staff @ Conduit Health" from Nasreen Bharoocha (Recruiter/HR Consultant, real named person, real company — virtual health platform, ~40 employees, Series B). Cold pitch for a Chief of Staff/People Ops role, no comp given. Borderline call: real person + real role, but small startup and unsolicited, so left in Trash per the "when in doubt, don't rescue" rule. Tell Ellie if you want it rescued · #sourcing
 
 ## ⏳ Waiting On
 <!-- Blocked on someone else. Note who and since when. -->
@@ -55,6 +54,8 @@ _(none open)_
 ## ✅ Done
 <!-- Cleared during /start and /wrap-up. Archive monthly. -->
 
+- [x] Triage 4 lab-result PDFs sent to self 9/14 10:27–10:30 PM ET — confirmed handled by your own sent mail: you forwarded them to melweiss212@ (three sends, ~2:27–2:30 AM 9/15) and to franw516@gmail.com with the note "Test results think this is it" (2:38 AM 9/15). Already acted on — no further triage needed — 2026-09-15
+- [x] Recruiter InMail in Trash, NOT rescued — "Chief of Staff @ Conduit Health," Nasreen Bharoocha — superseded: she scheduled a real interview directly (Wed 9/16, 1:00–1:30 PM ET) regardless of the Trash status. Now tracked in Applications.md and as a Today item (accept/decline + calendar conflict). Original InMail is still sitting in Trash, untouched — 2026-09-15
 - [x] Decision on Head of People, Rita Ramakrishnan (AIChE) — removed from tracking per Tell Ellie capture 9/13 9:27 PM ET ("Remove from my wrapup Rita Kristen and Amanda cause those are done already"). No outcome recorded — closing the follow-up per her instruction, not asserting a result — 2026-09-14
 - [x] Application status, Strategic HR Business Partner, Kristen Ramerini (HSO) — removed from tracking per same 9/13 9:27 PM ET capture — 2026-09-14
 - [x] Verification response, Amanda Greene (C-Suite Career Corp) — removed from tracking per same 9/13 9:27 PM ET capture — 2026-09-14

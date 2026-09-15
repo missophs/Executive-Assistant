@@ -15,6 +15,7 @@ Job search pipeline. One row per role. `/sync` updates this from the Scratch Pad
 | RWT Consulting | (applied via LinkedIn Easy Apply) | Applied | 2026-08-31 | 2026-08-31 | Auto-ack only, no human contact yet | — |
 | Spectrum (Charter Communications) | Director, Human Resources | Screen | 2026-09-11 | 2026-09-14 | **Phone screen scheduled: Wed 9/17, 2:30 PM ET.** Rashmi Mahajan will call 516-313-8888. Invite (ModernHire, .ics attached) landed in swm3016@ 9/14 — not yet on your calendar | Rashmi Mahajan; Paul Marchand (no reply yet); ModernHire (ATS, auto) |
 | Teamworks | Director of People | Applied | — | 2026-09-12 | Auto-ack only, no human contact yet. Confirmation found in Trash 9/13 (not previously tracked) — not rescued, per Do Not Rescue policy on Ashby confirmations | Ashby (ATS, auto) |
+| Conduit Health | Chief of Staff / People Ops (per original 9/8 InMail; not restated on the invite) | Interview | — | 2026-09-15 | **Interview invite received for Wed 9/16, 1:00–1:30 PM ET, Google Meet — not yet accepted on your calendar, and it overlaps your recurring HR Networking Group Zoom call same time.** Original cold InMail was left in Trash 9/8; recruiter proceeded to schedule anyway | Nasreen Bharoocha, Recruiter/HR Consultant |
 
 ---
 
