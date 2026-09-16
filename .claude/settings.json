@@ -6,7 +6,8 @@
       "Edit(Scratch Pad.md)",
       "Edit(Daily Notes/**)",
       "Edit(Meetings/**)",
-      "Edit(Memory.md)"
+      "Edit(Memory.md)",
+      "ArtifactData"
     ],
     "deny": [
       "Bash(rm:*)"
