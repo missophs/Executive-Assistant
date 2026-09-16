@@ -9,11 +9,9 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 ## 🔥 Today
 <!-- Must know today. Keep to 3. -->
 
-- [ ] Identify the company for today's "Interview at 1pm" (1:00–2:00 PM ET) — added directly to your calendar 9/14 11:15 PM ET, one minute after your Tell Ellie capture ("for tomorrow add phone interview for actually at 1 PM"). The block came and went today with no company/role ever recorded, and nothing in your sent mail today ties back to it — still can't be tracked in Applications.md or prepped for a thank-you note. Not the same event as the new Conduit Health invite below (different company, different provenance) unless you tell Ellie otherwise. Tell Ellie which company/role this is · due 2026-09-15 · #jobsearch
-- [ ] Accept or decline the Conduit Health interview invite — Nasreen Bharoocha (the recruiter whose Chief of Staff/People Ops cold InMail was left in Trash 9/8) sent a calendar invite today for **Wed 9/16, 1:00–1:30 PM ET, Google Meet**, first for today (arrived 1:57 PM, after the fact, never showed as accepted), then rescheduled to tomorrow at 2:47 PM. It's now sitting on your calendar as **needsAction** — Ellie cannot accept/decline for you. It also **overlaps your recurring HR Networking & Job Search Group Zoom call (Wed 12:00–1:30 PM ET)**. Tell Ellie: accept Conduit Health and skip networking group — or Tell Ellie: decline Conduit Health · due 2026-09-16 · #jobsearch
-- [ ] Add Spectrum phone screen to your calendar — Wed 9/17, 2:30 PM ET, Rashmi Mahajan will call you at 516-313-8888 (Director, Human Resources role). Confirmation arrived via ModernHire 9/14 to swm3016@gmail.com with a .ics attachment; still not on your calendar — open the email and accept it, or Tell Ellie: add the Spectrum call to my calendar · due 2026-09-17 · #jobsearch
-- [ ] Anthem call re: your benefits — overdue since 8/31 (15+ days, no movement found in today's sent mail either). Anthem sent a new EOB notification 9/9, log in to view before you call, may cover part of this. EmblemHealth: no longer needed — see Done, EOB arrived by email 9/9 · due 2026-08-31 · #admin
-- [ ] New UnitedHealthcare (UHC) Explanation of Benefits available online — separate insurer from Anthem/EmblemHealth, notification arrived 9/13 6:05 AM ET, no content in the email itself, log in to view · #admin
+- [ ] Conduit Health interview TODAY, 1:00–1:30 PM ET, Google Meet — your calendar now shows this **accepted** (Ellie did not do this — never accepts/declines invites — so you must have accepted it directly). It still **overlaps your recurring HR Networking & Job Search Group Zoom call (12:00–1:30 PM ET)**, also on your calendar today. Nothing for Ellie to do here — flagging so you know to leave the networking call early or skip it · due 2026-09-16 · #jobsearch
+- [ ] Add Spectrum phone screen to your calendar — Wed 9/17, 2:30 PM ET, Rashmi Mahajan will call you at 516-313-8888 (Director, Human Resources role). You forwarded the ModernHire confirmation and your resume web app directly to Rashmi this morning (9/16, ~9:15 AM ET) ahead of the call — good sign you're on top of it — but the event itself is still not on your calendar. Tell Ellie: add the Spectrum call to my calendar · due 2026-09-17 · #jobsearch
+- [ ] Anthem call re: your benefits — overdue since 8/31 (16+ days, no movement found in sent mail). Anthem sent a new EOB notification 9/9, log in to view before you call, may cover part of this. EmblemHealth: no longer needed — see Done, EOB arrived by email 9/9 · due 2026-08-31 · #admin
 
 ## ⏭ This Week
 
@@ -21,6 +19,8 @@ _(none)_
 
 ## 📋 Backlog
 
+- [ ] Identify the company for the 9/15 "Interview at 1pm" block (1:00–2:00 PM ET, self-added to calendar 9/14 11:15 PM after a Tell Ellie capture) — still unresolved a day later, no company/role ever recorded, nothing in sent mail ties back to it. Tell Ellie which company/role this was, or tell Ellie to drop it · #jobsearch
+- [ ] New UnitedHealthcare (UHC) Explanation of Benefits available online — separate insurer from Anthem/EmblemHealth, notification arrived 9/13 6:05 AM ET, no content in the email itself, log in to view · #admin
 - [ ] Triage 2 unread LinkedIn alerts — Head of People @ advisorey ($200–275K), Head of HR Real Estate · #sourcing
 - [ ] Triage new leads — OrganOx, VP HR North America (LinkedIn alert, 9/2); Head of People @ Empathy, $180–200K (Indeed, 9/4, landed in swm3016@ — a fourth inbox not previously tracked) · #sourcing
 - [ ] Respond to Maneeha Arshad (recruiter, LinkedIn InMail) — Chief People Officer opportunity, no company or comp disclosed. She's asked for your resume/email twice (9/1 and 9/2). No reply sent yet — needs your decision to engage before a reply gets drafted · #sourcing
@@ -54,6 +54,9 @@ _(none open)_
 ## ✅ Done
 <!-- Cleared during /start and /wrap-up. Archive monthly. -->
 
+- [x] AIChE (Head of People) — Rita Ramakrishnan declined to move forward, 9/15 6:42 PM ET, via the Workable thread. You replied yourself 9/16 morning thanking her and asking if she'd share feedback — already sent, no draft needed. Moved to Closed in Applications.md — 2026-09-16
+- [x] Rescued from Trash: Oscar Health (People Strategy Lead) — Greenhouse application acknowledgment, applied ~9/14, landed in dhwconsulting3@. Filed to Applications.md as Applied — 2026-09-16
+- [x] Rescued from Trash: Hims & Hers (Principal HR Business Partner) — rejection notice from forhims.com Talent Acquisition, landed in swm3016@ 9/14. Filed to Applications.md as Closed — 2026-09-16
 - [x] Triage 4 lab-result PDFs sent to self 9/14 10:27–10:30 PM ET — confirmed handled by your own sent mail: you forwarded them to melweiss212@ (three sends, ~2:27–2:30 AM 9/15) and to franw516@gmail.com with the note "Test results think this is it" (2:38 AM 9/15). Already acted on — no further triage needed — 2026-09-15
 - [x] Recruiter InMail in Trash, NOT rescued — "Chief of Staff @ Conduit Health," Nasreen Bharoocha — superseded: she scheduled a real interview directly (Wed 9/16, 1:00–1:30 PM ET) regardless of the Trash status. Now tracked in Applications.md and as a Today item (accept/decline + calendar conflict). Original InMail is still sitting in Trash, untouched — 2026-09-15
 - [x] Decision on Head of People, Rita Ramakrishnan (AIChE) — removed from tracking per Tell Ellie capture 9/13 9:27 PM ET ("Remove from my wrapup Rita Kristen and Amanda cause those are done already"). No outcome recorded — closing the follow-up per her instruction, not asserting a result — 2026-09-14
