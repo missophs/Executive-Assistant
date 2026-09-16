@@ -16,6 +16,7 @@ Read the vault, regenerate `dashboard.html`, publish it, and open it.
    ```js
    {
      generated: "2026-08-29",          // today
+     calendar: [ {time, title, conflict} ], // today's Google Calendar events — time like "12:00–1:30 PM ET", conflict:true when two events overlap. Empty array if nothing today.
      today: [ {id, task, why, due} ],   // from Task Board "Today", max 3 — id = "YYYY-MM-DD-t0" etc, must stay stable day-to-day so checkbox state matches
      week: [ {task, due} ],             // from Task Board "This Week"
      waiting: [ {item, who, since} ],   // from Task Board "Waiting On" — days elapsed is computed in-page
@@ -23,6 +24,7 @@ Read the vault, regenerate `dashboard.html`, publish it, and open it.
      people: [ {name, note} ]           // Memory "People"
    }
    ```
+   Calendar events come from Google Calendar (`list_events`, `melissaw212@gmail.com`, today 00:00–23:59 America/New_York) — never invent one.
 
    **Also update the pre-baked HTML** inside `#stampDate`, `#badges`, `#stats`, `#todayNote`, `#todayWrap`, `#waitWrap`, `#prioWrap`, and `#pplWrap` so it matches `DATA` exactly (same markup the script below would generate, with day-counts computed by hand for this one step). This is deliberate duplication: a downloaded copy of this file, or anything that reads it without running JavaScript (iOS Quick Look, a link pasted into a chat for fetching), only ever sees this static markup — the `<script>` block then overwrites it with the live, interactive version when JS does run. If only `DATA` is updated and the static markup is left stale, the phone/download path silently regresses to old data.
 3. **Compute nothing by hand in the script.** Day counts are derived in-page from the dates you supply. Always use `YYYY-MM-DD`. (The one exception is the static markup from step 2, which has no script to compute for it.)
