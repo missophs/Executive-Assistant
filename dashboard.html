@@ -316,10 +316,19 @@ document.getElementById("badges").innerHTML=
   '<div class="badge'+(staleWaiting?' hot':'')+'"><b>'+staleWaiting+'</b> gone quiet</div>';
 
 document.getElementById("stats").innerHTML=[
-  {n:openTasks,k:"Open tasks",c:"is-blue",href:"#todayPanel"},
-  {n:DATA.waiting.length,k:"Awaiting reply",c:"is-amber",href:"#waitPanel"},
-  {n:staleWaiting,k:"Gone quiet",c:staleWaiting?"is-red":"",href:"#waitPanel"}
-].map(m=>'<a class="stat '+m.c+'" href="'+m.href+'"><div class="n'+(m.n===0?" zero":"")+'">'+m.n+'</div><div class="k">'+m.k+'</div></a>').join("");
+  {n:openTasks,k:"Open tasks",c:"is-blue",target:"todayPanel"},
+  {n:DATA.waiting.length,k:"Awaiting reply",c:"is-amber",target:"waitPanel"},
+  {n:staleWaiting,k:"Gone quiet",c:staleWaiting?"is-red":"",target:"waitPanel"}
+].map(m=>'<div class="stat '+m.c+'" data-target="'+m.target+'" role="button" tabindex="0"><div class="n'+(m.n===0?" zero":"")+'">'+m.n+'</div><div class="k">'+m.k+'</div></div>').join("");
+
+/* Scroll-to-section on stat cards — plain JS scrollIntoView, not <a href="#..."> anchors:
+   the Claude artifact viewer intercepts in-page anchor navigation and opens it as a new
+   page instead of scrolling, so anchors are unusable here for internal jumps. */
+document.querySelectorAll('#stats .stat[data-target]').forEach(el=>{
+  const jump=()=>{ const t=document.getElementById(el.dataset.target); if(t) t.scrollIntoView({behavior:"smooth", block:"start"}); };
+  el.addEventListener("click", jump);
+  el.addEventListener("keydown", e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); jump(); } });
+});
 
 const cw=document.getElementById("calWrap");
 if(DATA.calendar && DATA.calendar.length){
