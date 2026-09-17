@@ -4,13 +4,13 @@ Rolling context between sessions. Read at the start of every session, updated du
 
 **Keep this short.** Quick-reference, not a journal. Prune anything resolved or stale.
 
-_Last updated: 2026-09-16 (wrap-up)_
+_Last updated: 2026-09-17 (wrap-up)_
 
 ---
 
 ## Current Priorities
 
-- Land a senior HR role — VP / CHRO level. AIChE (Head of People) closed 9/16 — Rita rejected 9/15, no feedback given; Melissa replied herself asking if Rita would share any. CUNY (Vice Chancellor for HR) interview held Fri 9/11, 3–4 PM ET, Microsoft Teams — thank-you sent 9/12 to Elisa Russo and Sujata Malhotra; outcome still awaited. Spectrum (Director, HR) at Screen — phone screen **Thu 9/17**, 2:30 PM ET with Rashmi Mahajan (corrected from Wed — ModernHire's own reminder email confirms Thursday); Melissa forwarded her resume web app to Rashmi 9/16 morning, event still not on calendar. Conduit Health interview held today (9/16, 1:00–1:30 PM ET); no outcome yet, no thank-you sent as of 5pm wrap-up. Intalegence (VP People & Culture) closed 9/10 — rejected, no feedback given. Oscar Health (People Strategy Lead) and Hims & Hers (Principal HR Business Partner, rejected) surfaced 9/16 from Trash rescues — both applied 9/14, not previously tracked.
+- Land a senior HR role — VP / CHRO level. AIChE (Head of People) closed 9/16 — Rita rejected 9/15, no feedback given; Melissa replied herself asking if Rita would share any. CUNY (Vice Chancellor for HR) interview held Fri 9/11, 3–4 PM ET, Microsoft Teams — thank-you sent 9/12 to Elisa Russo and Sujata Malhotra; outcome still awaited. Spectrum (Director, HR) phone screen **held today (9/17), 2:30 PM ET** with Rashmi Mahajan — Melissa self-added the calendar event 9/17 10:47 AM ET; no outcome yet. Conduit Health interview held 9/16, 1:00–1:30 PM ET; no outcome yet, and the thank-you to Nasreen Bharoocha still has not been sent as of this wrap-up — carrying into tomorrow. Intalegence (VP People & Culture) closed 9/10 — rejected, no feedback given. Oscar Health (People Strategy Lead) and Hims & Hers (Principal HR Business Partner, rejected) surfaced 9/16 from Trash rescues — both applied 9/14. New today: LRN (Vice President of People) — cold outreach sent 9/16 11:57 PM ET to Patsy Doerr with resume/portfolio link, no reply yet. Arootah (Fractional Director of HR, Advisor Network) — applied via LinkedIn Easy Apply 9/17, auto-ack only.
 - Comp target: low-to-mid $200Ks base, flexible on total package (bonus/equity in play at Intalegence).
 - Based in NY. Raised it with Bryce as a possible blocker; he confirmed it is not.
 - The 9/15 "Interview at 1pm" calendar block (1:00–2:00 PM ET, self-added 9/14 11:15 PM after a Tell Ellie capture) remains unresolved — no company/role ever identified, nothing in sent mail ties back to it. Distinct from Conduit Health (different company, different provenance) unless Melissa says otherwise.
@@ -23,17 +23,20 @@ _Last updated: 2026-09-16 (wrap-up)_
 - **Frank Wittenauer** — organizes the HR Networking & Job Search Group (Wed 12pm ET) and the non-job-related Open Office Hours (Thu 12pm ET). Maintains the shared recruiter roster and LinkedIn group.
 - **Elisa Russo, MBA HRM, SHRM-CP** — Lead Recruiter, CUNY. Reached out via LinkedIn InMail 9/1 re: Vice Chancellor for Human Resources. Interview held Fri 9/11, 3:00–4:00 PM ET, Microsoft Teams, panel of Elisa Russo & Sujata Malhotra. No direct email on file for her — reachable only via LinkedIn or through Jonathan Campbell.
 - **Jonathan Campbell** — CUNY, sent the formal interview request 9/3; you replied same day confirming availability "next week." Scheduling handled via CUNY's Bookings system from there. Thank-you draft (post-interview) is addressed to him, asking him to pass thanks to Elisa and Sujata.
-- **Rashmi Mahajan** — Spectrum (Charter Communications), re: Director, Human Resources. You sent personalized outreach 9/11; she replied via ModernHire 9/14 — phone screen scheduled **Thu 9/17**, 2:30 PM ET (corrected from Wed 9/16 evening — ModernHire's reminder email confirms Thursday), she'll call 516-313-8888. You forwarded the confirmation and your resume web app to her directly 9/16 morning. Event still not on your calendar. Paul Marchand (also emailed 9/11) still hasn't replied.
-- **Maneeha Arshad** — independent recruiter, LinkedIn InMail. Cold outreach for an unnamed Chief People Officer role in the US; asked for your resume/email on 9/1 and again 9/2 without naming the company or comp. No reply sent — needs your decision to engage. Now 14 days with no movement.
-- **Nasreen Bharoocha** — Recruiter/HR Consultant, Conduit Health (virtual health platform, ~40 employees, Series B). Cold InMail 9/8 re: Chief of Staff/People Ops — left in Trash, unrescued (small startup, unsolicited). Went ahead anyway and sent a calendar invite 9/15 for an interview: first for that day 1–1:30 PM ET (arrived after the fact), then rescheduled to Wed 9/16, 1:00–1:30 PM ET, Google Meet. Calendar showed it accepted (not done via Ellie). Interview held as scheduled today — no outcome yet, no thank-you sent as of 5pm wrap-up.
+- **Rashmi Mahajan** — Spectrum (Charter Communications), re: Director, Human Resources. You sent personalized outreach 9/11; she replied via ModernHire 9/14 — phone screen **held today 9/17, 2:30 PM ET**, she called 516-313-8888. You self-added the calendar event 9/17 morning. No outcome yet. Paul Marchand (also emailed 9/11) still hasn't replied.
+- **Patsy Doerr** — LRN, re: Vice President of People. Cold outreach sent 9/16 11:57 PM ET with resume/portfolio link (ai-portfolio-bice-rho.vercel.app). No reply yet.
+- **Maneeha Arshad** — independent recruiter, LinkedIn InMail. Cold outreach for an unnamed Chief People Officer role in the US; asked for your resume/email on 9/1 and again 9/2 without naming the company or comp. No reply sent — needs your decision to engage. Now 16 days with no movement.
+- **Nasreen Bharoocha** — Recruiter/HR Consultant, Conduit Health (virtual health platform, ~40 employees, Series B). Cold InMail 9/8 re: Chief of Staff/People Ops — left in Trash, unrescued (small startup, unsolicited). Went ahead anyway and sent a calendar invite 9/15 for an interview: first for that day 1–1:30 PM ET (arrived after the fact), then rescheduled to Wed 9/16, 1:00–1:30 PM ET, Google Meet. Calendar showed it accepted (not done via Ellie). Interview held as scheduled 9/16 — no outcome yet, no thank-you sent as of 9/17 wrap-up.
 - **Vikas Shahi** — orthopedist. Name captured via Tell Ellie 9/11, subject "Orthopedist," no further context (referral? appointment needed?).
 
 ## Follow-Ups
 
 | Item | Who | Since | Status |
 |---|---|---|---|
-| Reply re: CPO opportunity (no company/comp given) | Maneeha Arshad (recruiter) | 2026-09-01 | Needs your decision to engage — 15 days, no movement |
-| Interview outcome | Nasreen Bharoocha (Conduit Health) | 2026-09-16 | Interview held today, awaiting outcome; thank-you not yet sent |
+| Reply re: CPO opportunity (no company/comp given) | Maneeha Arshad (recruiter) | 2026-09-01 | Needs your decision to engage — 16 days, no movement |
+| Interview outcome | Nasreen Bharoocha (Conduit Health) | 2026-09-16 | Interview held 9/16, awaiting outcome; thank-you still not sent as of 9/17 wrap-up |
+| Phone screen outcome | Rashmi Mahajan (Spectrum) | 2026-09-17 | Screen held today, 2:30 PM ET; awaiting outcome |
+| Reply to cold outreach | Patsy Doerr (LRN) | 2026-09-16 | Sent 9/16 11:57 PM ET, no reply yet |
 
 _(Rita Ramakrishnan/AIChE follow-up: outcome arrived 9/16 — see People above, closed. Kristen Ramerini/HSO follow-up removed from tracking 2026-09-14 per Tell Ellie capture 9/13 9:27 PM ET — "those are done already." No outcome recorded.)_
 

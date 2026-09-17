@@ -12,10 +12,12 @@ Job search pipeline. One row per role. `/sync` updates this from the Scratch Pad
 | Superhuman | Senior People Partner | Applied | 2026-08-29 | 2026-08-29 | Auto-ack only, no human contact yet. Confirmation from Ashby has landed in Trash repeatedly — mail triage is re-trashing it after rescue | Ashby (ATS, auto) |
 | Teleport | Senior People Business Partner - GTM | Applied | 2026-09-01 | 2026-09-01 | Auto-ack only, no human contact yet | Ashby (ATS, auto) |
 | RWT Consulting | (applied via LinkedIn Easy Apply) | Applied | 2026-08-31 | 2026-08-31 | Auto-ack only, no human contact yet | — |
-| Spectrum (Charter Communications) | Director, Human Resources | Screen | 2026-09-11 | 2026-09-16 | **Phone screen scheduled: Thu 9/17, 2:30 PM ET** (corrected from Wed — ModernHire's own reminder, sent 9/16, confirms Thursday). Rashmi Mahajan will call 516-313-8888. You forwarded the confirmation + your resume web app to her directly 9/16 morning. Event itself still not on your calendar | Rashmi Mahajan; Paul Marchand (no reply yet); ModernHire (ATS, auto) |
+| Spectrum (Charter Communications) | Director, Human Resources | Screen | 2026-09-11 | 2026-09-17 | **Phone screen held today, 2:30 PM ET** — self-added to your calendar this morning (10:47 AM ET), Rashmi Mahajan called 516-313-8888. No outcome yet | Rashmi Mahajan; Paul Marchand (no reply yet); ModernHire (ATS, auto) |
 | Teamworks | Director of People | Applied | — | 2026-09-12 | Auto-ack only, no human contact yet. Confirmation found in Trash 9/13 (not previously tracked) — not rescued, per Do Not Rescue policy on Ashby confirmations | Ashby (ATS, auto) |
 | Conduit Health | Chief of Staff / People Ops (per original 9/8 InMail; not restated on the invite) | Interview | — | 2026-09-16 | **Interview held today, 1:00–1:30 PM ET, Google Meet.** No outcome yet; no thank-you sent as of 5pm — recommend sending one to Nasreen. Original cold InMail was left in Trash 9/8; recruiter proceeded to schedule anyway | Nasreen Bharoocha, Recruiter/HR Consultant |
 | Oscar Health | People Strategy Lead | Applied | 2026-09-14 | 2026-09-14 | Auto-ack only (Greenhouse), no human contact yet. Ack landed in dhwconsulting3@, was in Trash — rescued 9/16 | Greenhouse (ATS, auto) |
+| LRN | Vice President of People | Applied | 2026-09-16 | 2026-09-16 | Cold outreach sent 9/16 11:57 PM ET, resume/portfolio link included (ai-portfolio-bice-rho.vercel.app). No reply yet | Patsy Doerr |
+| Arootah | Fractional Director of Human Resources (Advisor Network) | Applied | 2026-09-17 | 2026-09-17 | Auto-ack only (LinkedIn Easy Apply), no human contact yet | LinkedIn (auto) |
 
 ---
 

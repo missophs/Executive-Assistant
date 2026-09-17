@@ -9,12 +9,12 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 ## 🔥 Today
 <!-- Must know today. Keep to 3. -->
 
-- [ ] Add Spectrum phone screen to your calendar — corrected date: **Thu 9/17** (not Wed as previously noted — confirmed by ModernHire's own reminder email, sent today), 2:30 PM ET, Rashmi Mahajan will call you at 516-313-8888 (Director, Human Resources role). You forwarded the ModernHire confirmation and your resume web app directly to Rashmi this morning (9/16, ~9:15 AM ET) ahead of the call — good sign you're on top of it — but the event itself is still not on your calendar. Tell Ellie: add the Spectrum call to my calendar · due 2026-09-17 · #jobsearch
-- [ ] Anthem call re: your benefits — overdue since 8/31 (16+ days, no movement found in sent mail). Anthem sent a new EOB notification 9/9, log in to view before you call, may cover part of this. EmblemHealth: no longer needed — see Done, EOB arrived by email 9/9 · due 2026-08-31 · #admin
+- [ ] Anthem call re: your benefits — still overdue, now 17 days (since 8/31), no movement found in sent mail today either. Anthem sent a new EOB notification 9/9, log in to view before you call, may cover part of this. EmblemHealth: no longer needed — see Done, EOB arrived by email 9/9 · due 2026-08-31 · #admin
+- [ ] Send a thank-you to Nasreen Bharoocha (Conduit Health) following Wed 9/16's interview — due date passed today with no thank-you sent, carrying into tomorrow · due 2026-09-18 · #jobsearch
 
 ## ⏭ This Week
 
-- [ ] Send a thank-you to Nasreen Bharoocha (Conduit Health) following today's interview — no thank-you found in your sent mail as of 5pm wrap-up · due 2026-09-17 · #jobsearch
+_(none open)_
 
 ## 📋 Backlog
 
@@ -54,6 +54,7 @@ _(none open)_
 ## ✅ Done
 <!-- Cleared during /start and /wrap-up. Archive monthly. -->
 
+- [x] Add Spectrum phone screen to your calendar — done. Calendar shows the event self-added this morning (created 10:47 AM ET), correct Thu 9/17, 2:30 PM ET, Rashmi Mahajan called 516-313-8888. Call has taken place by this wrap-up; no outcome yet — see Applications.md — 2026-09-17
 - [x] Conduit Health interview held today, 1:00–1:30 PM ET, Google Meet — calendar showed it accepted this morning; nothing further for Ellie during the day. No thank-you found in your sent mail as of 5pm — added as a task for tomorrow — 2026-09-16
 - [x] AIChE (Head of People) — Rita Ramakrishnan declined to move forward, 9/15 6:42 PM ET, via the Workable thread. You replied yourself 9/16 morning thanking her and asking if she'd share feedback — already sent, no draft needed. Moved to Closed in Applications.md — 2026-09-16
 - [x] Rescued from Trash: Oscar Health (People Strategy Lead) — Greenhouse application acknowledgment, applied ~9/14, landed in dhwconsulting3@. Filed to Applications.md as Applied — 2026-09-16
