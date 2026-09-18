@@ -16,7 +16,7 @@ Read the vault, regenerate `dashboard.html`, publish it, and open it.
    ```js
    {
      generated: "2026-08-29",          // today
-     calendar: [ {time, title, conflict} ], // today's Google Calendar events — time like "12:00–1:30 PM ET", conflict:true when two events overlap. Empty array if nothing today.
+     calendar: [ {day, time, title, conflict} ], // today's AND tomorrow's Google Calendar events — day is "Today"/"Tomorrow", time like "12:00–1:30 PM ET", conflict:true only for same-day overlaps. Empty array if nothing either day.
      today: [ {id, task, why, due} ],   // from Task Board "Today", max 3 — id = "YYYY-MM-DD-t0" etc, must stay stable day-to-day so checkbox state matches
      week: [ {task, due} ],             // from Task Board "This Week"
      waiting: [ {item, who, since} ],   // from Task Board "Waiting On" — days elapsed is computed in-page
