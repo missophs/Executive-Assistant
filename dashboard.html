@@ -147,6 +147,22 @@ body{
 .pill.green{background:var(--green-pill); color:var(--green-ink)}
 .pill.amber{background:var(--amber-pill); color:var(--amber-ink)}
 .pill.red{background:var(--red-pill); color:var(--red-ink)}
+.pill.violet{background:var(--violet-bg); color:var(--violet)}
+
+/* ── review (drift check) ── */
+.revItem{padding:12px 0; border-bottom:1px solid var(--line-2); display:flex; gap:11px; align-items:flex-start}
+.revItem:last-child{border-bottom:0; padding-bottom:0}
+.revItem:first-child{padding-top:0}
+.revItem .txt{flex:1; min-width:0}
+.revItem .cat{font-family:"IBM Plex Mono",monospace; font-size:9.5px; text-transform:uppercase; letter-spacing:.1em; font-weight:700}
+.revItem .desc{font-size:13.5px; color:var(--ink-2); margin-top:4px; line-height:1.5}
+.revDismiss{
+  flex:none; border:1px solid var(--line); background:var(--surface); color:var(--muted);
+  font-size:11px; font-weight:600; border-radius:8px; padding:5px 10px; cursor:pointer;
+  font-family:inherit;
+}
+.revDismiss:hover{background:var(--raised); color:var(--ink)}
+.revItem.dismissed{display:none}
 
 /* ── rail ── */
 .rail{display:flex; flex-direction:column}
@@ -187,14 +203,14 @@ code.cmd{font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(-
       <h1>Command Center</h1>
       <div class="when" id="stampDate">Friday, September 18, 2026</div>
     </div>
-    <div class="badges" id="badges"><div class="badge"><b>2</b> open tasks</div><div class="badge"><b>4</b> awaiting reply</div><div class="badge hot"><b>1</b> gone quiet</div></div>
+    <div class="badges" id="badges"><div class="badge"><b>2</b> open tasks</div><div class="badge"><b>4</b> awaiting reply</div><div class="badge hot"><b>1</b> gone quiet</div><div class="badge hot"><b>4</b> need review</div></div>
   </header>
 
   <a class="howto" href="https://claude.ai/code/artifact/ef023dc5-7573-4ac8-845f-ba8448315a5b" target="_blank" rel="noopener" style="display:block; text-decoration:none">
     <strong>Open the live Command Center &rarr;</strong> tap here for the always-current, interactive version. Works on your phone, no login needed.
   </a>
 
-  <section class="stats" id="stats"><div class="stat is-blue" data-target="todayPanel" role="button" tabindex="0"><div class="n">2</div><div class="k">Open tasks</div></div><div class="stat is-amber" data-target="waitPanel" role="button" tabindex="0"><div class="n">4</div><div class="k">Awaiting reply</div></div><div class="stat is-red" data-target="waitPanel" role="button" tabindex="0"><div class="n">1</div><div class="k">Gone quiet</div></div></section>
+  <section class="stats" id="stats"><div class="stat is-blue" data-target="todayPanel" role="button" tabindex="0"><div class="n">2</div><div class="k">Open tasks</div></div><div class="stat is-amber" data-target="waitPanel" role="button" tabindex="0"><div class="n">4</div><div class="k">Awaiting reply</div></div><div class="stat is-red" data-target="waitPanel" role="button" tabindex="0"><div class="n">1</div><div class="k">Gone quiet</div></div><div class="stat is-red" data-target="reviewPanel" role="button" tabindex="0"><div class="n">4</div><div class="k">Need review</div></div></section>
 
   <div class="grid">
     <div class="col">
@@ -225,6 +241,17 @@ code.cmd{font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(-
           <li><div class="txt"><div class="t1">Phone screen outcome</div><div class="t2">Rashmi Mahajan, Spectrum</div></div><span class="pill blue">1d</span></li>
           <li><div class="txt"><div class="t1">Reply to cold outreach</div><div class="t2">Patsy Doerr &amp; Ashley Fredericks, LRN</div></div><span class="pill blue">2d</span></li>
         </ul></div>
+      </section>
+
+      <section class="panel" id="reviewPanel" style="scroll-margin-top:16px">
+        <div class="phead"><h2>Review <span style="font-weight:500; color:var(--muted); font-size:12px">&middot; drift check</span></h2><span class="note" id="reviewNote">4 items</span></div>
+        <div class="rule red"></div>
+        <div class="pbody" id="reviewWrap">
+          <div class="revItem" data-id="2026-09-18-r0"><div class="txt"><div class="cat" style="color:var(--red)">Contradiction</div><div class="desc">Task Board&rsquo;s Waiting On section says &ldquo;(none open)&rdquo; but Memory&rsquo;s Follow-Ups table tracks 4 open items (Maneeha Arshad, Nasreen Bharoocha, Rashmi Mahajan, Patsy Doerr &amp; Ashley Fredericks). Task Board should be the source of truth here.</div></div><button class="revDismiss" type="button">Seen</button></div>
+          <div class="revItem" data-id="2026-09-18-r1"><div class="txt"><div class="cat" style="color:var(--amber)">Stale 10+ days</div><div class="desc">8 LinkedIn/Indeed job-alert triage items sitting untouched, oldest since 9/2 (16 days) &mdash; never triaged into applied or skipped.</div></div><button class="revDismiss" type="button">Seen</button></div>
+          <div class="revItem" data-id="2026-09-18-r2"><div class="txt"><div class="cat" style="color:var(--blue)">Unanswered 5+ days</div><div class="desc">5 items waiting on your answer, oldest since 8/31 (18 days): the mom/Barbara phone reminder, the &ldquo;do LinkedIn&rdquo; task, a screenshot sent 9/7, an NYU Langone PDF sent 9/7, and the still-unidentified 9/15 &ldquo;Interview at 1pm&rdquo; calendar block.</div></div><button class="revDismiss" type="button">Seen</button></div>
+          <div class="revItem" data-id="2026-09-18-r3"><div class="txt"><div class="cat" style="color:var(--violet)">Still open</div><div class="desc">Suspected phishing email (fake dentsu offer letter) flagged 9/8 &mdash; still sitting in Trash, never reported or resolved (10 days).</div></div><button class="revDismiss" type="button">Seen</button></div>
+        </div>
       </section>
     </div>
 
@@ -301,6 +328,12 @@ const DATA = {
     {name:"Ashley Fredericks", note:"LRN, second contact re: same VP of People opening. Cold outreach 9/16, followed up 9/17 night. No reply yet."},
     {name:"Elisa Russo", note:"Lead Recruiter, CUNY. Interview held Fri 9/11 — thank-you sent 9/12. Reachable via Jonathan Campbell."},
     {name:"Maneeha Arshad", note:"Independent recruiter — CPO opportunity, no company/comp given. Needs your decision to engage, 17 days stale."}
+  ],
+  review: [
+    {id:"2026-09-18-r0", cat:"Contradiction", desc:"Task Board's Waiting On section says \"(none open)\" but Memory's Follow-Ups table tracks 4 open items (Maneeha Arshad, Nasreen Bharoocha, Rashmi Mahajan, Patsy Doerr & Ashley Fredericks). Task Board should be the source of truth here."},
+    {id:"2026-09-18-r1", cat:"Stale 10+ days", desc:"8 LinkedIn/Indeed job-alert triage items sitting untouched, oldest since 9/2 (16 days) — never triaged into applied or skipped."},
+    {id:"2026-09-18-r2", cat:"Unanswered 5+ days", desc:"5 items waiting on your answer, oldest since 8/31 (18 days): the mom/Barbara phone reminder, the \"do LinkedIn\" task, a screenshot sent 9/7, an NYU Langone PDF sent 9/7, and the still-unidentified 9/15 \"Interview at 1pm\" calendar block."},
+    {id:"2026-09-18-r3", cat:"Still open", desc:"Suspected phishing email (fake dentsu offer letter) flagged 9/8 — still sitting in Trash, never reported or resolved (10 days)."}
   ]
 };
 
@@ -316,15 +349,19 @@ document.getElementById("stampDate").textContent =
 const openTasks=DATA.today.length+DATA.week.length;
 const staleWaiting=DATA.waiting.filter(w=>(daysSince(w.since)??0)>=STALE_DAYS).length;
 
+const reviewCount=(DATA.review||[]).length;
+
 document.getElementById("badges").innerHTML=
   '<div class="badge"><b>'+openTasks+'</b> open tasks</div>'+
   '<div class="badge"><b>'+DATA.waiting.length+'</b> awaiting reply</div>'+
-  '<div class="badge'+(staleWaiting?' hot':'')+'"><b>'+staleWaiting+'</b> gone quiet</div>';
+  '<div class="badge'+(staleWaiting?' hot':'')+'"><b>'+staleWaiting+'</b> gone quiet</div>'+
+  (reviewCount?'<div class="badge hot"><b>'+reviewCount+'</b> need review</div>':'');
 
 document.getElementById("stats").innerHTML=[
   {n:openTasks,k:"Open tasks",c:"is-blue",target:"todayPanel"},
   {n:DATA.waiting.length,k:"Awaiting reply",c:"is-amber",target:"waitPanel"},
-  {n:staleWaiting,k:"Gone quiet",c:staleWaiting?"is-red":"",target:"waitPanel"}
+  {n:staleWaiting,k:"Gone quiet",c:staleWaiting?"is-red":"",target:"waitPanel"},
+  {n:reviewCount,k:"Need review",c:reviewCount?"is-red":"",target:"reviewPanel"}
 ].map(m=>'<div class="stat '+m.c+'" data-target="'+m.target+'" role="button" tabindex="0"><div class="n'+(m.n===0?" zero":"")+'">'+m.n+'</div><div class="k">'+m.k+'</div></div>').join("");
 
 /* Scroll-to-section on stat cards — plain JS scrollIntoView, not <a href="#..."> anchors:
@@ -422,6 +459,41 @@ if(DATA.waiting.length){
   }).join("")+'</ul>';
 }else{
   ww.innerHTML=emptyBlock("Nobody owes you anything.","Follow-ups appear here with a day count once they exist.");
+}
+
+const rw=document.getElementById("reviewWrap");
+if(DATA.review && DATA.review.length){
+  document.getElementById("reviewNote").textContent=DATA.review.length+(DATA.review.length===1?" item":" items");
+  rw.innerHTML=DATA.review.map((r,i)=>{
+    const id=r.id||(DATA.generated+"-r"+i);
+    return '<div class="revItem" data-id="'+esc(id)+'"><div class="txt"><div class="cat">'+esc(r.cat)+
+      '</div><div class="desc">'+esc(r.desc)+'</div></div><button class="revDismiss" type="button">Seen</button></div>';
+  }).join("");
+  (async function(){
+    let db=null;
+    try{ db=(window.claude&&window.claude.use)?await claude.use("db"):null; }catch(e){ db=null; }
+    let dismissed={};
+    const applyDismissed=()=>rw.querySelectorAll('.revItem').forEach(el=>{
+      el.classList.toggle('dismissed', !!dismissed[el.dataset.id]);
+    });
+    if(db){
+      db.doc("state/driftDismissed").onSnapshot(snap=>{
+        dismissed=(snap.exists&&snap.data().ids)||{};
+        applyDismissed();
+      },()=>{});
+    }
+    rw.querySelectorAll('.revDismiss').forEach(btn=>{
+      btn.addEventListener('click', async()=>{
+        const item=btn.closest('.revItem');
+        dismissed={...dismissed,[item.dataset.id]:true};
+        applyDismissed();
+        if(db){ try{ await db.doc("state/driftDismissed").set({ids:dismissed}); }catch(e){} }
+      });
+    });
+  })();
+}else{
+  document.getElementById("reviewNote").textContent="";
+  rw.innerHTML=emptyBlock("Nothing flagged.","Run /drift-check and it'll surface contradictions and stale items here.");
 }
 
 document.getElementById("prioWrap").innerHTML=DATA.priorities.length
