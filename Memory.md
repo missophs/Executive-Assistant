@@ -95,6 +95,7 @@ _(Rita Ramakrishnan/AIChE follow-up: outcome arrived 9/16 — see People above, 
 - Resume/CV AI prompt library, "chat resume" (content, no URL — CV X-Ray Analyzer, JD Decoder, ATS Optimizer, Achievement Transformer, Recruiter Mind Reader, Final CV Audit prompts) — sent to self 9/15, two sends same thread
 - LinkedIn link (untitled) — https://lnkd.in/p/gwRTGp3f — sent to self 9/15, landed in Trash
 - melissaweissap.netlify.app — sent to self 9/17 8:00 AM ET, no caption; possibly the resume web app link already referenced re: Spectrum/Rashmi outreach, not confirmed
+- "Claude token" — https://lnkd.in/p/gE6_mfA2 — sent to self 9/18 8:38 AM ET
 
 ## Decisions & Context
 

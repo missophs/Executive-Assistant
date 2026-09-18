@@ -46,6 +46,7 @@ _(none open)_
 - [ ] Triage job link sent to self 9/14 9:03 AM ET — no company or role given in the capture — https://www.linkedin.com/jobs/view/4465207101/ · #sourcing
 - [ ] Triage LinkedIn job link sent to self 9/16 10:00 AM ET — Senior Director, Talent Experience @ Smartsheet — https://www.linkedin.com/jobs/view/4465592224/ · #sourcing
 - [ ] Triage LinkedIn job alert — VP, People @ Talent to Team (same alert repeated 9/17 & 9/18, no comp given) · #sourcing
+- [ ] Triage 4 LinkedIn job links sent to self 9/18 8:38–8:46 AM ET, no company or role given in captures — https://www.linkedin.com/jobs/view/4468655640/ ; https://www.linkedin.com/jobs/view/4468692808/ (sent twice, ~10 sec apart) ; https://www.linkedin.com/jobs/view/4468830640/ (subject "Job") ; https://www.linkedin.com/jobs/view/4454533581/ · #sourcing
 
 ## ⏳ Waiting On
 <!-- Blocked on someone else. Note who and since when. -->
