@@ -36,7 +36,7 @@ _Last updated: 2026-09-18 (chat correction)_
 |---|---|---|---|
 | Reply re: CPO opportunity (no company/comp given) | Maneeha Arshad (recruiter) | 2026-09-01 | Needs your decision to engage — 17 days, no movement |
 | Résumé owed to Nasreen (role outcome no longer pending on her end) | Nasreen Bharoocha (Conduit Health) | 2026-09-18 | She replied 9/18 3:46 PM ET (was stuck in Trash, unread): waiting on your résumé, no rush on her end |
-| Reply to cold outreach | Patsy Doerr & Ashley Fredericks (LRN) | 2026-09-16 | Both contacted 9/16, both followed up 9/17 night; no reply from either yet |
+| No reply to your outreach yet (you sent it, waiting on them) | Patsy Doerr & Ashley Fredericks (LRN) | 2026-09-16 | Both contacted 9/16, both followed up 9/17 night; no reply from either yet |
 
 _(Rita Ramakrishnan/AIChE follow-up: outcome arrived 9/16 — see People above, closed. Kristen Ramerini/HSO follow-up removed from tracking 2026-09-14 per Tell Ellie capture 9/13 9:27 PM ET — "those are done already." No outcome recorded.)_
 
