@@ -10,7 +10,7 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 <!-- Must know today. Keep to 3. -->
 
 - [ ] Anthem call re: your benefits — still overdue, now 18 days (since 8/31), no movement found in sent mail today either. Anthem sent a new EOB notification 9/9, log in to view before you call, may cover part of this. EmblemHealth: no longer needed — see Done, EOB arrived by email 9/9 · due 2026-08-31 · #admin
-- [ ] Send résumé to Nasreen Bharoocha (Conduit Health) — you told her last night (9/17 8:42 PM ET) you'd get it to her "as soon as possible"; not sent as of this morning · due 2026-09-18 · #jobsearch
+- [ ] Send résumé to Nasreen Bharoocha (Conduit Health) — she replied 9/18 3:46 PM ET ("No worries, I will wait for your resume once it's ready") confirming she's still waiting; that reply had landed in Trash, unread, until now. Still not sent · due 2026-09-18 · #jobsearch
 
 ## ⏭ This Week
 
