@@ -18,6 +18,7 @@ Job search pipeline. One row per role. `/sync` updates this from the Scratch Pad
 | Oscar Health | People Strategy Lead | Applied | 2026-09-14 | 2026-09-14 | Auto-ack only (Greenhouse), no human contact yet. Ack landed in dhwconsulting3@, was in Trash — rescued 9/16 | Greenhouse (ATS, auto) |
 | LRN | Vice President of People | Applied | 2026-09-16 | 2026-09-17 | Cold outreach sent to two contacts 9/16 (Patsy Doerr 11:57 PM ET, Ashley Fredericks 8:04 PM ET), both with portfolio link (ai-portfolio-bice-rho.vercel.app). Follow-up with interactive resume link sent to both 9/17 night (~10:43–10:48 PM ET). No reply from either yet | Patsy Doerr; Ashley Fredericks |
 | Arootah | Fractional Director of Human Resources (Advisor Network) | Applied | 2026-09-17 | 2026-09-17 | Auto-ack only (LinkedIn Easy Apply), no human contact yet | LinkedIn (auto) |
+| Chime | Principal People Partner (NYC office) | Applied | 2026-09-17 | 2026-09-17 | Formal application submitted (auto-ack from no-reply@chime.com 9/17 7:22 PM ET, landed in Trash, not rescued). Cold outreach same night to two contacts: Sarah Wagener 7:41 PM ET, Matt Valentino 7:39 PM ET. No reply from either yet. Previously applied to a different Chime role (Senior People Partner, Operations Orgs) in April 2025 — no connection to this one | Sarah Wagener; Matt Valentino |
 
 ---
 
