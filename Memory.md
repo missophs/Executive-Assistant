@@ -157,6 +157,8 @@ Ellie appends to this list herself whenever a rescued thread turns up back in Tr
 |---|---|---|
 | Superhuman / Ashby application confirmations | 2026-09-04 | Rescued 8/30 and 9/2; she re-trashed it both times |
 | no-reply@ashbyhq.com (Teamworks — Director of People confirmation) | 2026-09-13 | Found in Trash 9/13, not previously tracked. Treated the existing Superhuman entry as covering Ashby auto-ack confirmations generally (not just Superhuman) and left this one unrescued too — logged to Applications.md instead. Flag if this reading is wrong. |
+| legal@softr.io (Softr) | 2026-09-18 | Melissa said trash it — not job-search or admin mail |
+| reply@is.email.nextdoor.com ("New in Yorkville" digest) | 2026-09-18 | Melissa said trash it — Nextdoor neighborhood digest, not job-search or admin mail |
 
 ## Resolved: vault-write bug (Standup/Sync/Wrap-Up reporting actions that never happened)
 
