@@ -9,8 +9,8 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 ## 🔥 Today
 <!-- Must know today. Keep to 3. -->
 
-- [ ] Anthem call re: your benefits — still overdue, now 17 days (since 8/31), no movement found in sent mail today either. Anthem sent a new EOB notification 9/9, log in to view before you call, may cover part of this. EmblemHealth: no longer needed — see Done, EOB arrived by email 9/9 · due 2026-08-31 · #admin
-- [ ] Send a thank-you to Nasreen Bharoocha (Conduit Health) following Wed 9/16's interview — due date passed today with no thank-you sent, carrying into tomorrow · due 2026-09-18 · #jobsearch
+- [ ] Anthem call re: your benefits — still overdue, now 18 days (since 8/31), no movement found in sent mail today either. Anthem sent a new EOB notification 9/9, log in to view before you call, may cover part of this. EmblemHealth: no longer needed — see Done, EOB arrived by email 9/9 · due 2026-08-31 · #admin
+- [ ] Send résumé to Nasreen Bharoocha (Conduit Health) — you told her last night (9/17 8:42 PM ET) you'd get it to her "as soon as possible"; not sent as of this morning · due 2026-09-18 · #jobsearch
 
 ## ⏭ This Week
 
@@ -45,6 +45,7 @@ _(none open)_
 - [ ] Triage job link sent to self 9/12 12:50 AM ET — Principal People Partner @ Pie Insurance (Greenhouse posting, no caption/note attached, unclear if applied) — http://job-boards.greenhouse.io/pieinsurance/jobs/6180206004 · #sourcing
 - [ ] Triage job link sent to self 9/14 9:03 AM ET — no company or role given in the capture — https://www.linkedin.com/jobs/view/4465207101/ · #sourcing
 - [ ] Triage LinkedIn job link sent to self 9/16 10:00 AM ET — Senior Director, Talent Experience @ Smartsheet — https://www.linkedin.com/jobs/view/4465592224/ · #sourcing
+- [ ] Triage LinkedIn job alert — VP, People @ Talent to Team (same alert repeated 9/17 & 9/18, no comp given) · #sourcing
 
 ## ⏳ Waiting On
 <!-- Blocked on someone else. Note who and since when. -->
@@ -54,6 +55,7 @@ _(none open)_
 ## ✅ Done
 <!-- Cleared during /start and /wrap-up. Archive monthly. -->
 
+- [x] Thank-you to Nasreen Bharoocha (Conduit Health) — already sent by you, verified in sent mail 9/17 8:42 PM ET: thanked her for Wed's interview, apologized for the delay (mentioned a death in the family), said your résumé would follow "as soon as possible." Résumé itself not yet sent — added as a new task above — 2026-09-18
 - [x] Add Spectrum phone screen to your calendar — done. Calendar shows the event self-added this morning (created 10:47 AM ET), correct Thu 9/17, 2:30 PM ET, Rashmi Mahajan called 516-313-8888. Call has taken place by this wrap-up; no outcome yet — see Applications.md — 2026-09-17
 - [x] Conduit Health interview held today, 1:00–1:30 PM ET, Google Meet — calendar showed it accepted this morning; nothing further for Ellie during the day. No thank-you found in your sent mail as of 5pm — added as a task for tomorrow — 2026-09-16
 - [x] AIChE (Head of People) — Rita Ramakrishnan declined to move forward, 9/15 6:42 PM ET, via the Workable thread. You replied yourself 9/16 morning thanking her and asking if she'd share feedback — already sent, no draft needed. Moved to Closed in Applications.md — 2026-09-16
