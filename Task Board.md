@@ -22,7 +22,6 @@ _(none open)_
 - [ ] New UnitedHealthcare (UHC) Explanation of Benefits available online — separate insurer from Anthem/EmblemHealth, notification arrived 9/13 6:05 AM ET, no content in the email itself, log in to view · #admin
 - [ ] Triage 2 unread LinkedIn alerts — Head of People @ advisorey ($200–275K), Head of HR Real Estate · #sourcing
 - [ ] Triage new leads — OrganOx, VP HR North America (LinkedIn alert, 9/2); Head of People @ Empathy, $180–200K (Indeed, 9/4, landed in swm3016@ — a fourth inbox not previously tracked) · #sourcing
-- [ ] Respond to Maneeha Arshad (recruiter, LinkedIn InMail) — Chief People Officer opportunity, no company or comp disclosed. She's asked for your resume/email twice (9/1 and 9/2). No reply sent yet — needs your decision to engage before a reply gets drafted · #sourcing
 - [ ] Clarify "do my mom and Barbara's phone" — exact wording from your 8/31 7:33pm Tell Ellie capture ("Remind me to do my mom and Barbara's phone and call anthem about my benefits"). Meaning unclear — confirm what this means · #personal
 - [ ] Confirm "do LinkedIn" task from 8/31 11:56pm capture (flagged urgent for 8:40 AM on 9/1) — that window passed 2 days ago with no record either way. Still needed, or drop it? · #sourcing
 - [ ] Download Graphite (for Claude Code) — captured via Tell Ellie 8/30, never filed until tonight · #personal
@@ -55,6 +54,8 @@ _(none open)_
 
 ## ✅ Done
 <!-- Cleared during /start and /wrap-up. Archive monthly. -->
+
+- [x] Maneeha Arshad (CPO opportunity, no company/comp given) — Melissa made her decision in chat 9/18; closing per her instruction, outcome not specified — 2026-09-18
 
 - [x] Thank-you to Nasreen Bharoocha (Conduit Health) — already sent by you, verified in sent mail 9/17 8:42 PM ET: thanked her for Wed's interview, apologized for the delay (mentioned a death in the family), said your résumé would follow "as soon as possible." Résumé itself not yet sent — added as a new task above — 2026-09-18
 - [x] Add Spectrum phone screen to your calendar — done. Calendar shows the event self-added this morning (created 10:47 AM ET), correct Thu 9/17, 2:30 PM ET, Rashmi Mahajan called 516-313-8888. Call has taken place by this wrap-up; no outcome yet — see Applications.md — 2026-09-17

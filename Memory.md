@@ -26,7 +26,7 @@ _Last updated: 2026-09-18 (chat correction)_
 - **Rashmi Mahajan** — Spectrum (Charter Communications), Director HR. Phone screen held 9/17, 2:30 PM ET. She was upfront that the salary range doesn't align with what you're looking for. You sent a thank-you 9/18 1:55 PM ET, asked to stay in touch for other roles and to speak with the rest of the team if anything opens up. Closed.
 - **Patsy Doerr** — LRN, re: Vice President of People. Cold outreach sent 9/16 11:57 PM ET with resume/portfolio link (ai-portfolio-bice-rho.vercel.app). Follow-up with interactive resume link sent 9/17 10:43 PM ET. No reply yet.
 - **Ashley Fredericks** — LRN, second contact re: the same Vice President of People opening. Cold outreach sent 9/16 8:04 PM ET, same pitch/portfolio link as Patsy Doerr. Follow-up with interactive resume link sent 9/17 10:48 PM ET. No reply yet.
-- **Maneeha Arshad** — independent recruiter, LinkedIn InMail. Cold outreach for an unnamed Chief People Officer role in the US; asked for your resume/email on 9/1 and again 9/2 without naming the company or comp. No reply sent — needs your decision to engage. Now 17 days with no movement.
+- **Maneeha Arshad** — independent recruiter, LinkedIn InMail. Cold outreach for an unnamed Chief People Officer role in the US, asked for your resume/email 9/1 and 9/2. Closed 9/18 — Melissa made her decision in chat; outcome not specified.
 - **Nasreen Bharoocha** — Recruiter/HR Consultant, Conduit Health (virtual health platform, ~40 employees, Series B). Interview held 9/16. Melissa sent thank-yous 9/17 8:42 PM ET and again 9/18 12:42 AM ET, both mentioning a death in the family caused the delay and that a résumé would follow. Nasreen replied 9/18 3:46 PM ET — landed in Trash, unread until now — "No worries, I will wait for your resume once it's ready." Résumé still not sent. No outcome on the role yet.
 - **Vikas Shahi** — orthopedist. Name captured via Tell Ellie 9/11, subject "Orthopedist," no further context (referral? appointment needed?).
 
@@ -34,7 +34,6 @@ _Last updated: 2026-09-18 (chat correction)_
 
 | Item | Who | Since | Status |
 |---|---|---|---|
-| Reply re: CPO opportunity (no company/comp given) | Maneeha Arshad (recruiter) | 2026-09-01 | Needs your decision to engage — 17 days, no movement |
 | Résumé owed to Nasreen (role outcome no longer pending on her end) | Nasreen Bharoocha (Conduit Health) | 2026-09-18 | She replied 9/18 3:46 PM ET (was stuck in Trash, unread): waiting on your résumé, no rush on her end |
 | No reply to your outreach yet (you sent it, waiting on them) | Patsy Doerr & Ashley Fredericks (LRN) | 2026-09-16 | Both contacted 9/16, both followed up 9/17 night; no reply from either yet |
 
