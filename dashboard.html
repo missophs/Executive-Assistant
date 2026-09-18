@@ -185,35 +185,34 @@ code.cmd{font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(-
     <div>
       <div class="eyebrow">Ellie &middot; Executive Assistant</div>
       <h1>Command Center</h1>
-      <div class="when" id="stampDate">Wednesday, September 16, 2026</div>
+      <div class="when" id="stampDate">Friday, September 18, 2026</div>
     </div>
-    <div class="badges" id="badges"><div class="badge"><b>3</b> open tasks</div><div class="badge"><b>1</b> awaiting reply</div><div class="badge hot"><b>1</b> gone quiet</div></div>
+    <div class="badges" id="badges"><div class="badge"><b>2</b> open tasks</div><div class="badge"><b>4</b> awaiting reply</div><div class="badge hot"><b>1</b> gone quiet</div></div>
   </header>
 
   <a class="howto" href="https://claude.ai/code/artifact/ef023dc5-7573-4ac8-845f-ba8448315a5b" target="_blank" rel="noopener" style="display:block; text-decoration:none">
     <strong>Open the live Command Center &rarr;</strong> tap here for the always-current, interactive version. Works on your phone, no login needed.
   </a>
 
-  <section class="stats" id="stats"><a class="stat is-blue" href="#todayPanel"><div class="n">3</div><div class="k">Open tasks</div></a><a class="stat is-amber" href="#waitPanel"><div class="n">1</div><div class="k">Awaiting reply</div></a><a class="stat is-red" href="#waitPanel"><div class="n">1</div><div class="k">Gone quiet</div></a></section>
+  <section class="stats" id="stats"><div class="stat is-blue" data-target="todayPanel" role="button" tabindex="0"><div class="n">2</div><div class="k">Open tasks</div></div><div class="stat is-amber" data-target="waitPanel" role="button" tabindex="0"><div class="n">4</div><div class="k">Awaiting reply</div></div><div class="stat is-red" data-target="waitPanel" role="button" tabindex="0"><div class="n">1</div><div class="k">Gone quiet</div></div></section>
 
   <div class="grid">
     <div class="col">
       <section class="panel" id="calPanel" style="scroll-margin-top:16px">
-        <div class="phead"><h2>Today&rsquo;s Calendar</h2><span class="note" id="calNote">2 events</span></div>
+        <div class="phead"><h2>Calendar</h2><span class="note" id="calNote">2 events</span></div>
         <div class="rule blue"></div>
         <div class="pbody" id="calWrap"><ul class="rail">
-          <li><div class="txt"><div class="t1">HR Networking &amp; Job Search Group (Zoom)</div><div class="t2">12:00&ndash;1:30 PM ET</div></div><span class="pill red">Conflict</span></li>
-          <li><div class="txt"><div class="t1">Interview with Conduit Health (Google Meet)</div><div class="t2">1:00&ndash;1:30 PM ET</div></div><span class="pill red">Conflict</span></li>
+          <li><div class="txt"><div class="t1">Pt</div><div class="t2">Today &middot; 8:45&ndash;9:45 AM ET</div></div></li>
+          <li><div class="txt"><div class="t1">Mahjong</div><div class="t2">Tomorrow &middot; 9:00 AM&ndash;1:00 PM ET &middot; Honors Bridge Club</div></div></li>
         </ul></div>
       </section>
 
       <section class="panel" id="todayPanel" style="scroll-margin-top:16px">
-        <div class="phead"><h2>Today&rsquo;s Focus</h2><span class="note" id="todayNote">3 of 3</span></div>
+        <div class="phead"><h2>Today&rsquo;s Focus</h2><span class="note" id="todayNote">2 of 3</span></div>
         <div class="rule red"></div>
         <div class="pbody" id="todayWrap"><div class="prio">
-          <div class="pcard r1" data-id="2026-09-16-t0"><div class="row"><input type="checkbox" class="chk" aria-label="Mark done"><div class="body"><div class="task">Conduit Health interview conflict</div><div class="why">Today&rsquo;s 1:00&ndash;1:30 PM ET interview (accepted on your calendar) overlaps your recurring HR Networking &amp; Job Search Group Zoom call, 12:00&ndash;1:30 PM ET. Nothing for Ellie to do &mdash; you&rsquo;ll need to leave the networking call early or skip it.</div><div class="due">Due 2026-09-16</div><div class="pend pill amber" hidden>Pending &mdash; closes at next sync</div></div></div></div>
-          <div class="pcard r2" data-id="2026-09-16-t1"><div class="row"><input type="checkbox" class="chk" aria-label="Mark done"><div class="body"><div class="task">Add Spectrum phone screen to your calendar</div><div class="why">Wed 9/17, 2:30 PM ET &mdash; Rashmi Mahajan will call 516-313-8888 (Director, Human Resources). You forwarded your resume web app to her 9/16 morning, but the event itself still isn&rsquo;t on your calendar.</div><div class="due">Due 2026-09-17</div><div class="pend pill amber" hidden>Pending &mdash; closes at next sync</div></div></div></div>
-          <div class="pcard r3" data-id="2026-09-16-t2"><div class="row"><input type="checkbox" class="chk" aria-label="Mark done"><div class="body"><div class="task">Anthem call re: benefits</div><div class="why">Overdue since 8/31, 16+ days. New EOB notification arrived 9/9 &mdash; log in to view before calling, may cover part of this.</div><div class="due">Due 2026-08-31</div><div class="pend pill amber" hidden>Pending &mdash; closes at next sync</div></div></div></div>
+          <div class="pcard r1" data-id="2026-09-18-t0"><div class="row"><input type="checkbox" class="chk" aria-label="Mark done"><div class="body"><div class="task">Anthem call re: your benefits</div><div class="why">Still overdue, now 18 days (since 8/31), no movement found in sent mail today either. New EOB notification arrived 9/9 &mdash; log in to view before calling, may cover part of this.</div><div class="due">Due 2026-08-31</div><div class="pend pill amber" hidden>Pending &mdash; closes at next sync</div></div></div></div>
+          <div class="pcard r2" data-id="2026-09-18-t1"><div class="row"><input type="checkbox" class="chk" aria-label="Mark done"><div class="body"><div class="task">Send r&eacute;sum&eacute; to Nasreen Bharoocha (Conduit Health)</div><div class="why">You told her last night (9/17, 8:42 PM ET) you'd get it to her &ldquo;as soon as possible&rdquo; &mdash; not sent as of this morning.</div><div class="due">Due 2026-09-18</div><div class="pend pill amber" hidden>Pending &mdash; closes at next sync</div></div></div></div>
         </div></div>
       </section>
 
@@ -221,7 +220,10 @@ code.cmd{font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(-
         <div class="phead"><h2>Waiting On</h2><span class="note" id="waitNote"></span></div>
         <div class="rule amber"></div>
         <div class="pbody" id="waitWrap"><ul class="rail">
-          <li><div class="txt"><div class="t1">Reply re: CPO opportunity (no company/comp given)</div><div class="t2">Maneeha Arshad, recruiter</div></div><span class="pill red">15d</span></li>
+          <li><div class="txt"><div class="t1">Reply re: CPO opportunity (no company/comp given)</div><div class="t2">Maneeha Arshad, recruiter</div></div><span class="pill red">17d</span></li>
+          <li><div class="txt"><div class="t1">R&eacute;sum&eacute; owed + interview outcome</div><div class="t2">Nasreen Bharoocha, Conduit Health</div></div><span class="pill blue">1d</span></li>
+          <li><div class="txt"><div class="t1">Phone screen outcome</div><div class="t2">Rashmi Mahajan, Spectrum</div></div><span class="pill blue">1d</span></li>
+          <li><div class="txt"><div class="t1">Reply to cold outreach</div><div class="t2">Patsy Doerr &amp; Ashley Fredericks, LRN</div></div><span class="pill blue">2d</span></li>
         </ul></div>
       </section>
     </div>
@@ -231,7 +233,7 @@ code.cmd{font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(-
         <div class="phead"><h2>Priorities</h2></div>
         <div class="rule violet"></div>
         <div class="pbody" id="prioWrap"><ul class="bullets">
-          <li>Land a senior HR role &mdash; VP/CHRO level. AIChE closed 9/16 (rejected). CUNY thank-you sent, awaiting reply. Spectrum (Director, HR) phone screen Wed 9/17, 2:30 PM ET. Conduit Health interview today, 1&ndash;1:30 PM ET, overlaps the networking call.</li>
+          <li>Land a senior HR role &mdash; VP/CHRO level. CUNY (Vice Chancellor, HR) interview held 9/11, thank-you sent, outcome still awaited. Spectrum (Director, HR) phone screen held 9/17 with Rashmi Mahajan, no outcome yet. Conduit Health interview held 9/16 &mdash; thank-you sent 9/17, r&eacute;sum&eacute; still owed. LRN cold outreach to two contacts 9/16, followed up 9/17, no replies yet.</li>
           <li>Comp target: low-to-mid $200Ks base, flexible on total package.</li>
           <li>Based in NY &mdash; raised as a possible blocker with Bryce Lowery (Intalegence, since closed); he confirmed it isn&rsquo;t one.</li>
         </ul></div>
@@ -241,11 +243,12 @@ code.cmd{font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(-
         <div class="phead"><h2>People</h2></div>
         <div class="rule green"></div>
         <div class="pbody" id="pplWrap"><ul class="rail">
-          <li><div class="txt"><div class="t1">Nasreen Bharoocha</div><div class="t2">Recruiter, Conduit Health. Interview today 1&ndash;1:30 PM ET, Google Meet &mdash; accepted, overlaps your networking call.</div></div></li>
-          <li><div class="txt"><div class="t1">Rashmi Mahajan</div><div class="t2">Spectrum (Charter Communications). Phone screen Wed 9/17, 2:30 PM ET &mdash; she'll call 516-313-8888. Not yet on your calendar.</div></div></li>
-          <li><div class="txt"><div class="t1">Elisa Russo</div><div class="t2">Lead Recruiter, CUNY. Interview held Fri 9/11 &mdash; thank-you sent 9/12. No direct email on file, reachable via Jonathan Campbell.</div></div></li>
-          <li><div class="txt"><div class="t1">Jonathan Campbell</div><div class="t2">CUNY &mdash; sent the formal interview request 9/3, thank-you addressed to him already sent.</div></div></li>
-          <li><div class="txt"><div class="t1">Maneeha Arshad</div><div class="t2">Independent recruiter &mdash; CPO opportunity, no company/comp given. Needs your decision to engage, 15 days stale.</div></div></li>
+          <li><div class="txt"><div class="t1">Nasreen Bharoocha</div><div class="t2">Recruiter/HR Consultant, Conduit Health. Interview held 9/16. Thank-you sent 9/17 8:42 PM ET; r&eacute;sum&eacute; promised but not yet sent. No outcome on the role yet.</div></div></li>
+          <li><div class="txt"><div class="t1">Rashmi Mahajan</div><div class="t2">Spectrum (Charter Communications), Director HR. Phone screen held 9/17, 2:30 PM ET. No outcome yet.</div></div></li>
+          <li><div class="txt"><div class="t1">Patsy Doerr</div><div class="t2">LRN, Vice President of People. Cold outreach 9/16, followed up 9/17 night with resume/portfolio link. No reply yet.</div></div></li>
+          <li><div class="txt"><div class="t1">Ashley Fredericks</div><div class="t2">LRN, second contact re: same VP of People opening. Cold outreach 9/16, followed up 9/17 night. No reply yet.</div></div></li>
+          <li><div class="txt"><div class="t1">Elisa Russo</div><div class="t2">Lead Recruiter, CUNY. Interview held Fri 9/11 &mdash; thank-you sent 9/12. Reachable via Jonathan Campbell.</div></div></li>
+          <li><div class="txt"><div class="t1">Maneeha Arshad</div><div class="t2">Independent recruiter &mdash; CPO opportunity, no company/comp given. Needs your decision to engage, 17 days stale.</div></div></li>
         </ul></div>
       </section>
     </div>
@@ -270,31 +273,34 @@ code.cmd{font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(-
 <script>
 /* Regenerated by /dashboard - edit DATA only. All dates YYYY-MM-DD. */
 const DATA = {
-  generated: "2026-09-16",
+  generated: "2026-09-18",
   calendar: [
-    {time:"12:00–1:30 PM ET", title:"HR Networking & Job Search Group (Zoom)", conflict:true},
-    {time:"1:00–1:30 PM ET", title:"Interview with Conduit Health (Google Meet)", conflict:true}
+    {day:"Today", time:"8:45–9:45 AM ET", title:"Pt", conflict:false},
+    {day:"Tomorrow", time:"9:00 AM–1:00 PM ET · Honors Bridge Club", title:"Mahjong", conflict:false}
   ],
   today: [
-    {id:"2026-09-16-t0", task:"Conduit Health interview conflict", why:"Today's 1:00–1:30 PM ET interview (accepted on your calendar) overlaps your recurring HR Networking & Job Search Group Zoom call, 12:00–1:30 PM ET. Nothing for Ellie to do — you'll need to leave the networking call early or skip it.", due:"2026-09-16"},
-    {id:"2026-09-16-t1", task:"Add Spectrum phone screen to your calendar", why:"Wed 9/17, 2:30 PM ET — Rashmi Mahajan will call 516-313-8888 (Director, Human Resources). You forwarded your resume web app to her 9/16 morning, but the event itself still isn't on your calendar.", due:"2026-09-17"},
-    {id:"2026-09-16-t2", task:"Anthem call re: benefits", why:"Overdue since 8/31, 16+ days. New EOB notification arrived 9/9 — log in to view before calling, may cover part of this.", due:"2026-08-31"}
+    {id:"2026-09-18-t0", task:"Anthem call re: your benefits", why:"Still overdue, now 18 days (since 8/31), no movement found in sent mail today either. New EOB notification arrived 9/9 — log in to view before calling, may cover part of this.", due:"2026-08-31"},
+    {id:"2026-09-18-t1", task:"Send résumé to Nasreen Bharoocha (Conduit Health)", why:"You told her last night (9/17, 8:42 PM ET) you'd get it to her \"as soon as possible\" — not sent as of this morning.", due:"2026-09-18"}
   ],
   week: [],
   waiting: [
-    {item:"Reply re: CPO opportunity (no company/comp given)", who:"Maneeha Arshad, recruiter", since:"2026-09-01"}
+    {item:"Reply re: CPO opportunity (no company/comp given)", who:"Maneeha Arshad, recruiter", since:"2026-09-01"},
+    {item:"Résumé owed + interview outcome", who:"Nasreen Bharoocha, Conduit Health", since:"2026-09-17"},
+    {item:"Phone screen outcome", who:"Rashmi Mahajan, Spectrum", since:"2026-09-17"},
+    {item:"Reply to cold outreach", who:"Patsy Doerr & Ashley Fredericks, LRN", since:"2026-09-16"}
   ],
   priorities: [
-    "Land a senior HR role — VP/CHRO level. AIChE closed 9/16 (rejected). CUNY thank-you sent, awaiting reply. Spectrum (Director, HR) phone screen Wed 9/17, 2:30 PM ET. Conduit Health interview today, 1–1:30 PM ET, overlaps the networking call.",
+    "Land a senior HR role — VP/CHRO level. CUNY (Vice Chancellor, HR) interview held 9/11, thank-you sent, outcome still awaited. Spectrum (Director, HR) phone screen held 9/17 with Rashmi Mahajan, no outcome yet. Conduit Health interview held 9/16 — thank-you sent 9/17, résumé still owed. LRN cold outreach to two contacts 9/16, followed up 9/17, no replies yet.",
     "Comp target: low-to-mid $200Ks base, flexible on total package.",
     "Based in NY — raised as a possible blocker with Bryce Lowery (Intalegence, since closed); he confirmed it isn't one."
   ],
   people: [
-    {name:"Nasreen Bharoocha", note:"Recruiter, Conduit Health. Interview today 1–1:30 PM ET, Google Meet — accepted, overlaps your networking call."},
-    {name:"Rashmi Mahajan", note:"Spectrum (Charter Communications). Phone screen Wed 9/17, 2:30 PM ET — she'll call 516-313-8888. Not yet on your calendar."},
-    {name:"Elisa Russo", note:"Lead Recruiter, CUNY. Interview held Fri 9/11 — thank-you sent 9/12. No direct email on file, reachable via Jonathan Campbell."},
-    {name:"Jonathan Campbell", note:"CUNY — sent the formal interview request 9/3, thank-you addressed to him already sent."},
-    {name:"Maneeha Arshad", note:"Independent recruiter — CPO opportunity, no company/comp given. Needs your decision to engage, 15 days stale."}
+    {name:"Nasreen Bharoocha", note:"Recruiter/HR Consultant, Conduit Health. Interview held 9/16. Thank-you sent 9/17 8:42 PM ET; résumé promised but not yet sent. No outcome on the role yet."},
+    {name:"Rashmi Mahajan", note:"Spectrum (Charter Communications), Director HR. Phone screen held 9/17, 2:30 PM ET. No outcome yet."},
+    {name:"Patsy Doerr", note:"LRN, Vice President of People. Cold outreach 9/16, followed up 9/17 night with resume/portfolio link. No reply yet."},
+    {name:"Ashley Fredericks", note:"LRN, second contact re: same VP of People opening. Cold outreach 9/16, followed up 9/17 night. No reply yet."},
+    {name:"Elisa Russo", note:"Lead Recruiter, CUNY. Interview held Fri 9/11 — thank-you sent 9/12. Reachable via Jonathan Campbell."},
+    {name:"Maneeha Arshad", note:"Independent recruiter — CPO opportunity, no company/comp given. Needs your decision to engage, 17 days stale."}
   ]
 };
 
@@ -334,12 +340,13 @@ const cw=document.getElementById("calWrap");
 if(DATA.calendar && DATA.calendar.length){
   document.getElementById("calNote").textContent=DATA.calendar.length+(DATA.calendar.length===1?" event":" events");
   cw.innerHTML='<ul class="rail">'+DATA.calendar.map(c=>{
+    const sub=[c.day,c.time].filter(Boolean).join(" · ");
     return '<li><div class="txt"><div class="t1">'+esc(c.title)+'</div>'+
-      (c.time?'<div class="t2">'+esc(c.time)+'</div>':'')+'</div>'+
+      (sub?'<div class="t2">'+esc(sub)+'</div>':'')+'</div>'+
       (c.conflict?'<span class="pill red">Conflict</span>':'')+'</li>';
   }).join("")+'</ul>';
 }else{
-  cw.innerHTML=emptyBlock("Nothing on your calendar today.","Events populate here each night from Google Calendar.");
+  cw.innerHTML=emptyBlock("Nothing on your calendar today or tomorrow.","Events populate here each refresh from Google Calendar.");
   document.getElementById("calNote").textContent="";
 }
 
