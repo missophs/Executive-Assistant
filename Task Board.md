@@ -10,7 +10,7 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 <!-- Must know today. Keep to 3. -->
 
 - [ ] Anthem call re: your benefits — still overdue, now 18 days (since 8/31), no movement found in sent mail today either. Anthem sent a new EOB notification 9/9, log in to view before you call, may cover part of this. EmblemHealth: no longer needed — see Done, EOB arrived by email 9/9 · due 2026-08-31 · #admin
-- [ ] Send résumé to Nasreen Bharoocha (Conduit Health) — she replied 9/18 3:46 PM ET ("No worries, I will wait for your resume once it's ready") confirming she's still waiting; that reply had landed in Trash, unread, until now. Still not sent · due 2026-09-18 · #jobsearch
+- [ ] Send résumé to Nasreen Bharoocha (Conduit Health) — she replied 9/18 11:46 AM ET ("No worries, I will wait for your resume once it's ready") confirming she's still waiting (corrected from 3:46 PM previously logged — checked the message header directly). That reply was still sitting in Trash, unread — rescued this morning. A reply draft with a résumé placeholder is already sitting in Gmail Drafts, threaded under the interview. Still not sent · due 2026-09-18 · #jobsearch
 
 ## ⏭ This Week
 
@@ -46,6 +46,11 @@ _(none open)_
 - [ ] Triage LinkedIn job link sent to self 9/16 10:00 AM ET — Senior Director, Talent Experience @ Smartsheet — https://www.linkedin.com/jobs/view/4465592224/ · #sourcing
 - [ ] Triage LinkedIn job alert — VP, People @ Talent to Team (same alert repeated 9/17 & 9/18, no comp given) · #sourcing
 - [ ] Triage 4 LinkedIn job links sent to self 9/18 8:38–8:46 AM ET, no company or role given in captures — https://www.linkedin.com/jobs/view/4468655640/ ; https://www.linkedin.com/jobs/view/4468692808/ (sent twice, ~10 sec apart) ; https://www.linkedin.com/jobs/view/4468830640/ (subject "Job") ; https://www.linkedin.com/jobs/view/4454533581/ · #sourcing
+- [ ] Triage 3 job links sent to self 9/18 9:36–9:44 PM ET, no company or role given in captures — https://lnkd.in/p/gDgCE27R (subject "Job search help") ; https://www.linkedin.com/jobs/view/4466597968/ (subject "Job at msg") ; https://www.linkedin.com/jobs/view/4440285349/ (subject "Job") · #sourcing
+- [ ] Clarify screenshot sent to self 9/18 9:40 PM ET (to melweiss212@) — no caption, can't tell if it's a task, a saved item, or nothing · #personal
+- [ ] Triage Chief People Officer @ The Trevor Project, $260–280K (Indeed match, landed in swm3016@ 9/19) — clears the $200K+ CHRO bar · #sourcing
+- [ ] Triage LinkedIn job alert — Vice President, Human Resources Business Partner @ Portage Point Partners (LinkedIn alert, 9/19) · #sourcing
+- [ ] Marguerite Casey Foundation (Director of Human Resources) — Lever application acknowledgment, applied date unknown, ack landed in Trash — rescued 9/19. Auto-ack only, no human contact yet · #jobsearch
 
 ## ⏳ Waiting On
 <!-- Blocked on someone else. Note who and since when. -->
