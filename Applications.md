@@ -20,6 +20,7 @@ Job search pipeline. One row per role. `/sync` updates this from the Scratch Pad
 | Arootah | Fractional Director of Human Resources (Advisor Network) | Applied | 2026-09-17 | 2026-09-17 | Auto-ack only (LinkedIn Easy Apply), no human contact yet | LinkedIn (auto) |
 | Chime | Principal People Partner (NYC office) | Applied | 2026-09-17 | 2026-09-17 | Formal application submitted (auto-ack from no-reply@chime.com 9/17 7:22 PM ET, landed in Trash, not rescued). Cold outreach same night to two contacts: Sarah Wagener 7:41 PM ET, Matt Valentino 7:39 PM ET. No reply from either yet. Previously applied to a different Chime role (Senior People Partner, Operations Orgs) in April 2025 — no connection to this one | Sarah Wagener; Matt Valentino |
 | Marguerite Casey Foundation | Director of Human Resources | Applied | — | 2026-09-19 | Auto-ack only (Lever), no human contact yet. Ack landed in Trash, not previously tracked — rescued 9/19 | Lever (ATS, auto) |
+| MSG Entertainment Holdings, LLC | Director, Human Resources Business Partner | Applied | — | 2026-09-19 | Auto-ack only (no-reply@msg.com), no human contact yet. Ack landed in Trash 9/19, not previously tracked — NOT rescued (no-reply sender, per Trash policy) | — |
 
 ---
 

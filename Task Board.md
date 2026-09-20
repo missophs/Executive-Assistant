@@ -50,6 +50,8 @@ _(none open)_
 - [ ] Triage Chief People Officer @ The Trevor Project, $260–280K (Indeed match, landed in swm3016@ 9/19) — clears the $200K+ CHRO bar · #sourcing
 - [ ] Triage LinkedIn job alert — Vice President, Human Resources Business Partner @ Portage Point Partners (LinkedIn alert, 9/19) · #sourcing
 - [ ] Marguerite Casey Foundation (Director of Human Resources) — Lever application acknowledgment, applied date unknown, ack landed in Trash — rescued 9/19. Auto-ack only, no human contact yet · #jobsearch
+- [ ] MSG Entertainment Holdings (Director, Human Resources Business Partner) — auto-ack found in Trash 9/19, not previously tracked. NOT rescued (no-reply@msg.com sender, per Trash policy). Filed to Applications.md as Applied · #jobsearch
+- [ ] Investigate a Gmail draft to lisa.gibson@thomsonreuters.com (thread 1a0bba621877540a) — labeled both DRAFT and SENT, dated 9/21 8:54 AM ET (tomorrow, not yet arrived), looks like a scheduled send. Ellie could not open it — "permission denied" on both the thread and the message. Thomson Reuters is not in Applications.md. Tell Ellie what this is, or she'll flag it again tomorrow · #jobsearch
 
 ## ⏳ Waiting On
 <!-- Blocked on someone else. Note who and since when. -->
@@ -83,7 +85,7 @@ _(none open)_
 - [x] Investigate: Standup/Wrap-Up emails reporting vault updates that never happened — root cause confirmed and fix verified (see item above). Keep spot-checking `git log` after any email that claims "filed"/"added"/"pushed" for a while longer before fully trusting it unchecked — 2026-09-05
 - [x] AIChE interview held with Rita, 10:00–10:45 AM ET — screen + hiring-manager conversation combined, went well; thank-you sent same day with resume/portfolio links. Real, verified against Gmail; the vault had never been updated with this despite 3 days of automations claiming it was — 2026-09-03
 - [x] CUNY interview scheduled — Fri 9/11, 3:00–4:00 PM ET, Microsoft Teams, panel Elisa Russo & Sujata Malhotra. Same situation — real, verified against the CUNY Bookings confirmation and your reply to Jonathan Campbell, never actually filed until tonight — 2026-09-03
-- [x] Executive Roundtable Thu 9/3 — date passed with no reconsideration; stayed declined by default, no further action needed — 2026-09-03
+- [x] Executive Roundtable Thu 9/3 — date passed with no reconsideration — stayed declined by default, no further action needed — 2026-09-03
 - [x] Followed up with Bryce Lowery (Intalegence) — he confirmed you've been submitted to the client and is chasing feedback — 2026-09-02
 - [x] Filed CUNY (Vice Chancellor, HR), Teleport (Sr. People BP – GTM), and RWT Consulting applications to Applications.md — real applications from 8/31–9/1 that this morning's automation claimed to file but never did — 2026-09-02
 - [x] Closed out PayPal (Sr. Manager, People Business Partner) — rejected 8/31, filed for pattern-spotting — 2026-09-02
