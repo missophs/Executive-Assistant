@@ -9,7 +9,6 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 ## 🔥 Today
 <!-- Must know today. Keep to 3. -->
 
-- [ ] Anthem call re: your benefits — still overdue, now 18 days (since 8/31), no movement found in sent mail today either. Anthem sent a new EOB notification 9/9, log in to view before you call, may cover part of this. EmblemHealth: no longer needed — see Done, EOB arrived by email 9/9 · due 2026-08-31 · #admin
 - [ ] Send résumé to Nasreen Bharoocha (Conduit Health) — she replied 9/18 11:46 AM ET ("No worries, I will wait for your resume once it's ready") confirming she's still waiting (corrected from 3:46 PM previously logged — checked the message header directly). That reply was still sitting in Trash, unread — rescued this morning. A reply draft with a résumé placeholder is already sitting in Gmail Drafts, threaded under the interview. Still not sent · due 2026-09-18 · #jobsearch
 
 ## ⏭ This Week
@@ -59,6 +58,8 @@ _(none open)_
 
 ## ✅ Done
 <!-- Cleared during /start and /wrap-up. Archive monthly. -->
+
+- [x] Anthem call re: your benefits — closed via dashboard checkbox — 2026-09-20
 
 - [x] Maneeha Arshad (CPO opportunity, no company/comp given) — Melissa made her decision in chat 9/18; closing per her instruction, outcome not specified — 2026-09-18
 
