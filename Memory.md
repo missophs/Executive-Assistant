@@ -4,7 +4,7 @@ Rolling context between sessions. Read at the start of every session, updated du
 
 **Keep this short.** Quick-reference, not a journal. Prune anything resolved or stale.
 
-_Last updated: 2026-09-21 (midday sweep)_
+_Last updated: 2026-09-21 (wrap-up)_
 
 ---
 
@@ -20,6 +20,7 @@ _Last updated: 2026-09-21 (midday sweep)_
 - Marguerite Casey Foundation (Lever ack, rescued 9/19) turned up back in Trash 9/21 with no INBOX label — treated as Melissa re-trashing it on purpose; sender added to Do Not Rescue, Applications.md left as Applied.
 - New personal item 9/21: two "New Test Result Message" notifications from the Connect patient portal (donotreply@myconnectnyc.org) — no content in the email, needs login to view.
 - Midday sweep 9/21: 7 saved links and 2 backlog items filed (a job link with no company/role, and an unreadable "Resume phrase" screenshot) from captures sent 9:08–11:07 AM ET. Two of the links ("codex," "Who to reach out to") landed in Trash and could not be opened ("permission denied") — filed from their search snippets, which matched the bare-URL body pattern of every other link capture.
+- Wrap-up sweep 9/21 5pm: one new Tell Ellie capture at 3:08 PM ET, full content "It's a recording" — no further context, added to Task Board backlog for her to clarify. No movement in her sent mail today on any open job-search thread (Nasreen résumé, Thomson Reuters draft, LRN/Chime outreach) — all carry into tomorrow unchanged.
 - Comp target: low-to-mid $200Ks base, flexible on total package (bonus/equity in play at Intalegence).
 - Based in NY. Raised it with Bryce as a possible blocker; he confirmed it is not.
 - The 9/15 "Interview at 1pm" calendar block (1:00–2:00 PM ET, self-added 9/14 11:15 PM after a Tell Ellie capture) remains unresolved — no company/role ever identified, nothing in sent mail ties back to it. Distinct from Conduit Health (different company, different provenance) unless Melissa says otherwise.

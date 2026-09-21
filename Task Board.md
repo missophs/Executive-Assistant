@@ -56,6 +56,7 @@ _(none open)_
 - [ ] New Test Result Message in Connect patient portal (donotreply@myconnectnyc.org) — two notifications 9/21 AM ET, no content in the email itself, log in to view · #personal
 - [ ] Triage job link sent to self 9/21 9:50 AM ET — no company or role given in the capture — https://www.linkedin.com/jobs/view/4451059477/ · #sourcing
 - [ ] Clarify screenshot sent to self 9/21 11:07 AM ET (subject "Resume phrase," to melweiss212@, image IMG_3406.jpg) — no caption, can't read image content, unclear if task or saved item · #personal
+- [ ] Clarify Tell Ellie capture sent 9/21 3:08 PM ET — full content is just "It's a recording," no further context given (recording of what? a call? a note to self?). Tell Ellie what this refers to, or tell Ellie to drop it · #personal
 
 ## ⏳ Waiting On
 <!-- Blocked on someone else. Note who and since when. -->
