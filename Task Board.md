@@ -54,6 +54,8 @@ _(none open)_
 - [ ] Investigate a Gmail draft to lisa.gibson@thomsonreuters.com (thread 1a0bba621877540a) — labeled both DRAFT and SENT, dated 9/21 8:54 AM ET (that time has now passed), looks like a scheduled send. Ellie could not open it — "permission denied" on both the thread and the message. Thomson Reuters is not in Applications.md. Tell Ellie what this is, or she'll flag it again tomorrow · #jobsearch
 - [ ] Hudson River Trading — Greenhouse application acknowledgment (role not named in the ack), landed in swm3016@, found in Trash 9/20/21, not previously tracked. NOT rescued (no-reply@us.greenhouse-mail.io, per Trash policy). Filed to Applications.md as Applied · #jobsearch
 - [ ] New Test Result Message in Connect patient portal (donotreply@myconnectnyc.org) — two notifications 9/21 AM ET, no content in the email itself, log in to view · #personal
+- [ ] Triage job link sent to self 9/21 9:50 AM ET — no company or role given in the capture — https://www.linkedin.com/jobs/view/4451059477/ · #sourcing
+- [ ] Clarify screenshot sent to self 9/21 11:07 AM ET (subject "Resume phrase," to melweiss212@, image IMG_3406.jpg) — no caption, can't read image content, unclear if task or saved item · #personal
 
 ## ⏳ Waiting On
 <!-- Blocked on someone else. Note who and since when. -->

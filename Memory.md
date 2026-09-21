@@ -4,7 +4,7 @@ Rolling context between sessions. Read at the start of every session, updated du
 
 **Keep this short.** Quick-reference, not a journal. Prune anything resolved or stale.
 
-_Last updated: 2026-09-21 (standup)_
+_Last updated: 2026-09-21 (midday sweep)_
 
 ---
 
@@ -19,6 +19,7 @@ _Last updated: 2026-09-21 (standup)_
 - New from Trash 9/21 (not rescued — no-reply sender): Hudson River Trading — Greenhouse application ack, role not named, landed in swm3016@, not previously tracked, filed to Applications.md as Applied.
 - Marguerite Casey Foundation (Lever ack, rescued 9/19) turned up back in Trash 9/21 with no INBOX label — treated as Melissa re-trashing it on purpose; sender added to Do Not Rescue, Applications.md left as Applied.
 - New personal item 9/21: two "New Test Result Message" notifications from the Connect patient portal (donotreply@myconnectnyc.org) — no content in the email, needs login to view.
+- Midday sweep 9/21: 7 saved links and 2 backlog items filed (a job link with no company/role, and an unreadable "Resume phrase" screenshot) from captures sent 9:08–11:07 AM ET. Two of the links ("codex," "Who to reach out to") landed in Trash and could not be opened ("permission denied") — filed from their search snippets, which matched the bare-URL body pattern of every other link capture.
 - Comp target: low-to-mid $200Ks base, flexible on total package (bonus/equity in play at Intalegence).
 - Based in NY. Raised it with Bryce as a possible blocker; he confirmed it is not.
 - The 9/15 "Interview at 1pm" calendar block (1:00–2:00 PM ET, self-added 9/14 11:15 PM after a Tell Ellie capture) remains unresolved — no company/role ever identified, nothing in sent mail ties back to it. Distinct from Conduit Health (different company, different provenance) unless Melissa says otherwise.
@@ -109,6 +110,13 @@ _(Rita Ramakrishnan/AIChE follow-up: outcome arrived 9/16 — see People above, 
 - "prompts" — https://lnkd.in/p/ge_n9xRb — sent to self 9/20 12:45 AM ET
 - futureofhr.academy — https://futureofhr.academy/ — sent to self 9/20 10:53 PM ET, to melweiss212@
 - Claude_Privacy_Guide.pdf (Google Drive) — link carries an embedded `mcp_token=` auth token, don't forward as-is — https://drive.google.com/file/d/1RhAQQwZmV0VMeHWE3nN2kV8XetzYfyWR/view — sent to self 9/20 10:01 PM ET, to melweiss212@
+- "codex" — https://lnkd.in/p/gvCgi4DN — sent to self 9/21 9:08 AM ET, landed in Trash
+- "Companies hiring remote" — https://lnkd.in/p/gnvNkVRw — sent to self 9/21 9:40 AM ET
+- "Claude for HR" — https://lnkd.in/p/gNUNGpVV — sent to self 9/21 9:57 AM ET
+- "Ai for hr" — https://lnkd.in/p/dxsxrAGW — sent to self 9/21 10:02 AM ET
+- "Dm for people" — https://lnkd.in/p/d_yTgDbB — sent to self 9/21 10:04 AM ET
+- "Who to reach out to" — https://lnkd.in/p/dHVwgv2h — sent to self 9/21 10:08 AM ET, landed in Trash
+- McKinsey, "HR's dual mandate in the AI era" — https://www.mckinsey.com/capabilities/people-and-organization/our-insights/the-organization-blog/hrs-dual-mandate-in-the-ai-era — sent to self 9/21 10:13 AM ET
 - "Interview survival guide" (screenshot, no caption, can't read image content) — sent to self 9/19 11:05 PM ET, to melweiss212@
 - "Re: Interview survival guide" (content, no URL — interview questions to ask a hiring manager) — sent to self 9/19 11:10 PM ET, to melweiss212@
 - "HRBP skill" (screenshot, no caption, can't read image content) — sent to self 9/19 11:07 PM ET, to melweiss212@
