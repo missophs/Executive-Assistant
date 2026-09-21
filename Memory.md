@@ -4,7 +4,7 @@ Rolling context between sessions. Read at the start of every session, updated du
 
 **Keep this short.** Quick-reference, not a journal. Prune anything resolved or stale.
 
-_Last updated: 2026-09-20 (standup)_
+_Last updated: 2026-09-21 (standup)_
 
 ---
 
@@ -15,7 +15,10 @@ _Last updated: 2026-09-20 (standup)_
 - New from Trash rescue 9/19: Marguerite Casey Foundation (Director of HR) — Lever auto-ack, not previously tracked, applied. Extend (role unnamed) — rejected via a real person, not previously tracked, closed for pattern-spotting.
 - New lead 9/19: Chief People Officer @ The Trevor Project, $260–280K (Indeed) — clears the $200K+ CHRO bar, added to backlog for triage.
 - New from Trash 9/20 (not rescued — no-reply sender): MSG Entertainment Holdings (Director, HR Business Partner) — application auto-ack, not previously tracked, filed to Applications.md as Applied.
-- Unresolved 9/20: a Gmail draft to lisa.gibson@thomsonreuters.com is labeled both DRAFT and SENT, dated 9/21 8:54 AM ET (tomorrow) — looks like a scheduled send. Ellie got "permission denied" trying to open the thread or message, so content is unknown. Thomson Reuters is not in Applications.md — flagged on the board for Melissa to explain.
+- Unresolved 9/20: a Gmail draft to lisa.gibson@thomsonreuters.com is labeled both DRAFT and SENT, dated 9/21 8:54 AM ET (that time has now passed) — looks like a scheduled send. Ellie got "permission denied" trying to open the thread or message, so content is unknown. Thomson Reuters is not in Applications.md — flagged on the board for Melissa to explain.
+- New from Trash 9/21 (not rescued — no-reply sender): Hudson River Trading — Greenhouse application ack, role not named, landed in swm3016@, not previously tracked, filed to Applications.md as Applied.
+- Marguerite Casey Foundation (Lever ack, rescued 9/19) turned up back in Trash 9/21 with no INBOX label — treated as Melissa re-trashing it on purpose; sender added to Do Not Rescue, Applications.md left as Applied.
+- New personal item 9/21: two "New Test Result Message" notifications from the Connect patient portal (donotreply@myconnectnyc.org) — no content in the email, needs login to view.
 - Comp target: low-to-mid $200Ks base, flexible on total package (bonus/equity in play at Intalegence).
 - Based in NY. Raised it with Bryce as a possible blocker; he confirmed it is not.
 - The 9/15 "Interview at 1pm" calendar block (1:00–2:00 PM ET, self-added 9/14 11:15 PM after a Tell Ellie capture) remains unresolved — no company/role ever identified, nothing in sent mail ties back to it. Distinct from Conduit Health (different company, different provenance) unless Melissa says otherwise.
@@ -104,6 +107,8 @@ _(Rita Ramakrishnan/AIChE follow-up: outcome arrived 9/16 — see People above, 
 - "Claude token" — https://lnkd.in/p/gE6_mfA2 — sent to self 9/18 8:38 AM ET
 - Sorry, Claude (ruben.substack.com) — https://ruben.substack.com/p/sorry-claude — sent to self 9/18 9:39 PM ET
 - "prompts" — https://lnkd.in/p/ge_n9xRb — sent to self 9/20 12:45 AM ET
+- futureofhr.academy — https://futureofhr.academy/ — sent to self 9/20 10:53 PM ET, to melweiss212@
+- Claude_Privacy_Guide.pdf (Google Drive) — link carries an embedded `mcp_token=` auth token, don't forward as-is — https://drive.google.com/file/d/1RhAQQwZmV0VMeHWE3nN2kV8XetzYfyWR/view — sent to self 9/20 10:01 PM ET, to melweiss212@
 - "Interview survival guide" (screenshot, no caption, can't read image content) — sent to self 9/19 11:05 PM ET, to melweiss212@
 - "Re: Interview survival guide" (content, no URL — interview questions to ask a hiring manager) — sent to self 9/19 11:10 PM ET, to melweiss212@
 - "HRBP skill" (screenshot, no caption, can't read image content) — sent to self 9/19 11:07 PM ET, to melweiss212@
@@ -174,6 +179,7 @@ Ellie appends to this list herself whenever a rescued thread turns up back in Tr
 | no-reply@ashbyhq.com (Teamworks — Director of People confirmation) | 2026-09-13 | Found in Trash 9/13, not previously tracked. Treated the existing Superhuman entry as covering Ashby auto-ack confirmations generally (not just Superhuman) and left this one unrescued too — logged to Applications.md instead. Flag if this reading is wrong. |
 | legal@softr.io (Softr) | 2026-09-18 | Melissa said trash it — not job-search or admin mail |
 | reply@is.email.nextdoor.com ("New in Yorkville" digest) | 2026-09-18 | Melissa said trash it — Nextdoor neighborhood digest, not job-search or admin mail |
+| no-reply@hire.lever.co (Marguerite Casey Foundation confirmation) | 2026-09-21 | Rescued 9/19; found back in Trash 9/21 with no INBOX label — she put it back on purpose. Applications.md still shows it Applied; only the Trash copy is being left alone |
 
 ## Resolved: vault-write bug (Standup/Sync/Wrap-Up reporting actions that never happened)
 
