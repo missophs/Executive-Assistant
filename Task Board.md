@@ -51,7 +51,9 @@ _(none open)_
 - [ ] Triage LinkedIn job alert — Vice President, Human Resources Business Partner @ Portage Point Partners (LinkedIn alert, 9/19) · #sourcing
 - [ ] Marguerite Casey Foundation (Director of Human Resources) — Lever application acknowledgment, applied date unknown, ack landed in Trash — rescued 9/19. Auto-ack only, no human contact yet · #jobsearch
 - [ ] MSG Entertainment Holdings (Director, Human Resources Business Partner) — auto-ack found in Trash 9/19, not previously tracked. NOT rescued (no-reply@msg.com sender, per Trash policy). Filed to Applications.md as Applied · #jobsearch
-- [ ] Investigate a Gmail draft to lisa.gibson@thomsonreuters.com (thread 1a0bba621877540a) — labeled both DRAFT and SENT, dated 9/21 8:54 AM ET (tomorrow, not yet arrived), looks like a scheduled send. Ellie could not open it — "permission denied" on both the thread and the message. Thomson Reuters is not in Applications.md. Tell Ellie what this is, or she'll flag it again tomorrow · #jobsearch
+- [ ] Investigate a Gmail draft to lisa.gibson@thomsonreuters.com (thread 1a0bba621877540a) — labeled both DRAFT and SENT, dated 9/21 8:54 AM ET (that time has now passed), looks like a scheduled send. Ellie could not open it — "permission denied" on both the thread and the message. Thomson Reuters is not in Applications.md. Tell Ellie what this is, or she'll flag it again tomorrow · #jobsearch
+- [ ] Hudson River Trading — Greenhouse application acknowledgment (role not named in the ack), landed in swm3016@, found in Trash 9/20/21, not previously tracked. NOT rescued (no-reply@us.greenhouse-mail.io, per Trash policy). Filed to Applications.md as Applied · #jobsearch
+- [ ] New Test Result Message in Connect patient portal (donotreply@myconnectnyc.org) — two notifications 9/21 AM ET, no content in the email itself, log in to view · #personal
 
 ## ⏳ Waiting On
 <!-- Blocked on someone else. Note who and since when. -->
