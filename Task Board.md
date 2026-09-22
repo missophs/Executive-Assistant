@@ -58,7 +58,6 @@ _(none open)_
 - [ ] Clarify Tell Ellie capture sent 9/21 3:08 PM ET — full content is just "It's a recording," no further context given (recording of what? a call? a note to self?). Tell Ellie what this refers to, or tell Ellie to drop it · #personal
 - [ ] Triage job link sent to self 9/21 10:07 PM ET — Regional Chief People Officer, Americas @ Marsh, subject "Job" — https://careers.marsh.com/global/en/job/R_366723/Regional-Chief-People-Officer-Americas · #sourcing
 - [ ] Triage LinkedIn job link sent to self 9/21 10:06 PM ET — no company or role given, subject "Job" — https://www.linkedin.com/jobs/view/4468177303/ · #sourcing
-- [ ] Triage LinkedIn job link sent to self 9/22 10:36 AM ET — SimplePractice hiring Senior Director, HR Business Partners — https://www.linkedin.com/jobs/view/4470441917/ · #sourcing
 - [ ] Suspected phishing email in Trash, NOT rescued — "We have been trying to reach you - melissaw212" (9/22 10:34 AM ET), sender domain fakes MyChart ("...quantumstrivenow.info"), fake prize/"Emergency Kit" hook. Same pattern as the dentsu phish still open above — spoofing a real service you use (NYU Langone/MyChart). Left in Trash, no action needed unless you want it reported · #security
 
 ## ⏳ Waiting On
@@ -68,6 +67,8 @@ _(none open)_
 
 ## ✅ Done
 <!-- Cleared during /start and /wrap-up. Archive monthly. -->
+
+- [x] SimplePractice (Senior Director, HR Business Partners) — resolved itself: you applied. Greenhouse auto-ack landed in Trash 9/22 8:06 PM ET, not rescued (no-reply sender, per policy). Filed to Applications.md as Applied — 2026-09-22
 
 - [x] Anthem call re: your benefits — closed via dashboard checkbox — 2026-09-20
 

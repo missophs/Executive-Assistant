@@ -4,7 +4,7 @@ Rolling context between sessions. Read at the start of every session, updated du
 
 **Keep this short.** Quick-reference, not a journal. Prune anything resolved or stale.
 
-_Last updated: 2026-09-22 (standup)_
+_Last updated: 2026-09-22 (wrap-up)_
 
 ---
 
@@ -25,6 +25,10 @@ _Last updated: 2026-09-22 (standup)_
 - New 9/22: cold outreach to Shira Blumenstein at Cotiviti (Director, People Business Partner), sent 9/21 10:16 PM ET with résumé and portfolio link — not previously tracked, filed to Applications.md as Applied.
 - Calendar note 9/22: Wednesday 9/23 shows two recurring events in the same noon–1:30 PM ET slot — "HR Networking & Job Search Group - 2 Zoom" (Frank Wittenauer) and a separate "Network" event. Looks like a duplicate booking; flagged, not touched.
 - Midday sweep 9/22: 1 job link (SimplePractice, Senior Director HR Business Partners) and 1 saved link ("Claude prompts for hr") filed from captures sent 10:36–10:37 AM ET. Nothing else new; no completions, no draft requests, Drive "Tell Ellie" note empty.
+- LRN — real movement 9/22: Ashley Fredericks replied 6:50 PM ET wanting a 30-minute video screen, first step in their process. You proposed Fri 9/25, 10:30 AM–3:00 PM ET, same night 7:08 PM ET. Awaiting her to pick a time. Applications.md moved to Screen. Patsy Doerr (second LRN contact) still hasn't replied.
+- Cotiviti — expanded outreach 9/22: two more contacts reached with the same cold pitch/résumé/portfolio link — Katie Bunker 1:07 PM ET, Kerri Toninoeskin 1:05 PM ET — alongside Shira Blumenstein (9/21). No reply from any of the three yet.
+- SimplePractice (Senior Director, HR Business Partners) — you applied 9/22. Greenhouse auto-ack landed in Trash 8:06 PM ET, not rescued (no-reply sender, per policy). Filed to Applications.md as Applied; closes the triage backlog item from this morning's link capture.
+- Wrap-up sweep 9/22 5pm: one new capture filed — "Linkedin Optimizer" content (About-section/resume-scan/cover-letter/follow-up/interview-prep prompts), sent to self 8:07 PM ET, added to Saved Links. No completion captures. Drive "Tell Ellie" empty.
 - Comp target: low-to-mid $200Ks base, flexible on total package (bonus/equity in play at Intalegence).
 - Based in NY. Raised it with Bryce as a possible blocker; he confirmed it is not.
 - The 9/15 "Interview at 1pm" calendar block (1:00–2:00 PM ET, self-added 9/14 11:15 PM after a Tell Ellie capture) remains unresolved — no company/role ever identified, nothing in sent mail ties back to it. Distinct from Conduit Health (different company, different provenance) unless Melissa says otherwise.
@@ -39,7 +43,9 @@ _Last updated: 2026-09-22 (standup)_
 - **Jonathan Campbell** — CUNY, sent the formal interview request 9/3; you replied same day confirming availability "next week." Scheduling handled via CUNY's Bookings system from there. Thank-you draft (post-interview) is addressed to him, asking him to pass thanks to Elisa and Sujata.
 - **Rashmi Mahajan** — Spectrum (Charter Communications), Director HR. Phone screen held 9/17, 2:30 PM ET. She was upfront that the salary range doesn't align with what you're looking for. You sent a thank-you 9/18 1:55 PM ET, asked to stay in touch for other roles and to speak with the rest of the team if anything opens up. Closed.
 - **Patsy Doerr** — LRN, re: Vice President of People. Cold outreach sent 9/16 11:57 PM ET with resume/portfolio link (ai-portfolio-bice-rho.vercel.app). Follow-up with interactive resume link sent 9/17 10:43 PM ET. No reply yet.
-- **Ashley Fredericks** — LRN, second contact re: the same Vice President of People opening. Cold outreach sent 9/16 8:04 PM ET, same pitch/portfolio link as Patsy Doerr. Follow-up with interactive resume link sent 9/17 10:48 PM ET. No reply yet.
+- **Ashley Fredericks** — LRN, second contact re: the same Vice President of People opening. Cold outreach sent 9/16 8:04 PM ET, follow-up 9/17 10:48 PM ET. Replied 9/22 6:50 PM ET wanting a 30-minute video screen. You proposed Fri 9/25, 10:30 AM–3:00 PM ET (9/22 7:08 PM ET). Awaiting her to confirm a time. Applications.md: Screen.
+- **Katie Bunker** — Cotiviti, re: Director, People Business Partner (technology org). Cold outreach sent 9/22 1:07 PM ET. No reply yet.
+- **Kerri Toninoeskin** — Cotiviti, second contact re: the same Director, People Business Partner opening. Cold outreach sent 9/22 1:05 PM ET. No reply yet.
 - **Maneeha Arshad** — independent recruiter, LinkedIn InMail. Cold outreach for an unnamed Chief People Officer role in the US, asked for your resume/email 9/1 and 9/2. Closed 9/18 — Melissa made her decision in chat; outcome not specified.
 - **Nasreen Bharoocha** — Recruiter/HR Consultant, Conduit Health (virtual health platform, ~40 employees, Series B). Interview held 9/16. Melissa sent thank-yous 9/17 8:42 PM ET and again 9/18 12:42 AM ET, both mentioning a death in the family caused the delay and that a résumé would follow. Nasreen replied 9/18 11:46 AM ET (corrected from 3:46 PM previously logged) — "No worries, I will wait for your resume once it's ready." Landed in Trash, unread — rescued 9/19. Reply draft with résumé placeholder ready in Gmail Drafts. Résumé still not sent. No outcome on the role yet.
 - **Vikas Shahi** — orthopedist. Name captured via Tell Ellie 9/11, subject "Orthopedist," no further context (referral? appointment needed?).
@@ -54,9 +60,10 @@ _Last updated: 2026-09-22 (standup)_
 | Item | Who | Since | Status |
 |---|---|---|---|
 | Résumé owed to Nasreen (role outcome no longer pending on her end) | Nasreen Bharoocha (Conduit Health) | 2026-09-18 | She replied 9/18 11:46 AM ET (corrected from 3:46 PM previously logged): waiting on your résumé, no rush on her end. Was stuck in Trash, unread — rescued 9/19. Reply draft ready in Gmail Drafts, résumé still not attached |
-| No reply to your outreach yet (you sent it, waiting on them) | Patsy Doerr & Ashley Fredericks (LRN) | 2026-09-16 | Both contacted 9/16, both followed up 9/17 night; no reply from either yet |
+| Waiting on her to confirm a screen time | Ashley Fredericks (LRN) | 2026-09-22 | She replied 9/22 wanting a 30-min video screen; you proposed Fri 9/25, 10:30 AM–3:00 PM ET same night. Awaiting her pick |
+| No reply to your outreach yet (you sent it, waiting on them) | Patsy Doerr (LRN) | 2026-09-16 | Contacted 9/16, followed up 9/17 night; no reply yet |
 | No reply to your outreach yet (you sent it, waiting on them) | Sarah Wagener & Matt Valentino (Chime) | 2026-09-17 | Both contacted 9/17 night; no reply from either yet |
-| No reply to your outreach yet (you sent it, waiting on them) | Shira Blumenstein (Cotiviti) | 2026-09-21 | Contacted 9/21 10:16 PM ET with résumé; no reply yet |
+| No reply to your outreach yet (you sent it, waiting on them) | Shira Blumenstein, Katie Bunker & Kerri Toninoeskin (Cotiviti) | 2026-09-21 | Shira contacted 9/21, Katie & Kerri 9/22; no reply from any yet |
 | No reply to your outreach yet (you sent it, waiting on them) | Jill Keller & Lisa Gibson (Thomson Reuters) | 2026-09-16 | Jill contacted 9/16, Lisa 9/21 (auto-reply only so far); no substantive reply from either yet |
 
 _(Rita Ramakrishnan/AIChE follow-up: outcome arrived 9/16 — see People above, closed. Kristen Ramerini/HSO follow-up removed from tracking 2026-09-14 per Tell Ellie capture 9/13 9:27 PM ET — "those are done already." No outcome recorded.)_
@@ -130,6 +137,7 @@ _(Rita Ramakrishnan/AIChE follow-up: outcome arrived 9/16 — see People above, 
 - "Jev" (ruben.substack.com) — https://ruben.substack.com/p/jev — sent to self 9/21 10:05 AM ET, to melweiss212@
 - Untitled link — https://lnkd.in/p/d_hFJpPJ — sent to self 9/21 10:37 PM ET, to melweiss212@, no caption
 - "Claude prompts for hr" — https://lnkd.in/p/g38AMS5f — sent to self 9/22 10:37 AM ET, to melweiss212@
+- "Linkedin Optimizer" (content, no URL — LinkedIn About-section rewrite, 6-second resume scan, cover letter, follow-up sequence, and interview-prep prompts) — sent to self 9/22 8:07 PM ET
 - LinkedIn help-center link (not a job posting) — https://www.linkedin.com/help/linkedin/answer/a6889044 — sent to self 9/21 10:04 PM ET, to melweiss212@, no subject; looks accidental
 - "Interview survival guide" (screenshot, no caption, can't read image content) — sent to self 9/19 11:05 PM ET, to melweiss212@
 - "Re: Interview survival guide" (content, no URL — interview questions to ask a hiring manager) — sent to self 9/19 11:10 PM ET, to melweiss212@
