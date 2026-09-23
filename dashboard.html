@@ -201,34 +201,30 @@ code.cmd{font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(-
     <div>
       <div class="eyebrow">Ellie &middot; Executive Assistant</div>
       <h1>Command Center</h1>
-      <div class="when" id="stampDate">Friday, September 18, 2026</div>
+      <div class="when" id="stampDate">Wednesday, September 23, 2026</div>
     </div>
-    <div class="badges" id="badges"><div class="badge"><b>2</b> open tasks</div><div class="badge"><b>2</b> awaiting reply</div><div class="badge"><b>0</b> gone quiet</div><div class="badge hot"><b>4</b> need review</div></div>
+    <div class="badges" id="badges"><div class="badge"><b>1</b> open tasks</div><div class="badge"><b>6</b> awaiting reply</div><div class="badge"><b>0</b> gone quiet</div><div class="badge hot"><b>5</b> need review</div></div>
   </header>
 
   <a class="howto" href="https://claude.ai/code/artifact/ef023dc5-7573-4ac8-845f-ba8448315a5b" target="_blank" rel="noopener" style="display:block; text-decoration:none">
     <strong>Open the live Command Center &rarr;</strong> tap here for the always-current, interactive version. Works on your phone, no login needed.
   </a>
 
-  <section class="stats" id="stats"><div class="stat is-blue" data-target="todayPanel" role="button" tabindex="0"><div class="n">2</div><div class="k">Open tasks</div></div><div class="stat is-amber" data-target="waitPanel" role="button" tabindex="0"><div class="n">2</div><div class="k">Awaiting reply</div></div><div class="stat" data-target="waitPanel" role="button" tabindex="0"><div class="n zero">0</div><div class="k">Gone quiet</div></div><div class="stat is-red" data-target="reviewPanel" role="button" tabindex="0"><div class="n">4</div><div class="k">Need review</div></div></section>
+  <section class="stats" id="stats"><div class="stat is-blue" data-target="todayPanel" role="button" tabindex="0"><div class="n">1</div><div class="k">Open tasks</div></div><div class="stat is-amber" data-target="waitPanel" role="button" tabindex="0"><div class="n">6</div><div class="k">Awaiting reply</div></div><div class="stat" data-target="waitPanel" role="button" tabindex="0"><div class="n zero">0</div><div class="k">Gone quiet</div></div><div class="stat is-red" data-target="reviewPanel" role="button" tabindex="0"><div class="n">5</div><div class="k">Need review</div></div></section>
 
   <div class="grid">
     <div class="col">
       <section class="panel" id="calPanel" style="scroll-margin-top:16px">
-        <div class="phead"><h2>Calendar</h2><span class="note" id="calNote">2 events</span></div>
+        <div class="phead"><h2>Calendar</h2><span class="note" id="calNote"></span></div>
         <div class="rule blue"></div>
-        <div class="pbody" id="calWrap"><ul class="rail">
-          <li><div class="txt"><div class="t1">Pt</div><div class="t2">Today &middot; 8:45&ndash;9:45 AM ET</div></div></li>
-          <li><div class="txt"><div class="t1">Mahjong</div><div class="t2">Tomorrow &middot; 9:00 AM&ndash;1:00 PM ET &middot; Honors Bridge Club</div></div></li>
-        </ul></div>
+        <div class="pbody" id="calWrap"><div class="empty"><div class="lead">Calendar couldn&rsquo;t be checked this refresh.</div>No Google Calendar access in this session &mdash; reconnect it so this panel stays current.</div></div>
       </section>
 
       <section class="panel" id="todayPanel" style="scroll-margin-top:16px">
-        <div class="phead"><h2>Today&rsquo;s Focus</h2><span class="note" id="todayNote">2 of 3</span></div>
+        <div class="phead"><h2>Today&rsquo;s Focus</h2><span class="note" id="todayNote">1 of 3</span></div>
         <div class="rule red"></div>
         <div class="pbody" id="todayWrap"><div class="prio">
-          <div class="pcard r1" data-id="2026-09-18-t0"><div class="row"><input type="checkbox" class="chk" aria-label="Mark done"><div class="body"><div class="task">Anthem call re: your benefits</div><div class="why">Still overdue, now 18 days (since 8/31), no movement found in sent mail today either. New EOB notification arrived 9/9 &mdash; log in to view before calling, may cover part of this.</div><div class="due">Due 2026-08-31</div><div class="pend pill amber" hidden>Pending &mdash; closes at next sync</div></div></div></div>
-          <div class="pcard r2" data-id="2026-09-18-t1"><div class="row"><input type="checkbox" class="chk" aria-label="Mark done"><div class="body"><div class="task">Send r&eacute;sum&eacute; to Nasreen Bharoocha (Conduit Health)</div><div class="why">She replied 9/18 3:46 PM ET (&ldquo;No worries, I will wait for your resume once it's ready&rdquo;) &mdash; that reply had landed in Trash, unread, until now. Still not sent.</div><div class="due">Due 2026-09-18</div><div class="pend pill amber" hidden>Pending &mdash; closes at next sync</div></div></div></div>
+          <div class="pcard r1" data-id="2026-09-23-t0"><div class="row"><input type="checkbox" class="chk" aria-label="Mark done"><div class="body"><div class="task">Send r&eacute;sum&eacute; to Nasreen Bharoocha (Conduit Health)</div><div class="why">Now 5 days overdue. She replied 9/18 11:46 AM ET (&ldquo;No worries, I will wait for your resume once it's ready&rdquo;) &mdash; no rush on her end, but you emailed her again yourself 9/22 apologizing for the delay (flight cancelled). R&eacute;sum&eacute; still not sent; a placeholder draft has been sitting in Gmail Drafts since 9/18.</div><div class="due">Due 2026-09-18</div><div class="pend pill amber" hidden>Pending &mdash; closes at next sync</div></div></div></div>
         </div></div>
       </section>
 
@@ -236,19 +232,24 @@ code.cmd{font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(-
         <div class="phead"><h2>Waiting On</h2><span class="note" id="waitNote"></span></div>
         <div class="rule amber"></div>
         <div class="pbody" id="waitWrap"><ul class="rail">
-          <li><div class="txt"><div class="t1">R&eacute;sum&eacute; owed to her (no rush on her end)</div><div class="t2">Nasreen Bharoocha, Conduit Health</div></div><span class="pill blue">0d</span></li>
-          <li><div class="txt"><div class="t1">No reply to your outreach yet</div><div class="t2">Patsy Doerr &amp; Ashley Fredericks, LRN &mdash; you sent it, waiting on them</div></div><span class="pill blue">2d</span></li>
+          <li><div class="txt"><div class="t1">R&eacute;sum&eacute; owed to her (no rush on her end)</div><div class="t2">Nasreen Bharoocha, Conduit Health</div></div><span class="pill amber">5d</span></li>
+          <li><div class="txt"><div class="t1">Waiting on her to confirm a screen time</div><div class="t2">Ashley Fredericks, LRN &mdash; she asked for a 30-min video screen, you proposed Fri 9/25</div></div><span class="pill blue">1d</span></li>
+          <li><div class="txt"><div class="t1">No reply to your outreach yet</div><div class="t2">Patsy Doerr, LRN &mdash; you sent it, waiting on her</div></div><span class="pill amber">7d</span></li>
+          <li><div class="txt"><div class="t1">No reply to your outreach yet</div><div class="t2">Sarah Wagener &amp; Matt Valentino, Chime &mdash; you sent it, waiting on them</div></div><span class="pill amber">6d</span></li>
+          <li><div class="txt"><div class="t1">No reply to your outreach yet</div><div class="t2">Shira Blumenstein, Katie Bunker &amp; Kerri Toninoeskin, Cotiviti &mdash; you sent it, waiting on them</div></div><span class="pill blue">2d</span></li>
+          <li><div class="txt"><div class="t1">No reply to your outreach yet</div><div class="t2">Jill Keller &amp; Lisa Gibson, Thomson Reuters &mdash; you sent it, waiting on them</div></div><span class="pill amber">7d</span></li>
         </ul></div>
       </section>
 
       <section class="panel" id="reviewPanel" style="scroll-margin-top:16px">
-        <div class="phead"><h2>Review <span style="font-weight:500; color:var(--muted); font-size:12px">&middot; drift check</span></h2><span class="note" id="reviewNote">4 items</span></div>
+        <div class="phead"><h2>Review <span style="font-weight:500; color:var(--muted); font-size:12px">&middot; drift check</span></h2><span class="note" id="reviewNote">5 items</span></div>
         <div class="rule red"></div>
         <div class="pbody" id="reviewWrap">
-          <div class="revItem" data-id="2026-09-18-r0"><div class="txt"><div class="cat" style="color:var(--red)">Contradiction</div><div class="desc">Task Board&rsquo;s Waiting On section says &ldquo;(none open)&rdquo; but Memory&rsquo;s Follow-Ups table tracks 4 open items (Maneeha Arshad, Nasreen Bharoocha, Rashmi Mahajan, Patsy Doerr &amp; Ashley Fredericks). Task Board should be the source of truth here.</div></div><button class="revDismiss" type="button">Seen</button></div>
-          <div class="revItem" data-id="2026-09-18-r1"><div class="txt"><div class="cat" style="color:var(--amber)">Stale 10+ days</div><div class="desc">8 LinkedIn/Indeed job-alert triage items sitting untouched, oldest since 9/2 (16 days) &mdash; never triaged into applied or skipped.</div></div><button class="revDismiss" type="button">Seen</button></div>
-          <div class="revItem" data-id="2026-09-18-r2"><div class="txt"><div class="cat" style="color:var(--blue)">Unanswered 5+ days</div><div class="desc">5 items waiting on your answer, oldest since 8/31 (18 days): the mom/Barbara phone reminder, the &ldquo;do LinkedIn&rdquo; task, a screenshot sent 9/7, an NYU Langone PDF sent 9/7, and the still-unidentified 9/15 &ldquo;Interview at 1pm&rdquo; calendar block.</div></div><button class="revDismiss" type="button">Seen</button></div>
-          <div class="revItem" data-id="2026-09-18-r3"><div class="txt"><div class="cat" style="color:var(--violet)">Still open</div><div class="desc">Suspected phishing email (fake dentsu offer letter) flagged 9/8 &mdash; still sitting in Trash, never reported or resolved (10 days).</div></div><button class="revDismiss" type="button">Seen</button></div>
+          <div class="revItem" data-id="2026-09-23-r0"><div class="txt"><div class="cat" style="color:var(--red)">Contradiction</div><div class="desc">Task Board&rsquo;s Waiting On section says &ldquo;(none open)&rdquo; but Memory&rsquo;s Follow-Ups table tracks 6 open items (Nasreen Bharoocha, Ashley Fredericks, Patsy Doerr, Sarah Wagener &amp; Matt Valentino, Shira Blumenstein/Katie Bunker/Kerri Toninoeskin, Jill Keller &amp; Lisa Gibson). Task Board should be the source of truth here.</div></div><button class="revDismiss" type="button">Seen</button></div>
+          <div class="revItem" data-id="2026-09-23-r1"><div class="txt"><div class="cat" style="color:var(--amber)">Stale 10+ days</div><div class="desc">12 LinkedIn/Indeed job-alert and job-link/lead triage items in Backlog sitting untouched, oldest since 9/2 (21 days) &mdash; never triaged into applied or skipped. Includes the Columbia, BNY, Sesame, Clio, DDN, Backblaze, Greenbox, and PeopleOps alerts, the OrganOx/Empathy leads, NAACP LDF, and bare job links from 9/5 and 9/12.</div></div><button class="revDismiss" type="button">Seen</button></div>
+          <div class="revItem" data-id="2026-09-23-r2"><div class="txt"><div class="cat" style="color:var(--amber)">Stale 10+ days</div><div class="desc">2 unlogged portal/insurance notifications: the UHC Explanation of Benefits (9/13, 10 days) and the NYU Langone MyChart portal messages (9/8, 15 days) &mdash; neither logged into yet.</div></div><button class="revDismiss" type="button">Seen</button></div>
+          <div class="revItem" data-id="2026-09-23-r3"><div class="txt"><div class="cat" style="color:var(--blue)">Unanswered 5+ days</div><div class="desc">7 items waiting on your answer, oldest since 8/31 (23 days): the mom/Barbara phone reminder, the &ldquo;do LinkedIn&rdquo; task, a screenshot sent 9/7, an NYU Langone PDF sent 9/7, two scanned PDFs sent 9/8 (&ldquo;Work history&rdquo;/&ldquo;Dis 1&rdquo;), the still-unidentified 9/15 &ldquo;Interview at 1pm&rdquo; calendar block, and a screenshot sent 9/18.</div></div><button class="revDismiss" type="button">Seen</button></div>
+          <div class="revItem" data-id="2026-09-23-r4"><div class="txt"><div class="cat" style="color:var(--violet)">Still open</div><div class="desc">Suspected phishing email (fake dentsu offer letter) flagged 9/8 &mdash; still sitting in Trash, never reported or resolved (15 days).</div></div><button class="revDismiss" type="button">Seen</button></div>
         </div>
       </section>
     </div>
@@ -258,7 +259,7 @@ code.cmd{font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(-
         <div class="phead"><h2>Priorities</h2></div>
         <div class="rule violet"></div>
         <div class="pbody" id="prioWrap"><ul class="bullets">
-          <li>Land a senior HR role &mdash; VP/CHRO level. CUNY (Vice Chancellor, HR) interview held 9/11, thank-you sent, outcome still awaited. Spectrum (Director, HR) closed 9/18 &mdash; comp mismatch, staying in touch. Conduit Health interview held 9/16 &mdash; two thank-yous sent, r&eacute;sum&eacute; still owed (Nasreen confirmed 9/18 she's waiting, no rush). LRN cold outreach to two contacts 9/16, followed up 9/17, no replies yet.</li>
+          <li>Land a senior HR role &mdash; VP/CHRO level. LRN (VP People) &mdash; Ashley Fredericks wants a 30-min video screen, you proposed Fri 9/25, awaiting her pick; Patsy Doerr still hasn&rsquo;t replied. Conduit Health interview held 9/16 &mdash; r&eacute;sum&eacute; still owed to Nasreen, now 5 days overdue, no outcome on the role yet. CUNY interview held 9/11, outcome still awaited. Cotiviti and Thomson Reuters &mdash; cold outreach out to 5 contacts total, no replies yet. Spectrum, Intalegence, and AIChE all closed.</li>
           <li>Comp target: low-to-mid $200Ks base, flexible on total package.</li>
           <li>Based in NY &mdash; raised as a possible blocker with Bryce Lowery (Intalegence, since closed); he confirmed it isn&rsquo;t one.</li>
         </ul></div>
@@ -268,11 +269,17 @@ code.cmd{font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(-
         <div class="phead"><h2>People</h2></div>
         <div class="rule green"></div>
         <div class="pbody" id="pplWrap"><ul class="rail">
-          <li><div class="txt"><div class="t1">Nasreen Bharoocha</div><div class="t2">Recruiter/HR Consultant, Conduit Health. Interview held 9/16. Two thank-yous sent. She replied 9/18 (found in Trash, unread) &mdash; waiting on your r&eacute;sum&eacute;, no rush on her end.</div></div></li>
-          <li><div class="txt"><div class="t1">Rashmi Mahajan</div><div class="t2">Spectrum (Charter Communications), Director HR. Closed 9/18 &mdash; comp mismatch. You asked to stay in touch for other roles.</div></div></li>
-          <li><div class="txt"><div class="t1">Patsy Doerr</div><div class="t2">LRN, Vice President of People. Cold outreach 9/16, followed up 9/17 night with resume/portfolio link. No reply yet.</div></div></li>
-          <li><div class="txt"><div class="t1">Ashley Fredericks</div><div class="t2">LRN, second contact re: same VP of People opening. Cold outreach 9/16, followed up 9/17 night. No reply yet.</div></div></li>
-          <li><div class="txt"><div class="t1">Elisa Russo</div><div class="t2">Lead Recruiter, CUNY. Interview held Fri 9/11 &mdash; thank-you sent 9/12. Reachable via Jonathan Campbell.</div></div></li>
+          <li><div class="txt"><div class="t1">Nasreen Bharoocha</div><div class="t2">Recruiter/HR Consultant, Conduit Health. Interview held 9/16. She replied 9/18 confirming she's waiting on your r&eacute;sum&eacute;, no rush on her end. Still not sent &mdash; now 5 days overdue; you apologized again live 9/22 (flight cancelled).</div></div></li>
+          <li><div class="txt"><div class="t1">Ashley Fredericks</div><div class="t2">LRN, Vice President of People. Replied 9/22 wanting a 30-min video screen; you proposed Fri 9/25. Awaiting her pick.</div></div></li>
+          <li><div class="txt"><div class="t1">Patsy Doerr</div><div class="t2">LRN, second contact re: same VP of People opening. Cold outreach 9/16, followed up 9/17. No reply yet.</div></div></li>
+          <li><div class="txt"><div class="t1">Sarah Wagener</div><div class="t2">Chime, Principal People Partner (NYC). Cold outreach sent 9/17. No reply yet.</div></div></li>
+          <li><div class="txt"><div class="t1">Matt Valentino</div><div class="t2">Chime, second contact re: same Principal People Partner opening. Cold outreach sent 9/17. No reply yet.</div></div></li>
+          <li><div class="txt"><div class="t1">Katie Bunker</div><div class="t2">Cotiviti, Director, People Business Partner. Cold outreach sent 9/22. No reply yet.</div></div></li>
+          <li><div class="txt"><div class="t1">Kerri Toninoeskin</div><div class="t2">Cotiviti, second contact re: same Director, People Business Partner opening. Cold outreach sent 9/22. No reply yet.</div></div></li>
+          <li><div class="txt"><div class="t1">Shira Blumenstein</div><div class="t2">Cotiviti, third contact re: same role. Cold outreach sent 9/21 with r&eacute;sum&eacute;/portfolio link. No reply yet.</div></div></li>
+          <li><div class="txt"><div class="t1">Jill Keller</div><div class="t2">Thomson Reuters, HRBP &ndash; Product Engineering. Cold outreach sent 9/16. No reply yet.</div></div></li>
+          <li><div class="txt"><div class="t1">Lisa Gibson</div><div class="t2">Thomson Reuters, second contact on the same role. Cold outreach sent 9/21; auto out-of-office reply only, no substantive reply yet.</div></div></li>
+          <li><div class="txt"><div class="t1">Elisa Russo</div><div class="t2">Lead Recruiter, CUNY. Interview held Fri 9/11 &mdash; thank-you sent 9/12. Outcome still awaited. Reachable via Jonathan Campbell.</div></div></li>
           <li><div class="txt"><div class="t1">Maneeha Arshad</div><div class="t2">Independent recruiter &mdash; CPO opportunity, no company/comp given. Closed 9/18, decision made.</div></div></li>
         </ul></div>
       </section>
@@ -298,38 +305,67 @@ code.cmd{font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(-
 <script>
 /* Regenerated by /dashboard - edit DATA only. All dates YYYY-MM-DD. */
 const DATA = {
-  generated: "2026-09-18",
-  calendar: [
-    {day:"Today", time:"8:45–9:45 AM ET", title:"Pt", conflict:false},
-    {day:"Tomorrow", time:"9:00 AM–1:00 PM ET · Honors Bridge Club", title:"Mahjong", conflict:false}
-  ],
+  generated: "2026-09-23",
+  calendarUnavailable: true,
+  calendar: [],
   today: [
-    {id:"2026-09-18-t0", task:"Anthem call re: your benefits", why:"Still overdue, now 18 days (since 8/31), no movement found in sent mail today either. New EOB notification arrived 9/9 — log in to view before calling, may cover part of this.", due:"2026-08-31"},
-    {id:"2026-09-18-t1", task:"Send résumé to Nasreen Bharoocha (Conduit Health)", why:"She replied 9/18 3:46 PM ET (\"No worries, I will wait for your resume once it's ready\") — that reply had landed in Trash, unread, until now. Still not sent.", due:"2026-09-18"}
+    {id:"2026-09-23-t0", task:"Send résumé to Nasreen Bharoocha (Conduit Health)", why:"Now 5 days overdue. She replied 9/18 11:46 AM ET (\"No worries, I will wait for your resume once it's ready\") — no rush on her end, but you emailed her again yourself 9/22 apologizing for the delay (flight cancelled). Résumé still not sent; a placeholder draft has been sitting in Gmail Drafts since 9/18.", due:"2026-09-18"}
   ],
   week: [],
+  pipeline: [
+    {company:"CUNY (City University of New York)", role:"Vice Chancellor for Human Resources", stage:"Interview", applied:"2026-08-31", lastContact:"2026-09-03", nextAction:"Interview confirmed: Fri 9/11, 3:00–4:00 PM ET, Microsoft Teams. Panel: Elisa Russo & Sujata Malhotra"},
+    {company:"HSO", role:"Strategic HR Business Partner", stage:"Applied", applied:"2026-08-25", lastContact:"2026-08-26", nextAction:"Nothing owed — Kristen has it"},
+    {company:"Dropbox", role:"(applied via posting)", stage:"Applied", applied:"2026-08-22", lastContact:"2026-08-22", nextAction:"Auto-ack only, no human contact yet"},
+    {company:"Superhuman", role:"Senior People Partner", stage:"Applied", applied:"2026-08-29", lastContact:"2026-08-29", nextAction:"Auto-ack only, no human contact yet. Ashby confirmation repeatedly lands in Trash — do not rescue"},
+    {company:"Teleport", role:"Senior People Business Partner - GTM", stage:"Applied", applied:"2026-09-01", lastContact:"2026-09-01", nextAction:"Auto-ack only, no human contact yet"},
+    {company:"RWT Consulting", role:"(applied via LinkedIn Easy Apply)", stage:"Applied", applied:"2026-08-31", lastContact:"2026-08-31", nextAction:"Auto-ack only, no human contact yet"},
+    {company:"Teamworks", role:"Director of People", stage:"Applied", applied:"—", lastContact:"2026-09-12", nextAction:"Auto-ack only, no human contact yet"},
+    {company:"Spectrum (Charter Communications)", role:"Director, Human Resources", stage:"Closed", applied:"2026-09-11", lastContact:"2026-09-18", nextAction:"Closed — comp mismatch. Thank-you sent 9/18 asking to stay in touch"},
+    {company:"Conduit Health", role:"Chief of Staff / People Ops", stage:"Interview", applied:"—", lastContact:"2026-09-22", nextAction:"Interview held 9/16. Two thank-yous sent. Nasreen confirmed 9/18 she's still waiting on your résumé — still not sent, now 5 days overdue. You emailed her again yourself 9/22 1:27 AM ET apologizing for a further delay (flight cancelled)"},
+    {company:"Oscar Health", role:"People Strategy Lead", stage:"Applied", applied:"2026-09-14", lastContact:"2026-09-14", nextAction:"Auto-ack only (Greenhouse), no human contact yet"},
+    {company:"LRN", role:"Vice President of People", stage:"Screen", applied:"2026-09-16", lastContact:"2026-09-22", nextAction:"Ashley Fredericks replied 9/22 6:50 PM ET wanting a 30-min video screen (\"first step in our process\"). You proposed Fri 9/25, 10:30 AM–3:00 PM ET same night. Awaiting her to confirm a time. Patsy Doerr still no reply"},
+    {company:"Arootah", role:"Fractional Director of Human Resources", stage:"Applied", applied:"2026-09-17", lastContact:"2026-09-17", nextAction:"Auto-ack only (LinkedIn Easy Apply), no human contact yet"},
+    {company:"Chime", role:"Principal People Partner (NYC office)", stage:"Applied", applied:"2026-09-17", lastContact:"2026-09-17", nextAction:"Formal application submitted. Cold outreach to two contacts same night. No reply yet"},
+    {company:"Marguerite Casey Foundation", role:"Director of Human Resources", stage:"Applied", applied:"—", lastContact:"2026-09-19", nextAction:"Auto-ack only (Lever), no human contact yet. Rescued 9/19, back in Trash 9/21 (she put it there on purpose) — not re-rescued"},
+    {company:"MSG Entertainment Holdings", role:"Director, Human Resources Business Partner", stage:"Applied", applied:"—", lastContact:"2026-09-19", nextAction:"Auto-ack only (no-reply@msg.com), no human contact yet. Found in Trash, not previously tracked — NOT rescued per Do Not Rescue policy"},
+    {company:"Hudson River Trading", role:"(role not named in the ack)", stage:"Applied", applied:"—", lastContact:"2026-09-20", nextAction:"Auto-ack only (Greenhouse), no human contact yet. Found in Trash, not previously tracked — NOT rescued per Do Not Rescue policy"},
+    {company:"Cotiviti", role:"Director, People Business Partner (technology org)", stage:"Applied", applied:"2026-09-21", lastContact:"2026-09-22", nextAction:"Cold outreach sent to three contacts 9/21–9/22 (Shira Blumenstein, Katie Bunker, Kerri Toninoeskin) with résumé/portfolio link. No reply from any yet"},
+    {company:"Thomson Reuters", role:"Senior Director, HRBP – Product Engineering", stage:"Applied", applied:"2026-09-16", lastContact:"2026-09-21", nextAction:"Cold outreach to Jill Keller 9/16 and Lisa Gibson 9/21 (auto out-of-office reply only). Separate formal application ack (Workday) found in Trash, not rescued. No substantive reply yet"},
+    {company:"SimplePractice", role:"Senior Director, HR Business Partners", stage:"Applied", applied:"2026-09-22", lastContact:"2026-09-22", nextAction:"Applied 9/22. Greenhouse auto-ack landed in Trash, not rescued (no-reply sender, per policy)"}
+  ],
   waiting: [
     {item:"Résumé owed to her (no rush on her end)", who:"Nasreen Bharoocha, Conduit Health", since:"2026-09-18"},
-    {item:"No reply to your outreach yet", who:"Patsy Doerr & Ashley Fredericks, LRN — you sent it, waiting on them", since:"2026-09-16"}
+    {item:"Waiting on her to confirm a screen time", who:"Ashley Fredericks, LRN — she asked for a 30-min video screen, you proposed Fri 9/25", since:"2026-09-22"},
+    {item:"No reply to your outreach yet", who:"Patsy Doerr, LRN — you sent it, waiting on her", since:"2026-09-16"},
+    {item:"No reply to your outreach yet", who:"Sarah Wagener & Matt Valentino, Chime — you sent it, waiting on them", since:"2026-09-17"},
+    {item:"No reply to your outreach yet", who:"Shira Blumenstein, Katie Bunker & Kerri Toninoeskin, Cotiviti — you sent it, waiting on them", since:"2026-09-21"},
+    {item:"No reply to your outreach yet", who:"Jill Keller & Lisa Gibson, Thomson Reuters — you sent it, waiting on them", since:"2026-09-16"}
   ],
   priorities: [
-    "Land a senior HR role — VP/CHRO level. CUNY (Vice Chancellor, HR) interview held 9/11, thank-you sent, outcome still awaited. Spectrum (Director, HR) closed 9/18 — comp mismatch, staying in touch. Conduit Health interview held 9/16 — two thank-yous sent, résumé still owed (Nasreen confirmed 9/18 she's waiting, no rush). LRN cold outreach to two contacts 9/16, followed up 9/17, no replies yet.",
+    "Land a senior HR role — VP/CHRO level. LRN (VP People) — Ashley Fredericks wants a 30-min video screen, you proposed Fri 9/25, awaiting her pick; Patsy Doerr still hasn't replied. Conduit Health interview held 9/16 — résumé still owed to Nasreen, now 5 days overdue, no outcome on the role yet. CUNY interview held 9/11, outcome still awaited. Cotiviti and Thomson Reuters — cold outreach out to 5 contacts total, no replies yet. Spectrum, Intalegence, and AIChE all closed.",
     "Comp target: low-to-mid $200Ks base, flexible on total package.",
     "Based in NY — raised as a possible blocker with Bryce Lowery (Intalegence, since closed); he confirmed it isn't one."
   ],
   people: [
-    {name:"Nasreen Bharoocha", note:"Recruiter/HR Consultant, Conduit Health. Interview held 9/16. Two thank-yous sent. She replied 9/18 (found in Trash, unread) — waiting on your résumé, no rush on her end."},
-    {name:"Rashmi Mahajan", note:"Spectrum (Charter Communications), Director HR. Closed 9/18 — comp mismatch. You asked to stay in touch for other roles."},
-    {name:"Patsy Doerr", note:"LRN, Vice President of People. Cold outreach 9/16, followed up 9/17 night with resume/portfolio link. No reply yet."},
-    {name:"Ashley Fredericks", note:"LRN, second contact re: same VP of People opening. Cold outreach 9/16, followed up 9/17 night. No reply yet."},
-    {name:"Elisa Russo", note:"Lead Recruiter, CUNY. Interview held Fri 9/11 — thank-you sent 9/12. Reachable via Jonathan Campbell."},
+    {name:"Nasreen Bharoocha", note:"Recruiter/HR Consultant, Conduit Health. Interview held 9/16. She replied 9/18 confirming she's waiting on your résumé, no rush on her end. Still not sent — now 5 days overdue; you apologized again live 9/22 (flight cancelled)."},
+    {name:"Ashley Fredericks", note:"LRN, Vice President of People. Replied 9/22 wanting a 30-min video screen; you proposed Fri 9/25, awaiting her pick."},
+    {name:"Patsy Doerr", note:"LRN, second contact re: same VP of People opening. Cold outreach 9/16, followed up 9/17. No reply yet."},
+    {name:"Sarah Wagener", note:"Chime, Principal People Partner (NYC). Cold outreach sent 9/17. No reply yet."},
+    {name:"Matt Valentino", note:"Chime, second contact re: same Principal People Partner opening. Cold outreach sent 9/17. No reply yet."},
+    {name:"Katie Bunker", note:"Cotiviti, Director, People Business Partner. Cold outreach sent 9/22. No reply yet."},
+    {name:"Kerri Toninoeskin", note:"Cotiviti, second contact re: same Director, People Business Partner opening. Cold outreach sent 9/22. No reply yet."},
+    {name:"Shira Blumenstein", note:"Cotiviti, third contact re: same role. Cold outreach sent 9/21 with résumé/portfolio link. No reply yet."},
+    {name:"Jill Keller", note:"Thomson Reuters, HRBP – Product Engineering. Cold outreach sent 9/16. No reply yet."},
+    {name:"Lisa Gibson", note:"Thomson Reuters, second contact on the same role. Cold outreach sent 9/21; auto out-of-office reply only, no substantive reply yet."},
+    {name:"Elisa Russo", note:"Lead Recruiter, CUNY. Interview held Fri 9/11 — thank-you sent 9/12. Outcome still awaited. Reachable via Jonathan Campbell."},
     {name:"Maneeha Arshad", note:"Independent recruiter — CPO opportunity, no company/comp given. Closed 9/18, decision made."}
   ],
   review: [
-    {id:"2026-09-18-r0", cat:"Contradiction", desc:"Task Board's Waiting On section says \"(none open)\" but Memory's Follow-Ups table tracks 4 open items (Maneeha Arshad, Nasreen Bharoocha, Rashmi Mahajan, Patsy Doerr & Ashley Fredericks). Task Board should be the source of truth here."},
-    {id:"2026-09-18-r1", cat:"Stale 10+ days", desc:"8 LinkedIn/Indeed job-alert triage items sitting untouched, oldest since 9/2 (16 days) — never triaged into applied or skipped."},
-    {id:"2026-09-18-r2", cat:"Unanswered 5+ days", desc:"5 items waiting on your answer, oldest since 8/31 (18 days): the mom/Barbara phone reminder, the \"do LinkedIn\" task, a screenshot sent 9/7, an NYU Langone PDF sent 9/7, and the still-unidentified 9/15 \"Interview at 1pm\" calendar block."},
-    {id:"2026-09-18-r3", cat:"Still open", desc:"Suspected phishing email (fake dentsu offer letter) flagged 9/8 — still sitting in Trash, never reported or resolved (10 days)."}
+    {id:"2026-09-23-r0", cat:"Contradiction", desc:"Task Board's Waiting On section says \"(none open)\" but Memory's Follow-Ups table tracks 6 open items (Nasreen Bharoocha, Ashley Fredericks, Patsy Doerr, Sarah Wagener & Matt Valentino, Shira Blumenstein/Katie Bunker/Kerri Toninoeskin, Jill Keller & Lisa Gibson). Task Board should be the source of truth here."},
+    {id:"2026-09-23-r1", cat:"Stale 10+ days", desc:"12 LinkedIn/Indeed job-alert and job-link/lead triage items in Backlog sitting untouched, oldest since 9/2 (21 days) — never triaged into applied or skipped. Includes the Columbia, BNY, Sesame, Clio, DDN, Backblaze, Greenbox, and PeopleOps alerts, the OrganOx/Empathy leads, NAACP LDF, and bare job links from 9/5 and 9/12."},
+    {id:"2026-09-23-r2", cat:"Stale 10+ days", desc:"2 unlogged portal/insurance notifications: the UHC Explanation of Benefits (9/13, 10 days) and the NYU Langone MyChart portal messages (9/8, 15 days) — neither logged into yet."},
+    {id:"2026-09-23-r3", cat:"Unanswered 5+ days", desc:"7 items waiting on your answer, oldest since 8/31 (23 days): the mom/Barbara phone reminder, the \"do LinkedIn\" task, a screenshot sent 9/7, an NYU Langone PDF sent 9/7, two scanned PDFs sent 9/8 (\"Work history\"/\"Dis 1\"), the still-unidentified 9/15 \"Interview at 1pm\" calendar block, and a screenshot sent 9/18."},
+    {id:"2026-09-23-r4", cat:"Still open", desc:"Suspected phishing email (fake dentsu offer letter) flagged 9/8 — still sitting in Trash, never reported or resolved (15 days)."}
   ]
 };
 
@@ -379,7 +415,9 @@ if(DATA.calendar && DATA.calendar.length){
       (c.conflict?'<span class="pill red">Conflict</span>':'')+'</li>';
   }).join("")+'</ul>';
 }else{
-  cw.innerHTML=emptyBlock("Nothing on your calendar today or tomorrow.","Events populate here each refresh from Google Calendar.");
+  cw.innerHTML=DATA.calendarUnavailable
+    ? emptyBlock("Calendar couldn&rsquo;t be checked this refresh.","No Google Calendar access in this session — reconnect it so this panel stays current.")
+    : emptyBlock("Nothing on your calendar today or tomorrow.","Events populate here each refresh from Google Calendar.");
   document.getElementById("calNote").textContent="";
 }
 
