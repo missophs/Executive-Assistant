@@ -4,7 +4,7 @@ Rolling context between sessions. Read at the start of every session, updated du
 
 **Keep this short.** Quick-reference, not a journal. Prune anything resolved or stale.
 
-_Last updated: 2026-09-22 (wrap-up)_
+_Last updated: 2026-09-23 (midday sweep)_
 
 ---
 
@@ -29,6 +29,7 @@ _Last updated: 2026-09-22 (wrap-up)_
 - Cotiviti — expanded outreach 9/22: two more contacts reached with the same cold pitch/résumé/portfolio link — Katie Bunker 1:07 PM ET, Kerri Toninoeskin 1:05 PM ET — alongside Shira Blumenstein (9/21). No reply from any of the three yet.
 - SimplePractice (Senior Director, HR Business Partners) — you applied 9/22. Greenhouse auto-ack landed in Trash 8:06 PM ET, not rescued (no-reply sender, per policy). Filed to Applications.md as Applied; closes the triage backlog item from this morning's link capture.
 - Wrap-up sweep 9/22 5pm: one new capture filed — "Linkedin Optimizer" content (About-section/resume-scan/cover-letter/follow-up/interview-prep prompts), sent to self 8:07 PM ET, added to Saved Links. No completion captures. Drive "Tell Ellie" empty.
+- Midday sweep 9/23: 6 saved links and 1 job-link triage item (ADP posting, no company/role given) filed from captures sent 9/22 5:22 PM–9/23 12:02 AM ET. One capture ("AI job search for linkedin," 9/23 2:34 PM ET) was a duplicate resend of an already-saved LinkedIn help-center link — skipped. Personal/health note, new 9/23: a detailed memory and word-recall symptom writeup ("Print for dr," captured 12:02 AM ET) meant to print for a doctor visit — mentions forgetting a scheduled phone interview and re-applying to jobs already applied to. No action needed from Ellie; noting as context for extra care catching duplicate applications and missed calls/interviews going forward. Drive "Tell Ellie" note empty.
 - Comp target: low-to-mid $200Ks base, flexible on total package (bonus/equity in play at Intalegence).
 - Based in NY. Raised it with Bryce as a possible blocker; he confirmed it is not.
 - The 9/15 "Interview at 1pm" calendar block (1:00–2:00 PM ET, self-added 9/14 11:15 PM after a Tell Ellie capture) remains unresolved — no company/role ever identified, nothing in sent mail ties back to it. Distinct from Conduit Health (different company, different provenance) unless Melissa says otherwise.
@@ -147,6 +148,12 @@ _(Rita Ramakrishnan/AIChE follow-up: outcome arrived 9/16 — see People above, 
 - "Remove watermarks from chat" (content, no URL — a tool claiming to strip AI watermark markers) — sent to self 9/19 11:12 PM ET, to melweiss212@
 - "Sub agent" (content, no URL — note on dispatching sub-agents in parallel) — sent to self 9/19 11:13 PM ET, to melweiss212@
 - "Graphify" (screenshot, no caption, can't read image content) — sent to self 9/19 11:14 PM ET, to melweiss212@
+- "HR Pitch Deck" (content, no URL — job-application pitch deck via Gamma.app + a personalized 90-day strategy via Alchemyst AI, prompt/workflow tips) — sent to self 9/22 5:22 PM ET
+- "how to download News and get jev ai" — Google Search link — sent to self 9/22 11:01 PM ET, to melweiss212@
+- "Hr Claude" — https://lnkd.in/p/gJhcA4CX — sent to self 9/22 10:55 PM ET, to melweiss212@ (sent twice, ~2 min apart)
+- "Jev & Claude" — https://lnkd.in/p/gDJdndXJ — sent to self 9/22 10:56 PM ET, to melweiss212@
+- "Copilot & word" — https://lnkd.in/p/gRtnnSdx — sent to self 9/22 10:52 PM ET, to melweiss212@
+- The Claude Code Maintenance Checklist (+ the Skill That Runs It) (Learn AI With Mariah) — link carries an embedded `mcp_token=` auth token, don't forward as-is — https://learnaiwithmariah.com/guides/claude-code-maintenance-checklist/ — sent to self 9/22 9:46 PM ET, to melweiss212@
 
 ## Decisions & Context
 
