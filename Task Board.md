@@ -9,7 +9,7 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 ## 🔥 Today
 <!-- Must know today. Keep to 3. -->
 
-- [ ] EmblemHealth call re: the EOB (1-800-447-8255, promised 24–48h on 8/27), still overdue — call, don't email, their own reply confirms their inbox is unmonitored · due 2026-08-31 · #admin
+- [ ] Call doctor's office and EmblemHealth — tomorrow ~12:00 PM (captured via chat 9/24). EmblemHealth re: the EOB, 1-800-447-8255, promised 24–48h on 8/27, still not received — call, don't email, their own reply confirms their inbox is unmonitored · due 2026-09-25 · #admin
 - [ ] Call the dentist — captured via Tell Ellie 8/29 evening ("Monday"), missed, now overdue · due 2026-08-31 · #admin
 - [ ] Decide on Executive Roundtable Thu 9/3 9:00 ET — currently declined; overlaps the AIChE interview if you reconsider · due 2026-09-02 · #network
 
