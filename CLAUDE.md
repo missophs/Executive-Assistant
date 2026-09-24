@@ -48,6 +48,7 @@ Before you complete any request, work out what I am actually trying to achieve �
 | `Daily Notes/` | One `YYYY-MM-DD.md` per day. The permanent record. |
 | `Memory.md` | Rolling context: projects, people, follow-ups, decisions. |
 | `Interview Notes.md` | Question bank by company — what she was actually asked, logged after each interview. |
+| `Handoff.md` | Where we left off in the last live chat. Read it when she says `handoff`. |
 | `routines/` | Backup of the three cloud routines that email her. See `routines/README.md`. |
 
 ## Daily Rhythm
@@ -56,6 +57,7 @@ Before you complete any request, work out what I am actually trying to achieve �
 - `/sync` — mid-day. Process Scratch Pad + new meeting notes, update the board, clear the pad.
 - `/wrap-up` — end of day. Final sweep, day summary, write memory for tomorrow.
 - `/dashboard` — regenerate the visual command center and open it.
+- `handoff` — read `Handoff.md` and resume exactly where the last live chat left off.
 
 ## Context About Me
 
