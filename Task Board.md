@@ -9,7 +9,7 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 ## 🔥 Today
 <!-- Must know today. Keep to 3. -->
 
-- [ ] Send résumé to Nasreen Bharoocha (Conduit Health) — still not sent. You emailed her again yourself 9/22 1:27 AM ET apologizing for a further delay ("flight was cancelled... hopefully get home tomorrow and can get it to you if not too late") — sent live, not from the waiting draft. The résumé-placeholder draft from 9/18 is still sitting in Gmail Drafts, threaded under the interview, untouched · due 2026-09-18 (now 4 days overdue) · #jobsearch
+_(none open)_
 
 ## ⏭ This Week
 
@@ -64,10 +64,12 @@ _(none open)_
 ## ⏳ Waiting On
 <!-- Blocked on someone else. Note who and since when. -->
 
-_(none open)_
+- [ ] KSF Recruit lead (Head of People, unnamed fast-growing consumer audio/electronics brand, 5M+ customers, profitable 4 years) — Tristen Murch reached out 9/24 12:51 AM ET; you replied same night 1:13 AM ET asking for JD, location, salary range, and whether the role is hands-on recruiting (not your background) — awaiting his reply · since 2026-09-24 · #sourcing
 
 ## ✅ Done
 <!-- Cleared during /start and /wrap-up. Archive monthly. -->
+
+- [x] Send résumé to Nasreen Bharoocha (Conduit Health) — moot. Nasreen emailed 9/23 1:58 PM ET: the founder wants to go a different direction (org/strategy background, not People background) — role closed before résumé was ever needed. Message was in Trash, unread — rescued 9/24. Moved to Closed in Applications.md — 2026-09-24
 
 - [x] SimplePractice (Senior Director, HR Business Partners) — resolved itself: you applied. Greenhouse auto-ack landed in Trash 9/22 8:06 PM ET, not rescued (no-reply sender, per policy). Filed to Applications.md as Applied — 2026-09-22
 
