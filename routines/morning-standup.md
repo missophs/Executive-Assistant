@@ -60,6 +60,13 @@ STEP 9 - REFRESH HER PHONE BOARD. She reads a plain-text mirror of her vault on 
     RECENTLY DONE
   Write it so someone reading only this file can answer "what should I do today?" correctly. Never invent anything.
 
+STEP 10 - REFRESH THE COMMAND CENTER. Melissa's Command Center is a published Claude Artifact mirroring `dashboard.html` in the repo. If Steps 2-6 changed anything (tasks, applications, calendar, people, waiting-on):
+  1. Read `dashboard.html` from the repo.
+  2. Update its `DATA` object to match the vault as it now stands. Never invent data.
+  3. Commit the updated `dashboard.html`.
+  4. Publish it with the Artifact tool: `url: https://claude.ai/code/artifact/ef023dc5-7573-4ac8-845f-ba8448315a5b`, and a file built from `dashboard.html` with the `<!doctype html>`, `<html>`, `<head>`, and `<body>` wrapper tags stripped - keep only `<title>`, `<style>`, and everything that was inside `<body>`.
+  If nothing changed today, skip this step.
+
 RULES:
 - Never invent a company, person, role, date, or number.
 - NEVER send, reply to, or forward mail to anyone except the standup email to Melissa. Replies to other people are drafts only.

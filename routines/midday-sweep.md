@@ -26,6 +26,13 @@ STEP 5 - CLEAR THE DRIVE NOTE. If you found and processed a 'Tell Ellie' file, e
 
 STEP 6 - Commit vault changes with a one-line message. If nothing changed, commit nothing.
 
+STEP 6.5 - REFRESH THE COMMAND CENTER, only if Step 6 actually committed something. Melissa's Command Center is a published Claude Artifact mirroring `dashboard.html` in the repo.
+  1. Read `dashboard.html` from the repo.
+  2. Update its `DATA` object to match the vault as it now stands. Never invent data.
+  3. Commit the updated `dashboard.html`.
+  4. Publish it with the Artifact tool: `url: https://claude.ai/code/artifact/ef023dc5-7573-4ac8-845f-ba8448315a5b`, and a file built from `dashboard.html` with the `<!doctype html>`, `<html>`, `<head>`, and `<body>` wrapper tags stripped - keep only `<title>`, `<style>`, and everything that was inside `<body>`.
+  If Step 6 committed nothing, skip this step.
+
 STEP 7 - EMAIL HER ONLY IF SOMETHING HAPPENED. If you filed nothing, created no drafts, and found nothing urgent, send NOTHING. Silence is the correct output for a quiet midday.
   If something did happen, send a short HTML email via Gmail `send_message` to melissaw212@gmail.com, contentType HTML, subject `Filed - <Weekday> midday`:
 

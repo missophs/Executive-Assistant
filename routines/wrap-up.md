@@ -34,6 +34,13 @@ STEP 6 - REFRESH HER PHONE BOARD. Melissa reads a plain-text mirror of her vault
     RECENTLY DONE
   Write it so someone reading only this file can answer "what should I do today?" correctly. Never invent anything.
 
+STEP 6.5 - REFRESH THE COMMAND CENTER. Melissa's Command Center is a published Claude Artifact mirroring `dashboard.html` in the repo. If Step 5 changed anything:
+  1. Read `dashboard.html` from the repo.
+  2. Update its `DATA` object to match the vault as it now stands. Never invent data.
+  3. Commit the updated `dashboard.html`.
+  4. Publish it with the Artifact tool: `url: https://claude.ai/code/artifact/ef023dc5-7573-4ac8-845f-ba8448315a5b`, and a file built from `dashboard.html` with the `<!doctype html>`, `<html>`, `<head>`, and `<body>` wrapper tags stripped - keep only `<title>`, `<style>`, and everything that was inside `<body>`.
+  If nothing changed, skip this step.
+
 STEP 7 - Send an HTML email via Gmail `send_message` to melissaw212@gmail.com, contentType HTML (plain-text fallback if required). Subject: `Wrap-Up - <Weekday>, <Month> <Day>`.
 
 Read `routines/email-template.md` from the repo and build the email exactly as it specifies.
