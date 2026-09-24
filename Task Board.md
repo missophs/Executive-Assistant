@@ -60,6 +60,7 @@ _(none open)_
 - [ ] Triage LinkedIn job link sent to self 9/21 10:06 PM ET — no company or role given, subject "Job" — https://www.linkedin.com/jobs/view/4468177303/ · #sourcing
 - [ ] Suspected phishing email in Trash, NOT rescued — "We have been trying to reach you - melissaw212" (9/22 10:34 AM ET), sender domain fakes MyChart ("...quantumstrivenow.info"), fake prize/"Emergency Kit" hook. Same pattern as the dentsu phish still open above — spoofing a real service you use (NYU Langone/MyChart). Left in Trash, no action needed unless you want it reported · #security
 - [ ] Triage job link sent to self 9/22 10:51 PM ET — ADP job posting, no company or role given in the capture — https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=5cd5c82a-9265-495c-8abc-b4756df8f809&ccId=19000101_000001&lang=en_US&jobId=9201041965798_1&source=EN · #sourcing
+- [ ] Clarify "pA" capture sent 9/24 8:32–8:42 AM ET (to melweiss212@, subject "pA -", three chained replies) — three fragments with no stated task: "Evicore 866-417-2345", "Medication", "Home health 1856-417-2345". Looks insurance/prior-authorization related but unclear what action is needed or which matter it ties to. Tell Ellie what this refers to, or tell Ellie to drop it · #personal
 
 ## ⏳ Waiting On
 <!-- Blocked on someone else. Note who and since when. -->

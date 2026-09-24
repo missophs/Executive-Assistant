@@ -4,7 +4,7 @@ Rolling context between sessions. Read at the start of every session, updated du
 
 **Keep this short.** Quick-reference, not a journal. Prune anything resolved or stale.
 
-_Last updated: 2026-09-23 (midday sweep)_
+_Last updated: 2026-09-24 (midday sweep)_
 
 ---
 
@@ -30,6 +30,7 @@ _Last updated: 2026-09-23 (midday sweep)_
 - SimplePractice (Senior Director, HR Business Partners) — you applied 9/22. Greenhouse auto-ack landed in Trash 8:06 PM ET, not rescued (no-reply sender, per policy). Filed to Applications.md as Applied; closes the triage backlog item from this morning's link capture.
 - Wrap-up sweep 9/22 5pm: one new capture filed — "Linkedin Optimizer" content (About-section/resume-scan/cover-letter/follow-up/interview-prep prompts), sent to self 8:07 PM ET, added to Saved Links. No completion captures. Drive "Tell Ellie" empty.
 - Midday sweep 9/23: 6 saved links and 1 job-link triage item (ADP posting, no company/role given) filed from captures sent 9/22 5:22 PM–9/23 12:02 AM ET. One capture ("AI job search for linkedin," 9/23 2:34 PM ET) was a duplicate resend of an already-saved LinkedIn help-center link — skipped. Personal/health note, new 9/23: a detailed memory and word-recall symptom writeup ("Print for dr," captured 12:02 AM ET) meant to print for a doctor visit — mentions forgetting a scheduled phone interview and re-applying to jobs already applied to. No action needed from Ellie; noting as context for extra care catching duplicate applications and missed calls/interviews going forward. Drive "Tell Ellie" note empty.
+- Midday sweep 9/24: 1 backlog item added — ambiguous "pA" capture (3 chained fragments, 8:32–8:42 AM ET, to melweiss212@: "Evicore 866-417-2345", "Medication", "Home health 1856-417-2345"), no stated task, flagged to her in the email. Drive "Tell Ellie" note still in its untouched default state — nothing to file or clear.
 - Comp target: low-to-mid $200Ks base, flexible on total package (bonus/equity in play at Intalegence).
 - Based in NY. Raised it with Bryce as a possible blocker; he confirmed it is not.
 - The 9/15 "Interview at 1pm" calendar block (1:00–2:00 PM ET, self-added 9/14 11:15 PM after a Tell Ellie capture) remains unresolved — no company/role ever identified, nothing in sent mail ties back to it. Distinct from Conduit Health (different company, different provenance) unless Melissa says otherwise.
