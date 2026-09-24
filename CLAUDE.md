@@ -47,6 +47,7 @@ Before you complete any request, work out what I am actually trying to achieve â
 | `Meetings/` | Raw transcripts and meeting notes, unprocessed until you summarize them. |
 | `Daily Notes/` | One `YYYY-MM-DD.md` per day. The permanent record. |
 | `Memory.md` | Rolling context: projects, people, follow-ups, decisions. |
+| `Interview Notes.md` | Question bank by company â€” what she was actually asked, logged after each interview. |
 | `routines/` | Backup of the three cloud routines that email her. See `routines/README.md`. |
 
 ## Daily Rhythm

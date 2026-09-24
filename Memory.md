@@ -56,6 +56,25 @@ _Last updated: 2026-09-23 (midday sweep)_
 - **Lisa Gibson** — Thomson Reuters, re: Senior Director, HRBP – Product Engineering. Cold outreach sent 9/21 9:29 PM ET; auto out-of-office reply received. No substantive reply yet.
 - **Jill Keller** — Thomson Reuters, first contact on the same HRBP – Product Engineering role. Cold outreach sent 9/16 7:31 PM ET, delivered. No reply yet.
 
+## Contact Cadence — last touched, active contacts only
+<!-- Added 9/24 per Melissa's request: nobody goes quiet without her noticing. Closed/rejected contacts omitted. 🔴 = 7+ days since last contact either direction. -->
+
+| Contact | Company / Role | Last touched | Who's turn |
+|---|---|---|---|
+| Elisa Russo | CUNY — Vice Chancellor for HR | 2026-09-12 (your thank-you) | Her — outcome still awaited, 12 days |
+| Nasreen Bharoocha | Conduit Health — Chief of Staff/People Ops | 2026-09-22 (your live apology) | You — résumé still owed |
+| Ashley Fredericks | LRN — VP of People | 2026-09-22 (she asked for a screen) | Her — pick a time for the Fri 9/25 window |
+| 🔴 Patsy Doerr | LRN — VP of People (2nd contact) | 2026-09-17 (your follow-up) | Her — 7 days, no reply |
+| Katie Bunker | Cotiviti — Director, People BP | 2026-09-22 (your outreach) | Her — 2 days |
+| Kerri Toninoeskin | Cotiviti — Director, People BP (2nd contact) | 2026-09-22 (your outreach) | Her — 2 days |
+| Shira Blumenstein | Cotiviti — Director, People BP (3rd contact) | 2026-09-21 (your outreach) | Her — 3 days |
+| Sarah Wagener | Chime — Principal People Partner | 2026-09-17 (your outreach) | Her — 7 days, no reply |
+| Matt Valentino | Chime — Principal People Partner (2nd contact) | 2026-09-17 (your outreach) | Her — 7 days, no reply |
+| 🔴 Jill Keller | Thomson Reuters — Sr. Dir. HRBP | 2026-09-16 (your outreach) | Her — 8 days, no reply |
+| Lisa Gibson | Thomson Reuters — Sr. Dir. HRBP (2nd contact) | 2026-09-21 (your outreach) | Her — auto-reply only |
+
+Updated at each Standup/Wrap-Up alongside Waiting On. A name drops off once the role closes either way.
+
 ## Follow-Ups
 
 | Item | Who | Since | Status |
