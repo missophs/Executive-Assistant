@@ -68,3 +68,31 @@ Note: the Midday Sweep does not have Calendar attached. It does not need it.
 Ask Claude Code: "recreate the Ellie <name> routine from `routines/<file>.md`" and give it the
 schedule and connectors from the tables above. It uses the `RemoteTrigger` tool with
 `action: "create"`.
+
+---
+
+## Changelog — 2026-09-25 (Ellie - EA)
+
+**Why the standup arrived twice on 9/25:** the Gmail send tool does not run shell substitution, so the first send went out as the literal text `$(cat /tmp/.../standup.html)` and a second, real send followed. Fixed with a SEND ONCE rule in every routine (literal HTML body only; search `in:sent` for the subject before sending; never resend after a success).
+
+**Routines (`routines/*.md`)**
+- Seen cache: `## Seen Cache` in `Memory.md` (`<id> | <latest-message-date> | <what was done>`), so already-handled mail is skipped unless newer. Pruned after 7 days.
+- Recall: the phone board tells the chat to check Gmail self-sends and the Drive file "Tell Ellie" when asked "where did we leave off".
+- Interview prep box in the standup (vault and Gmail only; "not in vault" if missing; never invent).
+- Wrap-up STEP 3b reads tomorrow's calendar for the `Tomorrow` box; only says "Calendar is clear." if `list_events` returned nothing.
+- Calendar captures: "Ellie remind me I have X on <date>" creates an event on the primary calendar (America/New_York, no attendees, no invites, create-only). Needs a clear date; otherwise asks under "Needs Your Call". Reported under "Added To Your Calendar". Never accepts or declines invites.
+- Waiting-On captures: "Nasreen replied", "stop waiting on Chime" removes the item from `Task Board.md` Waiting On and the Memory follow-ups table, logs "No longer waiting on X" under Done.
+- Email subjects renamed: `Ellie - EA Morning - <Weekday>, <Month> <Day>`, `Ellie - EA Midday - …`, `Ellie - EA Wrap-Up - …`.
+- Email palette matches the dashboard: mastheads Standup `#6D21C9`, Midday `#D6249E`, Wrap-Up `#3B1B8F` (each with a gradient and a solid fallback), brighter accent colours, page background `#F3F1FB`.
+- Midday sweep (1pm) is **paused** by the user to save tokens. Captures wait for the 7:30am or 5pm run.
+
+**Dashboard (`dashboard.html`, published to the artifact `ef023dc5-7573-4ac8-845f-ba8448315a5b`, pinned as "EA" on her phone)**
+- Palette is the purple/pink/orange one; title "Ellie - EA". The Waiting On and People panels were removed.
+- Calendar panel reads her own Google Calendar live at open time through the artifact `mcp` capability (server "Google Calendar", tool `list_events`, refresh every 5 min, no tokens). Falls back to the calendar baked in by the last `/dashboard`.
+- Tasks, follow-ups and priorities are still copied from the vault only when `/dashboard` runs (after the 7:30am and 5pm routines).
+- Sharing must stay "Only people invited". Pages on this private repo was rejected: it would publish the job-search data publicly.
+- The live-calendar version shows each viewer their own calendar, so it is for her only.
+
+**Still untested (no routine has run since these changes):** send-once guard, new email look, calendar capture, waiting-on capture, interview prep, seen cache. First real check: the 9/26 7:30am email should be a single email in the new colours and list "Doctor's appointment, Mon 9/28, 1:00–5:30 PM" under Added To Your Calendar (captured 9/25 7:00 PM ET). Event "Elle" on 9/30 9:30 AM was renamed "Elle-Hair" by chat.
+
+**Chat vs routines:** in a chat session with Google Calendar connected, events can be read, added and renamed immediately. Routine runs use their own connection and act only at their scheduled times. Events with guests always need her yes first in chat.
