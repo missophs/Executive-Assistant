@@ -253,24 +253,6 @@ code.cmd{font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(-
         </ul></div>
       </section>
 
-      <section class="panel">
-        <div class="phead"><h2>People</h2></div>
-        <div class="rule green"></div>
-        <div class="pbody" id="pplWrap"><ul class="rail">
-          <li><div class="txt"><div class="t1">Nasreen Bharoocha</div><div class="t2">Recruiter/HR Consultant, Conduit Health. Interview held 9/16. She replied 9/18 confirming she's waiting on your r&eacute;sum&eacute;, no rush on her end. Still not sent &mdash; now 5 days overdue; you apologized again live 9/22 (flight cancelled).</div></div></li>
-          <li><div class="txt"><div class="t1">Ashley Fredericks</div><div class="t2">LRN, Vice President of People. Replied 9/22 wanting a 30-min video screen; you proposed Fri 9/25. Awaiting her pick.</div></div></li>
-          <li><div class="txt"><div class="t1">Patsy Doerr</div><div class="t2">LRN, second contact re: same VP of People opening. Cold outreach 9/16, followed up 9/17. No reply yet.</div></div></li>
-          <li><div class="txt"><div class="t1">Sarah Wagener</div><div class="t2">Chime, Principal People Partner (NYC). Cold outreach sent 9/17. No reply yet.</div></div></li>
-          <li><div class="txt"><div class="t1">Matt Valentino</div><div class="t2">Chime, second contact re: same Principal People Partner opening. Cold outreach sent 9/17. No reply yet.</div></div></li>
-          <li><div class="txt"><div class="t1">Katie Bunker</div><div class="t2">Cotiviti, Director, People Business Partner. Cold outreach sent 9/22. No reply yet.</div></div></li>
-          <li><div class="txt"><div class="t1">Kerri Toninoeskin</div><div class="t2">Cotiviti, second contact re: same Director, People Business Partner opening. Cold outreach sent 9/22. No reply yet.</div></div></li>
-          <li><div class="txt"><div class="t1">Shira Blumenstein</div><div class="t2">Cotiviti, third contact re: same role. Cold outreach sent 9/21 with r&eacute;sum&eacute;/portfolio link. No reply yet.</div></div></li>
-          <li><div class="txt"><div class="t1">Jill Keller</div><div class="t2">Thomson Reuters, HRBP &ndash; Product Engineering. Cold outreach sent 9/16. No reply yet.</div></div></li>
-          <li><div class="txt"><div class="t1">Lisa Gibson</div><div class="t2">Thomson Reuters, second contact on the same role. Cold outreach sent 9/21; auto out-of-office reply only, no substantive reply yet.</div></div></li>
-          <li><div class="txt"><div class="t1">Elisa Russo</div><div class="t2">Lead Recruiter, CUNY. Interview held Fri 9/11 &mdash; thank-you sent 9/12. Outcome still awaited. Reachable via Jonathan Campbell.</div></div></li>
-          <li><div class="txt"><div class="t1">Maneeha Arshad</div><div class="t2">Independent recruiter &mdash; CPO opportunity, no company/comp given. Closed 9/18, decision made.</div></div></li>
-        </ul></div>
-      </section>
     </div>
   </div>
 
@@ -535,10 +517,6 @@ document.getElementById("prioWrap").innerHTML=DATA.priorities.length
   ? '<ul class="bullets">'+DATA.priorities.map(p=>'<li>'+esc(p)+'</li>').join("")+'</ul>'
   : emptyBlock("Memory is empty.",'Run <code class="cmd">/wrap-up</code> tonight to write your first one.');
 
-document.getElementById("pplWrap").innerHTML=DATA.people.length
-  ? '<ul class="rail">'+DATA.people.map(p=>'<li><div class="txt"><div class="t1">'+esc(p.name)+
-      '</div><div class="t2">'+esc(p.note)+'</div></div></li>').join("")+'</ul>'
-  : emptyBlock("No contacts yet.","Recruiters and hiring managers land here as you meet them.");
 </script>
 </body>
 </html>
