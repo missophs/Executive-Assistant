@@ -145,6 +145,7 @@ Headline `[WEEKDAY], [MONTH] [DAY]`. Subline `[N] active roles &nbsp;&middot;&nb
 | 1 | Rescued From Trash | `#A4343A` | TITLE | anything was rescued |
 | 2 | Filed Your Notes | `#2F6F4E` | PLAIN | anything was filed |
 | 3 | Marked Done | `#2F6F4E` | PLAIN, each line prefixed `&#10003;&nbsp;` | a capture closed a task out |
+| 3b | Added To Your Calendar | `#2C5282` | PLAIN | an event was created from a capture |
 | 4 | Drafts Ready For You | `#6B46A8` | TITLE | drafts were created |
 | 5 | Top 3 Today | `#C2A26B` | PRIORITY | always |
 | 6 | New Since Yesterday | `#2F6F4E` | TITLE | always — EMPTY ROW "Nothing new overnight." |
@@ -175,6 +176,7 @@ Headline `[WEEKDAY], [MONTH] [DAY]`. Subline `[N] done today &nbsp;&middot;&nbsp
 | # | Section | Accent | Rows | Include when |
 |---|---|---|---|---|
 | 1 | Closed Out Today | `#2F6F4E` | PLAIN, one line per item prefixed `&#10003;&nbsp;` | always — EMPTY ROW "Nothing closed today." |
+| 1b | Added To Your Calendar | `#2C5282` | PLAIN | an event was created from a capture |
 | 2 | Carrying Into Tomorrow | `#C2A26B` | PRIORITY, up to 3 | always |
 | 3 | Slipping | `#A4343A` | TITLE | something is 3+ days stale |
 | 4 | Tomorrow | `#2C5282` | TIME | always — EMPTY ROW "Calendar is clear." |

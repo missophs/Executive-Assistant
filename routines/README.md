@@ -48,7 +48,7 @@ Note: the Midday Sweep does not have Calendar attached. It does not need it.
 
 - Never send, reply to, or forward mail to anyone except the one status email to Melissa.
   Replies to other people are **drafts only** (`create_draft`, never `send_message` or `reply`).
-- Never book, accept, or decline a calendar invite.
+- Never accept or decline a calendar invite. The only events Ellie may create are ones Melissa explicitly asked for ("remind me I have the vet Thursday"), on her primary calendar with no attendees; never edit or delete events.
 - Never permanently delete or trash her mail. Rescuing from Trash is allowed; trashing is not.
 - The only Drive files that may be trashed are the previous `Ellie` board and the previous
   `Tell Ellie` note.
