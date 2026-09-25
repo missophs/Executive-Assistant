@@ -406,6 +406,34 @@ if(DATA.calendar && DATA.calendar.length){
   document.getElementById("calNote").textContent="";
 }
 
+/* Live calendar: reads the viewer's own Google Calendar at open time (no tokens). Falls back to DATA.calendar. */
+(async function(){
+  let mcp=null; try{ mcp=(window.claude&&window.claude.use)?await claude.use("mcp"):null; }catch(e){ mcp=null; }
+  if(!mcp) return;
+  const TZ="America/New_York";
+  const ymd=d=>d.toLocaleDateString("en-CA",{timeZone:TZ});
+  const now=new Date(), t0=ymd(now), t1=ymd(new Date(now.getTime()+864e5)), t2=ymd(new Date(now.getTime()+2*864e5));
+  const fmt=iso=>new Date(iso).toLocaleTimeString("en-US",{timeZone:TZ,hour:"numeric",minute:"2-digit"});
+  const note=document.getElementById("calNote");
+  mcp.watchTool("Google Calendar","list_events",{startTime:t0+"T00:00:00",endTime:t2+"T00:00:00",timeZone:TZ,orderBy:"startTime",pageSize:50},ev=>{
+    if(ev.type==="error"){
+      const c=ev.error.code;
+      if(c==="needs_reauth"||c==="server_not_connected"||c==="not_in_manifest"||c==="selection_required"){ note.textContent="live calendar off — reconnect Google Calendar in claude.ai Settings"; }
+      return;
+    }
+    const p=ev.result.payload; const list=(p&&p.events)||[];
+    const rows=list.filter(e=>e.status!=="cancelled").map(e=>{
+      const allDay=!!(e.start&&e.start.date), sd=allDay?e.start.date:ymd(new Date(e.start.dateTime));
+      const time=allDay?"All day":fmt(e.start.dateTime)+(e.end&&e.end.dateTime?"–"+fmt(e.end.dateTime):"")+" ET";
+      return {title:e.summary||"(no title)",day:sd===t0?"Today":sd===t1?"Tomorrow":sd,time:time,sd:sd};
+    }).filter(r=>r.sd===t0||r.sd===t1);
+    note.textContent=rows.length?rows.length+(rows.length===1?" event":" events"):"";
+    cw.innerHTML=rows.length
+      ? '<ul class="rail">'+rows.map(c=>'<li><div class="txt"><div class="t1">'+esc(c.title)+'</div><div class="t2">'+esc(c.day+" · "+c.time)+'</div></div></li>').join("")+'</ul>'
+      : emptyBlock("Nothing on your calendar today or tomorrow.","Live from Google Calendar.");
+  },{refetchInterval:300000});
+})();
+
 const tw=document.getElementById("todayWrap");
 if(DATA.today.length){
   document.getElementById("todayNote").textContent=DATA.today.length+" of 3";
