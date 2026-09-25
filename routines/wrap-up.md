@@ -16,6 +16,8 @@ STEP 3 - Check what actually moved today. Gmail:
   - `newer_than:1d (interview OR schedule OR calendly OR "next steps" OR offer OR "move forward" OR "speak with")`
 Skip marketing, receipts, shipping, newsletters, bulk job digests.
 
+STEP 3b - CALENDAR. Google-Calendar `list_events` for melissaw212@gmail.com, tomorrow and the day after, America/New_York. This feeds the `Tomorrow` box. Only write "Calendar is clear." if `list_events` actually returned no events; if the call fails, say the calendar could not be checked. Flag conflicts and any interview within 48 hours. Never invent an event.
+
 STEP 4 - Reconcile. Captures she left in Step 2 are the strongest signal - if she said something is done, it is done. Beyond those, for each open task decide from her sent mail whether it is DONE, still OPEN, or SLIPPING (3+ days, no movement). Never ask her to redo something her sent mail shows she already did.
 
 STEP 5 - Update the vault. Move confirmed-done items to Done with today's date. Update `Applications.md` stages and Last-contact dates. Update `Memory.md` follow-ups, prune anything resolved. Commit with a one-line message, then PUSH TO GITHUB and VERIFY the push landed. If nothing changed, commit nothing.
