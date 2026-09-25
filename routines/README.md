@@ -1,5 +1,25 @@
 # Ellie — Cloud Routines (live source)
 
+## Where things are
+
+Start here when Melissa says "where did we leave off" or "pick it up from here".
+
+| What | Where |
+|---|---|
+| Open tasks, follow-ups, Waiting On | `Task Board.md` |
+| Priorities, people, decisions, ideas, saved links, seen cache | `Memory.md` |
+| Job pipeline | `Applications.md` |
+| Raw notes and daily logs | `Scratch Pad.md`, `Daily Notes/` |
+| Meeting notes | `Meetings/` |
+| What we changed about Ellie herself, and what is still untested | the Changelog at the bottom of this file |
+| Phone captures not yet filed | Google Drive file "Tell Ellie"; self-sent Gmail (`in:anywhere newer_than:2d from:melissaw212@gmail.com to:melissaw212@gmail.com`) |
+| The phone board Ellie reads | Google Drive file "Ellie" (rewritten by the routines) |
+| Dashboard | `dashboard.html`, published as the artifact `ef023dc5-7573-4ac8-845f-ba8448315a5b` (private, "EA" on her phone) |
+| Routine instructions and email look | `routines/*.md`, `routines/email-template.md` |
+
+Rule: a thought is only findable if it was written down. If she describes an idea in chat, add it to `Memory.md` (or `Scratch Pad.md`) before the session ends.
+
+
 These three routines run in Anthropic's cloud, not on this machine. **These files ARE the routines.**
 
 As of 2026-09-04 each cloud trigger holds only a short loader that says "read
