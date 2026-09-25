@@ -22,14 +22,14 @@ Do not change this design without testing an actual send - a browser render is n
 ## 1. Outer shell — always, unchanged
 
 ```html
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#E4E8EE" style="background-color:#E4E8EE;"><tr><td align="center" style="padding:26px 10px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#EAF1FB" style="background-color:#EAF1FB;"><tr><td align="center" style="padding:26px 10px;">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" style="width:100%;max-width:600px;background-color:#FFFFFF;border:1px solid #C9D2DE;border-radius:8px;">
 
 <tr><td bgcolor="[MASTHEAD BG]" style="background-color:[MASTHEAD BG];padding:28px 26px 24px 26px;border-radius:7px 7px 0 0;">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-<tr><td style="font-family:Helvetica,Arial,sans-serif;font-size:10px;font-weight:bold;letter-spacing:2.4px;text-transform:uppercase;color:#C2A26B;padding-bottom:9px;">Ellie &nbsp;&middot;&nbsp; [EYEBROW]</td></tr>
+<tr><td style="font-family:Helvetica,Arial,sans-serif;font-size:10px;font-weight:bold;letter-spacing:2.4px;text-transform:uppercase;color:#F0B429;padding-bottom:9px;">Ellie &nbsp;&middot;&nbsp; [EYEBROW]</td></tr>
 <tr><td style="font-family:Georgia,'Times New Roman',serif;font-size:28px;line-height:33px;color:#FFFFFF;">[HEADLINE]</td></tr>
-<tr><td style="font-family:Helvetica,Arial,sans-serif;font-size:12px;line-height:18px;color:#93A6BF;padding-top:10px;">[SUBLINE]</td></tr>
+<tr><td style="font-family:Helvetica,Arial,sans-serif;font-size:12px;line-height:18px;color:#E3ECFF;padding-top:10px;">[SUBLINE]</td></tr>
 </table></td></tr>
 
 <tr><td style="padding:22px;">
@@ -43,7 +43,7 @@ Do not change this design without testing an actual send - a browser render is n
 </table></td></tr></table>
 ```
 
-Masthead background by routine: Standup `#12233C`, Midday `#1B3A5C`, Wrap-Up `#241C3D`.
+Masthead background by routine: Standup `#1E5BD8`, Midday `#0E9AA7`, Wrap-Up `#7A3FD1`.
 
 ---
 
@@ -89,7 +89,7 @@ its box**, which gets nothing.
 ```
 
 **PRIORITY ROW** — a ranked action with a coloured bar down its left edge.
-Bar colours in order: 1st `#A4343A`, 2nd `#B7791F`, 3rd `#2C5282`. Drop the Due line if unknown.
+Bar colours in order: 1st `#E0353D`, 2nd `#F09A0B`, 3rd `#2F7DE1`. Drop the Due line if unknown.
 
 ```html
 <tr><td bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:14px 16px;[BORDER]">
@@ -106,7 +106,7 @@ Bar colours in order: 1st `#A4343A`, 2nd `#B7791F`, 3rd `#2C5282`. Drop the Due 
 
 ```html
 <tr>
-<td width="100" bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:12px 0 12px 16px;font-family:Helvetica,Arial,sans-serif;font-size:12px;font-weight:bold;color:#2C5282;white-space:nowrap;[BORDER]">[TIME]</td>
+<td width="100" bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:12px 0 12px 16px;font-family:Helvetica,Arial,sans-serif;font-size:12px;font-weight:bold;color:#2F7DE1;white-space:nowrap;[BORDER]">[TIME]</td>
 <td bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:12px 16px 12px 10px;font-family:Helvetica,Arial,sans-serif;font-size:13px;color:#33404F;[BORDER]">[EVENT]</td>
 </tr>
 ```
@@ -137,20 +137,20 @@ under 5 days `#DCE6F5` on `#24456F`.
 
 ## 4. Sections per routine, in order
 
-### Morning Standup — masthead `#12233C`, eyebrow `Morning Standup`
+### Morning Standup — masthead `#1E5BD8`, eyebrow `Morning Standup`
 Headline `[WEEKDAY], [MONTH] [DAY]`. Subline `[N] active roles &nbsp;&middot;&nbsp; [N] awaiting reply &nbsp;&middot;&nbsp; [N] open tasks`.
 
 | # | Section | Accent | Rows | Include when |
 |---|---|---|---|---|
-| 1 | Rescued From Trash | `#A4343A` | TITLE | anything was rescued |
-| 2 | Filed Your Notes | `#2F6F4E` | PLAIN | anything was filed |
-| 3 | Marked Done | `#2F6F4E` | PLAIN, each line prefixed `&#10003;&nbsp;` | a capture closed a task out |
-| 3b | Added To Your Calendar | `#2C5282` | PLAIN | an event was created from a capture |
-| 4 | Drafts Ready For You | `#6B46A8` | TITLE | drafts were created |
-| 5 | Top 3 Today | `#C2A26B` | PRIORITY | always |
-| 6 | New Since Yesterday | `#2F6F4E` | TITLE | always — EMPTY ROW "Nothing new overnight." |
-| 7 | Calendar | `#2C5282` | TIME | always — EMPTY ROW "Nothing scheduled." |
-| 7b | Interview Prep | `#2C5282` | TITLE | an interview or screen is on the calendar within 48 hours |
+| 1 | Rescued From Trash | `#E0353D` | TITLE | anything was rescued |
+| 2 | Filed Your Notes | `#1FA463` | PLAIN | anything was filed |
+| 3 | Marked Done | `#1FA463` | PLAIN, each line prefixed `&#10003;&nbsp;` | a capture closed a task out |
+| 3b | Added To Your Calendar | `#2F7DE1` | PLAIN | an event was created from a capture |
+| 4 | Drafts Ready For You | `#8A4FE0` | TITLE | drafts were created |
+| 5 | Top 3 Today | `#F0B429` | PRIORITY | always |
+| 6 | New Since Yesterday | `#1FA463` | TITLE | always — EMPTY ROW "Nothing new overnight." |
+| 7 | Calendar | `#2F7DE1` | TIME | always — EMPTY ROW "Nothing scheduled." |
+| 7b | Interview Prep | `#2F7DE1` | TITLE | an interview or screen is on the calendar within 48 hours |
 | 8 | Gone Quiet | `#8994A3` | STALE | anything is waiting on a reply |
 
 After the Drafts box, add this line directly under it:
@@ -158,25 +158,25 @@ After the Drafts box, add this line directly under it:
 <div style="font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#93A0AF;padding:7px 2px 0 2px;">Open Gmail &rarr; Drafts to review and send.</div>
 ```
 
-### Midday Sweep — masthead `#1B3A5C`, eyebrow `Midday`
+### Midday — masthead `#0E9AA7`, eyebrow `Midday`
 Headline `[WEEKDAY], [MONTH] [DAY]`. Subline: the count, e.g. `3 items filed`.
 
 | # | Section | Accent | Rows | Include when |
 |---|---|---|---|---|
-| 1 | Filed Your Notes | `#2F6F4E` | PLAIN | anything was filed |
-| 2 | Marked Done | `#2F6F4E` | PLAIN, each line prefixed `&#10003;&nbsp;` | a capture closed a task out |
-| 3 | Drafts Ready For You | `#6B46A8` | TITLE | drafts were created |
-| 4 | Needs Your Call | `#B7791F` | PLAIN | something was ambiguous, or a "done" capture matched more than one task |
+| 1 | Filed Your Notes | `#1FA463` | PLAIN | anything was filed |
+| 2 | Marked Done | `#1FA463` | PLAIN, each line prefixed `&#10003;&nbsp;` | a capture closed a task out |
+| 3 | Drafts Ready For You | `#8A4FE0` | TITLE | drafts were created |
+| 4 | Needs Your Call | `#F09A0B` | PLAIN | something was ambiguous, or a "done" capture matched more than one task |
 
 If all four would be empty, **send no email at all**.
 
-### Wrap-Up — masthead `#241C3D`, eyebrow `End of Day`
+### Wrap-Up — masthead `#7A3FD1`, eyebrow `End of Day`
 Headline `[WEEKDAY], [MONTH] [DAY]`. Subline `[N] done today &nbsp;&middot;&nbsp; [N] still open &nbsp;&middot;&nbsp; [N] awaiting reply`.
 
 | # | Section | Accent | Rows | Include when |
 |---|---|---|---|---|
-| 1 | Closed Out Today | `#2F6F4E` | PLAIN, one line per item prefixed `&#10003;&nbsp;` | always — EMPTY ROW "Nothing closed today." |
-| 1b | Added To Your Calendar | `#2C5282` | PLAIN | an event was created from a capture |
-| 2 | Carrying Into Tomorrow | `#C2A26B` | PRIORITY, up to 3 | always |
-| 3 | Slipping | `#A4343A` | TITLE | something is 3+ days stale |
-| 4 | Tomorrow | `#2C5282` | TIME | always — EMPTY ROW "Calendar is clear." |
+| 1 | Closed Out Today | `#1FA463` | PLAIN, one line per item prefixed `&#10003;&nbsp;` | always — EMPTY ROW "Nothing closed today." |
+| 1b | Added To Your Calendar | `#2F7DE1` | PLAIN | an event was created from a capture |
+| 2 | Carrying Into Tomorrow | `#F0B429` | PRIORITY, up to 3 | always |
+| 3 | Slipping | `#E0353D` | TITLE | something is 3+ days stale |
+| 4 | Tomorrow | `#2F7DE1` | TIME | always — EMPTY ROW "Calendar is clear." |

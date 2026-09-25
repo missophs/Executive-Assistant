@@ -49,7 +49,7 @@ STEP 6 - REFRESH HER PHONE BOARD. Melissa reads a plain-text mirror of her vault
     RECENTLY DONE
   Write it so someone reading only this file can answer "what should I do today?" correctly. Never invent anything.
 
-STEP 7 - Send an HTML email via Gmail `send_message` to melissaw212@gmail.com, contentType HTML (plain-text fallback if required). Subject: `Wrap-Up - <Weekday>, <Month> <Day>`.
+STEP 7 - Send an HTML email via Gmail `send_message` to melissaw212@gmail.com, contentType HTML (plain-text fallback if required). Subject: `Ellie - EA Wrap-Up - <Weekday>, <Month> <Day>`.
   SEND ONCE. These rules exist because the 2026-09-25 standup went out twice: the first send's body was the literal text `$(cat /tmp/.../standup.html)`, then a retry sent the real one.
     1. Build the full HTML as a literal string and pass it directly as the body of `send_message`. NEVER pass a shell substitution such as `$(cat file)`, a backtick command, or a file path as the body. The Gmail tool does not run shell; it emails the text as written.
     2. Before sending, confirm the body starts with `<table` and contains no `$(` and no `/tmp/`.

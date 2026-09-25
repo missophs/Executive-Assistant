@@ -36,7 +36,7 @@ STEP 5 - Commit vault changes with a one-line message, then PUSH TO GITHUB and V
 STEP 5b - REFRESH THE PHONE BOARD, ONLY IF you filed or closed anything in Step 3. Her phone board (Drive file `Ellie`) is what her chat reads, so without this a note she captured at 11am is invisible to it until 5pm. Follow STEP 9 of `routines/morning-standup.md` exactly (search `Ellie`, `create_file` the new board, `trash_file` the old id). If you filed nothing, skip this step.
 
 STEP 6 - EMAIL HER ONLY IF SOMETHING HAPPENED. If you filed nothing, marked nothing done, created no drafts, and found nothing urgent, send NOTHING. Silence is the correct output for a quiet midday.
-  If something did happen, send a short HTML email via Gmail `send_message` to melissaw212@gmail.com, contentType HTML, subject `Midday Sweep - <Weekday>, <Month> <Day>`.
+  If something did happen, send a short HTML email via Gmail `send_message` to melissaw212@gmail.com, contentType HTML, subject `Ellie - EA Midday - <Weekday>, <Month> <Day>`.
   SEND ONCE. These rules exist because the 2026-09-25 standup went out twice: the first send's body was the literal text `$(cat /tmp/.../standup.html)`, then a retry sent the real one.
     1. Build the full HTML as a literal string and pass it directly as the body of `send_message`. NEVER pass a shell substitution such as `$(cat file)`, a backtick command, or a file path as the body. The Gmail tool does not run shell; it emails the text as written.
     2. Before sending, confirm the body starts with `<table` and contains no `$(` and no `/tmp/`.
@@ -45,7 +45,7 @@ STEP 6 - EMAIL HER ONLY IF SOMETHING HAPPENED. If you filed nothing, marked noth
 
 
 Read `routines/email-template.md` from the repo and build the email exactly as it specifies.
-Use the **Midday Sweep** masthead colour, eyebrow, headline, subline and section list from section 4
+Use the **Midday** masthead colour, eyebrow, headline, subline and section list from section 4
 of that file, and the row patterns from section 3. Omit any section with no real content.
 NEVER use a CSS gradient anywhere - Gmail strips it and the header text becomes invisible.
 

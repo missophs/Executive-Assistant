@@ -56,7 +56,7 @@ STEP 7 - Commit vault changes with a one-line message, then PUSH TO GITHUB and V
   Raw `git push origin main` is DENIED in this environment. It fails, and because the next run clones fresh from GitHub, every vault edit you made is lost. Confirmed 2026-09-04 after two days of live interview data went missing exactly this way. Push through the GitHub API instead (`push_files`) - that path works.
   VERIFY before you report anything: `git fetch origin main` and confirm your commit is on `origin/main`. If it is not there, say so plainly in the standup under a heading `VAULT WRITE FAILED` and list exactly what did not save. Never write "filed", "added", "logged", "marked done" or "updated" about anything you have not verified is on GitHub. A false "filed" has already cost her days on real interview scheduling.
 
-STEP 8 - Send an HTML standup via Gmail `send_message` to melissaw212@gmail.com, contentType HTML (plain-text fallback if required). Subject: `Standup - <Weekday>, <Month> <Day>`.
+STEP 8 - Send an HTML standup via Gmail `send_message` to melissaw212@gmail.com, contentType HTML (plain-text fallback if required). Subject: `Ellie - EA Morning - <Weekday>, <Month> <Day>`.
   SEND ONCE. These rules exist because the 2026-09-25 standup went out twice: the first send's body was the literal text `$(cat /tmp/.../standup.html)`, then a retry sent the real one.
     1. Build the full HTML as a literal string and pass it directly as the body of `send_message`. NEVER pass a shell substitution such as `$(cat file)`, a backtick command, or a file path as the body. The Gmail tool does not run shell; it emails the text as written.
     2. Before sending, confirm the body starts with `<table` and contains no `$(` and no `/tmp/`.
@@ -65,7 +65,7 @@ STEP 8 - Send an HTML standup via Gmail `send_message` to melissaw212@gmail.com,
 
 Read `routines/email-template.md` from the repo and build the email exactly as it specifies.
 Use the **Morning Standup** masthead colour, eyebrow, headline, subline and section list from section 4
-of that file, and the row patterns from section 3. Omit any section with no real content. When Step 4 produced interview prep, add an `Interview Prep` box directly after Calendar (TITLE rows, accent `#2C5282`).
+of that file, and the row patterns from section 3. Omit any section with no real content. When Step 4 produced interview prep, add an `Interview Prep` box directly after Calendar (TITLE rows, accent `#2F7DE1`).
 NEVER use a CSS gradient anywhere - Gmail strips it and the header text becomes invisible.
 
 STEP 9 - REFRESH HER PHONE BOARD. She reads a plain-text mirror of her vault on her phone: the Google Drive file titled `Ellie`.

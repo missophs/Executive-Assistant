@@ -22,7 +22,7 @@ _Last updated: 2026-09-04_
 | File | Name | Trigger ID | Schedule (ET) | Cron (UTC) |
 |---|---|---|---|---|
 | `morning-standup.md` | Ellie — Morning Standup | `trig_01GfvypZDLQZRM9F7Kphsnp8` | 7:30 AM daily | `30 11 * * *` |
-| `midday-sweep.md` | Ellie — Midday Sweep | `trig_01FEMRhJNPACVqw4HCRd6SNg` | 1:00 PM daily | `0 17 * * *` |
+| `midday-sweep.md` | Ellie — EA Midday | `trig_01FEMRhJNPACVqw4HCRd6SNg` | 1:00 PM daily | `0 17 * * *` |
 | `wrap-up.md` | Ellie — Wrap-Up | `trig_012SqPZ7Ui5nPFkko73adieN` | 5:00 PM daily | `0 21 * * *` |
 
 All three: **every day**, seven days a week (changed from weekdays-only on 2026-08-30).
