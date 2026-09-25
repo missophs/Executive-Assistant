@@ -266,3 +266,6 @@ is ever anything other than her Gmail, Ellie will not see it.
 
 - Terse and direct. Lead with the answer. No filler.
 - Approval required before anything is sent, scheduled, or shared externally.
+
+## Seen Cache
+Items Ellie has already triaged. Format: `<id> | <latest-message-date> | <what was done>`. Routines skip a listed id unless its thread has a newer message, and delete lines older than 7 days.

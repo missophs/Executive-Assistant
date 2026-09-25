@@ -149,6 +149,7 @@ Headline `[WEEKDAY], [MONTH] [DAY]`. Subline `[N] active roles &nbsp;&middot;&nb
 | 5 | Top 3 Today | `#C2A26B` | PRIORITY | always |
 | 6 | New Since Yesterday | `#2F6F4E` | TITLE | always — EMPTY ROW "Nothing new overnight." |
 | 7 | Calendar | `#2C5282` | TIME | always — EMPTY ROW "Nothing scheduled." |
+| 7b | Interview Prep | `#2C5282` | TITLE | an interview or screen is on the calendar within 48 hours |
 | 8 | Gone Quiet | `#8994A3` | STALE | anything is waiting on a reply |
 
 After the Drafts box, add this line directly under it:
