@@ -203,14 +203,14 @@ code.cmd{font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(-
       <h1>Ellie - EA</h1>
       <div class="when" id="stampDate">Friday, September 25, 2026</div>
     </div>
-    <div class="badges" id="badges"><div class="badge"><b>1</b> open tasks</div><div class="badge"><b>6</b> awaiting reply</div><div class="badge"><b>0</b> gone quiet</div><div class="badge hot"><b>5</b> need review</div></div>
+    <div class="badges" id="badges"><div class="badge"><b>1</b> open tasks</div><div class="badge hot"><b>5</b> need review</div></div>
   </header>
 
   <a class="howto" href="https://claude.ai/code/artifact/ef023dc5-7573-4ac8-845f-ba8448315a5b" target="_blank" rel="noopener" style="display:block; text-decoration:none">
     <strong>Open the live Ellie - EA dashboard &rarr;</strong> tap here for the always-current, interactive version. Works on your phone, no login needed.
   </a>
 
-  <section class="stats" id="stats"><div class="stat is-blue" data-target="todayPanel" role="button" tabindex="0"><div class="n">1</div><div class="k">Open tasks</div></div><div class="stat is-amber" data-target="waitPanel" role="button" tabindex="0"><div class="n">6</div><div class="k">Awaiting reply</div></div><div class="stat" data-target="waitPanel" role="button" tabindex="0"><div class="n zero">0</div><div class="k">Gone quiet</div></div><div class="stat is-red" data-target="reviewPanel" role="button" tabindex="0"><div class="n">5</div><div class="k">Need review</div></div></section>
+  <section class="stats" id="stats"><div class="stat is-blue" data-target="todayPanel" role="button" tabindex="0"><div class="n">1</div><div class="k">Open tasks</div></div><div class="stat is-red" data-target="reviewPanel" role="button" tabindex="0"><div class="n">5</div><div class="k">Need review</div></div></section>
 
   <div class="grid">
     <div class="col">
@@ -228,18 +228,6 @@ code.cmd{font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(-
         </div></div>
       </section>
 
-      <section class="panel" id="waitPanel" style="scroll-margin-top:16px">
-        <div class="phead"><h2>Waiting On</h2><span class="note" id="waitNote"></span></div>
-        <div class="rule amber"></div>
-        <div class="pbody" id="waitWrap"><ul class="rail">
-          <li><div class="txt"><div class="t1">R&eacute;sum&eacute; owed to her (no rush on her end)</div><div class="t2">Nasreen Bharoocha, Conduit Health</div></div><span class="pill amber">5d</span></li>
-          <li><div class="txt"><div class="t1">Waiting on her to confirm a screen time</div><div class="t2">Ashley Fredericks, LRN &mdash; she asked for a 30-min video screen, you proposed Fri 9/25</div></div><span class="pill blue">1d</span></li>
-          <li><div class="txt"><div class="t1">No reply to your outreach yet</div><div class="t2">Patsy Doerr, LRN &mdash; you sent it, waiting on her</div></div><span class="pill amber">7d</span></li>
-          <li><div class="txt"><div class="t1">No reply to your outreach yet</div><div class="t2">Sarah Wagener &amp; Matt Valentino, Chime &mdash; you sent it, waiting on them</div></div><span class="pill amber">6d</span></li>
-          <li><div class="txt"><div class="t1">No reply to your outreach yet</div><div class="t2">Shira Blumenstein, Katie Bunker &amp; Kerri Toninoeskin, Cotiviti &mdash; you sent it, waiting on them</div></div><span class="pill blue">2d</span></li>
-          <li><div class="txt"><div class="t1">No reply to your outreach yet</div><div class="t2">Jill Keller &amp; Lisa Gibson, Thomson Reuters &mdash; you sent it, waiting on them</div></div><span class="pill amber">7d</span></li>
-        </ul></div>
-      </section>
 
       <section class="panel" id="reviewPanel" style="scroll-margin-top:16px">
         <div class="phead"><h2>Review <span style="font-weight:500; color:var(--muted); font-size:12px">&middot; drift check</span></h2><span class="note" id="reviewNote">5 items</span></div>
@@ -381,20 +369,15 @@ document.getElementById("stampDate").textContent =
   today.toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric",year:"numeric"});
 
 const openTasks=DATA.today.length+DATA.week.length;
-const staleWaiting=DATA.waiting.filter(w=>(daysSince(w.since)??0)>=STALE_DAYS).length;
 
 const reviewCount=(DATA.review||[]).length;
 
 document.getElementById("badges").innerHTML=
   '<div class="badge"><b>'+openTasks+'</b> open tasks</div>'+
-  '<div class="badge"><b>'+DATA.waiting.length+'</b> awaiting reply</div>'+
-  '<div class="badge'+(staleWaiting?' hot':'')+'"><b>'+staleWaiting+'</b> gone quiet</div>'+
   (reviewCount?'<div class="badge hot"><b>'+reviewCount+'</b> need review</div>':'');
 
 document.getElementById("stats").innerHTML=[
   {n:openTasks,k:"Open tasks",c:"is-blue",target:"todayPanel"},
-  {n:DATA.waiting.length,k:"Awaiting reply",c:"is-amber",target:"waitPanel"},
-  {n:staleWaiting,k:"Gone quiet",c:staleWaiting?"is-red":"",target:"waitPanel"},
   {n:reviewCount,k:"Need review",c:reviewCount?"is-red":"",target:"reviewPanel"}
 ].map(m=>'<div class="stat '+m.c+'" data-target="'+m.target+'" role="button" tabindex="0"><div class="n'+(m.n===0?" zero":"")+'">'+m.n+'</div><div class="k">'+m.k+'</div></div>').join("");
 
@@ -484,18 +467,6 @@ if(DATA.today.length){
   tw.innerHTML=emptyBlock("Nothing set for today.",'Run <code class="cmd">/start</code> and it will pick your top three off the Task Board.');
 }
 
-const ww=document.getElementById("waitWrap");
-if(DATA.waiting.length){
-  ww.innerHTML='<ul class="rail">'+DATA.waiting.map(w=>{
-    const d=daysSince(w.since);
-    const cls=d===null?"blue":d>=10?"red":d>=5?"amber":"blue";
-    return '<li><div class="txt"><div class="t1">'+esc(w.item)+'</div>'+
-      (w.who?'<div class="t2">'+esc(w.who)+'</div>':'')+'</div>'+
-      (d!==null?'<span class="pill '+cls+'">'+d+'d</span>':'')+'</li>';
-  }).join("")+'</ul>';
-}else{
-  ww.innerHTML=emptyBlock("Nobody owes you anything.","Follow-ups appear here with a day count once they exist.");
-}
 
 const rw=document.getElementById("reviewWrap");
 if(DATA.review && DATA.review.length){
