@@ -22,6 +22,7 @@ STEP 3 - FILE EACH ITEM into the vault:
     - No matching task on the board: add it to `## ✅ Done` as a completed line with today's date. Never drop it.
     - More than one plausible match: mark NOTHING, leave them all open, and ask her which one she meant in the email.
     - Match on meaning, not exact wording. "the dentist thing", "dentist appt", "dentist" all point at the same task.
+    - WAITING-ON CAPTURES - the same applies to follow-ups. If a capture says she heard back or no longer needs to wait ("Nasreen replied", "got the answer from Ashley", "stop waiting on Chime", "drop the Cotiviti follow-up"), find the matching item under `## Waiting On` in `Task Board.md` and its row in the `Memory.md` Follow-Ups table, remove both, and record it under `## ✅ Done` as "No longer waiting on <who>" with today's date. If she says they replied but the reply needs action, also add the task. Never remove a Waiting On item on her behalf unless she said so or her own mail clearly shows the reply arrived.
   Report everything you closed this way under "Marked Done" in the email.
   If a capture asks you to draft something (for example "draft a follow-up to Bryce"), use Gmail `create_draft` to write it. NEVER `send_message` or `reply` - drafts only, in her voice, four sentences or fewer, bracketed placeholders like [CONFIRM TIME] for anything you do not know. Max 2 drafts.
 
