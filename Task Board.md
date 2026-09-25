@@ -9,7 +9,7 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 ## 🔥 Today
 <!-- Must know today. Keep to 3. -->
 
-- [ ] Send résumé to Nasreen Bharoocha (Conduit Health) — still not sent. You emailed her again yourself 9/22 1:27 AM ET apologizing for a further delay ("flight was cancelled... hopefully get home tomorrow and can get it to you if not too late") — sent live, not from the waiting draft. The résumé-placeholder draft from 9/18 is still sitting in Gmail Drafts, threaded under the interview, untouched · due 2026-09-18 (now 4 days overdue) · #jobsearch
+- [ ] LRN (Vice President of People) — Ashley Fredericks scheduled the video screen for **today, Fri 9/25, 11:00–11:30 AM ET via MS Teams** (Workable reminder received 9/24 3:03 PM ET). It is NOT on your Google Calendar, and the Workable invite still shows your RSVP as "needs-action" (never accepted). That window has already passed as of this run. Tell Ellie whether you took the call, or whether it needs rescheduling with Ashley · #jobsearch
 
 ## ⏭ This Week
 
@@ -69,6 +69,8 @@ _(none open)_
 
 ## ✅ Done
 <!-- Cleared during /start and /wrap-up. Archive monthly. -->
+
+- [x] Send résumé to Nasreen Bharoocha (Conduit Health) — moot. Nasreen emailed 9/23 1:58 PM ET: the founder wants to "take another direction," focusing less on candidates with a People background and more on organization/strategy. Role closed before the résumé went out. Moved to Closed in Applications.md — 2026-09-25
 
 - [x] SimplePractice (Senior Director, HR Business Partners) — resolved itself: you applied. Greenhouse auto-ack landed in Trash 9/22 8:06 PM ET, not rescued (no-reply sender, per policy). Filed to Applications.md as Applied — 2026-09-22
 
