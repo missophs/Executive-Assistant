@@ -233,7 +233,7 @@ if fresh and os.environ.get("ANTHROPIC_API_KEY"):
     try:
         out = ask_haiku(f"Today is {today}. Melissa is a senior HR executive job searching. For each inbox email return a JSON array, same order: "
                         '{"i":<n>,"needs":true|false,"line":"one plain line, max 14 words, what it is and any amount or deadline"}. '
-                        "needs=true only for replies awaited, recruiter or interview mail, deadlines, security or money alerts. Never invent facts. JSON only.\n\n" +
+                        "needs=true ONLY when a real person is waiting on her, a recruiter or interviewer wrote directly, there is a hard deadline, or a security or money problem. Automated job alerts, job digests, newsletters, receipts, statements, promos and deposits are needs=false. Never invent facts. JSON only.\n\n" +
                         "\n".join(f"{n}. From: {f[:60]} | Subject: {sb[:90]} | {sn[:160]}" for n, (_, f, sb, sn) in enumerate(fresh, 1)), 1200)
         for r in json.loads(out[out.index("["):out.rindex("]") + 1]):
             if 1 <= r.get("i", 0) <= len(fresh):
