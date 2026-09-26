@@ -58,3 +58,19 @@ Everything Melissa tells Ellie about how things should work. Newest additions at
 - Melissa: move Ellie phone sync from the Claude cloud routine to a GitHub Action, test it, then pause (never delete) the routine.
 - Built `scripts/phone_sync.py` + `.github/workflows/phone-sync.yml` (no AI yet). Google secrets saved in this repo. Dry run passed 2026-09-26. Not yet live; cron-job.org triggers not yet added.
 - Not yet in the Action: Prep captures, Drive topic files, AI filing of captures, ANTHROPIC_API_KEY.
+
+## 2026-09-26 (evening) - Full record of what was decided and built today
+Melissa's instructions (all standing):
+- One daily email only: the Melissa Daily Briefing, sent by the GitHub Action in daily-briefing (branch webhooks), timed by cron-job.org. Ellie sends no email.
+- Ellie phone piece stays: Drive `Ellie` (board), `Tell Ellie` (capture), synced 6:30am and 4:30pm ET. 4:30pm is the end-of-day wrap: what happened today, calendar for the rest of the week (date first, future events only), reminders, inbox triage that trashes per `routines/trash-rules.md`.
+- Everything color-coded, phone included. Done items disappear after one showing; she tells Ellie "mark it done" (no check-boxes).
+- Drive folders by topic so she can ask "Ellie, where did we leave off on <topic>?" Ellie opens `Where we left off - <topic>` first.
+- Cache everything possible to save tokens. Save every instruction in files (this file). Leave /ea:draft-reply and the job-search routine alone.
+- Move everything from Claude cloud routines to Git + cron, one piece at a time, phone sync first, test each; pause (never delete) a cloud routine only after the Git version is proven.
+- Step-by-step, child-level instructions, one action at a time. Never make her repeat. Never ask her to paste secrets in chat.
+Built and verified today:
+- Google refresh token + secrets GOOGLE_CLIENT_ID/SECRET/REFRESH_TOKEN and ANTHROPIC_API_KEY saved in missophs/Executive-Assistant (new OAuth client `ellie-phone`, Desktop).
+- `scripts/phone_sync.py` + `.github/workflows/phone-sync.yml`: reads captures (self-sent mail + Tell Ellie), Haiku 4.5 sorts them (task, application, memory, link, done, calendar, prep, trash, unclear), trashes only per trash-rules.md, rebuilds the color `Ellie` Doc, rebuilds six `Where we left off` Docs only when changed, records seen ids in `.ellie-state.json`. Live run 2026-09-26 11:51 ET succeeded (AI cost 2,095 in / 70 out tokens).
+- Schedule added: 10:30 and 20:30 UTC (6:30am / 4:30pm EDT). Shift +1h UTC when DST ends.
+- daily-briefing: `.cache/classified_ids.json` (message id -> timestamp, 14-day expiry, "r:" prefix for trash-rescue checks) so Claude never re-checks an email; phishing/newsletter/rescue sorting switched to Haiku 4.5; briefing writer stays Sonnet 4.6. Cache logic tested with a fake Claude (not yet run in a real 7am run).
+Not done yet: the cloud phone-sync routine is still active (pause it after the 6:30am run is compared); cron-job.org timers for the phone sync (GitHub schedule is the backup); Prep captures are only filed under Needs Melissa; board lacks Applications pipeline/People/Decisions sections; midday 1pm check, Improve routine, dashboard live calendar untested.

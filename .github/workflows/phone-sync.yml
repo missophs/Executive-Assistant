@@ -1,5 +1,8 @@
 name: Ellie phone sync
 on:
+  schedule:
+    - cron: '30 10 * * *'  # 6:30am ET (EDT). Shift +1h UTC when DST ends in Nov.
+    - cron: '30 20 * * *'  # 4:30pm ET (EDT), end-of-day wrap
   workflow_dispatch:
     inputs:
       dry_run:
