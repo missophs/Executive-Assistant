@@ -194,12 +194,14 @@ never_subj = bullets(rules, "NEVER TRASH if subject/snippet mentions")
 always_l = bullets(rules, "ALWAYS TRASH (sender contains)") + always
 trashed = []
 kept: list[tuple[str, str, str, str]] = []  # (thread id, from, subject, snippet) left in the inbox
+protected_ids: set[str] = set()  # threads the trash rules protect: the AI pass below may never trash these
 for t in gmail.users().threads().list(userId="me", q="in:inbox newer_than:1d").execute().get("threads", []):
     th = gmail.users().threads().get(userId="me", id=t["id"], format="metadata", metadataHeaders=["From", "Subject"]).execute()
     hd = {h["name"]: h["value"] for h in th["messages"][0]["payload"]["headers"]}
     frm, subj = hd.get("From", "").lower(), hd.get("Subject", "")
     hay = f"{subj} {th['messages'][0].get('snippet', '')}".lower()
     if any(p in frm for p in protected) or any(n in hay for n in never_subj):
+        protected_ids.add(t["id"])
         if not subj.lower().startswith(OWN_MAIL):
             kept.append((t["id"], hd.get("From", ""), subj, th["messages"][0].get("snippet", "")))
         continue
@@ -212,8 +214,8 @@ for t in gmail.users().threads().list(userId="me", q="in:inbox newer_than:1d").e
         kept.append((t["id"], hd.get("From", ""), subj, th["messages"][0].get("snippet", "")))
 
 # --- calendar, rest of the week
-sunday = (now + timedelta(days=(6 - now.weekday()))).replace(hour=23, minute=59, second=59)
-events = cal.events().list(calendarId="primary", timeMin=now.isoformat(), timeMax=sunday.isoformat(),
+horizon = (now + timedelta(days=7)).replace(hour=23, minute=59, second=59)  # rolling 7 days: "until Sunday" hid Monday's events on a Saturday
+events = cal.events().list(calendarId="primary", timeMin=now.isoformat(), timeMax=horizon.isoformat(),
                            singleEvents=True, orderBy="startTime", timeZone="America/New_York").execute().get("items", [])
 cal_lines = []
 for e in events:
@@ -229,17 +231,28 @@ for e in events:
 # --- inbox triage: one Haiku line per NEW thread, cached by thread id
 mail_cache = state.setdefault("mail", {})
 fresh = [k for k in kept if k[0] not in mail_cache]
+to_trash: list[tuple[str, str, str, str]] = []
 if fresh and os.environ.get("ANTHROPIC_API_KEY"):
     try:
         out = ask_haiku(f"Today is {today}. Melissa is a senior HR executive job searching. For each inbox email return a JSON array, same order: "
-                        '{"i":<n>,"needs":true|false,"line":"one plain line, max 14 words, what it is and any amount or deadline"}. '
-                        "needs=true ONLY when a real person is waiting on her, a recruiter or interviewer wrote directly, there is a hard deadline, or a security or money problem. Automated job alerts, job digests, newsletters, receipts, statements, promos and deposits are needs=false. Never invent facts. JSON only.\n\n" +
-                        "\n".join(f"{n}. From: {f[:60]} | Subject: {sb[:90]} | {sn[:160]}" for n, (_, f, sb, sn) in enumerate(fresh, 1)), 1200)
+                        '{"i":<n>,"needs":true|false,"trash":true|false,"line":"one plain line, max 14 words, what it is and any amount or deadline"}. '
+                        "needs=true ONLY when a real person is waiting on her, a recruiter or interviewer wrote directly, there is a hard deadline, or a security or money problem. Automated job alerts, job digests, newsletters, receipts, statements, promos and deposits are needs=false. "
+                        "trash=true ONLY for clearly unimportant bulk mail: marketing and promotions, product or feature announcements, newsletters, webinar or event promos, surveys, social-network notifications. "
+                        "trash=false for anything from a real person, recruiters, job applications or acknowledgments, job alerts and digests, interviews, receipts, statements, banking, health or insurance, security alerts, government, or anything you are unsure about. Never invent facts. JSON only.\n\n" +
+                        "\n".join(f"{n}. From: {f[:60]} | Subject: {sb[:90]} | {sn[:160]}" for n, (_, f, sb, sn) in enumerate(fresh, 1)), 1500)
         for r in json.loads(out[out.index("["):out.rindex("]") + 1]):
             if 1 <= r.get("i", 0) <= len(fresh):
-                mail_cache[fresh[r["i"] - 1][0]] = [bool(r.get("needs")), str(r.get("line", ""))[:140]]
+                k = fresh[r["i"] - 1]
+                mail_cache[k[0]] = [bool(r.get("needs")), str(r.get("line", ""))[:140]]
+                if r.get("trash") is True and not r.get("needs") and k[0] not in protected_ids:
+                    to_trash.append(k)
     except Exception as exc:
         print("AI mail triage failed:", exc)
+for k in to_trash:  # Trash, never permanent delete: she can undo from Gmail Trash
+    trashed.append((k[1], f"{k[2]} (Ellie judged unimportant)"))
+    if not DRY:
+        gmail.users().threads().trash(userId="me", id=k[0]).execute()
+kept = [k for k in kept if k not in to_trash]
 mail_rows = [(mail_cache[k[0]][0], re.sub(r"<.*?>|\"", "", k[1]).split("@")[0][:40], k[2][:80], mail_cache[k[0]][1]) for k in kept if k[0] in mail_cache]
 mail_rows.sort(key=lambda r: not r[0])
 for k in list(mail_cache)[:-200]:
@@ -287,7 +300,7 @@ done_today = [l for l in section(board, "✅ Done") if today in l]
 page = [f"<h1>ELLIE - LIVE BOARD</h1><p>Melissa Weiss, Senior HR executive, New York (US Eastern). Last updated: {now.strftime('%Y-%m-%d %-I:%M%p')} ET</p>",
         h("What happened today", "green"),
         ul([f"Filed {len(added)} new capture(s)"] + [f"Closed: {d}" for d in done_today] + ([f"Always-trash added: {', '.join(always)}"] if always else [])),
-        h("On your calendar, rest of the week", "blue"), ul(cal_lines),
+        h("On your calendar, next 7 days", "blue"), ul(cal_lines),
         h("Reminders, next 7 days", "amber"), ul([f"{d}: {t}" for d, t in reminders]),
         h("Inbox: what needs you and what else is there", "blue"),
         ("<table border='1' cellpadding='4'><tr><th>Status</th><th>From</th><th>Subject</th><th>Summary</th></tr>" +
@@ -303,6 +316,11 @@ page = [f"<h1>ELLIE - LIVE BOARD</h1><p>Melissa Weiss, Senior HR executive, New 
         h("People", "blue"), ul([trunc(x, 200) for x in section(memory, "People")[:30]]),
         h("Decisions & context", "purple"), ul([trunc(x, 260) for x in section(memory, "Decisions & Context")[:15]]),
         h("Backlog", "gray"), ul(section(board, "📋 Backlog")),
+        h("Who you are", "purple"), ul([
+            "You are Ellie, Melissa's executive assistant: professional, concise, direct, no fluff, bullets and next steps. Get her approval before drafting, sending, scheduling or changing anything external. Exception: calendar entries she asks for are pre-approved.",
+            "To capture something she writes or dictates it into the Drive file Tell Ellie. To close a task she says mark it done and it clears at the next sync.",
+            "When she asks where did we leave off on a topic: read this board first, then open the file named Where we left off - <Topic> (list below), then Tell Ellie and her self-sent mail for anything newer, and say which source each item came from."]),
+        h("Which file to read", "gray"), ul([f"Where we left off - {t}: Ellie Files / {t}" for t in ("Job Search", "Meetings & Prep", "Reminders & Tasks", "Saved Links", "Ellie Setup", "Calendar")]),
         "<p>To close a task, tell Ellie: mark it done. To capture, write in the Tell Ellie file.</p>"]
 doc = "<html><body>" + "".join(page) + "</body></html>"
 
@@ -313,14 +331,16 @@ FOLDERS = {"Job Search": "1EJE9YAHK2pnaLZ8o-VkXF6g1bpq4ydtu", "Meetings & Prep":
 COLOR_OF = {"Job Search": "green", "Meetings & Prep": "blue", "Reminders & Tasks": "amber", "Saved Links": "purple", "Ellie Setup": "gray", "Calendar": "blue"}
 meet_files = sorted(f for f in os.listdir("Meetings") if f.endswith(".md")) if os.path.isdir("Meetings") else []
 app_rows = [l for l in apps.splitlines() if l.startswith("|") and not l.startswith("|---")][:40]
+app_notes = [trunc(l[2:], 200) for l in apps.splitlines() if l.startswith("- ")][-15:]  # application captures the sync appends
 links = section(memory, "Saved Links")[:15]
 topics = {
-    "Job Search": (app_rows or ["No applications listed."]) + ["Waiting on:"] + section(board, "⏳ Waiting On"),
-    "Meetings & Prep": [f"Prep doc: {f}" for f in meet_files[-10:]] or ["No prep docs yet."],
+    "Job Search": (app_rows or ["No applications listed."]) + (["Recent notes:"] + app_notes if app_notes else []) + ["Waiting on:"] + section(board, "⏳ Waiting On")
+                  + ["Decisions & context:"] + [trunc(x, 200) for x in section(memory, "Decisions & Context")[:10]],
+    "Meetings & Prep": [f"Prep doc: {f}" for f in meet_files[-10:]] + [x for x in section(board, "Needs Melissa") if "Prep requested" in x] or ["No prep docs yet."],
     "Reminders & Tasks": ["Today:"] + section(board, "🔥 Today") + ["This week:"] + section(board, "⏭ This Week") + ["Not yet sorted:"] + section(board, "📥 Captured"),
     "Saved Links": links or ["No saved links."],
     "Ellie Setup": [l for l in read("Standing Instructions.md").splitlines() if l.startswith("- ")][-25:],
-    "Calendar": cal_lines or ["Nothing left on the calendar this week."],
+    "Calendar": cal_lines or ["Nothing on the calendar in the next 7 days."],
 }
 topic_docs = {t: "<html><body>" + h(f"Where we left off - {t}", COLOR_OF[t]) + f"<p>Updated {now.strftime('%Y-%m-%d')}</p>" + ul(items) + "</body></html>"
               for t, items in topics.items()}

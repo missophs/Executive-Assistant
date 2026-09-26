@@ -7,9 +7,12 @@ on:
     inputs:
       dry_run:
         description: "1 = change nothing, just report"
-        default: "1"
+        default: "0"
 permissions:
   contents: write
+concurrency:
+  group: ellie-sync
+  cancel-in-progress: false
 jobs:
   sync:
     runs-on: ubuntu-latest
