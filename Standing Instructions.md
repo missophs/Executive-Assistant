@@ -91,3 +91,14 @@ Not done yet: the cloud phone-sync routine is still active (pause it after the 6
 - Guard: `.last_wrapup_date` in the repo plus a Gmail sent-mail check for the same subject. Backup crons 17:00 and 17:45 UTC skip if it is before 4:45pm ET. Shift +1h UTC in November. Failure sends an ALERT email.
 - Known: `phone-sync.yml` defaults `dry_run` to "1", so cron-job.org dispatches (no inputs) run as DRY RUNS and change nothing. Not fixed, because she said not to break what works. Ask her before changing.
 - Wrap-up email does not yet reconcile from sent mail or show "Added To Your Calendar".
+
+## 2026-09-26 (Melissa, night) - What she authorized and what was built
+- Yes to trashing inbox mail that should go to Trash, using judgment. Built: Haiku flags clearly unimportant bulk mail (promos, product updates, newsletters, webinars, surveys, social notifications) on NEW inbox threads only; rules-protected senders/subjects, real people, recruiters, applications, job alerts, receipts, banking, health, security are never AI-trashed. Everything goes to Gmail Trash (recoverable), never permanently deleted. Listed on the board under "Inbox trash".
+- Calendar is a rolling 7 days (board, topic file, wrap-up email), not "until Sunday".
+- Everything told to Ellie is filed in Git by the sync commit and mirrored to the Drive topic files: application notes, decisions, prep requests now appear in Job Search / Meetings & Prep files.
+- `Handoff.md` (repo root) is rebuilt every sync: read it first in a new chat.
+- Board has "Who you are" and "Which file to read". Waiting-on now reads the Memory.md Follow-Ups table too.
+- `phone-sync.yml` `dry_run` default is now "0" (cron-job.org calls were dry runs). Concurrency lock added. `__pycache__` untracked.
+- Midday: light mode (`LIGHT=1`, GitHub cron 17:00 UTC = 1pm EDT). Exits in seconds with no AI when there are no new captures. cron-job.org 1pm job (POST phone-sync.yml dispatches, body {"ref":"main","inputs":{"light":"1"}}) not created yet.
+- Cache: Haiku only for new captures and new inbox threads; seen ids + mail cache in `.ellie-state.json`; topic files rebuilt only when content changed; wrap-up email uses no AI.
+- She pauses the cloud routines herself once she sees the Git runs working (never delete).
