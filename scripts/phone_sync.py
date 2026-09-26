@@ -224,16 +224,37 @@ def section(md: str, prefix: str) -> list[str]:
     return [re.sub(r"^\[[ x]\] ", "", l[2:]).strip() for l in lines if l.startswith("- ") and "(none" not in l]
 
 
+def trunc(t: str, n: int = 240) -> str:
+    t = t.replace("**", "").strip()
+    return t if len(t) <= n else t[:n].rsplit(" ", 1)[0] + "..."
+
+
+STAGE_ORDER = ["Offer", "Final", "Interview", "Screen", "Applied", "Researching"]
+
+
+def pipeline(md: str) -> list[str]:
+    rows = []
+    for l in md.splitlines():
+        c = [x.strip() for x in l.strip().strip("|").split("|")]
+        if l.startswith("|") and len(c) >= 6 and c[2] in STAGE_ORDER:
+            rows.append((STAGE_ORDER.index(c[2]), f"{c[0]} - {c[1]} - {c[2]} (last contact {c[4]}): {trunc(c[5], 200)}"))
+    return [r for _, r in sorted(rows, key=lambda x: x[0])]
+
+
 done_today = [l for l in section(board, "✅ Done") if today in l]
 page = [f"<h1>ELLIE - LIVE BOARD</h1><p>Melissa Weiss, Senior HR executive, New York (US Eastern). Last updated: {now.strftime('%Y-%m-%d %-I:%M%p')} ET</p>",
         h("What happened today", "green"),
         ul([f"Filed {len(added)} new capture(s)"] + [f"Closed: {d}" for d in done_today] + ([f"Always-trash added: {', '.join(always)}"] if always else [])),
         h("On your calendar, rest of the week", "blue"), ul(cal_lines),
         h("Inbox trash (undo from Gmail Trash if wrong)", "red"), ul([f"{f} | {s}" for f, s in trashed]),
+        h("Current priorities", "green"), ul([trunc(x, 420) for x in section(memory, "Current Priorities")[:3]]),
         h("Today", "red"), ul(section(board, "🔥 Today")),
         h("This week", "amber"), ul(section(board, "⏭ This Week")),
         h("Captured, not yet sorted", "purple"), ul(section(board, "📥 Captured")),
+        h("Application pipeline (open roles)", "green"), ul(pipeline(apps)),
         h("Waiting on", "amber"), ul(section(board, "⏳ Waiting On")),
+        h("People", "blue"), ul([trunc(x, 200) for x in section(memory, "People")[:30]]),
+        h("Decisions & context", "purple"), ul([trunc(x, 260) for x in section(memory, "Decisions & Context")[:15]]),
         h("Backlog", "gray"), ul(section(board, "📋 Backlog")),
         "<p>To close a task, tell Ellie: mark it done. To capture, write in the Tell Ellie file.</p>"]
 doc = "<html><body>" + "".join(page) + "</body></html>"
