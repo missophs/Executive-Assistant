@@ -16,7 +16,7 @@ Written 2026-09-26. Plain-English record of everything built for Ellie (Melissa'
 | Phone sync code | `scripts/phone_sync.py` and `.github/workflows/phone-sync.yml` in the vault repo |
 | Timers | cron-job.org (account already used for the briefing) |
 | Command Center | Claude artifact `https://claude.ai/artifact/WWoVTEpKHKezZaJWiS3x74`. Source file: `dashboard.html` in the vault |
-| Phone board | Google Drive doc `Ellie` (replaced on every sync, new file id each time) |
+| Phone board | Google Drive doc `Ellie` (replaced on every sync, new file id each time). It stays in whatever folder Melissa last put it (currently `Ellie Setup`). New Ellie files default to `Ellie Files`, never loose in My Drive |
 | Notes drop | Google Drive doc `Tell Ellie` |
 | Topic files | Drive folder `Ellie Files` (id 18kMOjJuNFY_7u6rEVxsanFRUlX_GXJkh), one `Where we left off - <topic>` doc per topic |
 | Every instruction Melissa has given | `Standing Instructions.md` in the vault |

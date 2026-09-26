@@ -306,7 +306,7 @@ state["seen"] = sorted(seen)[-300:]
 def replace_doc(name: str, content: str, text_mime: str, parents: list[str] | None = None) -> None:
     scope = f" and '{parents[0]}' in parents" if parents else ""
     old = drive.files().list(q=f"name='{name}' and trashed=false{scope}", fields="files(id,parents)").execute().get("files", [])
-    par = parents or (old[0].get("parents") if old else None)
+    par = parents or (old[0].get("parents") if old else None) or ["18kMOjJuNFY_7u6rEVxsanFRUlX_GXJkh"]  # keep files where Melissa put them; new ones go in Ellie Files, never loose in Drive
     meta = {"name": name, **({"parents": par} if par else {})}
     if text_mime == "text/html":
         meta["mimeType"] = "application/vnd.google-apps.document"
