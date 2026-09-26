@@ -169,6 +169,8 @@ for item in plan:
                 when = {"start": {"date": day}, "end": {"date": (datetime.fromisoformat(day) + timedelta(days=1)).strftime("%Y-%m-%d")}}
             cal.events().insert(calendarId="primary", body={"summary": text, **when}).execute()
         added.append(f"Calendar: {text} {day}")
+        if item.get("priority"):  # a calendar block she also called a priority is a task too
+            board = add_after(board, "🔥 Today" if day == today else "⏭ This Week", f"- [ ] {text} — due {day} — captured {today} · #task · #priority")
     elif kind == "prep":
         board = add_after(board, "Needs Melissa", f"- [ ] Prep requested: {text} (Ellie prep docs not automated yet) — {today}")
     else:  # unclear or unsorted

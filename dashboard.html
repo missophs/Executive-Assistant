@@ -208,14 +208,14 @@ code.cmd{font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(-
       <h1>Ellie - EA</h1>
       <div class="when" id="stampDate">Friday, September 25, 2026</div>
     </div>
-    <div class="badges" id="badges"><div class="badge"><b>0</b> open tasks</div></div>
+    <div class="badges" id="badges"><div class="badge"><b>1</b> open tasks</div></div>
   </header>
 
   <a class="howto" href="https://claude.ai/code/artifact/ef023dc5-7573-4ac8-845f-ba8448315a5b" target="_blank" rel="noopener" style="display:block; text-decoration:none">
     <strong>Open the live Ellie - EA dashboard &rarr;</strong> tap here for the always-current, interactive version. Works on your phone, no login needed.
   </a>
 
-  <section class="stats" id="stats"><div class="stat is-blue" data-target="todayPanel" role="button" tabindex="0"><div class="n zero">0</div><div class="k">Open tasks</div></div></section>
+  <section class="stats" id="stats"><div class="stat is-blue" data-target="todayPanel" role="button" tabindex="0"><div class="n">1</div><div class="k">Open tasks</div></div></section>
 
   <div class="grid">
     <div class="col">
@@ -228,7 +228,7 @@ code.cmd{font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(-
       <section class="panel" id="todayPanel" style="scroll-margin-top:16px">
         <div class="phead"><h2>Top 3 &amp; Follow Up</h2><span class="note" id="todayNote"></span></div>
         <div class="rule red"></div>
-        <div class="pbody" id="todayWrap"><div class="empty"><div class="lead">Nothing set for today.</div>Tell Ellie what to add.</div></div>
+        <div class="pbody" id="todayWrap"></div>
       </section>
 
 
@@ -256,7 +256,9 @@ code.cmd{font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(-
 const DATA = {
   generated: "2026-09-26",
   calendar: [],
-  today: [],
+  today: [
+    {id:"2026-09-26-t0", task:"Call New York City about documents", why:"All-day block on your calendar.", due:"2026-09-29"}
+  ],
   week: [],
   pipeline: [
     {company:"CUNY (City University of New York)", role:"Vice Chancellor for Human Resources", stage:"Interview", applied:"2026-08-31", lastContact:"2026-09-03", nextAction:"Interview confirmed: Fri 9/11, 3:00–4:00 PM ET, Microsoft Teams. Panel: Elisa Russo & Sujata Malhotra"},

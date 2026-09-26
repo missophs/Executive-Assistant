@@ -13,7 +13,7 @@ _(none open)_
 
 ## ⏭ This Week
 
-_(none open)_
+- [ ] Call New York City about documents — due 2026-09-29 (all-day block on calendar) — captured 2026-09-26 · #task · #priority
 
 ## 📋 Backlog
 
