@@ -116,7 +116,8 @@ def classify(items: list[tuple[str, str]], open_tasks: list[str]) -> list[dict]:
     prompt = (f"Today is {now.strftime('%A')} {today} (America/New_York). Melissa, a senior HR executive job searching, sent these notes to her assistant.\n"
               "For EACH note return one JSON object in an array, same order: "
               '{"i":<note number>,"kind":"task|application|memory|link|done|calendar|prep|trash|unclear","text":"short clean version",'
-              '"match":<open task number or null, for done>,"date":"YYYY-MM-DD or null","time":"HH:MM or null","sender":"for trash"}.\n'
+              '"match":<open task number or null, for done>,"date":"YYYY-MM-DD or null","time":"HH:MM start or null","end":"HH:MM end or null","sender":"for trash"}.\n'
+              'For calendar and for reminders, text is ONLY the short subject (e.g. "Mahjong", "Call New York City about documents"), never words like "add to calendar", "remind me" or "tomorrow".\n'
               "kind meanings: task=something to do or a reminder; application=company/role/recruiter/stage news; memory=person, preference or decision; "
               "link=bare link with no action; done=says something is finished or cancelled (set match to the open task number); "
               "calendar=explicit request to put something on the calendar (needs date); prep=starts with Prep:; trash=always trash a sender; unclear=cannot tell. "
@@ -150,6 +151,16 @@ for item in plan:
         if kind == "application":
             apps = apps.rstrip() + f"\n- {today}: {text}\n"
         added.append(text)
+        if kind == "task" and due and due >= today and re.search(r"\bremind", src, re.I) and not DRY:  # dated "remind me" = calendar entry with a phone popup
+            t0 = item.get("time") if re.fullmatch(r"\d{2}:\d{2}", str(item.get("time"))) else "09:00"
+            start = datetime.fromisoformat(f"{due}T{t0}")
+            dup = cal.events().list(calendarId="primary", timeMin=f"{due}T00:00:00-04:00", timeMax=f"{due}T23:59:59-04:00", singleEvents=True, timeZone="America/New_York").execute().get("items", [])
+            if not any(e.get("summary", "").lower() == text.lower() for e in dup):
+                cal.events().insert(calendarId="primary", body={"summary": text,
+                    "start": {"dateTime": start.strftime("%Y-%m-%dT%H:%M:00"), "timeZone": "America/New_York"},
+                    "end": {"dateTime": (start + timedelta(minutes=30)).strftime("%Y-%m-%dT%H:%M:00"), "timeZone": "America/New_York"},
+                    "reminders": {"useDefault": False, "overrides": [{"method": "popup", "minutes": 10}]}}).execute()
+                added.append(f"Calendar reminder: {text} {due} {t0}")
     elif kind == "memory":
         memory = add_after(memory, "Decisions & Context", f"- {today}: {text}")
         added.append(text)
@@ -171,7 +182,7 @@ for item in plan:
                                      singleEvents=True, timeZone="America/New_York").execute().get("items", [])
         if not any(e.get("summary", "").lower() == text.lower() for e in existing) and not DRY:
             if t0:
-                end = (datetime.fromisoformat(f"{day}T{t0}") + timedelta(hours=1)).strftime("%Y-%m-%dT%H:%M:00")
+                end = f"{day}T{item['end']}:00" if re.fullmatch(r"\d{2}:\d{2}", str(item.get("end"))) else (datetime.fromisoformat(f"{day}T{t0}") + timedelta(hours=1)).strftime("%Y-%m-%dT%H:%M:00")
                 when = {"start": {"dateTime": f"{day}T{t0}:00", "timeZone": "America/New_York"},
                         "end": {"dateTime": end, "timeZone": "America/New_York"}}
             else:

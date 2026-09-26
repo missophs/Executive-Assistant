@@ -102,3 +102,5 @@ Not done yet: the cloud phone-sync routine is still active (pause it after the 6
 - Midday: light mode (`LIGHT=1`, GitHub cron 17:00 UTC = 1pm EDT). Exits in seconds with no AI when there are no new captures. cron-job.org 1pm job (POST phone-sync.yml dispatches, body {"ref":"main","inputs":{"light":"1"}}) not created yet.
 - Cache: Haiku only for new captures and new inbox threads; seen ids + mail cache in `.ellie-state.json`; topic files rebuilt only when content changed; wrap-up email uses no AI.
 - She pauses the cloud routines herself once she sees the Git runs working (never delete).
+
+- 2026-09-26: A dated "remind me" capture now also creates a Google Calendar entry (9am if no time, 30 min, phone popup 10 min before). Calendar and reminder titles are the short subject only; a stated end time is honored. Undated reminders stay on the board.
