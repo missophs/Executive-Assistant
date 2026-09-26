@@ -73,6 +73,7 @@ _(none open)_
 ## ✅ Done
 <!-- Cleared during /start and /wrap-up. Archive monthly. -->
 
+- [x] KSF Recruit (Tristen Murch) — Head of People, fast-growing consumer-electronics startup — inbound lead 9/24. You asked for JD/location/comp; Tristen replied it's a hands-on startup role and offered to keep in touch for opportunities more aligned to your background. You pushed back (comfortable with startups) but no further movement since — closed for pattern-spotting — 2026-09-26
 - [x] Send résumé to Nasreen Bharoocha (Conduit Health) — moot. Nasreen rejected the role 9/23 1:58 PM ET (pivoting away from People-background candidates, per her email — verified directly). That reply, plus your 9/25 5:06 PM "didn't hear back" chase and her 9/25 9:14 PM reply pointing back to the rejection, had all landed unread in Trash — rescued this morning. A closing-reply draft (acknowledging you saw the rejection) is sitting in Gmail Drafts, not sent. The 9/18 résumé-placeholder draft in the same thread is now moot too — your call to delete or leave it — 2026-09-26
 - [x] SimplePractice (Senior Director, HR Business Partners) — resolved itself: you applied. Greenhouse auto-ack landed in Trash 9/22 8:06 PM ET, not rescued (no-reply sender, per policy). Filed to Applications.md as Applied — 2026-09-22
 
