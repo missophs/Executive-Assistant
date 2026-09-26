@@ -396,10 +396,12 @@ def replace_doc(name: str, content: str, text_mime: str, parents: list[str] | No
     if text_mime == "text/html":
         meta["mimeType"] = "application/vnd.google-apps.document"
     media = MediaIoBaseUpload(io.BytesIO(content.encode()), mimetype=text_mime)
-    new = drive.files().create(body=meta, media_body=media, fields="id").execute()
-    for o in old:
-        drive.files().update(fileId=o["id"], body={"trashed": True}).execute()
-    print(f"replaced {name}: new {new['id']}, trashed {len(old)}")
+    if old:  # rewrite in place: same file, Drive keeps every earlier version (File > Version history), nothing is trashed
+        drive.files().update(fileId=old[0]["id"], media_body=media, fields="id").execute()
+        print(f"updated {name} in place: {old[0]['id']}")
+    else:
+        new = drive.files().create(body=meta, media_body=media, fields="id").execute()
+        print(f"created {name}: {new['id']}")
 
 
 replace_doc("Ellie", doc, "text/html")
