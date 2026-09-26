@@ -40,7 +40,7 @@ def _priority(action: str, why: str, due: str, bar: str) -> str:
 
 
 def _time(when: str, what: str) -> str:
-    return (f'<tr><td width="100" bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:12px 0 12px 16px;{F}font-size:12px;font-weight:bold;color:#2F6BFF;white-space:nowrap;{B}">{_e(when)}</td>'
+    return (f'<tr><td width="150" bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:12px 0 12px 16px;{F}font-size:12px;font-weight:bold;color:#2F6BFF;white-space:nowrap;{B}">{_e(when)}</td>'
             f'<td bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:12px 16px 12px 10px;{F}font-size:13px;color:#33404F;{B}">{_e(what)}</td></tr>')
 
 
@@ -65,9 +65,10 @@ def _parse(task: str) -> tuple[str, str, str, str]:
     return parts[0].replace("**", "")[:160] if parts else task[:160], " — ".join(rest).replace("**", "")[:200], due, cap
 
 
-def build_wrapup(now: datetime, done_today: list[str], cal_added: list[str], focus: list[str], n_open: int, waiting: list[str],
-                 tomorrow: list[tuple[str, str]] | None) -> tuple[str, str]:
-    """focus = open tasks from Today then This Week, in board order. tomorrow=None means the calendar could not be checked."""
+def build_wrapup(now: datetime, done_today: list[str], filed: list[str], cal_added: list[str], focus: list[str], n_open: int, waiting: list[str],
+                 week: list[tuple[str, str]] | None) -> tuple[str, str]:
+    """focus = open tasks from Today then This Week, in board order. filed = everything captured into Ellie today.
+    week = (when, title) for the days ahead; None means the calendar could not be checked."""
     today = now.strftime("%Y-%m-%d")
     subject = f"Ellie - EA Wrap-Up - {now.strftime('%A, %B')} {now.day}"
     boxes: list[str] = []
@@ -76,6 +77,8 @@ def build_wrapup(now: datetime, done_today: list[str], cal_added: list[str], foc
         boxes.append(_box(title, accent, rows, first=not boxes, colspan=colspan))
 
     add("Closed Out Today", "#00D68F", [_plain([f"&#10003;&nbsp;{_e(d[:200])}" for d in done_today])] if done_today else [_empty("Nothing closed today.")])
+    if filed:
+        add("Filed Into Ellie Today", "#A239FF", [_plain([f"&#8226;&nbsp;{_e(f[:200])}" for f in filed])])
     if cal_added:
         add("Added To Your Calendar", "#2F6BFF", [_plain([_e(c.removeprefix("Calendar: ")) for c in cal_added])])
     if focus:
@@ -94,13 +97,13 @@ def build_wrapup(now: datetime, done_today: list[str], cal_added: list[str], foc
             slipping.append(_title(a, f"Captured {cap}, no movement in {(now.date() - datetime.strptime(cap, '%Y-%m-%d').date()).days} days"))
     if slipping:
         add("Slipping", "#FF3B3B", slipping[:5])
-    if tomorrow is None:
+    if week is None:
         rows = [_empty("Calendar could not be checked.")]
-    elif tomorrow:
-        rows = [_time(w, s) for w, s in tomorrow]
+    elif week:
+        rows = [_time(w, s) for w, s in week]
     else:
         rows = [_empty("Calendar is clear.")]
-    add("Tomorrow", "#2F6BFF", rows, colspan=bool(tomorrow))
+    add("Week Ahead", "#2F6BFF", rows, colspan=bool(week))
 
     mast = "#3B1B8F"
     body = (
@@ -120,11 +123,11 @@ def build_wrapup(now: datetime, done_today: list[str], cal_added: list[str], foc
 
 if __name__ == "__main__":  # runnable check: python scripts/wrapup_email.py
     n = datetime(2026, 9, 26, 16, 30)
-    s, h = build_wrapup(n, ["Call Anthem — done 2026-09-26"], ["Calendar: Vet 2026-09-30"],
+    s, h = build_wrapup(n, ["Call Anthem — done 2026-09-26"], ["Saved link: Marsh CPO role"], ["Vet — Wed 9/30 all day"],
                         ["Call NYC about documents — due 2026-09-29 — captured 2026-09-26 · #task · #priority", "Old thing — due 2026-09-20 — captured 2026-09-10 · #task"],
-                        7, [], [("9:00am", "Standup"), ("All day", "Doctor")])
+                        7, [], [("Sun 9/27 · 9:00am", "Standup"), ("Mon 9/28 · all day", "Doctor")])
     assert s == "Ellie - EA Wrap-Up - Saturday, September 26" and h.startswith("<table") and "$(" not in h and "/tmp/" not in h and "gradient" not in h
-    assert "Overdue since 2026-09-20" in h and "Standup" in h and "Call NYC about documents" in h
-    s2, h2 = build_wrapup(n, [], [], [], 0, [], None)
+    assert "Overdue since 2026-09-20" in h and "Standup" in h and "Call NYC about documents" in h and "Marsh CPO" in h and "Week Ahead" in h
+    s2, h2 = build_wrapup(n, [], [], [], [], 0, [], None)
     assert "Nothing closed today." in h2 and "Calendar could not be checked." in h2 and "Carrying Into Tomorrow" not in h2
     print("ok")

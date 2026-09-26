@@ -50,23 +50,39 @@ done_today = [l for l in section("✅ Done") if today in l]
 focus = section("🔥 Today") + section("⏭ This Week")
 n_open = sum(1 for l in board.splitlines() if l.startswith("- [ ]"))
 
-t0 = (now + timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
+# everything put into Ellie today: board captures, Applications/Memory lines the sync writes as "- <date>: text"
+filed = [re.sub(r"^\[[ x]\] ", "", l[2:]).split(" — ")[0].strip() for l in board.splitlines() if l.startswith("- ") and f"captured {today}" in l]
+for name in ("Applications.md", "Memory.md"):
+    filed += [m.group(1).strip() for l in open(name, encoding="utf-8").read().splitlines() for m in [re.match(rf"- {today}: (.+)", l)] if m]
+filed = list(dict.fromkeys(filed))
+
+
+def when(e: dict) -> str:
+    s = e["start"].get("dateTime")
+    d = datetime.fromisoformat(s).astimezone(NY) if s else datetime.fromisoformat(e["start"]["date"])
+    return f"{d.strftime('%a %-m/%-d')} · {d.strftime('%-I:%M%p').lower() if s else 'all day'}"
+
+
+day0 = now.replace(hour=0, minute=0, second=0, microsecond=0)
 try:
     cal = build("calendar", "v3", credentials=creds, cache_discovery=False)
-    items = cal.events().list(calendarId="primary", timeMin=t0.isoformat(), timeMax=(t0 + timedelta(days=1)).isoformat(),
+    ahead = cal.events().list(calendarId="primary", timeMin=(day0 + timedelta(days=1)).isoformat(), timeMax=(day0 + timedelta(days=8)).isoformat(),
                               singleEvents=True, orderBy="startTime", timeZone="America/New_York").execute().get("items", [])
-    tomorrow = [(datetime.fromisoformat(e["start"]["dateTime"]).astimezone(NY).strftime("%-I:%M%p").lower() if e["start"].get("dateTime") else "All day",
-                 e.get("summary", "(no title)")) for e in items]
+    week = [(when(e), e.get("summary", "(no title)")) for e in ahead]
+    new = cal.events().list(calendarId="primary", updatedMin=day0.isoformat(), maxResults=100, timeZone="America/New_York").execute().get("items", [])
+    # ponytail: "created today, no attendees" = added by her or Ellie, not an invite she received
+    cal_added = [f"{e.get('summary', '(no title)')} — {when(e)}" for e in new if e.get("status") != "cancelled" and not e.get("attendees")
+                 and datetime.fromisoformat(e["created"].replace("Z", "+00:00")).astimezone(NY).strftime("%Y-%m-%d") == today]
 except Exception as exc:  # never claim "clear" when the check failed
-    print("tomorrow calendar failed:", exc)
-    tomorrow = None
+    print("calendar failed:", exc)
+    week, cal_added = None, []
 
-subject, body = build_wrapup(now, done_today, [], focus, n_open, section("⏳ Waiting On"), tomorrow)
+subject, body = build_wrapup(now, done_today, filed, cal_added, focus, n_open, section("⏳ Waiting On"), week)
 assert body.startswith("<table") and "$(" not in body and "/tmp/" not in body, "bad email body"
 
 if DRY:
     open("wrapup-preview.html", "w", encoding="utf-8").write(body)
-    print(f"DRY RUN: subject={subject!r} done={len(done_today)} focus={len(focus)} open={n_open} tomorrow={tomorrow}")
+    print(f"DRY RUN: subject={subject!r} done={len(done_today)} focus={len(focus)} open={n_open} filed={len(filed)} added={cal_added} week={week}")
     sys.exit(0)
 
 dup = gmail.users().messages().list(userId="me", q=f'in:sent newer_than:1d subject:"{subject}"').execute().get("messages")
