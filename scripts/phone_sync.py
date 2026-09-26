@@ -47,7 +47,7 @@ def body_text(msg: dict) -> str:
 
 
 state = json.load(open(STATE)) if os.path.exists(STATE) else {"seen": []}
-seen = set(state["seen"])
+seen = set(state["seen"]) | set(re.findall(r"^([0-9a-f]{16}) \|", read("Memory.md"), re.M))  # ids the cloud routine already filed
 captures: list[tuple[str, str]] = []  # (source id, text)
 
 for q in (f"in:anywhere newer_than:1d from:{ME} to:{ME}", f"in:anywhere newer_than:1d from:{ME} to:melweiss212@gmail.com"):
@@ -153,6 +153,8 @@ if DRY:
     print(f"DRY RUN: captures={len(captures)} would_trash={len(trashed)} events={len(cal_lines)} board_chars={len(doc)}")
     for f, s in trashed:
         print("  would trash:", f, "|", s)
+    for cid, text in captures:
+        print("  capture:", cid[:16], "|", text[:70])
     print("\n".join(cal_lines))
     sys.exit(0)
 
