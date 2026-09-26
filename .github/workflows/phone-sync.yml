@@ -18,7 +18,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install google-api-python-client google-auth
+      - run: pip install google-api-python-client google-auth markdown
       - run: python scripts/phone_sync.py
         env:
           DRY_RUN: ${{ inputs.dry_run || '0' }}

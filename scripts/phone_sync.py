@@ -318,6 +318,19 @@ def replace_doc(name: str, content: str, text_mime: str, parents: list[str] | No
 
 
 replace_doc("Ellie", doc, "text/html")
+# Setup guide: Git is the source, the Drive copy is refreshed only when it changes
+if os.path.exists("Docs/Setting Up Ellie.md"):
+    import markdown
+    guide = "<html><body>" + markdown.markdown(read("Docs/Setting Up Ellie.md"), extensions=["tables"]) + "</body></html>"
+    gdigest = hashlib.md5(guide.encode()).hexdigest()
+    if state.get("setup") != gdigest:
+        fname = "Setting Up Ellie - Every Piece"
+        found = drive.files().list(q=f"name='{fname}' and mimeType='application/vnd.google-apps.folder' and '18kMOjJuNFY_7u6rEVxsanFRUlX_GXJkh' in parents and trashed=false",
+                                   fields="files(id)").execute().get("files", [])
+        folder = found[0]["id"] if found else drive.files().create(body={"name": fname, "mimeType": "application/vnd.google-apps.folder",
+                                   "parents": ["18kMOjJuNFY_7u6rEVxsanFRUlX_GXJkh"]}, fields="id").execute()["id"]
+        replace_doc("Setting Up Ellie", guide, "text/html", [folder])
+        state["setup"] = gdigest
 for t, d in topic_docs.items():
     digest = hashlib.md5(d.replace(now.strftime("%Y-%m-%d"), "").encode()).hexdigest()
     if state.get("topics", {}).get(t) != digest:
