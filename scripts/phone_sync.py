@@ -58,10 +58,13 @@ for q in (f"in:anywhere newer_than:1d from:{ME} to:{ME}", f"in:anywhere newer_th
         subj = next((h["value"] for h in full["payload"]["headers"] if h["name"] == "Subject"), "")
         captures.append((m["id"], " ".join(f"{subj}. {body_text(full)}".split())))
 
-tell = drive.files().list(q="name='Tell Ellie' and trashed=false", fields="files(id,parents)").execute().get("files", [])
+tell = drive.files().list(q="name='Tell Ellie' and trashed=false", fields="files(id,parents,mimeType)").execute().get("files", [])
 tell_text = ""
 if tell:
-    tell_text = drive.files().get_media(fileId=tell[0]["id"]).execute().decode("utf-8", "replace").strip()
+    is_doc = tell[0]["mimeType"] == "application/vnd.google-apps.document"
+    raw = (drive.files().export_media(fileId=tell[0]["id"], mimeType="text/plain") if is_doc
+           else drive.files().get_media(fileId=tell[0]["id"])).execute()
+    tell_text = raw.decode("utf-8", "replace").lstrip("\ufeff").strip()
     if tell_text and not tell_text.startswith(PLACEHOLDER):
         captures.append((f"drive-{tell[0]['id']}-{hashlib.md5(tell_text.encode()).hexdigest()[:8]}", " ".join(tell_text.split())))
     else:
@@ -174,5 +177,5 @@ def replace_doc(name: str, content: str, text_mime: str, parents: list[str] | No
 
 replace_doc("Ellie", doc, "text/html")
 if tell:
-    replace_doc("Tell Ellie", f"{PLACEHOLDER} Ellie files it at 6:30am and 4:30pm ET.", "text/plain", tell[0].get("parents"))
+    replace_doc("Tell Ellie", f"<p>{PLACEHOLDER} Ellie files it at 6:30am and 4:30pm ET.</p>", "text/html", tell[0].get("parents"))
 print(f"done: captures={len(captures)} trashed={len(trashed)} events={len(cal_lines)}")
