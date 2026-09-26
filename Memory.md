@@ -297,3 +297,4 @@ Items Ellie has already triaged. Format: `<id> | <latest-message-date> | <what w
 1a0d0f0bf5464441 | 2026-09-24 | Mellon Foundation cold outreach to Andre Bokhoor — verified and filed
 1a0d9688eb876ca6 | 2026-09-25 | Mellon Foundation cold outreach to Natali Rodriguez — verified and filed
 1a0d0e5251663521 | 2026-09-24 | KSF Recruit/Tristen Murch thread (Head of People, consumer-electronics startup) — closed, verified and filed to Task Board Done
+1a0de8636f285b45 | 2026-09-26 | "Add a priority from Tuesday to call New York City about my documents" — already filed to Task Board This Week (due 2026-09-29) and Standing Instructions.md by a direct dev-session commit (c1204bd, 12:25 PM ET) minutes after the capture; not duplicated
