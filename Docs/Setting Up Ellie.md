@@ -66,7 +66,6 @@ Written 2026-09-26. Plain-English record of everything built for Ellie (Melissa'
 ## Still open
 - Pause (never delete) the old Claude cloud phone-sync routine after a few good mornings.
 - Prep captures: only filed under Needs Melissa; no automatic prep doc yet.
-- Reminders and a "needs you" mail list on the wrap are not built.
 - Midday 1pm check, the Improve routine, and the dashboard live view on the phone are untested.
 - The subject line of a trashed email showed a garbled emoji on the board (cosmetic).
 
@@ -82,3 +81,5 @@ Written 2026-09-26. Plain-English record of everything built for Ellie (Melissa'
 
 ## Build log, 2026-09-26
 Google refresh token and secrets saved; phone sync script and workflow built and tested (dry run, then live); Haiku sorting; Drive topic files; cron-job.org triggers at 6:30am and 4:30pm; board sections for pipeline, people, decisions; briefing ID cache and Haiku sorting; Command Center cleaned and made to read the Drive board; all instructions saved in `Standing Instructions.md`.
+- Reminders section on the wrap: dated open tasks for the next 7 days (no AI, no cost).
+- Inbox table on the wrap: STATUS / FROM / SUBJECT / SUMMARY, NEEDS YOU rows first in red. Haiku writes one line per NEW inbox thread only; results are cached by thread id in `.ellie-state.json`, so seen mail costs nothing. Test run: about 3,200 tokens in. Rescue-from-Trash stays in the 7am briefing email.
