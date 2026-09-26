@@ -214,6 +214,7 @@ never_subj = bullets(rules, "NEVER TRASH if subject/snippet mentions")
 always_l = bullets(rules, "ALWAYS TRASH (sender contains)") + always
 trashed = []
 kept: list[tuple[str, str, str, str]] = []  # (thread id, from, subject, snippet) left in the inbox
+ourtrash = set(state.get("ourtrash", []))  # threads Ellie trashed herself: never rescued back
 protected_ids: set[str] = set()  # threads the trash rules protect: the AI pass below may never trash these
 for t in gmail.users().threads().list(userId="me", q="in:inbox newer_than:1d").execute().get("threads", []):
     th = gmail.users().threads().get(userId="me", id=t["id"], format="metadata", metadataHeaders=["From", "Subject"]).execute()
@@ -229,9 +230,53 @@ for t in gmail.users().threads().list(userId="me", q="in:inbox newer_than:1d").e
         trashed.append((hd.get("From", ""), subj))
         if not DRY:
             gmail.users().threads().trash(userId="me", id=t["id"]).execute()
+            ourtrash.add(t["id"])
         continue
     if not subj.lower().startswith(OWN_MAIL):
         kept.append((t["id"], hd.get("From", ""), subj, th["messages"][0].get("snippet", "")))
+
+# --- rescue from Trash: same bar as the morning briefing. High: a real person or real ATS about a real role/meeting, addressed to her, never bulk.
+rescued: list[tuple[str, str]] = []
+dnr_m = re.search(r"^## Do Not Rescue[^\n]*\n(.*?)(?=^## |\Z)", memory, re.M | re.S)
+do_not_rescue = [c[0].lower() for l in (dnr_m.group(1).splitlines() if dnr_m else []) if l.startswith("|")
+                 for c in [[x.strip() for x in l.strip().strip("|").split("|")]] if c and c[0] not in ("Sender / domain", "---") and not c[0].startswith("-")]
+for tid in list(state.get("rescued", {})):  # a rescued thread back in Trash = she put it there on purpose: never rescue that sender again
+    try:
+        th = gmail.users().threads().get(userId="me", id=tid, format="metadata", metadataHeaders=["From", "Subject"]).execute()
+        if "TRASH" in th["messages"][-1].get("labelIds", []) and "INBOX" not in th["messages"][-1].get("labelIds", []):
+            frm = state["rescued"].pop(tid)
+            if not DRY:
+                memory = re.sub(r"(## Do Not Rescue[^\n]*\n.*?\n\|---[^\n]*\n(?:\|[^\n]*\n)*)", lambda m: m.group(1) + f"| {frm} | {today} | Rescued by Ellie, put back in Trash by Melissa |\n", memory, count=1, flags=re.S)
+            do_not_rescue.append(frm.lower())
+    except Exception:
+        state["rescued"].pop(tid, None)
+judged = set(state.get("trashjudged", []))
+cands = []
+try:
+    for t in gmail.users().threads().list(userId="me", maxResults=50, q='in:trash newer_than:3d (interview OR invitation OR calendly OR schedule OR scheduling OR availability OR "next steps" OR offer OR recruiter OR "speak with" OR hiring OR "your application")').execute().get("threads", []):
+        if t["id"] in ourtrash or t["id"] in judged:
+            continue
+        th = gmail.users().threads().get(userId="me", id=t["id"], format="metadata", metadataHeaders=["From", "Subject", "List-Unsubscribe"]).execute()
+        hd = {h_["name"]: h_["value"] for h_ in th["messages"][0]["payload"]["headers"]}
+        frm = hd.get("From", "")
+        judged.add(t["id"])
+        if any(x in frm.lower() for x in ("no-reply", "noreply", "donotreply", "do-not-reply")) or "List-Unsubscribe" in hd or any(d in frm.lower() for d in do_not_rescue if d) or any(a in frm.lower() for a in always_l):
+            continue
+        cands.append((t["id"], frm, hd.get("Subject", ""), th["messages"][0].get("snippet", "")))
+    if cands and os.environ.get("ANTHROPIC_API_KEY"):
+        out = ask_haiku(f"Today is {today}. Melissa is a senior HR executive job searching. These emails are in her Trash. For each return a JSON array, same order: "
+                        '{"i":<n>,"rescue":true|false}. rescue=true ONLY when a real person (recruiter, interviewer, hiring manager, networking contact) or a real applicant-tracking system wrote to her specifically about a real role, application, interview or meeting involving her. '
+                        "rescue=false for marketing, newsletters, bulk job digests, retail, receipts, automated acknowledgments, spam, or anything you are unsure about. JSON only.\n\n" +
+                        "\n".join(f"{n}. From: {f[:60]} | Subject: {sb[:90]} | {sn[:160]}" for n, (_, f, sb, sn) in enumerate(cands, 1)), 800)
+        for r in json.loads(out[out.index("["):out.rindex("]") + 1]):
+            if r.get("rescue") is True and 1 <= r.get("i", 0) <= len(cands):
+                k = cands[r["i"] - 1]
+                if not DRY:
+                    gmail.users().threads().modify(userId="me", id=k[0], body={"addLabelIds": ["INBOX", "STARRED", "IMPORTANT"], "removeLabelIds": ["TRASH"]}).execute()
+                    state.setdefault("rescued", {})[k[0]] = re.sub(r".*<|>.*", "", k[1]).strip() or k[1]
+                rescued.append((k[1], k[2]))
+except Exception as exc:
+    print("trash rescue failed:", exc)
 
 # --- calendar, rest of the week
 horizon = (now + timedelta(days=7)).replace(hour=23, minute=59, second=59)  # rolling 7 days: "until Sunday" hid Monday's events on a Saturday
@@ -272,6 +317,7 @@ for k in to_trash:  # Trash, never permanent delete: she can undo from Gmail Tra
     trashed.append((k[1], f"{k[2]} (Ellie judged unimportant)"))
     if not DRY:
         gmail.users().threads().trash(userId="me", id=k[0]).execute()
+        ourtrash.add(k[0])
 kept = [k for k in kept if k not in to_trash]
 mail_rows = [(mail_cache[k[0]][0], re.sub(r"<.*?>|\"", "", k[1]).split("@")[0][:40], k[2][:80], mail_cache[k[0]][1]) for k in kept if k[0] in mail_cache]
 mail_rows.sort(key=lambda r: not r[0])
@@ -322,13 +368,14 @@ waiting_rows = section(board, "⏳ Waiting On") + [f"{c[1]} - {trunc(c[3], 160)}
                                                  for c in [[x.strip() for x in l.strip().strip("|").split("|")]] if l.startswith("|") and len(c) >= 4 and c[0] not in ("Item", "---")]
 page = [f"<h1>ELLIE - LIVE BOARD</h1><p>Melissa Weiss, Senior HR executive, New York (US Eastern). Last updated: {now.strftime('%Y-%m-%d %-I:%M%p')} ET</p>",
         h("What happened today", "green"),
-        ul([f"Filed {len(added)} new capture(s)"] + [f"Closed: {d}" for d in done_today] + ([f"Always-trash added: {', '.join(always)}"] if always else [])),
+        ul([f"Filed {len(added)} new capture(s)"] + [f"Rescued from Trash: {f} | {sb}" for f, sb in rescued] + [f"Closed: {d}" for d in done_today] + ([f"Always-trash added: {', '.join(always)}"] if always else [])),
         h("On your calendar, next 7 days", "blue"), ul(cal_lines),
         h("Reminders, next 7 days", "amber"), ul([f"{d}: {t}" for d, t in reminders]),
         h("Inbox: what needs you and what else is there", "blue"),
         ("<table border='1' cellpadding='4'><tr><th>Status</th><th>From</th><th>Subject</th><th>Summary</th></tr>" +
          "".join(f"<tr><td style='color:{COLORS['red' if n else 'gray']}'>{'NEEDS YOU' if n else 'INBOX'}</td><td>{html.escape(f)}</td><td>{html.escape(sb)}</td><td>{html.escape(ln)}</td></tr>"
                  for n, f, sb, ln in mail_rows) + "</table>") if mail_rows else "<p>Nothing new in the inbox.</p>",
+        h("Rescued from Trash (Ellie thought you would want these; back in your inbox, starred)", "green"), ul([f"{f} | {sb}" for f, sb in rescued]),
         h("Inbox trash (undo from Gmail Trash if wrong)", "red"), ul([f"{f} | {s}" for f, s in trashed]),
         h("Current priorities", "green"), ul([trunc(x, 420) for x in section(memory, "Current Priorities")[:3]]),
         h("Today", "red"), ul(section(board, "🔥 Today")),
@@ -402,6 +449,8 @@ open("Handoff.md", "w", encoding="utf-8").write("\n".join(
        "- Phone: Drive Ellie Files / Ellie (live board), Tell Ellie (capture), Where we left off - <Topic> files in the topic folders.",
        "- Email: wrap-up 4:45pm ET from this repo (wrap-up.yml); Melissa Daily Briefing 7am ET from missophs/daily-briefing (branch webhooks).", ""]))
 state["seen"] = sorted(seen)[-300:]
+state["trashjudged"] = sorted(judged)[-300:]
+state["ourtrash"] = sorted(ourtrash)[-300:]
 
 
 def replace_doc(name: str, content: str, text_mime: str, parents: list[str] | None = None) -> None:
