@@ -1,8 +1,8 @@
-# Handoff - 2026-09-26 6:28PM ET
+# Handoff - 2026-09-26 6:35PM ET
 Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; do not hand-edit.
 
 ## Filed this run
-- (none)
+- Calendar: Add Mahjong to calendar tomorrow 9 AM to 1 PM 2026-09-27
 
 ## Closed today
 - KSF Recruit (Tristen Murch) — Head of People, fast-growing consumer-electronics startup — inbound lead 9/24. You asked for JD/location/comp; Tristen replied it's a hands-on startup role and offered to keep in touch for opportunities more aligned to your background. You pushed back (comfortable with startups) but no further movement since — closed for pattern-spotting — 2026-09-26
@@ -24,6 +24,7 @@ Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; d
 - Edward, Founder (Dropzone AI) - Contacted 9/25; no reply yet (since 2026-09-25)
 
 ## Calendar, next 7 days
+- Sun 9/27 9:00am - Add Mahjong to calendar tomorrow 9 AM to 1 PM
 - Mon 9/28 12:45pm - Memory test
 - Mon 9/28 1:00pm - Doctor's appointment
 - Tue 9/29 all day - Call New York City about documents
