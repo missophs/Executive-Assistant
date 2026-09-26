@@ -53,3 +53,8 @@ Everything Melissa tells Ellie about how things should work. Newest additions at
 - Do not touch the job-search routine (`daily-job-search-trigger`, repo `job-search-routine`) or its sidebar chats.
 - Permanent local copy of the vault: `~/Documents/Claude/Executive-Assistant` (the copy in `/private/tmp` is temporary scratch). She starts new Ellie chats in the `hr-executive-assessment` folder so memory loads.
 - Goal: everything runs from Git and cron so she knows it runs. Phone sync first. Needs: Google Drive API enabled in project `tough-talent-493313-u9` ("My Project 10929"), a new refresh token from `scripts/get_google_token.py` (scopes gmail.modify, calendar.events, drive), and secrets GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GOOGLE_REFRESH_TOKEN, ANTHROPIC_API_KEY in the Executive-Assistant repo.
+
+## 2026-09-26 (later) - Phone sync moves to Git + cron
+- Melissa: move Ellie phone sync from the Claude cloud routine to a GitHub Action, test it, then pause (never delete) the routine.
+- Built `scripts/phone_sync.py` + `.github/workflows/phone-sync.yml` (no AI yet). Google secrets saved in this repo. Dry run passed 2026-09-26. Not yet live; cron-job.org triggers not yet added.
+- Not yet in the Action: Prep captures, Drive topic files, AI filing of captures, ANTHROPIC_API_KEY.
