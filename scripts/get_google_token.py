@@ -1,77 +1,57 @@
 #!/usr/bin/env python3
+"""One-time helper: gets a Google token for Ellie and saves the GitHub secrets itself.
+
+Nothing secret is printed or written to disk. Run:
+  ~/.ellie-venv/bin/python ~/Documents/Claude/Executive-Assistant/scripts/get_google_token.py
 """
-Run this script ONCE on your local machine to get your GOOGLE_REFRESH_TOKEN.
-Works without a localhost redirect — paste the URL from your browser.
-
-Prerequisites (run in your terminal first):
-  pip3 install google-auth-oauthlib
-
-Usage:
-  python3 get_google_token.py
-"""
-
-import urllib.parse
+import getpass
+import subprocess
 from google_auth_oauthlib.flow import InstalledAppFlow
 
+REPO = "missophs/Executive-Assistant"
+DEFAULT_CLIENT_ID = "522559244108-85h0558rv9n4rd8c9q0v33do87uu32ib.apps.googleusercontent.com"
 SCOPES = [
     "https://www.googleapis.com/auth/gmail.modify",
     "https://www.googleapis.com/auth/calendar.events",
     "https://www.googleapis.com/auth/drive",
 ]
 
-print()
-print("=" * 60)
-print("  Google OAuth Token Helper")
-print("=" * 60)
-print()
 
-client_id     = input("Paste GOOGLE_CLIENT_ID:     ").strip()
-client_secret = input("Paste GOOGLE_CLIENT_SECRET: ").strip()
-print()
+def save_secret(name: str, value: str) -> None:
+    subprocess.run(["gh", "secret", "set", name, "-R", REPO], input=value.encode(), check=True)
+    print(f"  saved {name}")
 
-client_config = {
-    "installed": {
-        "client_id":     client_id,
+
+print("\nEllie Google setup\n")
+client_id = input("Client ID (press Return to use the daily-briefing-2026-v2 one): ").strip() or DEFAULT_CLIENT_ID
+client_secret = getpass.getpass("Client secret (paste it; nothing will show on screen), then press Return: ").strip()
+if not client_secret:
+    raise SystemExit("No secret entered. Nothing was saved.")
+
+flow = InstalledAppFlow.from_client_config(
+    {"installed": {
+        "client_id": client_id,
         "client_secret": client_secret,
-        "auth_uri":      "https://accounts.google.com/o/oauth2/auth",
-        "token_uri":     "https://oauth2.googleapis.com/token",
+        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+        "token_uri": "https://oauth2.googleapis.com/token",
         "redirect_uris": ["http://localhost"],
-    }
-}
+    }},
+    SCOPES,
+)
+print("\nYour browser will open. Sign in, click Advanced, click 'Go to gws local (unsafe)',")
+print("tick every box, click Continue. Then come back here.\n")
+creds = flow.run_local_server(port=0, prompt="consent", access_type="offline")
+if not creds.refresh_token:
+    raise SystemExit("Google did not return a refresh token. Nothing was saved. Run it again.")
 
-flow = InstalledAppFlow.from_client_config(client_config, SCOPES)
-flow.redirect_uri = "http://localhost"
-auth_url, _ = flow.authorization_url(prompt="consent", access_type="offline")
+print("\nSaving secrets to GitHub:")
+save_secret("GOOGLE_CLIENT_ID", client_id)
+save_secret("GOOGLE_CLIENT_SECRET", client_secret)
+save_secret("GOOGLE_REFRESH_TOKEN", creds.refresh_token)
 
-print("STEP 1 — Open this URL in your browser:")
-print()
-print(auth_url)
-print()
-print("STEP 2 — Log in and approve access.")
-print("         The browser will show a 'This site can't be reached' error.")
-print("         That is NORMAL. Don't close it.")
-print()
-print("STEP 3 — Copy the FULL URL from the browser address bar")
-print("         (it starts with http://localhost/?state=...&code=...)")
-print()
-
-callback_url = input("Paste the full URL from the address bar: ").strip()
-
-parsed = urllib.parse.urlparse(callback_url)
-params = urllib.parse.parse_qs(parsed.query)
-code = params.get("code", [None])[0]
-
-if not code:
-    print()
-    print("ERROR: No authorization code found in that URL. Make sure you copied the full URL.")
+api_key = getpass.getpass("\nAnthropic API key (paste it, or press Return to skip for now): ").strip()
+if api_key:
+    save_secret("ANTHROPIC_API_KEY", api_key)
 else:
-    flow.fetch_token(code=code)
-    print()
-    print("=" * 60)
-    print("  SUCCESS")
-    print("=" * 60)
-    print()
-    print("Add this as the GOOGLE_REFRESH_TOKEN secret in GitHub:")
-    print()
-    print(flow.credentials.refresh_token)
-    print()
+    print("  skipped ANTHROPIC_API_KEY")
+print("\nDONE. Nothing secret was printed.")
