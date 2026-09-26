@@ -121,3 +121,4 @@ schedule and connectors from the tables above. It uses the `RemoteTrigger` tool 
 - `phone-sync.md`: added DAILY WRAP on the phone board (what happened today, calendar for the rest of the week, read-only inbox triage, prep pointers), `Prep:` captures that write `Meetings/<date> <title>.md`, and fixed the `Tell Ellie` placeholder times (6:30am / 4:30pm ET).
 - New `improve.md`: on-demand vault audit, run via the "Ellie Improve" routine (no schedule).
 - Correction: Phone Sync AM/PM and Ellie Improve are loaders for their repo file; the old email routines' triggers were not.
+- Wrap-up inbox triage now trashes per `routines/trash-rules.md` (copied from the briefing lists; refresh if they change). Trash only, never permanent delete, every trashed thread listed on the board.
