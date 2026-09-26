@@ -225,6 +225,18 @@ Ellie appends to this list herself whenever a rescued thread turns up back in Tr
 | reply@is.email.nextdoor.com ("New in Yorkville" digest) | 2026-09-18 | Melissa said trash it — Nextdoor neighborhood digest, not job-search or admin mail |
 | no-reply@hire.lever.co (Marguerite Casey Foundation confirmation) | 2026-09-21 | Rescued 9/19; found back in Trash 9/21 with no INBOX label — she put it back on purpose. Applications.md still shows it Applied; only the Trash copy is being left alone |
 
+## New bug 9/26: standup email sent with a literal unrendered placeholder
+
+The first Standup send this morning (message 1a0dd91492f7a123, ~11:53 AM ET) went out with the literal
+text `$(cat /tmp/.../standup.html)` as its entire body instead of the rendered HTML — a shell-style
+file-substitution placeholder that the email tool never executes; it must be passed the actual HTML
+content as the parameter value. A corrected resend followed immediately after (message
+1a0dd926e1228a17) with the real content. This is the exact same failure mode as the 9/25 Standup
+snippet noted in passing ("$(cat /tmp/claude-0/.../standup.html)") — that one was never caught or
+fixed. **Always pass the literal HTML string to `send_message`/`create_draft`, never a shell command
+or file-path placeholder — the tool does not execute or dereference it.** Spot-check the sent message's
+snippet after sending an HTML email until this is confirmed fixed for good.
+
 ## Resolved: vault-write bug (Standup/Sync/Wrap-Up reporting actions that never happened)
 
 9/2–9/4: several days of Standup/Midday/Wrap-Up emails claimed things were filed to the vault (CUNY, AIChE, applications, Trash rescues) that a `git log`/file check showed never actually landed — including one claim of a "detached branch, 21+ unpushed commits" that didn't match actual GitHub state. Cost two days on live interview scheduling data before it was caught.
