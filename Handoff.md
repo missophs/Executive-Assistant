@@ -1,8 +1,8 @@
-# Handoff - 2026-09-26 6:44PM ET
+# Handoff - 2026-09-26 6:52PM ET
 Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; do not hand-edit.
 
 ## Filed this run
-- Calendar: Email doctor for updated prescription 2026-09-28
+- Calendar: Call the pharmacy 2026-09-28
 
 ## Closed today
 - KSF Recruit (Tristen Murch) — Head of People, fast-growing consumer-electronics startup — inbound lead 9/24. You asked for JD/location/comp; Tristen replied it's a hands-on startup role and offered to keep in touch for opportunities more aligned to your background. You pushed back (comfortable with startups) but no further movement since — closed for pattern-spotting — 2026-09-26
@@ -28,6 +28,7 @@ Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; d
 - Mon 9/28 9:00am - Email doctor for updated prescription
 - Mon 9/28 12:45pm - Memory test
 - Mon 9/28 1:00pm - Doctor's appointment
+- Mon 9/28 2:00pm - Call the pharmacy
 - Tue 9/29 all day - Call New York City about documents
 - Tue 9/29 9:50am - Walgreens Appointment
 - Wed 9/30 9:30am - Elle-Hair
