@@ -221,7 +221,7 @@ code.cmd{font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(-
       </section>
 
       <section class="panel" id="todayPanel" style="scroll-margin-top:16px">
-        <div class="phead"><h2>Today&rsquo;s Focus</h2><span class="note" id="todayNote">1 of 3</span></div>
+        <div class="phead"><h2>Top 3 &amp; Follow Up</h2><span class="note" id="todayNote">1 of 3</span></div>
         <div class="rule red"></div>
         <div class="pbody" id="todayWrap"><div class="prio">
           <div class="pcard r1" data-id="2026-09-23-t0"><div class="row"><input type="checkbox" class="chk" aria-label="Mark done"><div class="body"><div class="task">Send r&eacute;sum&eacute; to Nasreen Bharoocha (Conduit Health)</div><div class="why">Now 5 days overdue. She replied 9/18 11:46 AM ET (&ldquo;No worries, I will wait for your resume once it's ready&rdquo;) &mdash; no rush on her end, but you emailed her again yourself 9/22 apologizing for the delay (flight cancelled). R&eacute;sum&eacute; still not sent; a placeholder draft has been sitting in Gmail Drafts since 9/18.</div><div class="due">Due 2026-09-18</div><div class="pend pill amber" hidden>Pending &mdash; closes at next sync</div></div></div></div>
@@ -384,7 +384,7 @@ if(DATA.calendar && DATA.calendar.length){
 }else{
   cw.innerHTML=DATA.calendarUnavailable
     ? emptyBlock("Calendar couldn&rsquo;t be checked this refresh.","No Google Calendar access in this session — reconnect it so this panel stays current.")
-    : emptyBlock("Nothing on your calendar today or tomorrow.","Events populate here each refresh from Google Calendar.");
+    : emptyBlock("Nothing on your calendar this week.","Events populate here each refresh from Google Calendar.");
   document.getElementById("calNote").textContent="";
 }
 
@@ -394,10 +394,10 @@ if(DATA.calendar && DATA.calendar.length){
   if(!mcp) return;
   const TZ="America/New_York";
   const ymd=d=>d.toLocaleDateString("en-CA",{timeZone:TZ});
-  const now=new Date(), t0=ymd(now), t1=ymd(new Date(now.getTime()+864e5)), t2=ymd(new Date(now.getTime()+2*864e5));
+  const now=new Date(), t0=ymd(now), t1=ymd(new Date(now.getTime()+864e5)), t7=ymd(new Date(now.getTime()+7*864e5));
   const fmt=iso=>new Date(iso).toLocaleTimeString("en-US",{timeZone:TZ,hour:"numeric",minute:"2-digit"});
   const note=document.getElementById("calNote");
-  mcp.watchTool("Google Calendar","list_events",{startTime:t0+"T00:00:00",endTime:t2+"T00:00:00",timeZone:TZ,orderBy:"startTime",pageSize:50},ev=>{
+  mcp.watchTool("Google Calendar","list_events",{startTime:t0+"T00:00:00",endTime:t7+"T00:00:00",timeZone:TZ,orderBy:"startTime",pageSize:50},ev=>{
     if(ev.type==="error"){
       const c=ev.error.code;
       if(c==="needs_reauth"||c==="server_not_connected"||c==="not_in_manifest"||c==="selection_required"){ note.textContent="live calendar off — reconnect Google Calendar in claude.ai Settings"; }
@@ -407,12 +407,12 @@ if(DATA.calendar && DATA.calendar.length){
     const rows=list.filter(e=>e.status!=="cancelled").map(e=>{
       const allDay=!!(e.start&&e.start.date), sd=allDay?e.start.date:ymd(new Date(e.start.dateTime));
       const time=allDay?"All day":fmt(e.start.dateTime)+(e.end&&e.end.dateTime?"–"+fmt(e.end.dateTime):"")+" ET";
-      return {title:e.summary||"(no title)",day:sd===t0?"Today":sd===t1?"Tomorrow":sd,time:time,sd:sd};
-    }).filter(r=>r.sd===t0||r.sd===t1);
+      return {title:e.summary||"(no title)",day:sd===t0?"Today":sd===t1?"Tomorrow":new Date(sd+"T12:00:00").toLocaleDateString("en-US",{weekday:"long",month:"short",day:"numeric"}),time:time,sd:sd};
+    }).filter(r=>r.sd>=t0&&r.sd<t7);
     note.textContent=rows.length?rows.length+(rows.length===1?" event":" events"):"";
     cw.innerHTML=rows.length
       ? '<ul class="rail">'+rows.map(c=>'<li><div class="txt"><div class="t1">'+esc(c.title)+'</div><div class="t2">'+esc(c.day+" · "+c.time)+'</div></div></li>').join("")+'</ul>'
-      : emptyBlock("Nothing on your calendar today or tomorrow.","Live from Google Calendar.");
+      : emptyBlock("Nothing on your calendar this week.","Live from Google Calendar.");
   },{refetchInterval:300000});
 })();
 
