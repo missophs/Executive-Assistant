@@ -23,10 +23,17 @@ def save_secret(name: str, value: str) -> None:
 
 
 print("\nEllie Google setup\n")
-client_id = input("Client ID (press Return to use the daily-briefing-2026-v2 one): ").strip() or DEFAULT_CLIENT_ID
-client_secret = getpass.getpass("Client secret (paste it; nothing will show on screen), then press Return: ").strip()
-if not client_secret:
-    raise SystemExit("No secret entered. Nothing was saved.")
+import glob, json, os
+files = sorted(glob.glob(os.path.expanduser("~/Downloads/client_secret*.json")), key=os.path.getmtime)
+if files:
+    cfg = json.load(open(files[-1]))["installed"]
+    client_id, client_secret = cfg["client_id"], cfg["client_secret"]
+    print(f"Using {os.path.basename(files[-1])} from Downloads. Nothing to paste.")
+else:
+    client_id = input("Client ID (press Return to use the daily-briefing-2026-v2 one): ").strip() or DEFAULT_CLIENT_ID
+    client_secret = getpass.getpass("Client secret (paste it; nothing will show on screen), then press Return: ").strip()
+    if not client_secret:
+        raise SystemExit("No secret entered. Nothing was saved.")
 
 flow = InstalledAppFlow.from_client_config(
     {"installed": {
