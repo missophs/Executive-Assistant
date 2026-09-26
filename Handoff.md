@@ -1,4 +1,4 @@
-# Handoff - 2026-09-26 6:20PM ET
+# Handoff - 2026-09-26 6:21PM ET
 Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; do not hand-edit.
 
 ## Filed this run
@@ -15,7 +15,13 @@ Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; d
 - Call New York City about documents — due 2026-09-29 (all-day block on calendar) — captured 2026-09-26 · #task · #priority
 
 ## Waiting on
-- (none)
+- Ashley Fredericks (LRN) - Screen held Fri 9/25; thank-you + 30-60-90 day plan sent same day. Awaiting her decision (since 2026-09-25)
+- Patsy Doerr (LRN) - Contacted 9/16, followed up 9/17 night; no reply yet (since 2026-09-16)
+- Sarah Wagener & Matt Valentino (Chime) - Both contacted 9/17 night; no reply from either yet (since 2026-09-17)
+- Shira Blumenstein, Katie Bunker & Kerri Toninoeskin (Cotiviti) - Shira contacted 9/21, Katie & Kerri 9/22; no reply from any yet (since 2026-09-21)
+- Jill Keller & Lisa Gibson (Thomson Reuters) - Jill contacted 9/16, Lisa 9/21 (auto-reply only so far); no substantive reply from either yet (since 2026-09-16)
+- Andre Bokhoor & Natali Rodriguez (Mellon Foundation) - Andre contacted 9/24, Natali 9/25; no reply from either yet (since 2026-09-24)
+- Edward, Founder (Dropzone AI) - Contacted 9/25; no reply yet (since 2026-09-25)
 
 ## Calendar, next 7 days
 - Mon 9/28 12:45pm - Memory test
