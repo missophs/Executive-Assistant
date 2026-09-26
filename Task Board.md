@@ -9,7 +9,7 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 ## 🔥 Today
 <!-- Must know today. Keep to 3. -->
 
-- [ ] Send résumé to Nasreen Bharoocha (Conduit Health) — still not sent. You emailed her again yourself 9/22 1:27 AM ET apologizing for a further delay ("flight was cancelled... hopefully get home tomorrow and can get it to you if not too late") — sent live, not from the waiting draft. The résumé-placeholder draft from 9/18 is still sitting in Gmail Drafts, threaded under the interview, untouched · due 2026-09-18 (now 4 days overdue) · #jobsearch
+_(none open — see Backlog)_
 
 ## ⏭ This Week
 
@@ -61,6 +61,11 @@ _(none open)_
 - [ ] Suspected phishing email in Trash, NOT rescued — "We have been trying to reach you - melissaw212" (9/22 10:34 AM ET), sender domain fakes MyChart ("...quantumstrivenow.info"), fake prize/"Emergency Kit" hook. Same pattern as the dentsu phish still open above — spoofing a real service you use (NYU Langone/MyChart). Left in Trash, no action needed unless you want it reported · #security
 - [ ] Triage job link sent to self 9/22 10:51 PM ET — ADP job posting, no company or role given in the capture — https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=5cd5c82a-9265-495c-8abc-b4756df8f809&ccId=19000101_000001&lang=en_US&jobId=9201041965798_1&source=EN · #sourcing
 - [ ] Clarify "pA" capture sent 9/24 8:32–8:42 AM ET (to melweiss212@, subject "pA -", three chained replies) — three fragments with no stated task: "Evicore 866-417-2345", "Medication", "Home health 1856-417-2345". Looks insurance/prior-authorization related but unclear what action is needed or which matter it ties to. Tell Ellie what this refers to, or tell Ellie to drop it · #personal
+- [ ] Triage LinkedIn job link sent to self 9/25 4:31 PM ET — no company or role given in the capture — https://www.linkedin.com/comm/jobs/view/4469788397/ · #sourcing
+- [ ] Triage job link sent to self 9/25 11:39–11:46 PM ET (sent twice, ~10 sec apart) — Head of Talent & People @ RoboStrategy Advisors (Jobright.ai) — https://jobright.ai/jobs/info/6ab6c89d81e327c4bf201274 · #sourcing
+- [ ] Triage job link sent to self 9/25 11:39 PM ET — Head of People @ Nametag (Jobright.ai) — https://jobright.ai/jobs/info/6a65512187cef057612ce4c1 · #sourcing
+- [ ] Triage LinkedIn job alert — Head of People, Prism Media LLC (via Soros Fund Management), no comp given (LinkedIn alert, 9/25) · #sourcing
+- [ ] Résumé placeholder draft sitting in Gmail Drafts (from 9/18, threaded under "Interview with Conduit Health") is now moot — the role was rejected 9/23 (see Done, below). Delete it yourself or leave it; Ellie is leaving drafts alone by default · #jobsearch
 
 ## ⏳ Waiting On
 <!-- Blocked on someone else. Note who and since when. -->
@@ -70,6 +75,8 @@ _(none open)_
 ## ✅ Done
 <!-- Cleared during /start and /wrap-up. Archive monthly. -->
 
+- [x] Conduit Health (Chief of Staff / People Ops) — role closed, no résumé needed. Nasreen rejected the role 9/23 1:58 PM ET (hiring pivoted away from People-background candidates toward org/strategy background). Her rejection, and your unaware 9/25 5:06 PM ET follow-up ("didn't hear back from you"), plus her 9/25 9:14 PM ET reply pointing back to it, were all stuck unread in Trash — rescued today. Closing acknowledgment drafted for your review in Gmail Drafts · 2026-09-26
+- [x] Doctor's appointment added to your calendar, Mon 9/28, 1:00–5:30 PM ET, per your 9/25 11:00 PM ET capture — 2026-09-26
 - [x] SimplePractice (Senior Director, HR Business Partners) — resolved itself: you applied. Greenhouse auto-ack landed in Trash 9/22 8:06 PM ET, not rescued (no-reply sender, per policy). Filed to Applications.md as Applied — 2026-09-22
 
 - [x] Anthem call re: your benefits — closed via dashboard checkbox — 2026-09-20
