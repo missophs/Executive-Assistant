@@ -301,6 +301,9 @@ def pipeline(md: str) -> list[str]:
 
 
 done_today = [l for l in section(board, "✅ Done") if today in l]
+fu_m = re.search(r"^## Follow-Ups[^\n]*\n(.*?)(?=^## |\Z)", memory, re.M | re.S)  # the real waiting-on list lives in Memory.md, not the Task Board
+waiting_rows = section(board, "⏳ Waiting On") + [f"{c[1]} - {trunc(c[3], 160)} (since {c[2]})" for l in (fu_m.group(1).splitlines() if fu_m else [])
+                                                 for c in [[x.strip() for x in l.strip().strip("|").split("|")]] if l.startswith("|") and len(c) >= 4 and c[0] not in ("Item", "---")]
 page = [f"<h1>ELLIE - LIVE BOARD</h1><p>Melissa Weiss, Senior HR executive, New York (US Eastern). Last updated: {now.strftime('%Y-%m-%d %-I:%M%p')} ET</p>",
         h("What happened today", "green"),
         ul([f"Filed {len(added)} new capture(s)"] + [f"Closed: {d}" for d in done_today] + ([f"Always-trash added: {', '.join(always)}"] if always else [])),
@@ -316,7 +319,7 @@ page = [f"<h1>ELLIE - LIVE BOARD</h1><p>Melissa Weiss, Senior HR executive, New 
         h("This week", "amber"), ul(section(board, "⏭ This Week")),
         h("Captured, not yet sorted", "purple"), ul(section(board, "📥 Captured")),
         h("Application pipeline (open roles)", "green"), ul(pipeline(apps)),
-        h("Waiting on", "amber"), ul(section(board, "⏳ Waiting On")),
+        h("Waiting on", "amber"), ul(waiting_rows),
         h("People", "blue"), ul([trunc(x, 200) for x in section(memory, "People")[:30]]),
         h("Decisions & context", "purple"), ul([trunc(x, 260) for x in section(memory, "Decisions & Context")[:15]]),
         h("Backlog", "gray"), ul(section(board, "📋 Backlog")),
@@ -338,7 +341,7 @@ app_rows = [l for l in apps.splitlines() if l.startswith("|") and not l.startswi
 app_notes = [trunc(l[2:], 200) for l in apps.splitlines() if l.startswith("- ")][-15:]  # application captures the sync appends
 links = section(memory, "Saved Links")[:15]
 topics = {
-    "Job Search": (app_rows or ["No applications listed."]) + (["Recent notes:"] + app_notes if app_notes else []) + ["Waiting on:"] + section(board, "⏳ Waiting On")
+    "Job Search": (app_rows or ["No applications listed."]) + (["Recent notes:"] + app_notes if app_notes else []) + ["Waiting on:"] + waiting_rows
                   + ["Decisions & context:"] + [trunc(x, 200) for x in section(memory, "Decisions & Context")[:10]],
     "Meetings & Prep": [f"Prep doc: {f}" for f in meet_files[-10:]] + [x for x in section(board, "Needs Melissa") if "Prep requested" in x] or ["No prep docs yet."],
     "Reminders & Tasks": ["Today:"] + section(board, "🔥 Today") + ["This week:"] + section(board, "⏭ This Week") + ["Not yet sorted:"] + section(board, "📥 Captured"),
@@ -377,7 +380,7 @@ def blk(title: str, items: list[str]) -> list[str]:
 open("Handoff.md", "w", encoding="utf-8").write("\n".join(
     [f"# Handoff - {now.strftime('%Y-%m-%d %-I:%M%p')} ET", "Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; do not hand-edit.", ""]
     + blk("Filed this run", added) + blk("Closed today", done_today) + blk("Open: Today", section(board, "🔥 Today")) + blk("Open: This week", section(board, "⏭ This Week"))
-    + blk("Waiting on", section(board, "⏳ Waiting On")) + blk("Calendar, next 7 days", cal_lines)
+    + blk("Waiting on", waiting_rows) + blk("Calendar, next 7 days", cal_lines)
     + ["## Where things live",
        "- Vault: GitHub missophs/Executive-Assistant (Task Board.md, Applications.md, Memory.md, Standing Instructions.md, routines/README.md changelog).",
        "- Phone: Drive Ellie Files / Ellie (live board), Tell Ellie (capture), Where we left off - <Topic> files in the topic folders.",
