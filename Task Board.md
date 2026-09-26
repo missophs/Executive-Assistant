@@ -9,7 +9,7 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 ## 🔥 Today
 <!-- Must know today. Keep to 3. -->
 
-- [ ] Send résumé to Nasreen Bharoocha (Conduit Health) — still not sent. You emailed her again yourself 9/22 1:27 AM ET apologizing for a further delay ("flight was cancelled... hopefully get home tomorrow and can get it to you if not too late") — sent live, not from the waiting draft. The résumé-placeholder draft from 9/18 is still sitting in Gmail Drafts, threaded under the interview, untouched · due 2026-09-18 (now 4 days overdue) · #jobsearch
+_(none open)_
 
 ## ⏭ This Week
 
@@ -17,6 +17,9 @@ _(none open)_
 
 ## 📋 Backlog
 
+- [ ] Triage job link sent to self 9/25 11:39 PM ET — Head of People @ Nametag (Jobright.ai) — https://jobright.ai/jobs/info/6a65512187cef057612ce4c1 · #sourcing
+- [ ] Triage job link sent to self 9/25 11:45–11:46 PM ET (sent twice, ~15 sec apart) — Head of Talent & People @ RoboStrategy Advisors (Jobright.ai) — https://jobright.ai/jobs/info/6ab6c89d81e327c4bf201274 · #sourcing
+- [ ] Triage LinkedIn job link sent to self 9/25 12:31 PM ET — no company or role given in the capture — https://www.linkedin.com/comm/jobs/view/4469788397/ · #sourcing
 - [ ] Identify the company for the 9/15 "Interview at 1pm" block (1:00–2:00 PM ET, self-added to calendar 9/14 11:15 PM after a Tell Ellie capture) — still unresolved a day later, no company/role ever recorded, nothing in sent mail ties back to it. Tell Ellie which company/role this was, or tell Ellie to drop it · #jobsearch
 - [ ] New UnitedHealthcare (UHC) Explanation of Benefits available online — separate insurer from Anthem/EmblemHealth, notification arrived 9/13 6:05 AM ET, no content in the email itself, log in to view · #admin
 - [ ] Triage 2 unread LinkedIn alerts — Head of People @ advisorey ($200–275K), Head of HR Real Estate · #sourcing
@@ -70,6 +73,7 @@ _(none open)_
 ## ✅ Done
 <!-- Cleared during /start and /wrap-up. Archive monthly. -->
 
+- [x] Send résumé to Nasreen Bharoocha (Conduit Health) — moot. Nasreen rejected the role 9/23 1:58 PM ET (pivoting away from People-background candidates, per her email — verified directly). That reply, plus your 9/25 5:06 PM "didn't hear back" chase and her 9/25 9:14 PM reply pointing back to the rejection, had all landed unread in Trash — rescued this morning. A closing-reply draft (acknowledging you saw the rejection) is sitting in Gmail Drafts, not sent. The 9/18 résumé-placeholder draft in the same thread is now moot too — your call to delete or leave it — 2026-09-26
 - [x] SimplePractice (Senior Director, HR Business Partners) — resolved itself: you applied. Greenhouse auto-ack landed in Trash 9/22 8:06 PM ET, not rescued (no-reply sender, per policy). Filed to Applications.md as Applied — 2026-09-22
 
 - [x] Anthem call re: your benefits — closed via dashboard checkbox — 2026-09-20
