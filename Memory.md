@@ -77,6 +77,7 @@ _Last updated: 2026-09-26 (phone sync)_
 _(Rita Ramakrishnan/AIChE follow-up: outcome arrived 9/16 — see People above, closed. Kristen Ramerini/HSO follow-up removed from tracking 2026-09-14 per Tell Ellie capture 9/13 9:27 PM ET — "those are done already." No outcome recorded.)_
 
 ## Saved Links
+- 2026-09-26: LinkedIn job link
 
 - Chris Titus Tech (TikTok) — https://www.tiktok.com/t/ZTUF4Lxkr/ — sent to self 9/4
 - prompt-master (GitHub, nidhinjs) — https://github.com/nidhinjs/prompt-master — sent to self 9/4
