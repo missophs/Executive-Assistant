@@ -187,7 +187,12 @@ for item in plan:
                         "end": {"dateTime": end, "timeZone": "America/New_York"}}
             else:
                 when = {"start": {"date": day}, "end": {"date": (datetime.fromisoformat(day) + timedelta(days=1)).strftime("%Y-%m-%d")}}
-            cal.events().insert(calendarId="primary", body={"summary": text, **when}).execute()
+            body = {"summary": text, **when}
+            if re.search(r"\bremind", src, re.I):  # a reminder is a short block with a phone popup, not an hour-long meeting
+                if t0 and not re.fullmatch(r"\d{2}:\d{2}", str(item.get("end"))):
+                    body["end"] = {"dateTime": (datetime.fromisoformat(f"{day}T{t0}") + timedelta(minutes=30)).strftime("%Y-%m-%dT%H:%M:00"), "timeZone": "America/New_York"}
+                body["reminders"] = {"useDefault": False, "overrides": [{"method": "popup", "minutes": 10}]}
+            cal.events().insert(calendarId="primary", body=body).execute()
         added.append(f"Calendar: {text} {day}")
         if item.get("priority"):  # a calendar block she also called a priority is a task too
             board = add_after(board, "🔥 Today" if day == today else "⏭ This Week", f"- [ ] {text} — due {day} — captured {today} · #task · #priority")
