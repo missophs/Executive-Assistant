@@ -172,6 +172,11 @@ body{
 .rail .txt{flex:1; min-width:0}
 .rail .t1{font-size:13.5px; font-weight:600; line-height:1.4}
 .rail .t2{font-size:12px; color:var(--muted); margin-top:2px}
+.rail li.ev{border-left:4px solid var(--c,var(--blue)); padding-left:12px; align-items:center}
+.ev.violet{--c:var(--violet)} .ev.green{--c:var(--green)} .ev.amber{--c:var(--amber)} .ev.blue{--c:var(--blue)}
+.rail li.ev .t1{font-family:"IBM Plex Mono",monospace; font-size:12px; font-weight:600; color:var(--c)}
+.rail li.ev .nm{font-size:14px; font-weight:600; color:var(--ink); margin-top:3px}
+.tellrow{margin-top:14px; font-size:12.5px; color:var(--muted)}
 .bullets{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:11px}
 .bullets li{font-size:13.5px; color:var(--ink-2); padding-left:15px; position:relative; line-height:1.5}
 .bullets li::before{content:""; position:absolute; left:0; top:8px; width:5px; height:5px; border-radius:50%; background:var(--violet)}
@@ -224,7 +229,7 @@ code.cmd{font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(-
         <div class="phead"><h2>Top 3 &amp; Follow Up</h2><span class="note" id="todayNote">1 of 3</span></div>
         <div class="rule red"></div>
         <div class="pbody" id="todayWrap"><div class="prio">
-          <div class="pcard r1" data-id="2026-09-23-t0"><div class="row"><input type="checkbox" class="chk" aria-label="Mark done"><div class="body"><div class="task">Send r&eacute;sum&eacute; to Nasreen Bharoocha (Conduit Health)</div><div class="why">Now 5 days overdue. She replied 9/18 11:46 AM ET (&ldquo;No worries, I will wait for your resume once it's ready&rdquo;) &mdash; no rush on her end, but you emailed her again yourself 9/22 apologizing for the delay (flight cancelled). R&eacute;sum&eacute; still not sent; a placeholder draft has been sitting in Gmail Drafts since 9/18.</div><div class="due">Due 2026-09-18</div><div class="pend pill amber" hidden>Pending &mdash; closes at next sync</div></div></div></div>
+          <div class="pcard r1" data-id="2026-09-23-t0"><div class="row"><div class="body"><div class="task">Send r&eacute;sum&eacute; to Nasreen Bharoocha (Conduit Health)</div><div class="why">Now 5 days overdue. She replied 9/18 11:46 AM ET (&ldquo;No worries, I will wait for your resume once it's ready&rdquo;) &mdash; no rush on her end, but you emailed her again yourself 9/22 apologizing for the delay (flight cancelled). R&eacute;sum&eacute; still not sent; a placeholder draft has been sitting in Gmail Drafts since 9/18.</div><div class="due">Due 2026-09-18</div><div class="pend pill amber" hidden>Pending &mdash; closes at next sync</div></div></div></div>
         </div></div>
       </section>
 
@@ -257,10 +262,7 @@ code.cmd{font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(-
   </div>
 
   <div class="howto">
-    <strong>Checking a box queues it as done.</strong> It gets finalized &mdash; moved to Done on the
-    Task Board &mdash; the next time you tell <strong>Ellie</strong> (Tell Ellie, or say it in chat) or run
-    <code class="cmd">/sync</code> or <code class="cmd">/wrap-up</code>. For anything else, open
-    <strong>claude.ai/code</strong> and pick Executive-Assistant.
+    <strong>To close something, tell Ellie.</strong> Write &ldquo;mark &lt;task&gt; done&rdquo; in <strong>Tell Ellie</strong> or say it in chat. It leaves the dashboard at the next sync. For anything else, open <strong>claude.ai/code</strong> and pick Executive-Assistant.
   </div>
 
   <footer class="loop">
@@ -372,15 +374,17 @@ document.querySelectorAll('#stats .stat[data-target]').forEach(el=>{
   el.addEventListener("keydown", e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); jump(); } });
 });
 
+function calKind(t){const s=(t||"").toLowerCase();
+  if(/interview|screen|recruit|hiring|final round|panel|offer/.test(s)) return ["Interview","violet"];
+  if(/doctor|dentist|dental|walgreens|pharmac|clinic|medical|health|therapy|appointment|emblem|physical/.test(s)) return ["Health","green"];
+  if(/deadline|due |submit|apply/.test(s)) return ["Deadline","amber"];
+  return ["Other","blue"]; }
+function calRow(c){const k=calKind(c.title);
+  return '<li class="ev '+k[1]+'"><div class="txt"><div class="t1">'+esc([c.day,c.time].filter(Boolean).join(" · "))+'</div><div class="nm">'+esc(c.title)+'</div></div><span class="pill '+k[1]+'">'+k[0]+'</span>'+(c.conflict?'<span class="pill red">Conflict</span>':'')+'</li>'; }
 const cw=document.getElementById("calWrap");
 if(DATA.calendar && DATA.calendar.length){
   document.getElementById("calNote").textContent=DATA.calendar.length+(DATA.calendar.length===1?" event":" events");
-  cw.innerHTML='<ul class="rail">'+DATA.calendar.map(c=>{
-    const sub=[c.day,c.time].filter(Boolean).join(" · ");
-    return '<li><div class="txt"><div class="t1">'+esc(c.title)+'</div>'+
-      (sub?'<div class="t2">'+esc(sub)+'</div>':'')+'</div>'+
-      (c.conflict?'<span class="pill red">Conflict</span>':'')+'</li>';
-  }).join("")+'</ul>';
+  cw.innerHTML='<ul class="rail">'+DATA.calendar.map(calRow).join("")+'</ul>';
 }else{
   cw.innerHTML=DATA.calendarUnavailable
     ? emptyBlock("Calendar couldn&rsquo;t be checked this refresh.","No Google Calendar access in this session — reconnect it so this panel stays current.")
@@ -407,11 +411,11 @@ if(DATA.calendar && DATA.calendar.length){
     const rows=list.filter(e=>e.status!=="cancelled").map(e=>{
       const allDay=!!(e.start&&e.start.date), sd=allDay?e.start.date:ymd(new Date(e.start.dateTime));
       const time=allDay?"All day":fmt(e.start.dateTime)+(e.end&&e.end.dateTime?"–"+fmt(e.end.dateTime):"")+" ET";
-      return {title:e.summary||"(no title)",day:sd===t0?"Today":sd===t1?"Tomorrow":new Date(sd+"T12:00:00").toLocaleDateString("en-US",{weekday:"long",month:"short",day:"numeric"}),time:time,sd:sd};
-    }).filter(r=>r.sd>=t0&&r.sd<t7);
+      return {title:e.summary||"(no title)",day:sd===t0?"Today":sd===t1?"Tomorrow":new Date(sd+"T12:00:00").toLocaleDateString("en-US",{weekday:"long",month:"short",day:"numeric"}),time:time,sd:sd,over:!allDay&&!!(e.end&&e.end.dateTime)&&new Date(e.end.dateTime)<now};
+    }).filter(r=>r.sd>=t0&&r.sd<t7&&!r.over);
     note.textContent=rows.length?rows.length+(rows.length===1?" event":" events"):"";
     cw.innerHTML=rows.length
-      ? '<ul class="rail">'+rows.map(c=>'<li><div class="txt"><div class="t1">'+esc(c.title)+'</div><div class="t2">'+esc(c.day+" · "+c.time)+'</div></div></li>').join("")+'</ul>'
+      ? '<ul class="rail">'+rows.map(calRow).join("")+'</ul>'
       : emptyBlock("Nothing on your calendar this week.","Live from Google Calendar.");
   },{refetchInterval:300000});
 })();
@@ -422,57 +426,14 @@ if(DATA.today.length){
   tw.innerHTML='<div class="prio">'+DATA.today.map((t,i)=>{
     const id=t.id||(DATA.generated+"-t"+i);
     return '<div class="pcard r'+Math.min(i+1,3)+'" data-id="'+esc(id)+'">'+
-      '<div class="row"><input type="checkbox" class="chk" aria-label="Mark done">'+
+      '<div class="row">'+
       '<div class="body"><div class="task">'+esc(t.task)+'</div>'+
       (t.why?'<div class="why">'+esc(t.why)+'</div>':'')+
       (t.due?'<div class="due">Due '+esc(t.due)+'</div>':'')+
-      '<div class="pend pill amber" hidden>Pending — closes at next sync</div>'+
       '</div></div></div>';
   }).join("")+'</div>';
 
-  (async function(){
-    const boxes=[...tw.querySelectorAll('.chk')];
-    boxes.forEach(b=>{
-      const card=b.closest('.pcard');
-      card.addEventListener('click',e=>{
-        if(e.target===b) return;
-        b.checked=!b.checked;
-        b.dispatchEvent(new Event('change'));
-      });
-    });
-    let db=null;
-    try{ db=(window.claude&&window.claude.use)?await claude.use("db"):null; }catch(e){ db=null; }
-    const apply=(ids)=>boxes.forEach(b=>{
-      const card=b.closest('.pcard'); const on=!!ids[card.dataset.id];
-      b.checked=on; card.classList.toggle('done',on);
-      const pend=card.querySelector('.pend'); if(pend) pend.hidden=!on;
-    });
-    let local={};
-    if(db){
-      db.doc("state/checks").onSnapshot(snap=>{
-        local=(snap.exists&&snap.data().ids)||{};
-        apply(local);
-      },()=>{});
-    }
-    boxes.forEach(b=>b.addEventListener('change',async()=>{
-      const card=b.closest('.pcard');
-      local={...local,[card.dataset.id]:b.checked};
-      card.classList.toggle('done',b.checked);
-      const pend=card.querySelector('.pend'); if(pend) pend.hidden=!b.checked;
-      if(db){
-        try{ await db.doc("state/checks").set({ids:local}); }catch(e){}
-        const id=card.dataset.id;
-        const taskText=card.querySelector('.task')?.textContent||'';
-        try{
-          if(b.checked){
-            await db.collection("completions").doc(id).set({task:taskText,checkedAt:new Date().toISOString()});
-          }else{
-            await db.collection("completions").doc(id).delete();
-          }
-        }catch(e){}
-      }
-    }));
-  })();
+  tw.insertAdjacentHTML('beforeend','<div class="tellrow">Done with one? Tell Ellie: &ldquo;mark &lt;task&gt; done&rdquo;. It leaves this list at the next sync.</div>');
 }else{
   tw.innerHTML=emptyBlock("Nothing set for today.",'Run <code class="cmd">/start</code> and it will pick your top three off the Task Board.');
 }

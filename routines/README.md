@@ -122,3 +122,4 @@ schedule and connectors from the tables above. It uses the `RemoteTrigger` tool 
 - New `improve.md`: on-demand vault audit, run via the "Ellie Improve" routine (no schedule).
 - Correction: Phone Sync AM/PM and Ellie Improve are loaders for their repo file; the old email routines' triggers were not.
 - Wrap-up inbox triage now trashes per `routines/trash-rules.md` (copied from the briefing lists; refresh if they change). Trash only, never permanent delete, every trashed thread listed on the board.
+- Standing Instructions.md (repo root) holds every instruction Melissa has given; Ellie appends new ones. Dashboard: whole-week calendar, date first, color-coded, past events hidden, check-boxes removed (close by telling Ellie).
