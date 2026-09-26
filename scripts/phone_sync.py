@@ -14,6 +14,7 @@ from googleapiclient.http import MediaIoBaseUpload
 NY = ZoneInfo("America/New_York")
 DRY = os.environ.get("DRY_RUN") == "1"
 ME = "melissaw212@gmail.com"
+OWN_MAIL = ("standup", "melissa daily briefing", "daily job search sweep", "vault write failed", "wrap-up", "wrap up", "midday", "ellie")  # Ellie's own emails to her
 PLACEHOLDER = "Type anything here."
 STATE = ".ellie-state.json"
 COLORS = {"red": "#c62828", "amber": "#b26a00", "blue": "#1c4dc4", "green": "#0c7351", "purple": "#6d21c9", "gray": "#6b6b6b"}
@@ -56,6 +57,9 @@ for q in (f"in:anywhere newer_than:1d from:{ME} to:{ME}", f"in:anywhere newer_th
             continue
         full = gmail.users().messages().get(userId="me", id=m["id"], format="full").execute()
         subj = next((h["value"] for h in full["payload"]["headers"] if h["name"] == "Subject"), "")
+        if subj.lower().startswith(OWN_MAIL):
+            seen.add(m["id"])
+            continue
         captures.append((m["id"], " ".join(f"{subj}. {body_text(full)}".split())))
 
 tell = drive.files().list(q="name='Tell Ellie' and trashed=false", fields="files(id,parents,mimeType)").execute().get("files", [])
