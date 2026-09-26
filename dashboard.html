@@ -402,6 +402,46 @@ if(DATA.today.length){
 }
 
 
+
+/* Live board: reads the viewer's own Google Drive `Ellie` doc (written by the Git phone sync) so Top 3 & Follow Up
+   updates itself on phone and computer. Falls back to DATA.today when Drive is not allowed. */
+(async function(){
+  let mcp=null; try{ mcp=(window.claude&&window.claude.use)?await claude.use("mcp"):null; }catch(e){ mcp=null; }
+  if(!mcp) return;
+  const S="Google Drive", note=document.getElementById("todayNote");
+  const clean=t=>String(t).replace(/\\(.)/g,"$1").replace(/\*\*/g,"").trim();
+  function items(text,name){
+    const lines=text.split("\n"); const out=[]; let on=false;
+    for(const l of lines){
+      const h=l.match(/^##\s+\**(.+?)\**\s*$/);
+      if(h){ on=h[1].toLowerCase()===name; continue; }
+      const m=on&&l.match(/^\s*-\s+(.*)/); if(m) out.push(clean(m[1]));
+    }
+    return out;
+  }
+  function draw(list,when){
+    const tasks=list.map(x=>{ const due=(x.match(/due (\d{4}-\d{2}-\d{2})/)||[])[1]||"";
+      return {task:x.split(/ [\u2014-] (?:captured|due)/)[0].replace(/ · #\w+/g,"").trim(), due:due, pri:/#priority/.test(x)}; });
+    document.getElementById("badges").innerHTML='<div class="badge"><b>'+tasks.length+'</b> open tasks</div>';
+    document.querySelector('#stats .stat .n').textContent=tasks.length;
+    note.textContent=tasks.length?tasks.length+" open":"";
+    tw.innerHTML=tasks.length
+      ? '<div class="prio">'+tasks.map((t,i)=>'<div class="pcard r'+Math.min(i+1,3)+'"><div class="row"><div class="body"><div class="task">'+esc(t.task)+'</div>'+(t.due?'<div class="due">Due '+esc(t.due)+'</div>':'')+'</div></div></div>').join("")+'</div>'+
+        '<div class="tellrow">Done with one? Tell Ellie: &ldquo;mark &lt;task&gt; done&rdquo;. Updated from your phone board '+esc(when)+'.</div>'
+      : emptyBlock("Nothing set for today.","Tell Ellie what to add.");
+  }
+  mcp.watchTool(S,"search_files",{query:"title = 'Ellie' and mimeType = 'application/vnd.google-apps.document'",excludeContentSnippets:true,pageSize:5},async ev=>{
+    if(ev.type==="error"){ note.textContent=(ev.error.code==="needs_reauth"||ev.error.code==="server_not_connected")?"connect Google Drive in claude.ai Settings":""; return; }
+    const files=((ev.result.payload&&ev.result.payload.files)||[]).slice().sort((a,b)=>(b.modifiedTime||"").localeCompare(a.modifiedTime||""));
+    if(!files.length) return;
+    try{
+      const r=await mcp.callTool(S,"read_file_content",{fileId:files[0].id},{cache:false});
+      const text=r.payload&&r.payload.fileContent; if(typeof text!=="string") return;
+      draw(items(text,"today").concat(items(text,"this week")).filter(x=>!/^none\.?$/i.test(x)),
+           new Date(files[0].modifiedTime).toLocaleString("en-US",{timeZone:"America/New_York",month:"short",day:"numeric",hour:"numeric",minute:"2-digit"})+" ET");
+    }catch(e){ /* keep the static list */ }
+  },{refetchInterval:300000});
+})();
 </script>
 </body>
 </html>
