@@ -2,11 +2,15 @@ name: Ellie phone sync
 on:
   schedule:
     - cron: '30 10 * * *'  # 6:30am ET (EDT). Shift +1h UTC when DST ends in Nov.
+    - cron: '0 17 * * *'  # 1:00pm ET (EDT), light midday: stops early when nothing new
     - cron: '30 20 * * *'  # 4:30pm ET (EDT), end-of-day wrap
   workflow_dispatch:
     inputs:
       dry_run:
         description: "1 = change nothing, just report"
+        default: "0"
+      light:
+        description: "1 = midday: stop early when there are no new captures"
         default: "0"
 permissions:
   contents: write
@@ -25,6 +29,7 @@ jobs:
       - run: python scripts/phone_sync.py
         env:
           DRY_RUN: ${{ inputs.dry_run || '0' }}
+          LIGHT: ${{ inputs.light || (github.event.schedule == '0 17 * * *' && '1') || '0' }}
           GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
           GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}

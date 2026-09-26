@@ -74,6 +74,10 @@ if tell:
     else:
         tell = []
 
+if os.environ.get("LIGHT") == "1" and not captures:  # midday: one cheap look, stop if nothing new (no board rebuild, no AI)
+    print("Midday: no new captures, nothing rebuilt.")
+    sys.exit(0)
+
 # --- file captures into the vault
 board = read("Task Board.md")
 rules = read("routines/trash-rules.md")
@@ -364,6 +368,20 @@ open("Task Board.md", "w", encoding="utf-8").write(board)
 open("routines/trash-rules.md", "w", encoding="utf-8").write(rules)
 open("Memory.md", "w", encoding="utf-8").write(memory)
 open("Applications.md", "w", encoding="utf-8").write(apps)
+
+
+def blk(title: str, items: list[str]) -> list[str]:
+    return [f"## {title}"] + ([f"- {i}" for i in items] if items else ["- (none)"]) + [""]
+
+
+open("Handoff.md", "w", encoding="utf-8").write("\n".join(
+    [f"# Handoff - {now.strftime('%Y-%m-%d %-I:%M%p')} ET", "Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; do not hand-edit.", ""]
+    + blk("Filed this run", added) + blk("Closed today", done_today) + blk("Open: Today", section(board, "🔥 Today")) + blk("Open: This week", section(board, "⏭ This Week"))
+    + blk("Waiting on", section(board, "⏳ Waiting On")) + blk("Calendar, next 7 days", cal_lines)
+    + ["## Where things live",
+       "- Vault: GitHub missophs/Executive-Assistant (Task Board.md, Applications.md, Memory.md, Standing Instructions.md, routines/README.md changelog).",
+       "- Phone: Drive Ellie Files / Ellie (live board), Tell Ellie (capture), Where we left off - <Topic> files in the topic folders.",
+       "- Email: wrap-up 4:45pm ET from this repo (wrap-up.yml); Melissa Daily Briefing 7am ET from missophs/daily-briefing (branch webhooks).", ""]))
 state["seen"] = sorted(seen)[-300:]
 
 
