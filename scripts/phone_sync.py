@@ -97,8 +97,18 @@ def add_after(md: str, heading: str, line: str) -> str:
     return md[:m.end()] + line + "\n" + section_txt + md[end:]
 
 
-def classify(items: list[tuple[str, str]], open_tasks: list[str]) -> list[dict]:
+def ask_haiku(prompt: str, max_tokens: int) -> str:
     import urllib.request
+    req = urllib.request.Request("https://api.anthropic.com/v1/messages", method="POST", data=json.dumps({
+        "model": "claude-haiku-4-5-20251001", "max_tokens": max_tokens, "messages": [{"role": "user", "content": prompt}]}).encode(),
+        headers={"x-api-key": os.environ["ANTHROPIC_API_KEY"], "anthropic-version": "2023-06-01", "content-type": "application/json"})
+    resp = json.load(urllib.request.urlopen(req, timeout=60))
+    usage["in"] += resp["usage"]["input_tokens"]
+    usage["out"] += resp["usage"]["output_tokens"]
+    return resp["content"][0]["text"]
+
+
+def classify(items: list[tuple[str, str]], open_tasks: list[str]) -> list[dict]:
     prompt = (f"Today is {now.strftime('%A')} {today} (America/New_York). Melissa, a senior HR executive job searching, sent these notes to her assistant.\n"
               "For EACH note return one JSON object in an array, same order: "
               '{"i":<note number>,"kind":"task|application|memory|link|done|calendar|prep|trash|unclear","text":"short clean version",'
@@ -109,12 +119,7 @@ def classify(items: list[tuple[str, str]], open_tasks: list[str]) -> list[dict]:
               "Never invent facts. Output only the JSON array.\n\nOPEN TASKS:\n" +
               "\n".join(f"{n}. {t[:110]}" for n, t in enumerate(open_tasks, 1)) + "\n\nNOTES:\n" +
               "\n".join(f"{n}. {t[:600]}" for n, (_, t) in enumerate(items, 1)))
-    req = urllib.request.Request("https://api.anthropic.com/v1/messages", method="POST", data=json.dumps({
-        "model": "claude-haiku-4-5-20251001", "max_tokens": 1500, "messages": [{"role": "user", "content": prompt}]}).encode(),
-        headers={"x-api-key": os.environ["ANTHROPIC_API_KEY"], "anthropic-version": "2023-06-01", "content-type": "application/json"})
-    resp = json.load(urllib.request.urlopen(req, timeout=60))
-    usage["in"], usage["out"] = resp["usage"]["input_tokens"], resp["usage"]["output_tokens"]
-    txt = resp["content"][0]["text"]
+    txt = ask_haiku(prompt, 1500)
     return json.loads(txt[txt.index("["):txt.rindex("]") + 1])
 
 
@@ -188,17 +193,23 @@ protected = bullets(rules, "PROTECTED (never trash)")
 never_subj = bullets(rules, "NEVER TRASH if subject/snippet mentions")
 always_l = bullets(rules, "ALWAYS TRASH (sender contains)") + always
 trashed = []
+kept: list[tuple[str, str, str, str]] = []  # (thread id, from, subject, snippet) left in the inbox
 for t in gmail.users().threads().list(userId="me", q="in:inbox newer_than:1d").execute().get("threads", []):
     th = gmail.users().threads().get(userId="me", id=t["id"], format="metadata", metadataHeaders=["From", "Subject"]).execute()
     hd = {h["name"]: h["value"] for h in th["messages"][0]["payload"]["headers"]}
     frm, subj = hd.get("From", "").lower(), hd.get("Subject", "")
     hay = f"{subj} {th['messages'][0].get('snippet', '')}".lower()
     if any(p in frm for p in protected) or any(n in hay for n in never_subj):
+        if not subj.lower().startswith(OWN_MAIL):
+            kept.append((t["id"], hd.get("From", ""), subj, th["messages"][0].get("snippet", "")))
         continue
     if any(a in frm for a in always_l):
         trashed.append((hd.get("From", ""), subj))
         if not DRY:
             gmail.users().threads().trash(userId="me", id=t["id"]).execute()
+        continue
+    if not subj.lower().startswith(OWN_MAIL):
+        kept.append((t["id"], hd.get("From", ""), subj, th["messages"][0].get("snippet", "")))
 
 # --- calendar, rest of the week
 sunday = (now + timedelta(days=(6 - now.weekday()))).replace(hour=23, minute=59, second=59)
@@ -213,6 +224,31 @@ for e in events:
     else:
         d = datetime.fromisoformat(e["start"]["date"])
         cal_lines.append(f"{d.strftime('%a %-m/%-d')} all day - {e.get('summary', '(no title)')}")
+
+
+# --- inbox triage: one Haiku line per NEW thread, cached by thread id
+mail_cache = state.setdefault("mail", {})
+fresh = [k for k in kept if k[0] not in mail_cache]
+if fresh and os.environ.get("ANTHROPIC_API_KEY"):
+    try:
+        out = ask_haiku(f"Today is {today}. Melissa is a senior HR executive job searching. For each inbox email return a JSON array, same order: "
+                        '{"i":<n>,"needs":true|false,"line":"one plain line, max 14 words, what it is and any amount or deadline"}. '
+                        "needs=true only for replies awaited, recruiter or interview mail, deadlines, security or money alerts. Never invent facts. JSON only.\n\n" +
+                        "\n".join(f"{n}. From: {f[:60]} | Subject: {sb[:90]} | {sn[:160]}" for n, (_, f, sb, sn) in enumerate(fresh, 1)), 1200)
+        for r in json.loads(out[out.index("["):out.rindex("]") + 1]):
+            if 1 <= r.get("i", 0) <= len(fresh):
+                mail_cache[fresh[r["i"] - 1][0]] = [bool(r.get("needs")), str(r.get("line", ""))[:140]]
+    except Exception as exc:
+        print("AI mail triage failed:", exc)
+mail_rows = [(mail_cache[k[0]][0], re.sub(r"<.*?>|\"", "", k[1]).split("@")[0][:40], k[2][:80], mail_cache[k[0]][1]) for k in kept if k[0] in mail_cache]
+mail_rows.sort(key=lambda r: not r[0])
+for k in list(mail_cache)[:-200]:
+    del mail_cache[k]
+
+# --- reminders: open tasks dated in the next 7 days
+week_end = (now + timedelta(days=7)).strftime("%Y-%m-%d")
+reminders = sorted((m.group(1), re.sub(r"^- \[ \] ", "", l).split(" — ")[0]) for l in board.splitlines() if l.startswith("- [ ]")
+                   for m in [re.search(r"due (\d{4}-\d{2}-\d{2})", l)] if m and today <= m.group(1) <= week_end)
 
 
 # --- board HTML
@@ -252,6 +288,11 @@ page = [f"<h1>ELLIE - LIVE BOARD</h1><p>Melissa Weiss, Senior HR executive, New 
         h("What happened today", "green"),
         ul([f"Filed {len(added)} new capture(s)"] + [f"Closed: {d}" for d in done_today] + ([f"Always-trash added: {', '.join(always)}"] if always else [])),
         h("On your calendar, rest of the week", "blue"), ul(cal_lines),
+        h("Reminders, next 7 days", "amber"), ul([f"{d}: {t}" for d, t in reminders]),
+        h("Inbox: what needs you and what else is there", "blue"),
+        ("<table border='1' cellpadding='4'><tr><th>Status</th><th>From</th><th>Subject</th><th>Summary</th></tr>" +
+         "".join(f"<tr><td style='color:{COLORS['red' if n else 'gray']}'>{'NEEDS YOU' if n else 'INBOX'}</td><td>{html.escape(f)}</td><td>{html.escape(sb)}</td><td>{html.escape(ln)}</td></tr>"
+                 for n, f, sb, ln in mail_rows) + "</table>") if mail_rows else "<p>Nothing new in the inbox.</p>",
         h("Inbox trash (undo from Gmail Trash if wrong)", "red"), ul([f"{f} | {s}" for f, s in trashed]),
         h("Current priorities", "green"), ul([trunc(x, 420) for x in section(memory, "Current Priorities")[:3]]),
         h("Today", "red"), ul(section(board, "🔥 Today")),
@@ -285,11 +326,14 @@ topic_docs = {t: "<html><body>" + h(f"Where we left off - {t}", COLOR_OF[t]) + f
               for t, items in topics.items()}
 
 if DRY:
-    print(f"DRY RUN: captures={len(captures)} would_trash={len(trashed)} events={len(cal_lines)} board_chars={len(doc)}")
+    print(f"DRY RUN: captures={len(captures)} would_trash={len(trashed)} kept={len(kept)} events={len(cal_lines)} board_chars={len(doc)}")
     for f, s in trashed:
         print("  would trash:", f, "|", s)
     for line in plan_log:
         print("  plan:", line)
+    for r in mail_rows:
+        print("  mail:", r)
+    print("  reminders:", reminders)
     print("  ai tokens:", usage)
     print("  topic files:", {t: len(d) for t, d in topic_docs.items()})
     print("\n".join(cal_lines))
