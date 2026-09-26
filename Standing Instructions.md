@@ -35,3 +35,10 @@ Everything Melissa tells Ellie about how things should work. Newest additions at
 ## Working rules
 - Save everything she tells Ellie into files, not just notes: instructions, decisions, corrections, preferences. Record it in this file the same day.
 - Explain in plain language. She is a senior HR executive, not an engineer.
+
+## Added 2026-09-26 (later)
+- Save tokens: cache as much as possible. Midday is very brief and silent (`routines/midday-light.md`): one look for new captures, stop if nothing is new.
+- When she says something is done, remove it from the lists and board. It shows once in the wrap-up ("what happened today"), then never again.
+- Google Drive folders by topic under `Ellie Files` with a "Where we left off - <Topic>" file each, plus a Calendar file. Having everything only in the vault does not work for the phone. (`routines/drive-map.md`)
+- Color-code everything possible, phone included (the board and topic files are Google Docs with color). One key: red urgent, amber follow-up, blue calendar/appointments, green job search/interviews/done, purple events/other, gray low priority.
+- "Always trash <sender>" goes in `routines/trash-rules.md` (wrap-up) and in the daily-briefing repo `scripts/generate_briefing.py` (morning). Goal: everything runs from Git and cron so there are no issues.

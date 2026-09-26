@@ -375,10 +375,10 @@ document.querySelectorAll('#stats .stat[data-target]').forEach(el=>{
 });
 
 function calKind(t){const s=(t||"").toLowerCase();
-  if(/interview|screen|recruit|hiring|final round|panel|offer/.test(s)) return ["Interview","violet"];
-  if(/doctor|dentist|dental|walgreens|pharmac|clinic|medical|health|therapy|appointment|emblem|physical/.test(s)) return ["Health","green"];
-  if(/deadline|due |submit|apply/.test(s)) return ["Deadline","amber"];
-  return ["Other","blue"]; }
+  if(/interview|screen|recruit|hiring|final round|panel|offer/.test(s)) return ["Interview","green"];
+  if(/deadline|due |submit|apply|follow.?up|rsvp/.test(s)) return ["Follow-up","amber"];
+  if(/doctor|dentist|dental|walgreens|pharmac|clinic|medical|health|therapy|appointment|emblem|physical/.test(s)) return ["Appointment","blue"];
+  return ["Event","violet"]; }
 function calRow(c){const k=calKind(c.title);
   return '<li class="ev '+k[1]+'"><div class="txt"><div class="t1">'+esc([c.day,c.time].filter(Boolean).join(" · "))+'</div><div class="nm">'+esc(c.title)+'</div></div><span class="pill '+k[1]+'">'+k[0]+'</span>'+(c.conflict?'<span class="pill red">Conflict</span>':'')+'</li>'; }
 const cw=document.getElementById("calWrap");
