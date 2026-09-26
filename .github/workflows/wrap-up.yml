@@ -8,6 +8,7 @@ on:
   schedule:
     - cron: '0 17 * * *'   # Backup: 17:00 UTC = 1:00 PM EDT. Runs only if GitHub is 3.75h+ late (see the early-skip below). Shift both crons +1h UTC when DST ends in Nov.
     - cron: '45 17 * * *'  # Backup 2: 17:45 UTC = 1:45 PM EDT, same rule. Guard skips if already sent.
+    - cron: '45 20 * * *'  # On-time fallback: 20:45 UTC = 4:45 PM EDT, in case the cron-job.org trigger is missing. Guard + concurrency prevent a second send.
 permissions:
   contents: write
 concurrency:

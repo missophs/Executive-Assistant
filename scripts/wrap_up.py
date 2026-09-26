@@ -77,7 +77,26 @@ except Exception as exc:  # never claim "clear" when the check failed
     print("calendar failed:", exc)
     week, cal_added = None, []
 
-subject, body = build_wrapup(now, done_today, filed, cal_added, focus, n_open, section("⏳ Waiting On"), week)
+waiting = [(x.split(" — ")[0][:80], " — ".join(x.split(" — ")[1:])) for x in section("⏳ Waiting On")]
+fu = re.search(r"^## Follow-Ups[^\n]*\n(.*?)(?=^## |\Z)", open("Memory.md", encoding="utf-8").read(), re.M | re.S)
+for l in (fu.group(1).splitlines() if fu else []):
+    c = [x.strip() for x in l.strip().strip("|").split("|")]
+    if l.startswith("|") and len(c) >= 4 and c[0] not in ("Item", "---"):
+        waiting.append((c[1], f"since {c[2]} — {c[3]}"))
+
+week_end = (now + timedelta(days=7)).strftime("%Y-%m-%d")
+reminders = sorted((m.group(1), re.sub(r"^- \[ \] ", "", l).split(" — ")[0]) for l in board.splitlines() if l.startswith("- [ ]")
+                   for m in [re.search(r"due (\d{4}-\d{2}-\d{2})", l)] if m and today <= m.group(1) <= week_end)
+
+STAGES = ["Offer", "Final", "Interview", "Screen"]  # open roles with a human in the loop; "Applied" rows are noise here
+rows = []
+for l in open("Applications.md", encoding="utf-8").read().splitlines():
+    c = [x.strip() for x in l.strip().strip("|").split("|")]
+    if l.startswith("|") and len(c) >= 6 and c[2] in STAGES:
+        rows.append((STAGES.index(c[2]), f"{c[0]} - {c[1]}", f"{c[2]} · last contact {c[4]}: {c[5].replace('**', '')}"))
+pipeline = [(t, d) for _, t, d in sorted(rows)]
+
+subject, body = build_wrapup(now, done_today, filed, cal_added, focus, n_open, waiting, reminders, pipeline, week)
 assert body.startswith("<table") and "$(" not in body and "/tmp/" not in body, "bad email body"
 
 if DRY:

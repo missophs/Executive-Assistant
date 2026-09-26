@@ -1,6 +1,7 @@
-"""Builds the end-of-day wrap-up email (HTML) exactly as routines/email-template.md section 4 specifies.
+"""Builds the end-of-day wrap-up email (HTML) in the layout of routines/email-template.md.
 
-Pure function: phone_sync.py passes in what it already knows. No gradients (Gmail strips them); every background carries bgcolor + inline style.
+Pure function: wrap_up.py passes in what it read from the vault and calendar. No gradients (Gmail strips them);
+every background carries bgcolor + inline style. Colour key: red urgent, amber follow-up, blue calendar, green job search/done, purple other, gray low.
 """
 import html
 import re
@@ -39,8 +40,8 @@ def _priority(action: str, why: str, due: str, bar: str) -> str:
             + "</td></tr></table></td></tr>")
 
 
-def _time(when: str, what: str) -> str:
-    return (f'<tr><td width="150" bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:12px 0 12px 16px;{F}font-size:12px;font-weight:bold;color:#2F6BFF;white-space:nowrap;{B}">{_e(when)}</td>'
+def _time(when: str, what: str, color: str = "#2F6BFF") -> str:
+    return (f'<tr><td width="150" bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:12px 0 12px 16px;{F}font-size:12px;font-weight:bold;color:{color};white-space:nowrap;{B}">{_e(when)}</td>'
             f'<td bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:12px 16px 12px 10px;{F}font-size:13px;color:#33404F;{B}">{_e(what)}</td></tr>')
 
 
@@ -65,9 +66,11 @@ def _parse(task: str) -> tuple[str, str, str, str]:
     return parts[0].replace("**", "")[:160] if parts else task[:160], " — ".join(rest).replace("**", "")[:200], due, cap
 
 
-def build_wrapup(now: datetime, done_today: list[str], filed: list[str], cal_added: list[str], focus: list[str], n_open: int, waiting: list[str],
+def build_wrapup(now: datetime, done_today: list[str], filed: list[str], cal_added: list[str], focus: list[str], n_open: int,
+                 waiting: list[tuple[str, str]], reminders: list[tuple[str, str]], pipeline: list[tuple[str, str]],
                  week: list[tuple[str, str]] | None) -> tuple[str, str]:
-    """focus = open tasks from Today then This Week, in board order. filed = everything captured into Ellie today.
+    """focus = open tasks from Today then This Week, board order. filed = everything captured into Ellie today.
+    waiting = (who, detail). reminders = (YYYY-MM-DD, text) for the next 7 days. pipeline = (company - role, detail).
     week = (when, title) for the days ahead; None means the calendar could not be checked."""
     today = now.strftime("%Y-%m-%d")
     subject = f"Ellie - EA Wrap-Up - {now.strftime('%A, %B')} {now.day}"
@@ -83,18 +86,17 @@ def build_wrapup(now: datetime, done_today: list[str], filed: list[str], cal_add
         add("Added To Your Calendar", "#2F6BFF", [_plain([_e(c.removeprefix("Calendar: ")) for c in cal_added])])
     if focus:
         bars = ["#FF3B3B", "#FFAA00", "#2F6BFF"]
-        rows = []
-        for i, t in enumerate(focus[:3]):
-            a, why, due, _ = _parse(t)
-            rows.append(_priority(a, why, due, bars[i]))
-        add("Carrying Into Tomorrow", "#FFAA00", rows)
+        add("Carrying Into Tomorrow", "#FFAA00", [_priority(*_parse(t)[:1], _parse(t)[1], _parse(t)[2], bars[i]) for i, t in enumerate(focus[:3])])
+    if focus[3:]:
+        add("Also Open This Week", "#FFAA00", [_plain([f"&#8226;&nbsp;{_e(_parse(t)[0])}" + (f" (due {_parse(t)[2]})" if _parse(t)[2] else "") for t in focus[3:12]])])
     slipping = []
     for t in focus:
         a, _, due, cap = _parse(t)
+        age = (now.date() - datetime.strptime(cap, "%Y-%m-%d").date()).days if cap else 0
         if due and due < today:
             slipping.append(_title(a, f"Overdue since {due}"))
-        elif cap and (now.date() - datetime.strptime(cap, "%Y-%m-%d").date()).days >= 3:
-            slipping.append(_title(a, f"Captured {cap}, no movement in {(now.date() - datetime.strptime(cap, '%Y-%m-%d').date()).days} days"))
+        elif age >= 3:
+            slipping.append(_title(a, f"Captured {cap}, no movement in {age} days"))
     if slipping:
         add("Slipping", "#FF3B3B", slipping[:5])
     if week is None:
@@ -103,7 +105,17 @@ def build_wrapup(now: datetime, done_today: list[str], filed: list[str], cal_add
         rows = [_time(w, s) for w, s in week]
     else:
         rows = [_empty("Calendar is clear.")]
-    add("Week Ahead", "#2F6BFF", rows, colspan=bool(week))
+    add("Calendar - Week Ahead", "#2F6BFF", rows, colspan=bool(week))
+    if reminders:
+        add("Reminders - Next 7 Days", "#FFAA00", [_time(datetime.strptime(d, "%Y-%m-%d").strftime("%a %-m/%-d"), t[:160], "#B26A00") for d, t in reminders])
+    if waiting:
+        add("Waiting On", "#FFAA00", [_title(w, d[:200]) for w, d in waiting[:10]])
+    if pipeline:
+        add("Job Pipeline", "#00D68F", [_title(t, d[:220]) for t, d in pipeline[:8]])
+    add("Where To Look", "#8994A3", [_plain([
+        "Phone board: Google Drive &rarr; Ellie Files &rarr; <b>Ellie</b> (rebuilt 6:30am and 4:30pm ET).",
+        "Topic files, one per folder: <b>Where we left off</b> - Job Search, Meetings &amp; Prep, Reminders &amp; Tasks, Saved Links, Ellie Setup, Calendar.",
+        "To capture something: write it in the Drive file <b>Tell Ellie</b> or email yourself."])])
 
     mast = "#3B1B8F"
     body = (
@@ -123,11 +135,16 @@ def build_wrapup(now: datetime, done_today: list[str], filed: list[str], cal_add
 
 if __name__ == "__main__":  # runnable check: python scripts/wrapup_email.py
     n = datetime(2026, 9, 26, 16, 30)
-    s, h = build_wrapup(n, ["Call Anthem — done 2026-09-26"], ["Saved link: Marsh CPO role"], ["Vet — Wed 9/30 all day"],
-                        ["Call NYC about documents — due 2026-09-29 — captured 2026-09-26 · #task · #priority", "Old thing — due 2026-09-20 — captured 2026-09-10 · #task"],
-                        7, [], [("Sun 9/27 · 9:00am", "Standup"), ("Mon 9/28 · all day", "Doctor")])
+    s, h = build_wrapup(n, ["Call Anthem — done 2026-09-26"], ["Saved link: Marsh CPO role"], ["Vet — Wed 9/30 · all day"],
+                        ["Call NYC about documents — due 2026-09-29 — captured 2026-09-26 · #task · #priority", "Old thing — due 2026-09-20 — captured 2026-09-10 · #task",
+                         "Third", "Fourth thing — due 2026-10-01"],
+                        7, [("Ashley Fredericks (LRN)", "since 2026-09-25 — awaiting decision")], [("2026-09-29", "Call NYC")],
+                        [("LRN - VP of People", "Screen · last contact 2026-09-25: awaiting decision")],
+                        [("Sun 9/27 · 9:00am", "Standup"), ("Mon 9/28 · all day", "Doctor")])
     assert s == "Ellie - EA Wrap-Up - Saturday, September 26" and h.startswith("<table") and "$(" not in h and "/tmp/" not in h and "gradient" not in h
-    assert "Overdue since 2026-09-20" in h and "Standup" in h and "Call NYC about documents" in h and "Marsh CPO" in h and "Week Ahead" in h
-    s2, h2 = build_wrapup(n, [], [], [], [], 0, [], None)
-    assert "Nothing closed today." in h2 and "Calendar could not be checked." in h2 and "Carrying Into Tomorrow" not in h2
+    for needle in ("Overdue since 2026-09-20", "Standup", "Call NYC about documents", "Marsh CPO", "Calendar - Week Ahead", "Also Open This Week",
+                   "Fourth thing", "Waiting On", "Ashley Fredericks", "Reminders - Next 7 Days", "Job Pipeline", "Where To Look", "1 awaiting reply"):
+        assert needle in h, needle
+    s2, h2 = build_wrapup(n, [], [], [], [], 0, [], [], [], None)
+    assert "Nothing closed today." in h2 and "Calendar could not be checked." in h2 and "Carrying Into Tomorrow" not in h2 and "Waiting On" not in h2
     print("ok")
