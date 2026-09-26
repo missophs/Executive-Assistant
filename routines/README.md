@@ -116,3 +116,8 @@ schedule and connectors from the tables above. It uses the `RemoteTrigger` tool 
 **Still untested (no routine has run since these changes):** send-once guard, new email look, calendar capture, waiting-on capture, interview prep, seen cache. First real check: the 9/26 7:30am email should be a single email in the new colours and list "Doctor's appointment, Mon 9/28, 1:00–5:30 PM" under Added To Your Calendar (captured 9/25 7:00 PM ET). Event "Elle" on 9/30 9:30 AM was renamed "Elle-Hair" by chat.
 
 **Chat vs routines:** in a chat session with Google Calendar connected, events can be read, added and renamed immediately. Routine runs use their own connection and act only at their scheduled times. Events with guests always need her yes first in chat.
+
+## Changelog — 2026-09-26 (phone + wrap)
+- `phone-sync.md`: added DAILY WRAP on the phone board (what happened today, calendar for the rest of the week, read-only inbox triage, prep pointers), `Prep:` captures that write `Meetings/<date> <title>.md`, and fixed the `Tell Ellie` placeholder times (6:30am / 4:30pm ET).
+- New `improve.md`: on-demand vault audit, run via the "Ellie Improve" routine (no schedule).
+- Correction: Phone Sync AM/PM and Ellie Improve are loaders for their repo file; the old email routines' triggers were not.
