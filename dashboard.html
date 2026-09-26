@@ -106,7 +106,7 @@ body{
 .stat .n.zero{color:var(--faint)}
 
 /* ── layout ── */
-.grid{display:grid; grid-template-columns:1fr 330px; gap:20px; align-items:start}
+.grid{display:grid; grid-template-columns:1fr; gap:20px; align-items:start}
 @media (max-width:920px){ .grid{grid-template-columns:1fr} }
 .col{display:flex; flex-direction:column; gap:20px; min-width:0}
 
@@ -208,57 +208,34 @@ code.cmd{font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(-
       <h1>Ellie - EA</h1>
       <div class="when" id="stampDate">Friday, September 25, 2026</div>
     </div>
-    <div class="badges" id="badges"><div class="badge"><b>1</b> open tasks</div><div class="badge hot"><b>5</b> need review</div></div>
+    <div class="badges" id="badges"><div class="badge"><b>0</b> open tasks</div></div>
   </header>
 
   <a class="howto" href="https://claude.ai/code/artifact/ef023dc5-7573-4ac8-845f-ba8448315a5b" target="_blank" rel="noopener" style="display:block; text-decoration:none">
     <strong>Open the live Ellie - EA dashboard &rarr;</strong> tap here for the always-current, interactive version. Works on your phone, no login needed.
   </a>
 
-  <section class="stats" id="stats"><div class="stat is-blue" data-target="todayPanel" role="button" tabindex="0"><div class="n">1</div><div class="k">Open tasks</div></div><div class="stat is-red" data-target="reviewPanel" role="button" tabindex="0"><div class="n">5</div><div class="k">Need review</div></div></section>
+  <section class="stats" id="stats"><div class="stat is-blue" data-target="todayPanel" role="button" tabindex="0"><div class="n zero">0</div><div class="k">Open tasks</div></div></section>
 
   <div class="grid">
     <div class="col">
       <section class="panel" id="calPanel" style="scroll-margin-top:16px">
-        <div class="phead"><h2>Calendar</h2><span class="note" id="calNote">2 events</span></div>
+        <div class="phead"><h2>Calendar</h2><span class="note" id="calNote"></span></div>
         <div class="rule blue"></div>
-        <div class="pbody" id="calWrap"><ul class="rail"><li><div class="txt"><div class="t1">Walgreens Appointment</div><div class="t2">Today · 9:40 AM ET</div></div></li><li><div class="txt"><div class="t1">Call doctor&#39;s office &amp; EmblemHealth</div><div class="t2">Today · 12:00–12:30 PM ET</div></div></li></ul></div>
+        <div class="pbody" id="calWrap"><div class="empty"><div class="lead">Loading your calendar&hellip;</div>Live from Google Calendar.</div></div>
       </section>
 
       <section class="panel" id="todayPanel" style="scroll-margin-top:16px">
-        <div class="phead"><h2>Top 3 &amp; Follow Up</h2><span class="note" id="todayNote">1 of 3</span></div>
+        <div class="phead"><h2>Top 3 &amp; Follow Up</h2><span class="note" id="todayNote"></span></div>
         <div class="rule red"></div>
-        <div class="pbody" id="todayWrap"><div class="prio">
-          <div class="pcard r1" data-id="2026-09-23-t0"><div class="row"><div class="body"><div class="task">Send r&eacute;sum&eacute; to Nasreen Bharoocha (Conduit Health)</div><div class="why">Now 5 days overdue. She replied 9/18 11:46 AM ET (&ldquo;No worries, I will wait for your resume once it's ready&rdquo;) &mdash; no rush on her end, but you emailed her again yourself 9/22 apologizing for the delay (flight cancelled). R&eacute;sum&eacute; still not sent; a placeholder draft has been sitting in Gmail Drafts since 9/18.</div><div class="due">Due 2026-09-18</div><div class="pend pill amber" hidden>Pending &mdash; closes at next sync</div></div></div></div>
-        </div></div>
+        <div class="pbody" id="todayWrap"><div class="empty"><div class="lead">Nothing set for today.</div>Tell Ellie what to add.</div></div>
       </section>
 
 
-      <section class="panel" id="reviewPanel" style="scroll-margin-top:16px">
-        <div class="phead"><h2>Review <span style="font-weight:500; color:var(--muted); font-size:12px">&middot; drift check</span></h2><span class="note" id="reviewNote">5 items</span></div>
-        <div class="rule red"></div>
-        <div class="pbody" id="reviewWrap">
-          <div class="revItem" data-id="2026-09-23-r0"><div class="txt"><div class="cat" style="color:var(--red)">Contradiction</div><div class="desc">Task Board&rsquo;s Waiting On section says &ldquo;(none open)&rdquo; but Memory&rsquo;s Follow-Ups table tracks 6 open items (Nasreen Bharoocha, Ashley Fredericks, Patsy Doerr, Sarah Wagener &amp; Matt Valentino, Shira Blumenstein/Katie Bunker/Kerri Toninoeskin, Jill Keller &amp; Lisa Gibson). Task Board should be the source of truth here.</div></div><button class="revDismiss" type="button">Seen</button></div>
-          <div class="revItem" data-id="2026-09-23-r1"><div class="txt"><div class="cat" style="color:var(--amber)">Stale 10+ days</div><div class="desc">12 LinkedIn/Indeed job-alert and job-link/lead triage items in Backlog sitting untouched, oldest since 9/2 (21 days) &mdash; never triaged into applied or skipped. Includes the Columbia, BNY, Sesame, Clio, DDN, Backblaze, Greenbox, and PeopleOps alerts, the OrganOx/Empathy leads, NAACP LDF, and bare job links from 9/5 and 9/12.</div></div><button class="revDismiss" type="button">Seen</button></div>
-          <div class="revItem" data-id="2026-09-23-r2"><div class="txt"><div class="cat" style="color:var(--amber)">Stale 10+ days</div><div class="desc">2 unlogged portal/insurance notifications: the UHC Explanation of Benefits (9/13, 10 days) and the NYU Langone MyChart portal messages (9/8, 15 days) &mdash; neither logged into yet.</div></div><button class="revDismiss" type="button">Seen</button></div>
-          <div class="revItem" data-id="2026-09-23-r3"><div class="txt"><div class="cat" style="color:var(--blue)">Unanswered 5+ days</div><div class="desc">7 items waiting on your answer, oldest since 8/31 (23 days): the mom/Barbara phone reminder, the &ldquo;do LinkedIn&rdquo; task, a screenshot sent 9/7, an NYU Langone PDF sent 9/7, two scanned PDFs sent 9/8 (&ldquo;Work history&rdquo;/&ldquo;Dis 1&rdquo;), the still-unidentified 9/15 &ldquo;Interview at 1pm&rdquo; calendar block, and a screenshot sent 9/18.</div></div><button class="revDismiss" type="button">Seen</button></div>
-          <div class="revItem" data-id="2026-09-23-r4"><div class="txt"><div class="cat" style="color:var(--violet)">Still open</div><div class="desc">Suspected phishing email (fake dentsu offer letter) flagged 9/8 &mdash; still sitting in Trash, never reported or resolved (15 days).</div></div><button class="revDismiss" type="button">Seen</button></div>
-        </div>
-      </section>
+
     </div>
 
-    <div class="col">
-      <section class="panel">
-        <div class="phead"><h2>Priorities</h2></div>
-        <div class="rule violet"></div>
-        <div class="pbody" id="prioWrap"><ul class="bullets">
-          <li>Land a senior HR role &mdash; VP/CHRO level. LRN (VP People) &mdash; Ashley Fredericks wants a 30-min video screen, you proposed Fri 9/25, awaiting her pick; Patsy Doerr still hasn&rsquo;t replied. Conduit Health interview held 9/16 &mdash; r&eacute;sum&eacute; still owed to Nasreen, now 5 days overdue, no outcome on the role yet. CUNY interview held 9/11, outcome still awaited. Cotiviti and Thomson Reuters &mdash; cold outreach out to 5 contacts total, no replies yet. Spectrum, Intalegence, and AIChE all closed.</li>
-          <li>Comp target: low-to-mid $200Ks base, flexible on total package.</li>
-          <li>Based in NY &mdash; raised as a possible blocker with Bryce Lowery (Intalegence, since closed); he confirmed it isn&rsquo;t one.</li>
-        </ul></div>
-      </section>
 
-    </div>
   </div>
 
   <div class="howto">
@@ -277,14 +254,9 @@ code.cmd{font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(-
 <script>
 /* Regenerated by /dashboard - edit DATA only. All dates YYYY-MM-DD. */
 const DATA = {
-  generated: "2026-09-25",
-  calendar: [
-    {day:"Today", time:"9:40 AM ET", title:"Walgreens Appointment"},
-    {day:"Today", time:"12:00–12:30 PM ET", title:"Call doctor's office & EmblemHealth"}
-  ],
-  today: [
-    {id:"2026-09-23-t0", task:"Send résumé to Nasreen Bharoocha (Conduit Health)", why:"Now 5 days overdue. She replied 9/18 11:46 AM ET (\"No worries, I will wait for your resume once it's ready\") — no rush on her end, but you emailed her again yourself 9/22 apologizing for the delay (flight cancelled). Résumé still not sent; a placeholder draft has been sitting in Gmail Drafts since 9/18.", due:"2026-09-18"}
-  ],
+  generated: "2026-09-26",
+  calendar: [],
+  today: [],
   week: [],
   pipeline: [
     {company:"CUNY (City University of New York)", role:"Vice Chancellor for Human Resources", stage:"Interview", applied:"2026-08-31", lastContact:"2026-09-03", nextAction:"Interview confirmed: Fri 9/11, 3:00–4:00 PM ET, Microsoft Teams. Panel: Elisa Russo & Sujata Malhotra"},
@@ -315,11 +287,7 @@ const DATA = {
     {item:"No reply to your outreach yet", who:"Shira Blumenstein, Katie Bunker & Kerri Toninoeskin, Cotiviti — you sent it, waiting on them", since:"2026-09-21"},
     {item:"No reply to your outreach yet", who:"Jill Keller & Lisa Gibson, Thomson Reuters — you sent it, waiting on them", since:"2026-09-16"}
   ],
-  priorities: [
-    "Land a senior HR role — VP/CHRO level. LRN (VP People) — Ashley Fredericks wants a 30-min video screen, you proposed Fri 9/25, awaiting her pick; Patsy Doerr still hasn't replied. Conduit Health interview held 9/16 — résumé still owed to Nasreen, now 5 days overdue, no outcome on the role yet. CUNY interview held 9/11, outcome still awaited. Cotiviti and Thomson Reuters — cold outreach out to 5 contacts total, no replies yet. Spectrum, Intalegence, and AIChE all closed.",
-    "Comp target: low-to-mid $200Ks base, flexible on total package.",
-    "Based in NY — raised as a possible blocker with Bryce Lowery (Intalegence, since closed); he confirmed it isn't one."
-  ],
+  priorities: [],
   people: [
     {name:"Nasreen Bharoocha", note:"Recruiter/HR Consultant, Conduit Health. Interview held 9/16. She replied 9/18 confirming she's waiting on your résumé, no rush on her end. Still not sent — now 5 days overdue; you apologized again live 9/22 (flight cancelled)."},
     {name:"Ashley Fredericks", note:"LRN, Vice President of People. Replied 9/22 wanting a 30-min video screen; you proposed Fri 9/25, awaiting her pick."},
@@ -334,13 +302,7 @@ const DATA = {
     {name:"Elisa Russo", note:"Lead Recruiter, CUNY. Interview held Fri 9/11 — thank-you sent 9/12. Outcome still awaited. Reachable via Jonathan Campbell."},
     {name:"Maneeha Arshad", note:"Independent recruiter — CPO opportunity, no company/comp given. Closed 9/18, decision made."}
   ],
-  review: [
-    {id:"2026-09-23-r0", cat:"Contradiction", desc:"Task Board's Waiting On section says \"(none open)\" but Memory's Follow-Ups table tracks 6 open items (Nasreen Bharoocha, Ashley Fredericks, Patsy Doerr, Sarah Wagener & Matt Valentino, Shira Blumenstein/Katie Bunker/Kerri Toninoeskin, Jill Keller & Lisa Gibson). Task Board should be the source of truth here."},
-    {id:"2026-09-23-r1", cat:"Stale 10+ days", desc:"12 LinkedIn/Indeed job-alert and job-link/lead triage items in Backlog sitting untouched, oldest since 9/2 (21 days) — never triaged into applied or skipped. Includes the Columbia, BNY, Sesame, Clio, DDN, Backblaze, Greenbox, and PeopleOps alerts, the OrganOx/Empathy leads, NAACP LDF, and bare job links from 9/5 and 9/12."},
-    {id:"2026-09-23-r2", cat:"Stale 10+ days", desc:"2 unlogged portal/insurance notifications: the UHC Explanation of Benefits (9/13, 10 days) and the NYU Langone MyChart portal messages (9/8, 15 days) — neither logged into yet."},
-    {id:"2026-09-23-r3", cat:"Unanswered 5+ days", desc:"7 items waiting on your answer, oldest since 8/31 (23 days): the mom/Barbara phone reminder, the \"do LinkedIn\" task, a screenshot sent 9/7, an NYU Langone PDF sent 9/7, two scanned PDFs sent 9/8 (\"Work history\"/\"Dis 1\"), the still-unidentified 9/15 \"Interview at 1pm\" calendar block, and a screenshot sent 9/18."},
-    {id:"2026-09-23-r4", cat:"Still open", desc:"Suspected phishing email (fake dentsu offer letter) flagged 9/8 — still sitting in Trash, never reported or resolved (15 days)."}
-  ]
+  review: []
 };
 
 const STALE_DAYS=10;
@@ -354,15 +316,14 @@ document.getElementById("stampDate").textContent =
 
 const openTasks=DATA.today.length+DATA.week.length;
 
-const reviewCount=(DATA.review||[]).length;
+const reviewCount=0;
 
 document.getElementById("badges").innerHTML=
   '<div class="badge"><b>'+openTasks+'</b> open tasks</div>'+
-  (reviewCount?'<div class="badge hot"><b>'+reviewCount+'</b> need review</div>':'');
+'';
 
 document.getElementById("stats").innerHTML=[
-  {n:openTasks,k:"Open tasks",c:"is-blue",target:"todayPanel"},
-  {n:reviewCount,k:"Need review",c:reviewCount?"is-red":"",target:"reviewPanel"}
+  {n:openTasks,k:"Open tasks",c:"is-blue",target:"todayPanel"}
 ].map(m=>'<div class="stat '+m.c+'" data-target="'+m.target+'" role="button" tabindex="0"><div class="n'+(m.n===0?" zero":"")+'">'+m.n+'</div><div class="k">'+m.k+'</div></div>').join("");
 
 /* Scroll-to-section on stat cards — plain JS scrollIntoView, not <a href="#..."> anchors:
@@ -438,45 +399,6 @@ if(DATA.today.length){
   tw.innerHTML=emptyBlock("Nothing set for today.",'Run <code class="cmd">/start</code> and it will pick your top three off the Task Board.');
 }
 
-
-const rw=document.getElementById("reviewWrap");
-if(DATA.review && DATA.review.length){
-  document.getElementById("reviewNote").textContent=DATA.review.length+(DATA.review.length===1?" item":" items");
-  rw.innerHTML=DATA.review.map((r,i)=>{
-    const id=r.id||(DATA.generated+"-r"+i);
-    return '<div class="revItem" data-id="'+esc(id)+'"><div class="txt"><div class="cat">'+esc(r.cat)+
-      '</div><div class="desc">'+esc(r.desc)+'</div></div><button class="revDismiss" type="button">Seen</button></div>';
-  }).join("");
-  (async function(){
-    let db=null;
-    try{ db=(window.claude&&window.claude.use)?await claude.use("db"):null; }catch(e){ db=null; }
-    let dismissed={};
-    const applyDismissed=()=>rw.querySelectorAll('.revItem').forEach(el=>{
-      el.classList.toggle('dismissed', !!dismissed[el.dataset.id]);
-    });
-    if(db){
-      db.doc("state/driftDismissed").onSnapshot(snap=>{
-        dismissed=(snap.exists&&snap.data().ids)||{};
-        applyDismissed();
-      },()=>{});
-    }
-    rw.querySelectorAll('.revDismiss').forEach(btn=>{
-      btn.addEventListener('click', async()=>{
-        const item=btn.closest('.revItem');
-        dismissed={...dismissed,[item.dataset.id]:true};
-        applyDismissed();
-        if(db){ try{ await db.doc("state/driftDismissed").set({ids:dismissed}); }catch(e){} }
-      });
-    });
-  })();
-}else{
-  document.getElementById("reviewNote").textContent="";
-  rw.innerHTML=emptyBlock("Nothing flagged.","Run /drift-check and it'll surface contradictions and stale items here.");
-}
-
-document.getElementById("prioWrap").innerHTML=DATA.priorities.length
-  ? '<ul class="bullets">'+DATA.priorities.map(p=>'<li>'+esc(p)+'</li>').join("")+'</ul>'
-  : emptyBlock("Memory is empty.",'Run <code class="cmd">/wrap-up</code> tonight to write your first one.');
 
 </script>
 </body>
