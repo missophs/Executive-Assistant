@@ -4,13 +4,13 @@ Rolling context between sessions. Read at the start of every session, updated du
 
 **Keep this short.** Quick-reference, not a journal. Prune anything resolved or stale.
 
-_Last updated: 2026-09-24 (midday sweep)_
+_Last updated: 2026-09-26 (phone sync)_
 
 ---
 
 ## Current Priorities
 
-- Land a senior HR role — VP / CHRO level. AIChE (Head of People) closed 9/16 — Rita rejected, no feedback given. CUNY (Vice Chancellor for HR) interview held Fri 9/11 — thank-you sent 9/12 to Elisa Russo and Sujata Malhotra; outcome still awaited. Spectrum (Director, HR) **closed 9/18** — Rashmi was upfront on the 9/17 call that comp doesn't align; thank-you sent 9/18 asking to stay in touch. Conduit Health interview held 9/16 — two thank-yous sent (9/17, 9/18); Nasreen replied 9/18 (found in Trash) still waiting on the résumé, which still hasn't gone out. Intalegence closed 9/10 — rejected, no feedback given. Oscar Health and Hims & Hers (rejected) surfaced 9/16 from Trash rescues. LRN — cold outreach to Patsy Doerr and Ashley Fredericks, both 9/16, followed up 9/17; no reply from either yet. Arootah — applied 9/17, auto-ack only. Chime — applied 9/17 (Principal People Partner, NYC), plus cold outreach to Sarah Wagener and Matt Valentino same night; no reply yet.
+- Land a senior HR role — VP / CHRO level. AIChE (Head of People) closed 9/16 — Rita rejected, no feedback given. CUNY (Vice Chancellor for HR) interview held Fri 9/11 — thank-you sent 9/12 to Elisa Russo and Sujata Malhotra; outcome still awaited. Spectrum (Director, HR) **closed 9/18** — Rashmi was upfront on the 9/17 call that comp doesn't align; thank-you sent 9/18 asking to stay in touch. Conduit Health **closed 9/23** — Nasreen rejected (pivoting away from People-background candidates); rejection sat unread in Trash until rescued 9/26, résumé never sent, now moot. Intalegence closed 9/10 — rejected, no feedback given. Oscar Health and Hims & Hers (rejected) surfaced 9/16 from Trash rescues. LRN — video screen with Ashley Fredericks held Fri 9/25, thank-you + 30-60-90 day plan sent same day, awaiting her decision. Patsy Doerr (second LRN contact) still no reply. Arootah — applied 9/17, auto-ack only. Chime — applied 9/17 (Principal People Partner, NYC), plus cold outreach to Sarah Wagener and Matt Valentino same night; no reply yet.
 - Nasreen (Conduit Health) reply corrected: she replied 9/18 **11:46 AM ET**, not 3:46 PM as previously logged — checked the message header directly. The reply was still sitting in Trash, unread, until rescued this morning (9/19). A résumé-follow-up draft is already sitting in Gmail Drafts, threaded under the interview, résumé itself still not attached/sent. Update 9/22: Melissa sent Nasreen another live apology herself 9/22 1:27 AM ET (flight cancelled, will try to send résumé tomorrow) — the waiting draft was not used. Résumé still not sent.
 - New from Trash rescue 9/19: Marguerite Casey Foundation (Director of HR) — Lever auto-ack, not previously tracked, applied. Extend (role unnamed) — rejected via a real person, not previously tracked, closed for pattern-spotting.
 - New lead 9/19: Chief People Officer @ The Trevor Project, $260–280K (Indeed) — clears the $200K+ CHRO bar, added to backlog for triage.
@@ -31,6 +31,7 @@ _Last updated: 2026-09-24 (midday sweep)_
 - Wrap-up sweep 9/22 5pm: one new capture filed — "Linkedin Optimizer" content (About-section/resume-scan/cover-letter/follow-up/interview-prep prompts), sent to self 8:07 PM ET, added to Saved Links. No completion captures. Drive "Tell Ellie" empty.
 - Midday sweep 9/23: 6 saved links and 1 job-link triage item (ADP posting, no company/role given) filed from captures sent 9/22 5:22 PM–9/23 12:02 AM ET. One capture ("AI job search for linkedin," 9/23 2:34 PM ET) was a duplicate resend of an already-saved LinkedIn help-center link — skipped. Personal/health note, new 9/23: a detailed memory and word-recall symptom writeup ("Print for dr," captured 12:02 AM ET) meant to print for a doctor visit — mentions forgetting a scheduled phone interview and re-applying to jobs already applied to. No action needed from Ellie; noting as context for extra care catching duplicate applications and missed calls/interviews going forward. Drive "Tell Ellie" note empty.
 - Midday sweep 9/24: 1 backlog item added — ambiguous "pA" capture (3 chained fragments, 8:32–8:42 AM ET, to melweiss212@: "Evicore 866-417-2345", "Medication", "Home health 1856-417-2345"), no stated task, flagged to her in the email. Drive "Tell Ellie" note still in its untouched default state — nothing to file or clear.
+- Phone sync 9/26: 1 calendar capture (doctor's appointment, Mon 9/28 1:00–5:30 PM ET) — event already existed on the calendar, created earlier this morning by the Standup run; not duplicated. 3 backlog items filed (RoboStrategy Advisors and Nametag job links via Jobright.ai, one unlabeled LinkedIn job link), 2 saved links filed ("Ai agent for hr", a Claude Code bash-permission Google search), from captures sent 9/25 10:58 AM–9/26 2:33 AM ET. **Vault-write failure caught and fixed**: this morning's Standup (~7:54 AM ET) reported filing these same captures plus rescuing the Conduit Health/Nasreen rejection thread, but `git log`/`git fetch origin main` showed none of it had actually landed — the Gmail-side actions (Trash rescue, calendar event, a closing-reply draft) went through, the vault commits did not. Independently verified the Conduit Health rejection (9/23, Nasreen) and the LRN video screen (9/25, Ashley Fredericks) directly against Gmail and corrected Applications.md/Task Board accordingly. Did NOT independently verify the Standup's other claims (Mellon Foundation, Dropzone AI, Bertelsmann Corporate, Sensiba LLP applications; KSF Recruit close-out) — those need a full Trash/sent-mail sweep, which is out of phone-sync's scope; flagged in a `VAULT WRITE FAILED` draft (not sent) for the next `/sync` or `/wrap-up` to run down. Drive "Tell Ellie" note untouched — nothing to file or clear.
 - Comp target: low-to-mid $200Ks base, flexible on total package (bonus/equity in play at Intalegence).
 - Based in NY. Raised it with Bryce as a possible blocker; he confirmed it is not.
 - The 9/15 "Interview at 1pm" calendar block (1:00–2:00 PM ET, self-added 9/14 11:15 PM after a Tell Ellie capture) remains unresolved — no company/role ever identified, nothing in sent mail ties back to it. Distinct from Conduit Health (different company, different provenance) unless Melissa says otherwise.
@@ -45,11 +46,11 @@ _Last updated: 2026-09-24 (midday sweep)_
 - **Jonathan Campbell** — CUNY, sent the formal interview request 9/3; you replied same day confirming availability "next week." Scheduling handled via CUNY's Bookings system from there. Thank-you draft (post-interview) is addressed to him, asking him to pass thanks to Elisa and Sujata.
 - **Rashmi Mahajan** — Spectrum (Charter Communications), Director HR. Phone screen held 9/17, 2:30 PM ET. She was upfront that the salary range doesn't align with what you're looking for. You sent a thank-you 9/18 1:55 PM ET, asked to stay in touch for other roles and to speak with the rest of the team if anything opens up. Closed.
 - **Patsy Doerr** — LRN, re: Vice President of People. Cold outreach sent 9/16 11:57 PM ET with resume/portfolio link (ai-portfolio-bice-rho.vercel.app). Follow-up with interactive resume link sent 9/17 10:43 PM ET. No reply yet.
-- **Ashley Fredericks** — LRN, second contact re: the same Vice President of People opening. Cold outreach sent 9/16 8:04 PM ET, follow-up 9/17 10:48 PM ET. Replied 9/22 6:50 PM ET wanting a 30-minute video screen. You proposed Fri 9/25, 10:30 AM–3:00 PM ET (9/22 7:08 PM ET). Awaiting her to confirm a time. Applications.md: Screen.
+- **Ashley Fredericks** — LRN, second contact re: the same Vice President of People opening. Cold outreach sent 9/16 8:04 PM ET, follow-up 9/17 10:48 PM ET. Replied 9/22 wanting a 30-minute video screen; held Fri 9/25. Thank-you sent same day 4:49 PM ET, referencing a 30-60-90 day plan you'd shared. Awaiting her decision. Applications.md: Screen.
 - **Katie Bunker** — Cotiviti, re: Director, People Business Partner (technology org). Cold outreach sent 9/22 1:07 PM ET. No reply yet.
 - **Kerri Toninoeskin** — Cotiviti, second contact re: the same Director, People Business Partner opening. Cold outreach sent 9/22 1:05 PM ET. No reply yet.
 - **Maneeha Arshad** — independent recruiter, LinkedIn InMail. Cold outreach for an unnamed Chief People Officer role in the US, asked for your resume/email 9/1 and 9/2. Closed 9/18 — Melissa made her decision in chat; outcome not specified.
-- **Nasreen Bharoocha** — Recruiter/HR Consultant, Conduit Health (virtual health platform, ~40 employees, Series B). Interview held 9/16. Melissa sent thank-yous 9/17 8:42 PM ET and again 9/18 12:42 AM ET, both mentioning a death in the family caused the delay and that a résumé would follow. Nasreen replied 9/18 11:46 AM ET (corrected from 3:46 PM previously logged) — "No worries, I will wait for your resume once it's ready." Landed in Trash, unread — rescued 9/19. Reply draft with résumé placeholder ready in Gmail Drafts. Résumé still not sent. No outcome on the role yet.
+- **Nasreen Bharoocha** — Recruiter/HR Consultant, Conduit Health (virtual health platform, ~40 employees, Series B). Interview held 9/16. Melissa sent thank-yous 9/17 and 9/18. Nasreen replied 9/18 11:46 AM ET waiting on the résumé. Melissa chased again 9/22 (flight delay). **Nasreen rejected the role 9/23 1:58 PM ET** — pivoting away from People-background candidates, said she'd reach back out if that changes. That rejection, Melissa's 9/25 5:06 PM "didn't hear back" follow-up (sent not having seen the rejection), and Nasreen's 9/25 9:14 PM reply pointing back to it all landed unread in Trash — rescued 9/26 morning. Closing-reply draft sitting in Gmail Drafts, not sent. Résumé never sent — moot now. Closed.
 - **Vikas Shahi** — orthopedist. Name captured via Tell Ellie 9/11, subject "Orthopedist," no further context (referral? appointment needed?).
 - **Sarah Wagener** — Chime, re: Principal People Partner (NYC office). Cold outreach sent 9/17 7:41 PM ET. No reply yet.
 - **Matt Valentino** — Chime, second contact re: the same Principal People Partner opening. Cold outreach sent 9/17 7:39 PM ET. No reply yet.
@@ -61,8 +62,7 @@ _Last updated: 2026-09-24 (midday sweep)_
 
 | Item | Who | Since | Status |
 |---|---|---|---|
-| Résumé owed to Nasreen (role outcome no longer pending on her end) | Nasreen Bharoocha (Conduit Health) | 2026-09-18 | She replied 9/18 11:46 AM ET (corrected from 3:46 PM previously logged): waiting on your résumé, no rush on her end. Was stuck in Trash, unread — rescued 9/19. Reply draft ready in Gmail Drafts, résumé still not attached |
-| Waiting on her to confirm a screen time | Ashley Fredericks (LRN) | 2026-09-22 | She replied 9/22 wanting a 30-min video screen; you proposed Fri 9/25, 10:30 AM–3:00 PM ET same night. Awaiting her pick |
+| Awaiting her decision after the video screen | Ashley Fredericks (LRN) | 2026-09-25 | Screen held Fri 9/25; thank-you + 30-60-90 day plan sent same day. Awaiting her decision |
 | No reply to your outreach yet (you sent it, waiting on them) | Patsy Doerr (LRN) | 2026-09-16 | Contacted 9/16, followed up 9/17 night; no reply yet |
 | No reply to your outreach yet (you sent it, waiting on them) | Sarah Wagener & Matt Valentino (Chime) | 2026-09-17 | Both contacted 9/17 night; no reply from either yet |
 | No reply to your outreach yet (you sent it, waiting on them) | Shira Blumenstein, Katie Bunker & Kerri Toninoeskin (Cotiviti) | 2026-09-21 | Shira contacted 9/21, Katie & Kerri 9/22; no reply from any yet |
@@ -155,6 +155,8 @@ _(Rita Ramakrishnan/AIChE follow-up: outcome arrived 9/16 — see People above, 
 - "Jev & Claude" — https://lnkd.in/p/gDJdndXJ — sent to self 9/22 10:56 PM ET, to melweiss212@
 - "Copilot & word" — https://lnkd.in/p/gRtnnSdx — sent to self 9/22 10:52 PM ET, to melweiss212@
 - The Claude Code Maintenance Checklist (+ the Skill That Runs It) (Learn AI With Mariah) — link carries an embedded `mcp_token=` auth token, don't forward as-is — https://learnaiwithmariah.com/guides/claude-code-maintenance-checklist/ — sent to self 9/22 9:46 PM ET, to melweiss212@
+- "Ai agent for hr" — https://lnkd.in/p/gnyW2mJt — sent to self 9/25 10:33 PM ET, to melweiss212@
+- Google Search: "it is telling me to add a bash permission rule in my Claude code settings how do you do that step-by-step" — sent to self 9/25 10:58 AM ET, to melweiss212@
 
 ## Decisions & Context
 
@@ -227,6 +229,8 @@ Root cause: raw `git push origin main` is denied by this environment's permissio
 
 Keep spot-checking `git log`/the actual file after any email claiming "filed"/"added"/"pushed" for a while longer before trusting it unchecked again.
 
+**Recurred 2026-09-26.** The Saturday morning Standup run (~7:54 AM ET) sent an email claiming several vault filings (3 backlog job links, 2 saved links, a Conduit Health/Nasreen Trash rescue and stage change) that never landed on `origin/main` — confirmed via `git fetch origin main` during the 9/26 phone sync, same symptom as the original bug. The Gmail/Calendar-side actions it reported (Trash rescue, calendar event creation, a Gmail draft) DID actually happen — only the git commit/push step silently failed again. The push-via-API fix from 9/4 is evidently not fully reliable. Treat any automation's "filed"/"added" claim as unverified until an independent `git fetch` confirms it, indefinitely — not just "for a while."
+
 ## How Melissa Captures Things
 
 **Primary: the "Tell Ellie" iOS Shortcut** (built 2026-08-29, icon on her iPhone home screen).
@@ -269,3 +273,12 @@ is ever anything other than her Gmail, Ellie will not see it.
 
 ## Seen Cache
 Items Ellie has already triaged. Format: `<id> | <latest-message-date> | <what was done>`. Routines skip a listed id unless its thread has a newer message, and delete lines older than 7 days.
+
+1a0dacc4a727d0cb | 2026-09-25 | Doctor's appointment calendar capture — event already existed (created by this morning's Standup run), not duplicated
+1a0daf00b61394b5 | 2026-09-25 | Nametag (Head of People) job link — filed to Task Board backlog
+1a0daf6b5e799b97 | 2026-09-25 | RoboStrategy Advisors (Head of Talent & People) job link, sent twice ~15s apart — filed to Task Board backlog once
+1a0daf6037739f28 | 2026-09-25 | Duplicate send of the RoboStrategy Advisors link above — not filed again
+1a0d9689205919b6 | 2026-09-25 | Unlabeled LinkedIn job link (4469788397) — filed to Task Board backlog
+1a0db8f1017c5362 | 2026-09-26 | "Ai agent for hr" link — filed to Saved Links
+1a0d9131d3ee4394 | 2026-09-25 | Google search on Claude Code bash permissions — filed to Saved Links
+1a0b1f7f05c531a0 | 2026-09-25 | Conduit Health/Nasreen thread — rejection (9/23) verified and filed: Applications.md moved to Closed, Task Board résumé task moved to Done
