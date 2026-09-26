@@ -99,7 +99,7 @@ def add_after(md: str, heading: str, line: str) -> str:
 
 def classify(items: list[tuple[str, str]], open_tasks: list[str]) -> list[dict]:
     import urllib.request
-    prompt = (f"Today is {today} (America/New_York). Melissa, a senior HR executive job searching, sent these notes to her assistant.\n"
+    prompt = (f"Today is {now.strftime('%A')} {today} (America/New_York). Melissa, a senior HR executive job searching, sent these notes to her assistant.\n"
               "For EACH note return one JSON object in an array, same order: "
               '{"i":<note number>,"kind":"task|application|memory|link|done|calendar|prep|trash|unclear","text":"short clean version",'
               '"match":<open task number or null, for done>,"date":"YYYY-MM-DD or null","time":"HH:MM or null","sender":"for trash"}.\n'
@@ -133,7 +133,11 @@ for item in plan:
     src = captures[item["i"] - 1][1] if 1 <= item.get("i", 0) <= len(captures) else text
     plan_log.append(f"{kind}: {text[:70]}")
     if kind in ("task", "application"):
-        board = add_after(board, "⏭ This Week", f"- [ ] {text} — captured {today} · #{'jobsearch' if kind == 'application' else 'task'}")
+        due = item.get("date") if re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(item.get("date"))) else None
+        soon = due is not None and due <= (now + timedelta(days=7)).strftime("%Y-%m-%d")
+        target = "🔥 Today" if (due == today or (item.get("priority") and not due)) else "⏭ This Week" if (soon or item.get("priority")) else "📋 Backlog"
+        tag = "jobsearch" if kind == "application" else "task"
+        board = add_after(board, target, f"- [ ] {text}{' — due ' + due if due else ''} — captured {today} · #{tag}{' · #priority' if item.get('priority') else ''}")
         if kind == "application":
             apps = apps.rstrip() + f"\n- {today}: {text}\n"
         added.append(text)
