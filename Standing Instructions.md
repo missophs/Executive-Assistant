@@ -84,3 +84,10 @@ Not done yet: the cloud phone-sync routine is still active (pause it after the 6
 - 2026-09-26 (Melissa): every Google Doc Ellie creates must be saved in the right Drive folder, never loose in My Drive. Rule: a replaced file (Ellie board, Tell Ellie, topic docs) stays wherever Melissa last put it; topic docs live in their topic folder under `Ellie Files`; the setup guide lives in `Setting Up Ellie - Every Piece`; anything else new goes in `Ellie Files`. Melissa moved the `Ellie` board into the `Ellie Setup` folder on 9/26 and the sync now keeps it there.
 
 - 2026-09-26: Wrap (phone sync) now includes a Reminders section (dated open tasks, next 7 days) and an Inbox table (STATUS / FROM / SUBJECT / SUMMARY; NEEDS YOU first). One Haiku call per NEW inbox thread only, cached by thread id in .ellie-state.json. Rescue-from-Trash stays in the 7am briefing email.
+
+## 2026-09-26 (Melissa, evening) - Wrap-up email comes from Git, exactly like the morning digest
+- Melissa never received a wrap-up on 9/26. She wants the 4:30pm wrap-up to be ONE email from GitHub Actions, run the same way as the Melissa Daily Briefing: one send, a cron backup if the primary is late, never a second email. This supersedes the earlier "Ellie sends no email" note. The morning phone sync stays silent.
+- Do not touch the working phone sync (`phone-sync.yml`, `phone_sync.py`). The wrap-up is its own workflow: `.github/workflows/wrap-up.yml` + `scripts/wrap_up.py` + `scripts/wrapup_email.py` (layout from `routines/email-template.md` section 4).
+- Guard: `.last_wrapup_date` in the repo plus a Gmail sent-mail check for the same subject. Backup crons 17:00 and 17:45 UTC skip if it is before 4:45pm ET. Shift +1h UTC in November. Failure sends an ALERT email.
+- Known: `phone-sync.yml` defaults `dry_run` to "1", so cron-job.org dispatches (no inputs) run as DRY RUNS and change nothing. Not fixed, because she said not to break what works. Ask her before changing.
+- Wrap-up email does not yet reconcile from sent mail or show "Added To Your Calendar".
