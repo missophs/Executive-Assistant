@@ -30,8 +30,10 @@ Written 2026-09-26. Plain-English record of everything built for Ellie (Melissa'
 ## What the phone sync does each run
 1. Reads notes: mail you sent yourself (from and to melissaw212@gmail.com, or to melweiss212@) and the `Tell Ellie` doc. It skips Ellie's own emails and anything already handled.
 2. Sorts each new note with Claude Haiku 4.5 (cheapest model): task, application news, memory, saved link, done, calendar entry, prep, "always trash <sender>", or unclear. Dated or "priority" tasks go to Today or This Week.
-3. Creates calendar entries you ask for (no attendees, no duplicates). All-day if no time is given.
+3. Creates calendar entries you ask for (no attendees, no duplicates). A dated "remind me" becomes a 30-minute entry (9am if no time) with a phone popup 10 minutes before. Titles are the short subject only. All-day if it is a plain calendar entry with no time.
 4. Trashes inbox mail only when the sender is on `routines/trash-rules.md` (Gmail Trash only, never permanent, protected senders never touched). Every trashed message is listed on the board so you can undo it.
+   Also, Haiku judges each new inbox thread once and trashes clearly unimportant bulk mail (promos, newsletters, product updates, surveys, social notifications). Real people, recruiters, applications, receipts, banking, health, security are never touched.
+   RESCUE: it also checks Trash (last 3 days, interview/application/recruiter/meeting keywords), and moves a thread back to the inbox, starred, ONLY if Haiku says a real person or real applicant-tracking system wrote to her about a real role, application or meeting. Never bulk, no-reply or unsubscribe mail, never senders on `## Do Not Rescue` in `Memory.md`, never mail Ellie trashed herself. If a rescued thread shows up in Trash again, Ellie adds that sender to Do Not Rescue. Rescues are listed on the board ("Rescued from Trash").
 5. Rebuilds the color-coded `Ellie` doc: what happened today, calendar for the rest of the week, trashed mail, current priorities, Today, This week, unsorted captures, application pipeline, waiting on, people, decisions, backlog.
 6. Rebuilds the six "Where we left off" docs, only if their content changed.
 7. Clears `Tell Ellie` if it processed a note.
@@ -83,3 +85,8 @@ Written 2026-09-26. Plain-English record of everything built for Ellie (Melissa'
 Google refresh token and secrets saved; phone sync script and workflow built and tested (dry run, then live); Haiku sorting; Drive topic files; cron-job.org triggers at 6:30am and 4:30pm; board sections for pipeline, people, decisions; briefing ID cache and Haiku sorting; Command Center cleaned and made to read the Drive board; all instructions saved in `Standing Instructions.md`.
 - Reminders section on the wrap: dated open tasks for the next 7 days (no AI, no cost).
 - Inbox table on the wrap: STATUS / FROM / SUBJECT / SUMMARY, NEEDS YOU rows first in red. Haiku writes one line per NEW inbox thread only; results are cached by thread id in `.ellie-state.json`, so seen mail costs nothing. Test run: about 3,200 tokens in. Rescue-from-Trash stays in the 7am briefing email.
+
+### 2026-09-26 late additions
+- Drive docs are updated in place, never trashed; Drive version history keeps every earlier version.
+- cron-job.org jobs: wrap-up 4:45pm + backup 5:15pm (wrap-up.yml), midday light sync 1pm (phone-sync.yml, light=1), phone sync 6:30am + 4:30pm. GitHub crons back them all up. Shift GitHub UTC crons +1h in November.
+- Rescue from Trash, dated reminders as calendar popups, 7-day calendar, Handoff.md each sync.

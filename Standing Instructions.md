@@ -104,3 +104,5 @@ Not done yet: the cloud phone-sync routine is still active (pause it after the 6
 - She pauses the cloud routines herself once she sees the Git runs working (never delete).
 
 - 2026-09-26: A dated "remind me" capture now also creates a Google Calendar entry (9am if no time, 30 min, phone popup 10 min before). Calendar and reminder titles are the short subject only; a stated end time is honored. Undated reminders stay on the board.
+
+- 2026-09-26: Ellie also RESCUES important mail from Trash like the morning briefing: Trash last 3 days, interview/application/recruiter/meeting keywords, Haiku decides, high bar (real person or real ATS about a real role or meeting, addressed to her, never bulk/no-reply/unsubscribe). Moves back to inbox, starred and important. Never rescues Do Not Rescue senders or mail Ellie trashed herself; a rescued thread that returns to Trash adds its sender to Do Not Rescue in Memory.md. Board section "Rescued from Trash". Drive docs are updated in place, never trashed. Everything she tells Ellie is saved in Git and mirrored to the Drive topic folders and the Setting Up Ellie folder.

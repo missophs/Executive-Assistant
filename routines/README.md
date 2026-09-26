@@ -123,3 +123,5 @@ schedule and connectors from the tables above. It uses the `RemoteTrigger` tool 
 - Correction: Phone Sync AM/PM and Ellie Improve are loaders for their repo file; the old email routines' triggers were not.
 - Wrap-up inbox triage now trashes per `routines/trash-rules.md` (copied from the briefing lists; refresh if they change). Trash only, never permanent delete, every trashed thread listed on the board.
 - Standing Instructions.md (repo root) holds every instruction Melissa has given; Ellie appends new ones. Dashboard: whole-week calendar, date first, color-coded, past events hidden, check-boxes removed (close by telling Ellie).
+
+- 2026-09-26 (late): phone_sync.py now rescues important mail from Trash (Haiku, high bar, Do Not Rescue learned, cached in .ellie-state.json), updates Drive docs in place instead of trashing old copies, turns dated "remind me" into 30-minute calendar entries with a popup. cron-job.org wrap-up 4:45pm + 5:15pm backup and midday 1pm light sync created.
