@@ -66,7 +66,7 @@ def _parse(task: str) -> tuple[str, str, str, str]:
     return parts[0].replace("**", "")[:160] if parts else task[:160], " — ".join(rest).replace("**", "")[:200], due, cap
 
 
-def build_wrapup(now: datetime, done_today: list[str], filed: list[str], cal_added: list[str], focus: list[str], n_open: int,
+def build_wrapup(now: datetime, done_today: list[str], filed: list[str], cal_added: list[str], focus: list[str], n_backlog: int,
                  waiting: list[tuple[str, str]], reminders: list[tuple[str, str]], pipeline: list[tuple[str, str]],
                  week: list[tuple[str, str]] | None) -> tuple[str, str]:
     """focus = open tasks from Today then This Week, board order. filed = everything captured into Ellie today.
@@ -125,7 +125,7 @@ def build_wrapup(now: datetime, done_today: list[str], filed: list[str], cal_add
         '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">'
         f'<tr><td style="{F}font-size:10px;font-weight:bold;letter-spacing:2.4px;text-transform:uppercase;color:#FFAA00;padding-bottom:9px;">Ellie &nbsp;&middot;&nbsp; End of Day</td></tr>'
         f'<tr><td style="font-family:Georgia,\'Times New Roman\',serif;font-size:28px;line-height:33px;color:#FFFFFF;">{now.strftime("%A, %B")} {now.day}</td></tr>'
-        f'<tr><td style="{F}font-size:12px;line-height:18px;color:#F5E9FF;padding-top:10px;">{len(done_today)} done today &nbsp;&middot;&nbsp; {n_open} still open &nbsp;&middot;&nbsp; {len(waiting)} awaiting reply</td></tr>'
+        f'<tr><td style="{F}font-size:12px;line-height:18px;color:#F5E9FF;padding-top:10px;">{len(done_today)} done today &nbsp;&middot;&nbsp; {len(focus)} open this week &nbsp;&middot;&nbsp; {n_backlog} in backlog &nbsp;&middot;&nbsp; {len(waiting)} awaiting reply</td></tr>'
         '</table></td></tr>'
         f'<tr><td style="padding:22px;">{"".join(boxes)}</td></tr>'
         '<tr><td bgcolor="#F5F7FA" style="background-color:#F5F7FA;border-top:1px solid #D7DEE7;padding:14px;text-align:center;font-family:Georgia,\'Times New Roman\',serif;font-size:13px;font-style:italic;color:#8994A3;border-radius:0 0 7px 7px;">Ellie</td></tr>'

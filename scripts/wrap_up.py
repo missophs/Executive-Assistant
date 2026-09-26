@@ -48,7 +48,7 @@ def section(prefix: str) -> list[str]:
 
 done_today = [l for l in section("✅ Done") if today in l]
 focus = section("🔥 Today") + section("⏭ This Week")
-n_open = sum(1 for l in board.splitlines() if l.startswith("- [ ]"))
+n_backlog = len(section("📋 Backlog"))
 
 # everything put into Ellie today: board captures, Applications/Memory lines the sync writes as "- <date>: text"
 filed = [re.sub(r"^\[[ x]\] ", "", l[2:]).split(" — ")[0].strip() for l in board.splitlines() if l.startswith("- ") and f"captured {today}" in l]
@@ -96,12 +96,12 @@ for l in open("Applications.md", encoding="utf-8").read().splitlines():
         rows.append((STAGES.index(c[2]), f"{c[0]} - {c[1]}", f"{c[2]} · last contact {c[4]}: {c[5].replace('**', '')}"))
 pipeline = [(t, d) for _, t, d in sorted(rows)]
 
-subject, body = build_wrapup(now, done_today, filed, cal_added, focus, n_open, waiting, reminders, pipeline, week)
+subject, body = build_wrapup(now, done_today, filed, cal_added, focus, n_backlog, waiting, reminders, pipeline, week)
 assert body.startswith("<table") and "$(" not in body and "/tmp/" not in body, "bad email body"
 
 if DRY:
     open("wrapup-preview.html", "w", encoding="utf-8").write(body)
-    print(f"DRY RUN: subject={subject!r} done={len(done_today)} focus={len(focus)} open={n_open} filed={len(filed)} added={cal_added} week={week}")
+    print(f"DRY RUN: subject={subject!r} done={len(done_today)} focus={len(focus)} backlog={n_backlog} filed={len(filed)} added={cal_added} week={week}")
     sys.exit(0)
 
 dup = gmail.users().messages().list(userId="me", q=f'in:sent newer_than:1d subject:"{subject}"').execute().get("messages")
