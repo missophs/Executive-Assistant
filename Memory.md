@@ -101,7 +101,7 @@ _(Rita Ramakrishnan/AIChE follow-up: outcome arrived 9/16 — see People above, 
 - The Agent Skills Directory — https://www.skills.sh/ — sent to self 9/6
 - claude-complete-setup-guide.md (file) — sent to self 9/6
 - THE AUTOMATION GUY (file) — sent to self 9/6
-- Research Any Stock Like a Wall Street Analyst, with Claude — https://www.valuebyraph.com/equity-research-with-claude/ — sent to self 9/7
+- Research Any Stock Like a Wall Street Analyst, with Claude — https://www.valuebyraph.com/equity-research-with-claude/ — sent to self 9/6
 - Build 2 HR dashboards using the CHRO (.skill) inside Claude in 10 minutes — https://thehroffice.substack.com/p/build-2-hr-dashboards-using-the-chro — sent to self 9/7
 - "Become a Member" (Founders Club) — malformed ad-tracking link, unresolved template variables ({{campaign_name}} etc.) — https://go.foundersclubofficial.com/intro-fc-meta-form — sent to self 9/8, looks broken/accidental rather than a real save
 - ChatGPT share (untitled) — https://chatgpt.com/share/6aa1e3c4-b640-83ea-9905-12e1cb53aac3 — sent to self 9/9
@@ -241,8 +241,6 @@ Root cause: raw `git push origin main` is denied by this environment's permissio
 Keep spot-checking `git log`/the actual file after any email claiming "filed"/"added"/"pushed" for a while longer before trusting it unchecked again.
 
 **Recurred 2026-09-26.** The Saturday morning Standup run (~7:54 AM ET) sent an email claiming several vault filings (3 backlog job links, 2 saved links, a Conduit Health/Nasreen Trash rescue and stage change) that never landed on `origin/main` — confirmed via `git fetch origin main` during the 9/26 phone sync, same symptom as the original bug. The Gmail/Calendar-side actions it reported (Trash rescue, calendar event creation, a Gmail draft) DID actually happen — only the git commit/push step silently failed again. The push-via-API fix from 9/4 is evidently not fully reliable. Treat any automation's "filed"/"added" claim as unverified until an independent `git fetch` confirms it, indefinitely — not just "for a while."
-
-**Recurred again 2026-09-27 (small-scale).** This morning's phone sync push (via `push_files`) landed correctly, but reconstructing the file content by hand for that API call introduced a one-character typo — a Saved Links line's date got silently changed from "9/7" to "9/6" — caught by the session's own stop-hook git-diff check and fixed same run via a direct single-line `create_or_update_file` patch. Lesson: manually re-typing/pasting full-file content for a push is itself an error surface, not just the push mechanism. Where possible, push the exact content just read/written rather than retyping it.
 
 ## How Melissa Captures Things
 
