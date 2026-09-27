@@ -1,9 +1,14 @@
-# Handoff - 2026-09-27 6:30AM ET
+# Handoff - 2026-09-27 11:13AM ET
 Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; do not hand-edit.
 
 ## Filed this run
-- Director of Human Resources @ Hanger, Inc.
-- 5 Claude Updates Worth Using (September 2026)
+- Confirm flu shot day and time on calendar; confirm hair appointment time Wednesday; add Friday meet up to calendar
+- Tell Ellie.
+- Tell Ellie.
+- Tell Ellie.
+- Calendar: Doctor's appointment 2026-09-28
+- https://chatgpt.com/share/6ab91a36-6db0-83ea-be91-a7a85af6e02b
+- Director of Human Resources @ Hanger, Inc. (LinkedIn job alert)
 
 ## Closed today
 - (none)
@@ -24,10 +29,11 @@ Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; d
 - Edward, Founder (Dropzone AI) - Contacted 9/25; no reply yet (since 2026-09-25)
 
 ## Calendar, next 7 days
-- Sun 9/27 9:00am - Add Mahjong to calendar tomorrow 9 AM to 1 PM
+- Sun 9/27 1:00pm - Add Mahjong to calendar tomorrow 9 AM to 1 PM
 - Mon 9/28 9:00am - Email doctor for updated prescription
 - Mon 9/28 12:45pm - Memory test
 - Mon 9/28 1:00pm - Doctor's appointment
+- Mon 9/28 2:00pm - Call the pharmacy
 - Tue 9/29 all day - Call New York City about documents
 - Tue 9/29 9:50am - Walgreens Appointment
 - Wed 9/30 9:30am - Elle-Hair

@@ -16,6 +16,8 @@ _(none open)_
 - [ ] Call New York City about documents — due 2026-09-29 (all-day block on calendar) — captured 2026-09-26 · #task · #priority
 
 ## 📋 Backlog
+- [ ] Director of Human Resources @ Hanger, Inc. (LinkedIn job alert) — captured 2026-09-27 · #jobsearch
+- [ ] Confirm flu shot day and time on calendar; confirm hair appointment time Wednesday; add Friday meet up to calendar — captured 2026-09-27 · #task
 
 - [ ] Triage LinkedIn job alert — Director, People Business Partner @ Wiley, up to $213K (LinkedIn alert, 9/26 11:05 PM ET) · #sourcing
 - [ ] Triage job link sent to self 9/25 11:39 PM ET — Head of People @ Nametag (Jobright.ai) — https://jobright.ai/jobs/info/6a65512187cef057612ce4c1 · #sourcing
@@ -125,3 +127,8 @@ _(none open)_
 - [x] Replied to Bryce with HRIS / PEO question — 2026-08-28
 - [x] Replied to Rita Ramakrishnan at AIChE, confirmed Thursday — 2026-08-29
 - [x] Rescued the AIChE invite from Trash and accepted it — Thu 9/3 10:00 ET — 2026-08-29
+
+## 📥 Captured (unsorted)
+- [ ] Tell Ellie. — captured 2026-09-27 · #unsorted
+- [ ] Tell Ellie. — captured 2026-09-27 · #unsorted
+- [ ] Tell Ellie. — captured 2026-09-27 · #unsorted
