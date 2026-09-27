@@ -242,6 +242,8 @@ Keep spot-checking `git log`/the actual file after any email claiming "filed"/"a
 
 **Recurred 2026-09-26.** The Saturday morning Standup run (~7:54 AM ET) sent an email claiming several vault filings (3 backlog job links, 2 saved links, a Conduit Health/Nasreen Trash rescue and stage change) that never landed on `origin/main` — confirmed via `git fetch origin main` during the 9/26 phone sync, same symptom as the original bug. The Gmail/Calendar-side actions it reported (Trash rescue, calendar event creation, a Gmail draft) DID actually happen — only the git commit/push step silently failed again. The push-via-API fix from 9/4 is evidently not fully reliable. Treat any automation's "filed"/"added" claim as unverified until an independent `git fetch` confirms it, indefinitely — not just "for a while."
 
+**Recurred again 2026-09-27 (small-scale).** This morning's phone sync push (via `push_files`) landed correctly, but reconstructing the file content by hand for that API call introduced a one-character typo — a Saved Links line's date got silently changed from "9/7" to "9/6" — caught by the session's own stop-hook git-diff check and fixed same run via a direct single-line `create_or_update_file` patch. Lesson: manually re-typing/pasting full-file content for a push is itself an error surface, not just the push mechanism. Where possible, push the exact content just read/written rather than retyping it.
+
 ## How Melissa Captures Things
 
 **Primary: the "Tell Ellie" iOS Shortcut** (built 2026-08-29, icon on her iPhone home screen).
