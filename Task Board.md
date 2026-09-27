@@ -16,6 +16,7 @@ _(none open)_
 - [ ] Call New York City about documents — due 2026-09-29 (all-day block on calendar) — captured 2026-09-26 · #task · #priority
 
 ## 📋 Backlog
+- [ ] Fix Ellie morning email workflow — Google token likely expired — captured 2026-09-27 · #task
 - [ ] Director of Human Resources @ Hanger, Inc. (LinkedIn job alert) — captured 2026-09-27 · #jobsearch
 
 - [ ] Triage LinkedIn job alert — Director, People Business Partner @ Wiley, up to $213K (LinkedIn alert, 9/26 11:05 PM ET) · #sourcing
