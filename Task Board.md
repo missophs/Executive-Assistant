@@ -17,6 +17,7 @@ _(none open)_
 
 ## 📋 Backlog
 
+- [ ] Triage LinkedIn job alert — Director, People Business Partner @ Wiley, up to $213K (LinkedIn alert, 9/26 11:05 PM ET) · #sourcing
 - [ ] Triage job link sent to self 9/25 11:39 PM ET — Head of People @ Nametag (Jobright.ai) — https://jobright.ai/jobs/info/6a65512187cef057612ce4c1 · #sourcing
 - [ ] Triage job link sent to self 9/25 11:45–11:46 PM ET (sent twice, ~15 sec apart) — Head of Talent & People @ RoboStrategy Advisors (Jobright.ai) — https://jobright.ai/jobs/info/6ab6c89d81e327c4bf201274 · #sourcing
 - [ ] Triage LinkedIn job link sent to self 9/25 12:31 PM ET — no company or role given in the capture — https://www.linkedin.com/comm/jobs/view/4469788397/ · #sourcing
@@ -64,6 +65,10 @@ _(none open)_
 - [ ] Suspected phishing email in Trash, NOT rescued — "We have been trying to reach you - melissaw212" (9/22 10:34 AM ET), sender domain fakes MyChart ("...quantumstrivenow.info"), fake prize/"Emergency Kit" hook. Same pattern as the dentsu phish still open above — spoofing a real service you use (NYU Langone/MyChart). Left in Trash, no action needed unless you want it reported · #security
 - [ ] Triage job link sent to self 9/22 10:51 PM ET — ADP job posting, no company or role given in the capture — https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=5cd5c82a-9265-495c-8abc-b4756df8f809&ccId=19000101_000001&lang=en_US&jobId=9201041965798_1&source=EN · #sourcing
 - [ ] Clarify "pA" capture sent 9/24 8:32–8:42 AM ET (to melweiss212@, subject "pA -", three chained replies) — three fragments with no stated task: "Evicore 866-417-2345", "Medication", "Home health 1856-417-2345". Looks insurance/prior-authorization related but unclear what action is needed or which matter it ties to. Tell Ellie what this refers to, or tell Ellie to drop it · #personal
+
+## ❓ Needs Melissa
+
+- [ ] Calendar check — the "Add Mahjong to calendar tomorrow 9 AM to 1 PM" event (created 9/26 10:35 PM ET, for 9/27) actually shows 9:00–10:00 AM, not 9 AM–1 PM as captured. Left untouched (Ellie never edits existing events). Tell Ellie the correct end time to fix it, or tell Ellie to drop it — doing nothing leaves it at 9–10 AM · #calendar
 
 ## ⏳ Waiting On
 <!-- Blocked on someone else. Note who and since when. -->
