@@ -4,6 +4,7 @@ Written 2026-09-26. Plain-English record of everything built for Ellie (Melissa'
 
 ## The short version
 _(as written 2026-09-26 — kept as-is; see "2026-09-27 update" bullet below for what changed)_
+
 - One daily email: the **Melissa Daily Briefing**, sent at about 7:00am ET by GitHub, started by cron-job.org.
 - **Ellie on your phone:** a Google Doc called `Ellie` (the live board) and a Google Doc called `Tell Ellie` (where you drop notes). A GitHub job reads your notes, files them, cleans the mail, and rebuilds the board at **6:30am and 4:30pm ET**. The 4:30pm run is the end-of-day wrap.
 - **Command Center:** a page in Claude that shows your calendar (live from Google Calendar) and your Top 3 & Follow Up (live from the `Ellie` doc).
@@ -30,6 +31,7 @@ _(as written 2026-09-26 — kept as-is; new rows added 2026-09-27 below, none of
 
 ## Schedule (all America/New_York)
 _(as written 2026-09-26 — kept as-is; 2026-09-27 additions below)_
+
 - 7:00am and 7:03am: cron-job.org starts the Daily Briefing (the 7:03 job is the backup). GitHub's own timers (about 3:30am and 4:15am ET) are extra backups; the workflow skips itself if a briefing already went out today.
 - 6:30am and 4:30pm: cron-job.org starts the Ellie phone sync (jobs "Ellie Phone Sync Trigger" and "Ellie Phone Sync Trigger 4:30pm"). GitHub timers at 10:30 and 20:30 UTC are backups. In November, when clocks change, shift only the GitHub backup times by +1 hour UTC. cron-job.org follows New York time by itself.
 - Every 30 minutes: "Trash newsletters trigger" runs the newsletter trash workflow in daily-briefing.
@@ -42,6 +44,7 @@ _(as written 2026-09-26 — kept as-is; 2026-09-27 additions below)_
 
 ## What the phone sync does each run
 _(as written 2026-09-26 — kept as-is; 2026-09-27 additions as items 9-11)_
+
 1. Reads notes: mail you sent yourself (from and to melissaw212@gmail.com, or to melweiss212@) and the `Tell Ellie` doc. It skips Ellie's own emails and anything already handled.
 2. Sorts each new note with Claude Haiku 4.5 (cheapest model): task, application news, memory, saved link, done, calendar entry, prep, "always trash <sender>", or unclear. Dated or "priority" tasks go to Today or This Week.
 3. Creates calendar entries you ask for (no attendees, no duplicates). A dated "remind me" becomes a 30-minute entry (9am if no time) with a phone popup 10 minutes before. Titles are the short subject only. All-day if it is a plain calendar entry with no time.
@@ -84,10 +87,13 @@ _(as written 2026-09-26 — kept as-is; 2026-09-27 additions as items 9-11)_
 
 ## Still open
 _(as written 2026-09-26 — kept as-is; status notes and new items added 2026-09-27)_
+
 - Pause (never delete) the old Claude cloud phone-sync routine after a few good mornings. **→ 2026-09-27: this turned out to be three routines, not one — see the new bullet below for the full list; none paused yet, Melissa is doing it herself.**
 - Prep captures: only filed under Needs Melissa; no automatic prep doc yet. _(still true 2026-09-27)_
+
 - Midday 1pm check, the Improve routine, and the dashboard live view on the phone are untested. **→ 2026-09-27: midday 1pm check is now built (see Build Log) — the conditional email and the silent vault-filing pass are both live. Improve routine and dashboard live view still untested.**
 - The subject line of a trashed email showed a garbled emoji on the board (cosmetic). _(not looked at 2026-09-27)_
+
 - **(added 2026-09-27)** The three Claude cloud routines that duplicate `phone-sync.yml`'s exact schedule — `trig_01GfvypZDLQZRM9F7Kphsnp8` "Phone Sync AM" (6:30am), `trig_01FEMRhJNPACVqw4HCRd6SNg` "Midday Check (brief)" (1pm), `trig_012SqPZ7Ui5nPFkko73adieN` "Phone Sync PM" (4:30pm) — were racing the Git version on live Gmail/Calendar/git writes and caused the 2026-09-27 4:30pm push failure. Melissa is pausing them herself once she's confirmed the Git runs hold up (an agent session can't disable them — created via the web API). Links: https://claude.ai/code/routines/trig_01GfvypZDLQZRM9F7Kphsnp8, /trig_01FEMRhJNPACVqw4HCRd6SNg, /trig_012SqPZ7Ui5nPFkko73adieN
 - **(added 2026-09-27)** Turn off the old `missophs/daily-briefing` "Melissa Daily Briefing" once `morning-briefing.yml`'s "Ellie - EA" has proven itself over a few days — until then you may get two morning emails.
 - **(added 2026-09-27)** `trig_01YWcsQWdhbmQRGMTy5Yy8zG` "Ellie - Dashboard Refresh" (Claude cloud, twice daily) still costs Claude tokens for the dashboard regeneration — Melissa wants this moved off Claude entirely; not yet built.
