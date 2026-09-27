@@ -55,7 +55,7 @@ Masthead by routine (same purple, pink, orange as the dashboard). `[MASTHEAD BG]
 Omit any section with nothing in it, including its box. The **first** box in the email has no
 `margin-top`; every box after it gets `margin-top:16px;` in the table's `style`.
 
-For the **Calendar** and **Gone Quiet** boxes only, add `colspan="2"` to the header `<td>`,
+For the **Calendar** and **Follow Up** boxes only, add `colspan="2"` to the header `<td>`,
 because their rows have two cells.
 
 ```html
@@ -154,7 +154,7 @@ Headline `[WEEKDAY], [MONTH] [DAY]`. Subline `[N] active roles &nbsp;&middot;&nb
 | 6 | New Since Yesterday | `#00D68F` | TITLE | always — EMPTY ROW "Nothing new overnight." |
 | 7 | Calendar | `#2F6BFF` | TIME | always — EMPTY ROW "Nothing scheduled." |
 | 7b | Interview Prep | `#2F6BFF` | TITLE | an interview or screen is on the calendar within 48 hours |
-| 8 | Gone Quiet | `#8994A3` | STALE | anything is waiting on a reply |
+| 8 | Follow Up | `#8994A3` | STALE | anything is waiting on a reply |
 
 After the Drafts box, add this line directly under it:
 ```html

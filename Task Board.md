@@ -70,6 +70,13 @@ _(none open)_
 
 - [ ] Calendar check — the "Add Mahjong to calendar tomorrow 9 AM to 1 PM" event (created 9/26 10:35 PM ET, for 9/27) actually shows 9:00–10:00 AM, not 9 AM–1 PM as captured. Left untouched (Ellie never edits existing events). Tell Ellie the correct end time to fix it, or tell Ellie to drop it — doing nothing leaves it at 9–10 AM · #calendar
 
+**Vault audit 2026-09-27**
+
+1. MSG Entertainment Holdings and Hudson River Trading are still open in the Backlog, but each one's own line already says "Filed to Applications.md as Applied" — same pattern as the Done items right below them (SimplePractice, Oscar Health). Looks like they were filed but never checked off. Tell Ellie: do 1 — to move both to Done. Doing nothing leaves them sitting in Backlog as if unfiled.
+2. CUNY (Vice Chancellor for HR) in Applications.md still lists its next action as "Interview confirmed: Fri 9/11, 3:00–4:00 PM ET" — that interview was 16 days ago and last contact is dated 9/3, with no outcome recorded since. Tell Ellie: do 2 — to update the row to "awaiting decision, no word since the 9/11 interview" (a status note, not a new outreach). Doing nothing leaves the stale "confirmed" wording in place.
+3. Three cold-outreach threads have had no reply for 10+ days: Patsy Doerr (LRN, contacted 9/16–9/17), Sarah Wagener & Matt Valentino (Chime, contacted 9/17), Jill Keller & Lisa Gibson (Thomson Reuters, contacted 9/16, one auto-reply only). Tell Ellie: do 3 — to draft a one-line second follow-up to each (for your approval before sending), or tell Ellie to drop one or all of them. Doing nothing leaves them open with no further action.
+4. Four applications have sat 3+ weeks with only an auto-ack and no human contact: Dropbox (applied 8/22), Superhuman (8/29), RWT Consulting (8/31), Teleport (9/1). Tell Ellie: do 4 — to move these to Closed for pattern-spotting, or tell Ellie to leave them open. Doing nothing leaves them open in Applications.md as-is.
+
 ## ⏳ Waiting On
 <!-- Blocked on someone else. Note who and since when. -->
 
