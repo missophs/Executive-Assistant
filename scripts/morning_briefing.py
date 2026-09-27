@@ -162,27 +162,46 @@ except Exception as exc:
     print("trash rescue failed:", exc)
 state["trashjudged"] = sorted(judged)[-300:]
 
-# --- calendar, 7 days, every day shown (same shape the old Melissa Daily Briefing used)
+# --- calendar, 7 days, every day shown (same shape the old Melissa Daily Briefing used), plus
+# overlap detection and RSVP-needed flags (ported from missophs/daily-briefing, missing here before 2026-09-27)
 day0 = now.replace(hour=0, minute=0, second=0, microsecond=0)
 events = cal.events().list(calendarId="primary", timeMin=day0.isoformat(), timeMax=(day0 + timedelta(days=7)).isoformat(),
                            singleEvents=True, orderBy="startTime", timeZone="America/New_York").execute().get("items", [])
-by_day: dict[str, list[tuple[str, str]]] = {}
+by_day: dict[str, list[dict]] = {}
 for e in events:
     s = e["start"].get("dateTime")
     summary = e.get("summary", "(no title)")
     if e.get("location"):
         summary += f" ({e['location']})"
+    rsvp = any(a.get("self") and a.get("responseStatus") == "needsAction" for a in e.get("attendees", []))
     if s:
         d = datetime.fromisoformat(s).astimezone(NY)
-        by_day.setdefault(d.strftime("%Y-%m-%d"), []).append((d.strftime("%-I:%M%p").lower(), summary))
+        end_s = e.get("end", {}).get("dateTime")
+        d_end = datetime.fromisoformat(end_s).astimezone(NY) if end_s else d
+        by_day.setdefault(d.strftime("%Y-%m-%d"), []).append(
+            {"start": d, "end": d_end, "when": d.strftime("%-I:%M%p").lower(), "what": summary, "rsvp": rsvp, "conflict": False})
     else:
         d = datetime.fromisoformat(e["start"]["date"])
-        by_day.setdefault(d.strftime("%Y-%m-%d"), []).append(("all day", summary))
+        by_day.setdefault(d.strftime("%Y-%m-%d"), []).append(
+            {"start": None, "end": None, "when": "all day", "what": summary, "rsvp": rsvp, "conflict": False})
+
+for day_events in by_day.values():
+    timed = sorted((ev for ev in day_events if ev["start"] is not None), key=lambda ev: ev["start"])
+    for i in range(len(timed) - 1):
+        if timed[i]["end"] and timed[i + 1]["start"] < timed[i]["end"]:
+            timed[i]["conflict"] = True
+            timed[i + 1]["conflict"] = True
+
 calendar_days = []
+rsvp_needed: list[tuple[str, str]] = []
 for i in range(7):
     d = day0 + timedelta(days=i)
-    key = d.strftime("%Y-%m-%d")
-    calendar_days.append({"label": d.strftime("%a %-m/%-d"), "events": by_day.get(key, [])})
+    day_events = by_day.get(d.strftime("%Y-%m-%d"), [])
+    for ev in day_events:
+        if ev["rsvp"]:
+            rsvp_needed.append((d.strftime("%a %-m/%-d"), ev["what"]))
+    calendar_days.append({"label": d.strftime("%a %-m/%-d"),
+                          "events": [(ev["when"], ev["what"], ev["conflict"], ev["rsvp"]) for ev in day_events]})
 
 # --- prepare: interviews/screens/prep-worthy events in the next 7 days, checklist from the vault only
 PREP_WORDS = re.compile(r"\b(interview|screen|phone screen|video screen|panel|call with|meeting with|appointment|prep)\b", re.I)
@@ -222,18 +241,26 @@ for l in (fu_m.group(1).splitlines() if fu_m else []):
             waiting_fu.append((c[1], f"{c[0]} — {c[3][:160]}", days_since))
 waiting = sorted(waiting_board + waiting_fu, key=lambda w: -w[2])
 
+# --- action required: every board item with an explicit due date, not just the top 3 (ported from
+# missophs/daily-briefing's Action Required cards, missing here before 2026-09-27)
+due_re = re.compile(r"due (\d{4}-\d{2}-\d{2})")
+action_items = sorted(
+    (t for t in focus + section(board, "📋 Backlog") if due_re.search(t)),
+    key=lambda t: due_re.search(t).group(1))
+
 role_count = len({c[0] for c in apps_rows if c[2] != "Closed"})
 awaiting_count = len(waiting)
 open_count = len(focus) + len(section(board, "📋 Backlog"))
 
 subject, body = build_morning(now, calendar_days, rescued, [], inbox_rows, prepare_items, draft_candidates, focus, waiting,
-                              role_count, awaiting_count, open_count)
+                              role_count, awaiting_count, open_count, action_items, rsvp_needed)
 assert body.startswith("<table") and "$(" not in body and "/tmp/" not in body, "bad email body"
 
 if DRY:
     open("morning-preview.html", "w", encoding="utf-8").write(body)
     print(f"DRY RUN: subject={subject!r} inbox={len(inbox_rows)} rescued={len(rescued)} drafts={len(draft_candidates)} "
-          f"prepare={len(prepare_items)} focus={len(focus)} waiting={len(waiting)} roles={role_count} ai_tokens={usage}")
+          f"prepare={len(prepare_items)} focus={len(focus)} waiting={len(waiting)} roles={role_count} "
+          f"action_items={len(action_items)} rsvp_needed={len(rsvp_needed)} ai_tokens={usage}")
     for r in inbox_rows:
         print("  inbox:", r)
     for r in rescued:

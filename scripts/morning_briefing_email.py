@@ -51,9 +51,32 @@ def _priority(action: str, why: str, due: str, bar: str) -> str:
             + "</td></tr></table></td></tr>")
 
 
-def _time(when: str, what: str, color: str = "#2F6BFF") -> str:
+def _time(when: str, what: str, conflict: bool = False, rsvp: bool = False) -> str:
+    color = "#FF3B3B" if conflict else "#2F6BFF"
+    tag = ""
+    if conflict:
+        tag += ' <span style="color:#FF3B3B;font-weight:bold;">&#9888;&nbsp;CONFLICT</span>'
+    if rsvp:
+        tag += ' <span style="color:#FFAA00;font-weight:bold;">RSVP NEEDED</span>'
     return (f'<tr><td width="150" bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:12px 0 12px 16px;{F}font-size:12px;font-weight:bold;color:{color};white-space:nowrap;{B}">{_e(when)}</td>'
-            f'<td bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:12px 16px 12px 10px;{F}font-size:13px;color:#33404F;{B}">{_e(what)}</td></tr>')
+            f'<td bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:12px 16px 12px 10px;{F}font-size:13px;color:#33404F;{B}">{_e(what)}{tag}</td></tr>')
+
+
+def _triage_rows(inbox_rows: list[tuple[bool, str, str, str]]) -> list[str]:
+    """Email Triage Quick List as an actual table (ported from missophs/daily-briefing, was a plain
+    list here before 2026-09-27)."""
+    hcell = f'style="{F}font-size:10px;font-weight:bold;letter-spacing:0.6px;text-transform:uppercase;color:#8994A3;padding:8px 12px;background-color:#F5F7FA;"'
+    rows = [f'<tr><td bgcolor="#F5F7FA" {hcell}>From</td><td bgcolor="#F5F7FA" {hcell}>Subject</td><td bgcolor="#F5F7FA" {hcell}>Note</td></tr>']
+    for needs, frm, subj, line in inbox_rows[:15]:
+        bg = "#FDEDED" if needs else "#FFFFFF"
+        badge = '<span style="color:#FF3B3B;font-weight:bold;">NEEDS YOU</span>&nbsp;' if needs else ""
+        cell = f'bgcolor="{bg}" style="background-color:{bg};padding:10px 12px;{F}font-size:12px;border-bottom:1px solid #E9EDF2;"'
+        rows.append(f'<tr><td {cell}font-weight:bold;color:#12233C;">{badge}{_e(frm)}</td>'
+                    f'<td {cell}color:#33404F;">{_e(subj)}</td>'
+                    f'<td {cell}color:#5C6B7F;">{_e(line)}</td></tr>')
+    if len(rows) > 1:
+        rows[-1] = rows[-1].replace("border-bottom:1px solid #E9EDF2;", "")
+    return rows
 
 
 def _stale(who: str, what: str, days: int) -> str:
@@ -102,34 +125,62 @@ EA_COMMANDS = [
 def build_morning(now: datetime, calendar_days: list[dict], rescued: list[tuple[str, str]], inbox_trashed: list[tuple[str, str]],
                   inbox_rows: list[tuple[bool, str, str, str]], prepare_items: list[tuple[str, str, list[str]]],
                   draft_candidates: list[tuple[str, str, str]], top3: list[str], waiting: list[tuple[str, str, int]],
-                  role_count: int, awaiting_count: int, open_count: int) -> tuple[str, str]:
-    """calendar_days = [{"label": "Sat 9/27", "events": [("9:00am", "Mahjong"), ...]}, ...] for 7 days, today first,
-    every day included even with an empty events list. inbox_rows = (needs_her, from, subject, one-line summary),
-    needs-first. prepare_items = (date label, what, checklist lines — vault-only, "not in vault" if missing).
-    draft_candidates = (who, subject, why a reply is owed), highest value first, max 5. top3 = board lines,
-    Today then This Week, board order. waiting = (who, what she's waiting on, days since)."""
+                  role_count: int, awaiting_count: int, open_count: int,
+                  action_items: list[str] | None = None, rsvp_needed: list[tuple[str, str]] | None = None) -> tuple[str, str]:
+    """calendar_days = [{"label": "Sat 9/27", "events": [("9:00am", "Mahjong", conflict, rsvp), ...]}, ...] for 7 days,
+    today first, every day included even with an empty events list. inbox_rows = (needs_her, from, subject, one-line
+    summary), needs-first. prepare_items = (date label, what, checklist lines — vault-only, "not in vault" if
+    missing). draft_candidates = (who, subject, why a reply is owed), highest value first, max 5. top3 = board lines,
+    Today then This Week, board order. waiting = (who, what she's waiting on, days since). action_items = board
+    lines with an explicit due date, any section, due-date order (not capped at 3 like top3). rsvp_needed =
+    (day label, what) for events where she hasn't responded."""
+    action_items = action_items or []
+    rsvp_needed = rsvp_needed or []
     subject = f"Ellie - EA - {now.strftime('%A, %B')} {now.day}"
     boxes: list[str] = []
 
     def add(title: str, accent: str, rows: list[str], colspan: bool = False) -> None:
         boxes.append(_box(title, accent, rows, first=not boxes, colspan=colspan))
 
+    conflict_count = sum(1 for day in calendar_days for e in day["events"] if e[2])
+    needs_you_count = sum(1 for r in inbox_rows if r[0])
+    summary_lines = []
+    if top3:
+        summary_lines.append(f"Top priority: {_parse(top3[0])[0]}")
+    if needs_you_count:
+        summary_lines.append(f"{needs_you_count} inbox item{'s' if needs_you_count != 1 else ''} need your call today")
+    if waiting:
+        summary_lines.append(f"Longest open wait: {waiting[0][0]} ({waiting[0][2]}d)")
+    if rsvp_needed:
+        summary_lines.append(f"{len(rsvp_needed)} event{'s' if len(rsvp_needed) != 1 else ''} awaiting your RSVP")
+    if conflict_count:
+        summary_lines.append(f"{conflict_count} calendar conflict{'s' if conflict_count != 1 else ''} this week — see Calendar")
+    if not summary_lines:
+        summary_lines.append("Nothing urgent. Light day.")
+    add("Executive Summary", "#6D21C9", [_plain([f"&#8226;&nbsp;{_e(l)}" for l in summary_lines])])
+
     if rescued:
         add("Rescued From Trash", "#FF3B3B", [_title(f, s) for f, s in rescued[:10]])
 
-    if inbox_rows:
-        add("Inbox Triage", "#2F6BFF", [_title(("NEEDS YOU — " if needs else "") + f"{frm} — {subj}"[:120], line) for needs, frm, subj, line in inbox_rows[:15]])
-    else:
-        add("Inbox Triage", "#2F6BFF", [_empty("Nothing new in the inbox.")])
+    add("Inbox Triage — Quick List", "#2F6BFF", _triage_rows(inbox_rows) if inbox_rows else [_empty("Nothing new in the inbox.")], colspan=True)
 
     if inbox_trashed:
         add("Inbox Trash (undo from Gmail Trash if wrong)", "#8994A3", [_plain([f"&#8226;&nbsp;{_e(f)} &mdash; {_e(s)}" for f, s in inbox_trashed[:15]])])
+
+    if action_items:
+        def bar_for(due: str) -> str:
+            try:
+                days = (datetime.strptime(due, "%Y-%m-%d").date() - now.date()).days
+            except ValueError:
+                days = 99
+            return "#FF3B3B" if days <= 0 else "#FFAA00" if days <= 3 else "#2F6BFF"
+        add("Action Required", "#FF3B3B", [_priority(*_parse(t)[:3], bar_for(_parse(t)[2])) for t in action_items[:12]])
 
     cal_rows: list[str] = []
     for day in calendar_days:
         events = day["events"]
         cal_rows.append(_title(day["label"], "Nothing scheduled." if not events else ""))
-        cal_rows.extend(_time(t, w) for t, w in events)
+        cal_rows.extend(_time(t, w, c, r) for t, w, c, r in events)
     add("Calendar — Next 7 Days", "#2F6BFF", cal_rows, colspan=True)
 
     if prepare_items:
@@ -175,9 +226,9 @@ def build_morning(now: datetime, calendar_days: list[dict], rescued: list[tuple[
 
 if __name__ == "__main__":  # runnable check: python scripts/morning_briefing_email.py
     n = datetime(2026, 9, 27, 7, 30)
-    days = [{"label": "Sun 9/27", "events": [("9:00am", "Mahjong")]},
-            {"label": "Mon 9/28", "events": [("1:00pm", "Doctor's appointment")]},
-            {"label": "Tue 9/29", "events": [("all day", "Call New York City about documents")]},
+    days = [{"label": "Sun 9/27", "events": [("9:00am", "Mahjong", False, False), ("9:30am", "Overlap test", True, False)]},
+            {"label": "Mon 9/28", "events": [("1:00pm", "Doctor's appointment", False, True)]},
+            {"label": "Tue 9/29", "events": [("all day", "Call New York City about documents", False, False)]},
             {"label": "Wed 9/30", "events": []},
             {"label": "Thu 10/1", "events": []},
             {"label": "Fri 10/2", "events": []},
@@ -194,12 +245,17 @@ if __name__ == "__main__":  # runnable check: python scripts/morning_briefing_em
         waiting=[("Ashley Fredericks (LRN)", "Awaiting her decision after the video screen", 2),
                  ("Patsy Doerr (LRN)", "No reply to your outreach yet", 11)],
         role_count=14, awaiting_count=7, open_count=41,
+        action_items=["Call New York City about documents — due 2026-09-29 — captured 2026-09-26 · #task",
+                     "Renew notary bond — due 2026-09-26 — captured 2026-09-20 · #task"],
+        rsvp_needed=[("Mon 9/28", "Doctor's appointment")],
     )
     assert s == "Ellie - EA - Sunday, September 27" and h.startswith("<table") and "$(" not in h and "/tmp/" not in h and "gradient" not in h.replace("background-image:linear-gradient", "")
-    for needle in ("Rescued From Trash", "Nasreen Bharoocha", "Inbox Triage", "NEEDS YOU", "Inbox Trash", "Calendar — Next 7 Days",
-                   "Mahjong", "Nothing scheduled.", "Prepare", "Nothing to prepare this week.", "Draft Replies", "Tell Ellie: draft 1 and 3",
+    for needle in ("Executive Summary", "Top priority: Call New York City", "awaiting your RSVP", "calendar conflict", "Rescued From Trash",
+                   "Nasreen Bharoocha", "Inbox Triage — Quick List", "NEEDS YOU", "Inbox Trash", "Action Required", "Renew notary bond",
+                   "Calendar — Next 7 Days", "Mahjong", "CONFLICT", "RSVP NEEDED", "Nothing scheduled.", "Prepare",
+                   "Nothing to prepare this week.", "Draft Replies", "Tell Ellie: draft 1 and 3",
                    "Top 3 &amp; Follow Up", "Call New York City", "Patsy Doerr", "11d", "Ellie Commands", "/ea:setup"):
         assert needle in h, needle
     s2, h2 = build_morning(n, [{"label": "Sun 9/27", "events": []}] * 7, [], [], [], [], [], [], [], 0, 0, 0)
-    assert "Nothing new in the inbox." in h2 and "No replies owed today." in h2 and "Nothing today, nothing waiting." in h2 and "Nothing to prepare this week." in h2
+    assert "Nothing new in the inbox." in h2 and "No replies owed today." in h2 and "Nothing today, nothing waiting." in h2 and "Nothing to prepare this week." in h2 and "Nothing urgent. Light day." in h2
     print("ok")
