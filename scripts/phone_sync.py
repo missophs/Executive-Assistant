@@ -125,20 +125,30 @@ def classify(items: list[tuple[str, str]], open_tasks: list[str]) -> list[dict]:
               '"match":<open task number or null, for done>,"date":"YYYY-MM-DD or null","time":"HH:MM start or null","end":"HH:MM end or null","sender":"for trash"}.\n'
               'For calendar and for reminders, text is ONLY the short subject (e.g. "Mahjong", "Call New York City about documents"), never words like "add to calendar", "remind me" or "tomorrow".\n'
               "kind meanings: task=something to do or a reminder; application=company/role/recruiter/stage news; memory=person, preference or decision; "
-              "link=bare link with no action; done=says something is finished or cancelled (set match to the open task number); "
+              "link=bare link with no action; done=says something is finished, cancelled, or that she heard back from someone and no longer needs to wait "
+              '(e.g. "Nasreen replied", "stop waiting on Chime", "mark the dentist done") — set match to the item number, whether it is a task or a waiting-on item below; '
               "calendar=explicit request to put something on the calendar (needs date); prep=starts with Prep:; trash=always trash a sender; unclear=cannot tell. "
-              "Never invent facts. Output only the JSON array.\n\nOPEN TASKS:\n" +
+              "Never invent facts. Output only the JSON array.\n\nOPEN TASKS AND WAITING-ON ITEMS (say done to close either):\n" +
               "\n".join(f"{n}. {t[:110]}" for n, t in enumerate(open_tasks, 1)) + "\n\nNOTES:\n" +
               "\n".join(f"{n}. {t[:600]}" for n, (_, t) in enumerate(items, 1)))
     txt = ask_haiku(prompt, 1500)
     return json.loads(txt[txt.index("["):txt.rindex("]") + 1])
 
 
-open_tasks = [l for l in board.splitlines() if l.startswith("- [ ]")]
+open_tasks = [l for l in board.splitlines() if l.startswith("- [ ]")]  # Task Board Waiting On items are checkboxes too, already included here
+
+# Memory.md's Follow-Ups table is the other place a Waiting-On item lives (not a checkbox, so not in open_tasks
+# above) — matchable by a "done" capture too: "Nasreen replied", "stop waiting on Chime".
+fu_m0 = re.search(r"^## Follow-Ups[^\n]*\n(.*?)(?=^## |\Z)", memory, re.M | re.S)
+waiting_fu_rows = [[x.strip() for x in l.strip().strip("|").split("|")] for l in (fu_m0.group(1).splitlines() if fu_m0 else []) if l.startswith("|")]
+waiting_fu_rows = [c for c in waiting_fu_rows if len(c) >= 4 and c[0] not in ("Item", "---")]
+waiting_labels = [f"Waiting on: {c[1]} — {c[0]}"[:110] for c in waiting_fu_rows]
+matchable = open_tasks + waiting_labels
+
 plan: list[dict] = []
 if captures and os.environ.get("ANTHROPIC_API_KEY"):
     try:
-        plan = classify(captures, open_tasks)
+        plan = classify(captures, matchable)
     except Exception as exc:  # fall back to unsorted so nothing is lost
         print("AI classify failed, filing unsorted:", exc)
 if not plan:
@@ -181,6 +191,15 @@ for item in plan:
         if isinstance(n, int) and 1 <= n <= len(open_tasks) and open_tasks[n - 1] in board:
             board = board.replace(open_tasks[n - 1] + "\n", "", 1)
             text = re.sub(r"^- \[ \] ", "", open_tasks[n - 1])[:150]
+        elif isinstance(n, int) and n > len(open_tasks):
+            idx = n - 1 - len(open_tasks)
+            if 0 <= idx < len(waiting_fu_rows):
+                c = waiting_fu_rows[idx]
+                m2 = re.search(r"^## Follow-Ups[^\n]*\n(.*?)(?=^## |\Z)", memory, re.M | re.S)
+                if m2:
+                    kept = [l for l in m2.group(1).splitlines() if not (l.startswith("|") and c[1] in l and c[0][:30] in l)]
+                    memory = memory[:m2.start(1)] + "\n".join(kept) + ("\n" if kept else "") + memory[m2.end(1):]
+                text = f"No longer waiting on {c[1]}"
         board = add_after(board, "✅ Done", f"- [x] {text} — done {today}")
         done_list.append(text)
     elif kind == "trash":
