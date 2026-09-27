@@ -231,7 +231,11 @@ code.cmd{font-family:"IBM Plex Mono",monospace; font-size:12px; background:var(-
         <div class="pbody" id="todayWrap"></div>
       </section>
 
-
+      <section class="panel" id="waitPanel" style="scroll-margin-top:16px">
+        <div class="phead"><h2>Waiting On</h2><span class="note" id="waitNote"></span></div>
+        <div class="rule amber"></div>
+        <div class="pbody" id="waitWrap"></div>
+      </section>
 
     </div>
 
@@ -399,6 +403,21 @@ if(DATA.today.length){
   tw.insertAdjacentHTML('beforeend','<div class="tellrow">Done with one? Tell Ellie: &ldquo;mark &lt;task&gt; done&rdquo;. It leaves this list at the next sync.</div>');
 }else{
   tw.innerHTML=emptyBlock("Nothing set for today.",'Run <code class="cmd">/start</code> and it will pick your top three off the Task Board.');
+}
+
+const ww=document.getElementById("waitWrap");
+if(DATA.waiting && DATA.waiting.length){
+  document.getElementById("waitNote").textContent=DATA.waiting.length+(DATA.waiting.length===1?" item":" items");
+  ww.innerHTML=DATA.waiting.map(w=>{
+    const d=daysSince(w.since);
+    const stale=d!==null && d>=STALE_DAYS;
+    return '<div class="revItem"><div class="txt"><div class="desc"><strong>'+esc(w.item)+'</strong> &mdash; '+esc(w.who)+'</div>'+
+      '<div class="cat" style="color:var(--muted);margin-top:5px">Since '+esc(w.since)+(d!==null?' &middot; '+d+'d':'')+'</div></div>'+
+      (stale?'<span class="pill amber">Stale</span>':'')+'</div>';
+  }).join("");
+}else{
+  ww.innerHTML=emptyBlock("Nothing waiting on anyone.","Populates here from things you're blocked on.");
+  document.getElementById("waitNote").textContent="";
 }
 
 
