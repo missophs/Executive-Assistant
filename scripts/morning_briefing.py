@@ -209,7 +209,7 @@ apps_rows = [[x.strip() for x in l.strip().strip("|").split("|")] for l in apps.
 apps_rows = [c for c in apps_rows if len(c) >= 7 and c[0] not in ("Company", "---")]
 prepare_items: list[tuple[str, str, list[str]]] = []
 for day in calendar_days:
-    for _, what in day["events"]:
+    for _, what, _, _ in day["events"]:
         if not PREP_WORDS.search(what):
             continue
         match = next((c for c in apps_rows if c[0].lower() and c[0].lower() in what.lower()), None)
