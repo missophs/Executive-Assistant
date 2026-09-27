@@ -1,0 +1,76 @@
+name: Ellie morning briefing
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "1 = build the email but do not send"
+        default: "0"
+  schedule:
+    - cron: '30 11 * * *'  # Backup: 11:30 UTC = 7:30 AM EDT, same slot the old cloud Standup used. Runs only if GitHub is 15m+ late (see the early-skip below). Shift both crons +1h UTC when DST ends in Nov.
+    - cron: '0 12 * * *'   # Backup 2: 12:00 UTC = 8:00 AM EDT, in case the cron-job.org trigger is missing. Guard + concurrency prevent a second send.
+permissions:
+  contents: write
+concurrency:
+  group: ellie-morning
+  cancel-in-progress: false
+jobs:
+  morning:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check if morning email already sent today
+        id: guard
+        run: |
+          git pull origin main --quiet
+          TODAY=$(TZ=America/New_York date +'%Y-%m-%d')
+          echo "today=$TODAY" >> "$GITHUB_OUTPUT"
+          if [ "${{ inputs.dry_run }}" = "1" ]; then
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          elif [ -f .last_morning_date ] && [ "$(cat .last_morning_date)" = "$TODAY" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event_name }}" = "schedule" ] && [ "$(TZ=America/New_York date +'%H%M')" -lt "0745" ]; then
+            # Backup cron fired before 7:45 AM ET: skip so it cannot send early. workflow_dispatch
+            # (cron-job.org's 7:30 AM ET trigger, or a manual run) always proceeds.
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Set up Python
+        if: steps.guard.outputs.skip != 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install google-api-python-client google-auth
+        if: steps.guard.outputs.skip != 'true'
+      - name: Build and send morning email
+        if: steps.guard.outputs.skip != 'true'
+        env:
+          DRY_RUN: ${{ inputs.dry_run || '0' }}
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python -u scripts/morning_briefing.py
+      - name: Commit guard file and mail cache
+        if: steps.guard.outputs.skip != 'true' && inputs.dry_run != '1'
+        run: |
+          echo "${{ steps.guard.outputs.today }}" > .last_morning_date
+          git config user.name "Ellie"
+          git config user.email "ellie@users.noreply.github.com"
+          git add .last_morning_date .morning-briefing-state.json
+          git diff --staged --quiet || git commit -m "Morning email sent ${{ steps.guard.outputs.today }}"
+          n=0
+          until git pull --rebase origin main && git push origin HEAD:main; do
+            git rebase --abort 2>/dev/null || true
+            n=$((n + 1))
+            [ $n -ge 3 ] && echo "Push failed after $n attempts" >&2 && exit 1
+            sleep $((n * 2))
+          done
+      - name: Notify on failure
+        if: failure()
+        continue-on-error: true
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+        run: python scripts/morning_briefing.py alert

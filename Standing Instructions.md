@@ -106,3 +106,19 @@ Not done yet: the cloud phone-sync routine is still active (pause it after the 6
 - 2026-09-26: A dated "remind me" capture now also creates a Google Calendar entry (9am if no time, 30 min, phone popup 10 min before). Calendar and reminder titles are the short subject only; a stated end time is honored. Undated reminders stay on the board.
 
 - 2026-09-26: Ellie also RESCUES important mail from Trash like the morning briefing: Trash last 3 days, interview/application/recruiter/meeting keywords, Haiku decides, high bar (real person or real ATS about a real role or meeting, addressed to her, never bulk/no-reply/unsubscribe). Moves back to inbox, starred and important. Never rescues Do Not Rescue senders or mail Ellie trashed herself; a rescued thread that returns to Trash adds its sender to Do Not Rescue in Memory.md. Board section "Rescued from Trash". Drive docs are updated in place, never trashed. Everything she tells Ellie is saved in Git and mirrored to the Drive topic folders and the Setting Up Ellie folder.
+
+## 2026-09-27 - Combined morning email built (replaces the plan for two separate emails)
+
+Confirmed yesterday: one combined email — Ellie's standup with the 7-day calendar and briefing folded in — with the daily-briefing GitHub email turned off afterward, once proven. Built, not yet live:
+
+- `scripts/morning_briefing.py` + `scripts/morning_briefing_email.py` + `.github/workflows/morning-briefing.yml`. Subject `Ellie - EA - <Weekday>, <Month> <Day>`. Sends once daily via the same guard shape as `wrap-up.yml` (`.last_morning_date` + a Gmail sent-mail check), backup crons 11:30/12:00 UTC (shift +1h in Nov), concurrency group `ellie-morning`.
+- Contains: Rescued From Trash, Inbox Triage, Inbox Trash, 7-day Calendar (every day shown, same shape as the old Melissa Daily Briefing), Prepare (interview/appointment checklists built only from the vault — "not in vault" if missing, logic ported from daily-briefing's `generate_briefing.py`), Draft Replies — Awaiting Your OK (proposes only, asks first with a literal `Tell Ellie: draft <n>` line, never drafts or sends on its own — actually creating the draft still happens in a chat session, through `/humanize`, same as today), Top 3 & Follow Up (merged, not "Gone Quiet"), and the `/ea:` command table.
+- **Not touched:** `missophs/daily-briefing` (still sends the Melissa Daily Briefing every morning) and the old cloud "Ellie — Morning Standup" trigger. Both keep running until the new email is proven over a few days, per the plan above — then daily-briefing gets turned off. This session did not disable anything.
+- **Flag:** repo docs do not confirm the old cloud "Ellie — Morning Standup" trigger (`trig_01GfvypZDLQZRM9F7Kphsnp8`) is actually disabled — only that pausing it (never deleting) was the plan, and the most recent Memory.md entries show the phone-sync cloud routine was still confirmed live well after its Git replacement worked. If Standup is still enabled, expect up to three separate morning emails (old Standup + this new one + the Daily Briefing) until she disables `trig_01GfvypZDLQZRM9F7Kphsnp8` herself.
+- **cron-job.org job Melissa (or a future session) still needs to create**, same account/pattern as the existing wrap-up/phone-sync jobs:
+  - URL: `https://api.github.com/repos/missophs/Executive-Assistant/actions/workflows/morning-briefing.yml/dispatches`
+  - Method: `POST`
+  - Headers: `Authorization: Bearer <the same GitHub token already used for the wrap-up/phone-sync cron-job.org jobs>`, `Accept: application/vnd.github+json`
+  - Body: `{"ref":"main"}`
+  - Schedule: 7:30 AM America/New_York, daily (cron-job.org handles DST)
+  - Test with a manual "Run now" first; the workflow's own guard will no-op a second same-day dispatch, so an extra test run is safe.
