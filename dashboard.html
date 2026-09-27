@@ -311,7 +311,7 @@ const DATA = {
   review: []
 };
 
-const STALE_DAYS=10;
+const STALE_DAYS=5; // Waiting On items older than this drop off the dashboard entirely (Melissa, 2026-09-27)
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const today=DATA.generated?new Date(DATA.generated+"T00:00:00"):new Date();
 function daysSince(d){ if(!d) return null; const t=new Date(d+"T00:00:00"); if(isNaN(t)) return null; return Math.round((today-t)/86400000); }
@@ -406,17 +406,16 @@ if(DATA.today.length){
 }
 
 const ww=document.getElementById("waitWrap");
-if(DATA.waiting && DATA.waiting.length){
-  document.getElementById("waitNote").textContent=DATA.waiting.length+(DATA.waiting.length===1?" item":" items");
-  ww.innerHTML=DATA.waiting.map(w=>{
+const waitingFresh=(DATA.waiting||[]).filter(w=>{ const d=daysSince(w.since); return d===null || d<=STALE_DAYS; });
+if(waitingFresh.length){
+  document.getElementById("waitNote").textContent=waitingFresh.length+(waitingFresh.length===1?" item":" items");
+  ww.innerHTML=waitingFresh.map(w=>{
     const d=daysSince(w.since);
-    const stale=d!==null && d>=STALE_DAYS;
     return '<div class="revItem"><div class="txt"><div class="desc"><strong>'+esc(w.item)+'</strong> &mdash; '+esc(w.who)+'</div>'+
-      '<div class="cat" style="color:var(--muted);margin-top:5px">Since '+esc(w.since)+(d!==null?' &middot; '+d+'d':'')+'</div></div>'+
-      (stale?'<span class="pill amber">Stale</span>':'')+'</div>';
+      '<div class="cat" style="color:var(--muted);margin-top:5px">Since '+esc(w.since)+(d!==null?' &middot; '+d+'d':'')+'</div></div></div>';
   }).join("");
 }else{
-  ww.innerHTML=emptyBlock("Nothing waiting on anyone.","Populates here from things you're blocked on.");
+  ww.innerHTML=emptyBlock("Nothing waiting on anyone.","Populates here from things you're blocked on. Items past "+STALE_DAYS+" days drop off — tell Ellie to follow up or close them.");
   document.getElementById("waitNote").textContent="";
 }
 

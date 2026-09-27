@@ -5,11 +5,14 @@ Env: GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GOOGLE_REFRESH_TOKEN. DRY_RUN=1 cha
 """
 import base64, hashlib, html, io, json, os, re, sys
 from datetime import datetime, timedelta
+from email.mime.text import MIMEText
 from zoneinfo import ZoneInfo
 
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaIoBaseUpload
+
+from midday_email import build_midday
 
 NY = ZoneInfo("America/New_York")
 DRY = os.environ.get("DRY_RUN") == "1"
@@ -86,6 +89,9 @@ apps = read("Applications.md")
 added: list[str] = []
 always: list[str] = []
 plan_log: list[str] = []
+filed_notes: list[str] = []  # midday email: task/application/memory/link items filed this run
+done_list: list[str] = []  # midday email: tasks closed out by a capture
+needs_call: list[str] = []  # midday email: ambiguous captures she needs to resolve herself
 usage = {"in": 0, "out": 0}
 
 
@@ -151,6 +157,7 @@ for item in plan:
         if kind == "application":
             apps = apps.rstrip() + f"\n- {today}: {text}\n"
         added.append(text)
+        filed_notes.append(text)
         if kind == "task" and due and due >= today and re.search(r"\bremind", src, re.I) and not DRY:  # dated "remind me" = calendar entry with a phone popup
             t0 = item.get("time") if re.fullmatch(r"\d{2}:\d{2}", str(item.get("time"))) else "09:00"
             start = datetime.fromisoformat(f"{due}T{t0}")
@@ -164,15 +171,18 @@ for item in plan:
     elif kind == "memory":
         memory = add_after(memory, "Decisions & Context", f"- {today}: {text}")
         added.append(text)
+        filed_notes.append(text)
     elif kind == "link":
         memory = add_after(memory, "Saved Links", f"- {today}: {text}")
         added.append(text)
+        filed_notes.append(text)
     elif kind == "done":
         n = item.get("match")
         if isinstance(n, int) and 1 <= n <= len(open_tasks) and open_tasks[n - 1] in board:
             board = board.replace(open_tasks[n - 1] + "\n", "", 1)
             text = re.sub(r"^- \[ \] ", "", open_tasks[n - 1])[:150]
         board = add_after(board, "✅ Done", f"- [x] {text} — done {today}")
+        done_list.append(text)
     elif kind == "trash":
         always.append((item.get("sender") or text).lower())
     elif kind == "calendar" and item.get("date"):
@@ -201,6 +211,7 @@ for item in plan:
     else:  # unclear or unsorted
         board = add_after(board, "📥 Captured (unsorted)", f"- [ ] {src[:400]} — captured {today} · #unsorted")
         added.append(src[:80])
+        needs_call.append(src[:200])
     if kind == "trash":
         plan_log[-1] += " (added to always-trash)"
 for a_ in always:
@@ -363,9 +374,19 @@ def pipeline(md: str) -> list[str]:
 
 
 done_today = [l for l in section(board, "✅ Done") if today in l]
+WAITING_MAX_DAYS = 5  # items older than this stop being reported (Melissa, 2026-09-27) — still tracked in Memory.md, just not surfaced
 fu_m = re.search(r"^## Follow-Ups[^\n]*\n(.*?)(?=^## |\Z)", memory, re.M | re.S)  # the real waiting-on list lives in Memory.md, not the Task Board
+
+
+def _fresh(since: str) -> bool:
+    try:
+        return (now.date() - datetime.strptime(since, "%Y-%m-%d").date()).days <= WAITING_MAX_DAYS
+    except ValueError:
+        return True
+
+
 waiting_rows = section(board, "⏳ Waiting On") + [f"{c[1]} - {trunc(c[3], 160)} (since {c[2]})" for l in (fu_m.group(1).splitlines() if fu_m else [])
-                                                 for c in [[x.strip() for x in l.strip().strip("|").split("|")]] if l.startswith("|") and len(c) >= 4 and c[0] not in ("Item", "---")]
+                                                 for c in [[x.strip() for x in l.strip().strip("|").split("|")]] if l.startswith("|") and len(c) >= 4 and c[0] not in ("Item", "---") and _fresh(c[2])]
 page = [f"<h1>ELLIE - LIVE BOARD</h1><p>Melissa Weiss, Senior HR executive, New York (US Eastern). Last updated: {now.strftime('%Y-%m-%d %-I:%M%p')} ET</p>",
         h("What happened today", "green"),
         ul([f"Filed {len(added)} new capture(s)"] + [f"Rescued from Trash: {f} | {sb}" for f, sb in rescued] + [f"Closed: {d}" for d in done_today] + ([f"Always-trash added: {', '.join(always)}"] if always else [])),
@@ -490,6 +511,21 @@ for t, d in topic_docs.items():
         state.setdefault("topics", {})[t] = digest
 if tell:
     replace_doc("Tell Ellie", f"<p>{PLACEHOLDER} Ellie files it at 6:30am and 4:30pm ET.</p>", "text/html", tell[0].get("parents"))
+
+# --- midday email: 1pm only, and only if something actually happened (routines/email-template.md section 4)
+if os.environ.get("LIGHT") == "1":
+    built = build_midday(now, filed_notes, done_list, needs_call)
+    if built:
+        subject, email_body = built
+        dup = gmail.users().messages().list(userId="me", q=f'in:sent newer_than:1d subject:"{subject}"').execute().get("messages")
+        if dup:
+            print("Midday email already sent today, not sending again.")
+        else:
+            msg = MIMEText(email_body, "html", "utf-8")
+            msg["To"], msg["From"], msg["Subject"] = ME, ME, subject
+            gmail.users().messages().send(userId="me", body={"raw": base64.urlsafe_b64encode(msg.as_bytes()).decode()}).execute()
+            print(f"Midday email sent: {subject}")
+
 json.dump(state, open(STATE, "w"))
 print(f"ai tokens: {usage}")
 print(f"done: captures={len(captures)} trashed={len(trashed)} events={len(cal_lines)}")

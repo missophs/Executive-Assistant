@@ -77,12 +77,18 @@ except Exception as exc:  # never claim "clear" when the check failed
     print("calendar failed:", exc)
     week, cal_added = None, []
 
+WAITING_MAX_DAYS = 5  # items older than this stop being reported (Melissa, 2026-09-27) — still tracked in Memory.md, just not surfaced
 waiting = [(x.split(" — ")[0][:80], " — ".join(x.split(" — ")[1:])) for x in section("⏳ Waiting On")]
 fu = re.search(r"^## Follow-Ups[^\n]*\n(.*?)(?=^## |\Z)", open("Memory.md", encoding="utf-8").read(), re.M | re.S)
 for l in (fu.group(1).splitlines() if fu else []):
     c = [x.strip() for x in l.strip().strip("|").split("|")]
     if l.startswith("|") and len(c) >= 4 and c[0] not in ("Item", "---"):
-        waiting.append((c[1], f"since {c[2]} — {c[3]}"))
+        try:
+            age = (now.date() - datetime.strptime(c[2], "%Y-%m-%d").date()).days
+        except ValueError:
+            age = 0
+        if age <= WAITING_MAX_DAYS:
+            waiting.append((c[1], f"since {c[2]} — {c[3]}"))
 
 week_end = (now + timedelta(days=7)).strftime("%Y-%m-%d")
 reminders = sorted((m.group(1), re.sub(r"^- \[ \] ", "", l).split(" — ")[0]) for l in board.splitlines() if l.startswith("- [ ]")
