@@ -1,8 +1,8 @@
-# Handoff - 2026-09-27 6:39PM ET
+# Handoff - 2026-09-27 7:18PM ET
 Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; do not hand-edit.
 
 ## Filed this run
-- Fix Ellie morning email workflow — Google token likely expired
+- (none)
 
 ## Closed today
 - Git automation failure, root-caused and fixed — the 4:30 PM ET "Ellie phone sync" failure (commit 4aacbfa) was a push race: the script ran fine but `git push` got rejected because another commit landed on `main` first, and unlike the other two cron workflows this one had no retry logic. Added the same pull-rebase-and-retry loop morning-briefing.yml and wrap-up.yml already use, and merged it to `main` so it's live for the next scheduled run (4:30 PM ET today). Also added the "Waiting On" dashboard panel — the data (`DATA.waiting`) was already there, just never rendered — 2026-09-27
