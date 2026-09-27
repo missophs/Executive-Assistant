@@ -28,6 +28,7 @@ Job search pipeline. One row per role. `/sync` updates this from the Scratch Pad
 | Dropzone AI | Director of HR | Applied | 2026-09-25 | 2026-09-25 | Application ack via Greenhouse 9/25 6:57 PM ET (landed in Trash, not rescued — no-reply sender). Cold outreach to Edward, founder, 9/25 7:20 PM ET ("Building the People systems behind Dropzone's next growth phase"). No reply yet | Edward, Founder |
 | Bertelsmann Corporate | Vice President, Human Resources | Applied | 2026-09-25 | 2026-09-25 | Application ack via SmartRecruiters 9/25 8:07 PM ET (landed in Trash, not rescued — no-reply sender). No human contact yet | SmartRecruiters (ATS, auto) |
 | Sensiba LLP | Director, Human Resources | Applied | 2026-09-25 | 2026-09-25 | Application ack via Pinpoint 9/25 7:00 PM ET, addressed to melhr212@ (landed in Trash, not rescued — no-reply sender). No human contact yet. Unrelated to an old April 2025 CHRO outreach to a different Sensiba contact | Pinpoint (ATS, auto) |
+| CAI Software | Global HR Director Consultant (Req GLOBA002936) | Screen | unknown | 2026-09-27 | Don Underwood emailed 9/27 2:57 PM ET (to melhr212@) inviting a call; a Teams meeting was booked via his bookings page 9/27 4:20 PM ET (confirmation to melissaw212@). Exact date/time not visible to Ellie — calendar invite (.ics) unreadable, no matching event found on Google Calendar. Check your calendar app directly | Don Underwood, Sr. Talent Acquisition Partner |
 
 ---
 

@@ -17,9 +17,10 @@ _(none open)_
 
 ## 📋 Backlog
 - [ ] Director of Human Resources @ Hanger, Inc. (LinkedIn job alert) — captured 2026-09-27 · #jobsearch
-- [ ] Confirm flu shot day and time on calendar; confirm hair appointment time Wednesday; add Friday meet up to calendar — captured 2026-09-27 · #task
 
 - [ ] Triage LinkedIn job alert — Director, People Business Partner @ Wiley, up to $213K (LinkedIn alert, 9/26 11:05 PM ET) · #sourcing
+- [ ] Triage LinkedIn job alert — Director, HR Business Partner - Technology @ The New York Times (LinkedIn alert, 9/27 7:05 PM ET) · #sourcing
+- [ ] Triage LinkedIn job alert — Human Resources Director @ Artemis Wax, up to $145K (LinkedIn alert, 9/27 5:05 PM ET) · #sourcing
 - [ ] Triage job link sent to self 9/25 11:39 PM ET — Head of People @ Nametag (Jobright.ai) — https://jobright.ai/jobs/info/6a65512187cef057612ce4c1 · #sourcing
 - [ ] Triage job link sent to self 9/25 11:45–11:46 PM ET (sent twice, ~15 sec apart) — Head of Talent & People @ RoboStrategy Advisors (Jobright.ai) — https://jobright.ai/jobs/info/6ab6c89d81e327c4bf201274 · #sourcing
 - [ ] Triage LinkedIn job link sent to self 9/25 12:31 PM ET — no company or role given in the capture — https://www.linkedin.com/comm/jobs/view/4469788397/ · #sourcing
@@ -71,6 +72,11 @@ _(none open)_
 ## ❓ Needs Melissa
 
 - [ ] Calendar check — the "Add Mahjong to calendar tomorrow 9 AM to 1 PM" event (created 9/26 10:35 PM ET, for 9/27) actually shows 9:00–10:00 AM, not 9 AM–1 PM as captured. Left untouched (Ellie never edits existing events). Tell Ellie the correct end time to fix it, or tell Ellie to drop it — doing nothing leaves it at 9–10 AM · #calendar
+- [ ] Flu shot — your 9/27 2:39 PM capture said "I think this Wednesday" and asked Ellie to confirm the day. No flu shot event exists anywhere on your calendar this week. Hair appointment confirmed: "Elle-Hair," Wed 9/30, 9:30–10:30 AM ET. "Friday meet up" from the same capture has been added to your calendar as an all-day event, Fri 10/2 (no time was given). Tell Ellie the flu shot date/time to add it, or tell Ellie to drop it · #calendar
+- [ ] Doctor's appointment time mismatch — your 9/27 2:30 PM capture said "tomorrow at 12 PM" (9/28). Your calendar already has an event titled "Doctor's appointment" on 9/28, but at 1:00–5:30 PM, not 12 PM. Ellie never edits existing events, so nothing was changed. Tell Ellie the correct time, or tell Ellie to drop this · #calendar
+- [ ] CAI Software (Don Underwood, Sr. Talent Acquisition Partner) — a Teams meeting was booked via his bookings page 9/27 4:20 PM ET ("Discuss Career Opportunities at CAI Software," re: Global HR Director Consultant, req GLOBA002936). The confirmation's calendar invite (.ics) isn't readable by Ellie and no matching event was found on your Google Calendar. Filed to Applications.md as Screen. Check your calendar app directly for the confirmed date/time, or tell Ellie the date/time to log it · #jobsearch
+- [ ] Git automation failure — the "Ellie phone sync" GitHub Action failed today at ~4:30 PM ET (commit 4aacbfa, 3 annotations): https://github.com/missophs/Executive-Assistant/actions/runs/36348268305. The separate wrap-up automation sent its email and rebuilt the phone board fine at the same time, so nothing you rely on broke — but the failure is worth a look. Ellie can't read GitHub Actions logs beyond this summary · #admin
+- [ ] Minor: your calendar shows "Walgreens Appointment" twice at the identical time (Tue 9/29, 9:50 AM) — looks like a duplicate. Ellie didn't create either and won't touch existing events. Tell Ellie if you want it noted for cleanup, or ignore it · #calendar
 
 **Vault audit 2026-09-27**
 
