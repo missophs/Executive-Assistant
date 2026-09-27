@@ -206,6 +206,7 @@ if os.path.isdir("Meetings"):
 prepare_items.sort(key=lambda p: p[0])
 
 # --- top 3 & follow up
+WAITING_MAX_DAYS = 5  # items older than this stop being reported (Melissa, 2026-09-27) — still tracked in Memory.md, just not surfaced
 focus = section(board, "🔥 Today") + section(board, "⏭ This Week")
 waiting_board = [(x.split(" — ")[0][:80], " — ".join(x.split(" — ")[1:]), 0) for x in section(board, "⏳ Waiting On")]
 fu_m = re.search(r"^## Follow-Ups[^\n]*\n(.*?)(?=^## |\Z)", memory, re.M | re.S)
@@ -217,7 +218,8 @@ for l in (fu_m.group(1).splitlines() if fu_m else []):
             days_since = (now.date() - datetime.strptime(c[2], "%Y-%m-%d").date()).days
         except ValueError:
             days_since = 0
-        waiting_fu.append((c[1], f"{c[0]} — {c[3][:160]}", days_since))
+        if days_since <= WAITING_MAX_DAYS:
+            waiting_fu.append((c[1], f"{c[0]} — {c[3][:160]}", days_since))
 waiting = sorted(waiting_board + waiting_fu, key=lambda w: -w[2])
 
 role_count = len({c[0] for c in apps_rows if c[2] != "Closed"})
