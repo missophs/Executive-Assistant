@@ -37,7 +37,7 @@ Two consequences worth knowing:
 
 _Last updated: 2026-09-04_
 
-## The three routines
+## The three routines — STALE, see 2026-09-27 note below
 
 | File | Name | Trigger ID | Schedule (ET) | Cron (UTC) |
 |---|---|---|---|---|
@@ -46,6 +46,19 @@ _Last updated: 2026-09-04_
 | `wrap-up.md` | Ellie — Wrap-Up | `trig_012SqPZ7Ui5nPFkko73adieN` | 5:00 PM daily | `0 21 * * *` |
 
 All three: **every day**, seven days a week (changed from weekdays-only on 2026-08-30).
+
+**2026-09-27 — table above is out of date.** These same three trigger IDs are now live under
+different names/schedules/prompts, repurposed at some point without this file being updated:
+`trig_01GfvypZDLQZRM9F7Kphsnp8` is now **Ellie — Phone Sync AM** (6:30am ET, `30 10 * * *`,
+runs `routines/phone-sync.md`); `trig_01FEMRhJNPACVqw4HCRd6SNg` is now **Ellie — Midday Check
+(brief)** (1pm ET, `0 17 * * *`, runs `routines/midday-light.md`); `trig_012SqPZ7Ui5nPFkko73adieN`
+is now **Ellie — Phone Sync PM** (4:30pm ET, `30 20 * * *`, runs `routines/phone-sync.md`). All
+three duplicate `.github/workflows/phone-sync.yml`'s cron slots exactly and were racing against
+it on live Gmail/Calendar/git writes — likely cause of the 2026-09-27 4:30pm push failure. Per
+the standing instruction below ("pause the cloud routine once the Git version is proven, never
+delete") Melissa is pausing all three by hand — this session could not disable them itself (they
+were created via the web API, not by an agent; only she or their own session can toggle them).
+`midday-sweep.md` and `wrap-up.md` in this folder are now orphaned — no live trigger runs them.
 
 ## Shared configuration
 
