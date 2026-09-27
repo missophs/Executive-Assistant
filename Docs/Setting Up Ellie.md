@@ -136,3 +136,12 @@ Google refresh token and secrets saved; phone sync script and workflow built and
   - Phone sync's push-race fix (see the entry above) confirmed working on an actual live run — build, commit, pull-rebase, push, all clean. All three daily slots (6:30am/1pm/4:30pm ET) had already run successfully today via cron-job.org.
   - Wrap-up confirmed to have actually sent a real email today at 4:30pm ET (not just "should send") — verified against the actual commit and the actual "Build and send" step result. The send-once guard correctly kept two backup firings silent.
   - Morning briefing had never run before (built after its own morning trigger window had already passed today). Test-firing it live caught a real crash: the calendar conflict/RSVP change widened each event to a 4-value tuple, and one loop in the Prepare section still unpacked 2, throwing `ValueError`. Fixed and re-verified with a second live run — clean. Its first real (non-dry, non-test) send is still ahead: tomorrow's ~7am ET trigger.
+
+### 2026-09-27 (night, final) — Complete bug list for tonight: both fixed, both verified
+
+Melissa asked directly whether every bug tonight was fixed, after two failure-notification emails (GitHub's own run-failed email, and the workflow's own Gmail alert — both were the same single event, bug #2 below). This is the full list, nothing else broke:
+
+1. `phone-sync.yml` git push had no retry — the original failure that started this session. Fixed with pull-rebase-and-retry. Verified live.
+2. `morning_briefing.py` Prepare section crashed (`ValueError`, tuple-unpacking mismatch from the conflict/RSVP change) on its first-ever run. Fixed, verified live with a second successful run.
+
+Checked at time of writing: all three workflows green, zero open failures. Only remaining unknown is `morning-briefing.yml`'s first real (non-dry) send, tomorrow ~7am ET.
