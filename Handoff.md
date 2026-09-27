@@ -1,14 +1,8 @@
-# Handoff - 2026-09-27 11:13AM ET
+# Handoff - 2026-09-27 1:00PM ET
 Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; do not hand-edit.
 
 ## Filed this run
-- Confirm flu shot day and time on calendar; confirm hair appointment time Wednesday; add Friday meet up to calendar
-- Tell Ellie.
-- Tell Ellie.
-- Tell Ellie.
-- Calendar: Doctor's appointment 2026-09-28
-- https://chatgpt.com/share/6ab91a36-6db0-83ea-be91-a7a85af6e02b
-- Director of Human Resources @ Hanger, Inc. (LinkedIn job alert)
+- https://lnkd.in/p/giuZED-i
 
 ## Closed today
 - (none)
@@ -35,6 +29,7 @@ Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; d
 - Mon 9/28 1:00pm - Doctor's appointment
 - Mon 9/28 2:00pm - Call the pharmacy
 - Tue 9/29 all day - Call New York City about documents
+- Tue 9/29 9:50am - Walgreens Appointment
 - Tue 9/29 9:50am - Walgreens Appointment
 - Wed 9/30 9:30am - Elle-Hair
 - Wed 9/30 12:00pm - HR Networking & Job Search Group - 2 Zoom
