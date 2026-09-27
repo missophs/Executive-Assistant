@@ -1,11 +1,11 @@
-# Handoff - 2026-09-27 3:57PM ET
+# Handoff - 2026-09-27 6:30PM ET
 Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; do not hand-edit.
 
 ## Filed this run
-- Vice President, Human Resources - Bertelsmann | Built In
+- (none)
 
 ## Closed today
-- (none)
+- Git automation failure, root-caused and fixed — the 4:30 PM ET "Ellie phone sync" failure (commit 4aacbfa) was a push race: the script ran fine but `git push` got rejected because another commit landed on `main` first, and unlike the other two cron workflows this one had no retry logic. Added the same pull-rebase-and-retry loop morning-briefing.yml and wrap-up.yml already use, and merged it to `main` so it's live for the next scheduled run (4:30 PM ET today). Also added the "Waiting On" dashboard panel — the data (`DATA.waiting`) was already there, just never rendered — 2026-09-27
 
 ## Open: Today
 - (none)
@@ -15,15 +15,10 @@ Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; d
 
 ## Waiting on
 - Ashley Fredericks (LRN) - Screen held Fri 9/25; thank-you + 30-60-90 day plan sent same day. Awaiting her decision (since 2026-09-25)
-- Patsy Doerr (LRN) - Contacted 9/16, followed up 9/17 night; no reply yet (since 2026-09-16)
-- Sarah Wagener & Matt Valentino (Chime) - Both contacted 9/17 night; no reply from either yet (since 2026-09-17)
-- Shira Blumenstein, Katie Bunker & Kerri Toninoeskin (Cotiviti) - Shira contacted 9/21, Katie & Kerri 9/22; no reply from any yet (since 2026-09-21)
-- Jill Keller & Lisa Gibson (Thomson Reuters) - Jill contacted 9/16, Lisa 9/21 (auto-reply only so far); no substantive reply from either yet (since 2026-09-16)
 - Andre Bokhoor & Natali Rodriguez (Mellon Foundation) - Andre contacted 9/24, Natali 9/25; no reply from either yet (since 2026-09-24)
 - Edward, Founder (Dropzone AI) - Contacted 9/25; no reply yet (since 2026-09-25)
 
 ## Calendar, next 7 days
-- Sun 9/27 1:00pm - Add Mahjong to calendar tomorrow 9 AM to 1 PM
 - Mon 9/28 9:00am - Email doctor for updated prescription
 - Mon 9/28 12:45pm - Memory test
 - Mon 9/28 1:00pm - Doctor's appointment
@@ -37,6 +32,7 @@ Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; d
 - Thu 10/1 9:00am - Executive Roundtable
 - Thu 10/1 12:00pm - Pt
 - Thu 10/1 12:00pm - HR Networking & Job Search: Open Office Hours - Zoom 2
+- Fri 10/2 all day - Meet up
 
 ## Where things live
 - Vault: GitHub missophs/Executive-Assistant (Task Board.md, Applications.md, Memory.md, Standing Instructions.md, routines/README.md changelog).
