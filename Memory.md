@@ -324,3 +324,8 @@ Items Ellie has already triaged. Format: `<id> | <latest-message-date> | <what w
 1a0e141f5e95a089 | 2026-09-27 | Amazon shipment tracking — purchase notice, not trashed, no action needed
 1a0e1071bb7243e3 | 2026-09-27 | "Opus 5.5" newsletter (ruben@substack.com, 3 copies to her 3 inboxes) — subject/snippet mentions Claude, protected, not trashed
 1a0e06587d99629f | 2026-09-27 | Jobgether (VP People) LinkedIn job alert, new message in existing thread — protected sender, already tracked, no new action
+1a0e34c78ec7c30a | 2026-09-27 | Empty "Tell Ellie" capture (blank body, 2:37 PM) — already filed to Task Board Captured (unsorted), not duplicated
+1a0e34c2068befae | 2026-09-27 | Empty "Tell Ellie" capture (blank body, 2:36 PM) — already filed to Task Board Captured (unsorted), not duplicated
+1a0e34c132718724 | 2026-09-27 | Empty "Tell Ellie" capture (blank body, 2:36 PM) — already filed to Task Board Captured (unsorted), not duplicated
+1a0e3bc1c201d4b9 | 2026-09-27 | "First 90 days as a CHRO" link (lnkd.in/p/giuZED-i) — already filed to Saved Links, not duplicated
+1a0e30e8da676d0d | 2026-09-27 | ChatGPT share link (6ab91a36...), landed in Trash — already filed to Saved Links, not duplicated
