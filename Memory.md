@@ -79,6 +79,7 @@ _Last updated: 2026-09-27 (phone sync — morning, Claude cloud routine)_
 _(Rita Ramakrishnan/AIChE follow-up: outcome arrived 9/16 — see People above, closed. Kristen Ramerini/HSO follow-up removed from tracking 2026-09-14 per Tell Ellie capture 9/13 9:27 PM ET — "those are done already." No outcome recorded.)_
 
 ## Saved Links
+- 2026-09-27: Vice President, Human Resources - Bertelsmann | Built In
 - 2026-09-27: https://lnkd.in/p/giuZED-i
 - 2026-09-27: https://chatgpt.com/share/6ab91a36-6db0-83ea-be91-a7a85af6e02b
 - 2026-09-27: 5 Claude Updates Worth Using (September 2026)

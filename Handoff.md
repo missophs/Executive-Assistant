@@ -1,8 +1,8 @@
-# Handoff - 2026-09-27 1:00PM ET
+# Handoff - 2026-09-27 3:57PM ET
 Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; do not hand-edit.
 
 ## Filed this run
-- https://lnkd.in/p/giuZED-i
+- Vice President, Human Resources - Bertelsmann | Built In
 
 ## Closed today
 - (none)
