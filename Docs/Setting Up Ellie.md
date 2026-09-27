@@ -13,6 +13,7 @@ _(as written 2026-09-26 — kept as-is; see "2026-09-27 update" bullet below for
 
 ## Where things live
 _(as written 2026-09-26 — kept as-is; new rows added 2026-09-27 below, none of the original rows changed)_
+
 | Piece | Where |
 |---|---|
 | Vault (tasks, memory, rules, scripts) | GitHub `missophs/Executive-Assistant`, branch `main` (private). Local copy: `~/Documents/Claude/Executive-Assistant` |
