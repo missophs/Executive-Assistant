@@ -185,7 +185,8 @@ for item in plan:
     elif kind == "link":
         memory = add_after(memory, "Saved Links", f"- {today}: {text}")
         added.append(text)
-        filed_notes.append(text)
+        # Melissa, 2026-09-28: don't show bare links in the midday email — no title to show, just noise.
+        # Still filed to Memory.md's Saved Links above for the record.
     elif kind == "done":
         n = item.get("match")
         if isinstance(n, int) and 1 <= n <= len(open_tasks) and open_tasks[n - 1] in board:
