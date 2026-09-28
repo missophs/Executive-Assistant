@@ -1,10 +1,11 @@
-# Handoff - 2026-09-28 evening (Claude cloud phone sync)
+# Handoff - 2026-09-28 6:23PM ET
 Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; do not hand-edit.
 
 ## Filed this run
-- Bertelsmann (VP, HR): cold outreach to Evan Friednash replied 9/28 — early in process, she confirmed she'd applied. Awaiting next steps.
-- AXA XL (Senior HR Business Partner, Americas), new: cold outreach to Debbi Kritzman replied 9/28 — generic, no interview confirmed.
-- Trashed 1 promo email (CVS).
+- https://www.linkedin.com/jobs/view/4472761056/
+- https://www.linkedin.com/jobs/view/4472777495/
+- https://www.linkedin.com/jobs/view/4472777495/
+- https://www.linkedin.com/jobs/view/4471545190/
 
 ## Closed today
 - Mahjong 9/27 calendar time flag resolved — the "Add Mahjong to calendar tomorrow 9 AM to 1 PM" event now shows 1:00–5:00 PM (updated 9/27 1:09 PM ET, after the original flag was raised; Ellie did not make this edit). The date has passed — no longer actionable — 2026-09-28
@@ -19,12 +20,10 @@ Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; d
 - Ashley Fredericks (LRN) - Screen held Fri 9/25; thank-you + 30-60-90 day plan sent same day. Awaiting her decision (since 2026-09-25)
 - Andre Bokhoor & Natali Rodriguez (Mellon Foundation) - Andre contacted 9/24, Natali 9/25; no reply from either yet (since 2026-09-24)
 - Edward, Founder (Dropzone AI) - Contacted 9/25; no reply yet (since 2026-09-25)
-- Evan Friednash (Bertelsmann) - replied 9/28, early in process, awaiting next steps (since 2026-09-28)
-- Debbi Kritzman (AXA XL) - generic reply received 9/28, no next step confirmed (since 2026-09-28)
+- Evan Friednash (Bertelsmann) - Contacted 9/28 10:56 AM ET; he replied same day — early in process, she confirmed she'd applied (since 2026-09-28)
+- Debbi Kritzman (AXA XL) - Contacted 9/28 8:01 AM ET; she replied same day — generic, no interview confirmed (since 2026-09-28)
 
 ## Calendar, next 7 days
-- Mon 9/28 12:45pm - Memory test
-- Mon 9/28 1:00pm - Doctor's appointment
 - Tue 9/29 all day - Call New York City about documents
 - Tue 9/29 9:50am - Walgreens Appointment
 - Tue 9/29 9:50am - Walgreens Appointment
