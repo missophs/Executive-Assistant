@@ -1,9 +1,12 @@
 name: Ellie phone sync
 on:
   schedule:
-    - cron: '30 10 * * *'  # 6:30am ET (EDT). Shift +1h UTC when DST ends in Nov.
-    - cron: '0 17 * * *'  # 1:00pm ET (EDT), light midday: stops early when nothing new
-    - cron: '30 20 * * *'  # 4:30pm ET (EDT), end-of-day wrap
+    # Melissa, 2026-09-28: midday landed after 6 PM once — GitHub delays its own schedule crons hardest
+    # exactly on the hour/half-hour (confirmed: today's on-the-hour backup fired ~5h late). Off by a few
+    # minutes on purpose. Shift all three +1h UTC when DST ends in Nov.
+    - cron: '34 10 * * *'  # 6:34am ET (EDT).
+    - cron: '4 17 * * *'   # 1:04pm ET (EDT), light midday: stops early when nothing new
+    - cron: '34 20 * * *'  # 4:34pm ET (EDT), end-of-day wrap
   workflow_dispatch:
     inputs:
       dry_run:
@@ -29,7 +32,7 @@ jobs:
       - run: python scripts/phone_sync.py
         env:
           DRY_RUN: ${{ inputs.dry_run || '0' }}
-          LIGHT: ${{ inputs.light || (github.event.schedule == '0 17 * * *' && '1') || '0' }}
+          LIGHT: ${{ inputs.light || (github.event.schedule == '4 17 * * *' && '1') || '0' }}
           GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
           GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}

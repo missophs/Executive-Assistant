@@ -322,6 +322,30 @@ for e in events:
         d = datetime.fromisoformat(e["start"]["date"])
         cal_lines.append(f"{d.strftime('%a %-m/%-d')} all day - {e.get('summary', '(no title)')}")
 
+DAY_COLORS = ["#1c4dc4", "#0c7351", "#6d21c9", "#b26a00", "#c62828", "#1c4dc4", "#0c7351"]  # cycles per calendar day, not weekday
+
+
+def cal_html(lines: list[str]) -> str:
+    """Group the flat 'Day date time - summary' lines by day, each day colored and separated by a rule
+    (Melissa, 2026-09-28: calendar days should be in different colors and separated with lines)."""
+    if not lines:
+        return "<p>Nothing on the calendar in the next 7 days.</p>"
+    days: list[tuple[str, list[str]]] = []
+    for l in lines:
+        day, date, rest = l.split(" ", 2)
+        label = f"{day} {date}"
+        if days and days[-1][0] == label:
+            days[-1][1].append(rest)
+        else:
+            days.append((label, [rest]))
+    out = []
+    for i, (label, rest_lines) in enumerate(days):
+        color = DAY_COLORS[i % len(DAY_COLORS)]
+        out.append(f'<div style="border-left:4px solid {color};padding:4px 0 4px 10px;margin-top:8px;">'
+                    f'<b style="color:{color}">{html.escape(label)}</b>'
+                    + "".join(f"<br>{html.escape(r)}" for r in rest_lines) + "</div><hr style=\"border:none;border-top:1px solid #ddd;margin:4px 0;\">")
+    return "".join(out)
+
 
 # --- inbox triage: one Haiku line per NEW thread, cached by thread id
 mail_cache = state.setdefault("mail", {})
@@ -404,12 +428,25 @@ def _fresh(since: str) -> bool:
         return True
 
 
+def _priority_fresh(bullet: str) -> bool:
+    """Keep a Current Priorities bullet only if the most recent M/D date it mentions is within
+    WAITING_MAX_DAYS (Melissa, 2026-09-28: only go back 5 days on priorities). No date found = stale, drop it."""
+    dates = re.findall(r"\b(\d{1,2})/(\d{1,2})\b", bullet)
+    if not dates:
+        return False
+    try:
+        latest = max(datetime(now.year, int(mo), int(d)) for mo, d in dates)
+    except ValueError:
+        return False
+    return (now.date() - latest.date()).days <= WAITING_MAX_DAYS
+
+
 waiting_rows = section(board, "⏳ Waiting On") + [f"{c[1]} - {trunc(c[3], 160)} (since {c[2]})" for l in (fu_m.group(1).splitlines() if fu_m else [])
                                                  for c in [[x.strip() for x in l.strip().strip("|").split("|")]] if l.startswith("|") and len(c) >= 4 and c[0] not in ("Item", "---") and _fresh(c[2])]
 page = [f"<h1>ELLIE - LIVE BOARD</h1><p>Melissa Weiss, Senior HR executive, New York (US Eastern). Last updated: {now.strftime('%Y-%m-%d %-I:%M%p')} ET</p>",
         h("What happened today", "green"),
         ul([f"Filed {len(added)} new capture(s)"] + [f"Rescued from Trash: {f} | {sb}" for f, sb in rescued] + [f"Closed: {d}" for d in done_today] + ([f"Always-trash added: {', '.join(always)}"] if always else [])),
-        h("On your calendar, next 7 days", "blue"), ul(cal_lines),
+        h("On your calendar, next 7 days", "blue"), cal_html(cal_lines),
         h("Reminders, next 7 days", "amber"), ul([f"{d}: {t}" for d, t in reminders]),
         h("Inbox: what needs you and what else is there", "blue"),
         ("<table border='1' cellpadding='4'><tr><th>Status</th><th>From</th><th>Subject</th><th>Summary</th></tr>" +
@@ -417,7 +454,7 @@ page = [f"<h1>ELLIE - LIVE BOARD</h1><p>Melissa Weiss, Senior HR executive, New 
                  for n, f, sb, ln in mail_rows) + "</table>") if mail_rows else "<p>Nothing new in the inbox.</p>",
         h("Rescued from Trash (Ellie thought you would want these; back in your inbox, starred)", "green"), ul([f"{f} | {sb}" for f, sb in rescued]),
         h("Inbox trash (undo from Gmail Trash if wrong)", "red"), ul([f"{f} | {s}" for f, s in trashed]),
-        h("Current priorities", "green"), ul([trunc(x, 420) for x in section(memory, "Current Priorities")[:3]]),
+        h("Current priorities", "green"), ul([trunc(x, 420) for x in section(memory, "Current Priorities") if _priority_fresh(x)][:5]),
         h("Today", "red"), ul(section(board, "🔥 Today")),
         h("This week", "amber"), ul(section(board, "⏭ This Week")),
         h("Captured, not yet sorted", "purple"), ul(section(board, "📥 Captured")),
