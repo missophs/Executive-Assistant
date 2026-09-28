@@ -1,11 +1,12 @@
-# Handoff - 2026-09-27 7:28PM ET
+# Handoff - 2026-09-28 6:30AM ET
 Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; do not hand-edit.
 
 ## Filed this run
-- (none)
+- Calendar: Mah-jongg 2026-10-01
+- https://learnaiwithmariah.com/challenge
 
 ## Closed today
-- Git automation failure, root-caused and fixed — the 4:30 PM ET "Ellie phone sync" failure (commit 4aacbfa) was a push race: the script ran fine but `git push` got rejected because another commit landed on `main` first, and unlike the other two cron workflows this one had no retry logic. Added the same pull-rebase-and-retry loop morning-briefing.yml and wrap-up.yml already use, and merged it to `main` so it's live for the next scheduled run (4:30 PM ET today). Also added the "Waiting On" dashboard panel — the data (`DATA.waiting`) was already there, just never rendered — 2026-09-27
+- (none)
 
 ## Open: Today
 - (none)
@@ -32,6 +33,7 @@ Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; d
 - Thu 10/1 9:00am - Executive Roundtable
 - Thu 10/1 12:00pm - Pt
 - Thu 10/1 12:00pm - HR Networking & Job Search: Open Office Hours - Zoom 2
+- Thu 10/1 6:30pm - Mah-jongg
 - Fri 10/2 all day - Meet up
 
 ## Where things live
