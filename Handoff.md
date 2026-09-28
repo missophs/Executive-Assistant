@@ -1,18 +1,17 @@
-# Handoff - 2026-09-28 6:30AM ET
+# Handoff - 2026-09-28 2:13PM ET
 Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; do not hand-edit.
 
 ## Filed this run
-- Calendar: Mah-jongg 2026-10-01
-- https://learnaiwithmariah.com/challenge
+- (none)
 
 ## Closed today
-- (none)
+- Mahjong 9/27 calendar time flag resolved — the "Add Mahjong to calendar tomorrow 9 AM to 1 PM" event now shows 1:00–5:00 PM (updated 9/27 1:09 PM ET, after the original flag was raised; Ellie did not make this edit). The date has passed — no longer actionable — 2026-09-28
 
 ## Open: Today
-- (none)
+- Call NYC HRA at 929-273-1872 for your required Cash Assistance interview, and upload documents via the ACCESS HRA app — due TODAY 2026-09-28, per an official HRA email received 9/28 12:35 AM ET ("To do on your case," noreply_ahra@hra.nyc.gov). Note: this is a different date than the existing 9/29 all-day calendar block from your 9/26 capture — that block is still on your calendar, untouched · #task · #priority · #urgent
 
 ## Open: This week
-- Call New York City about documents — due 2026-09-29 (all-day block on calendar) — captured 2026-09-26 · #task · #priority
+- (none)
 
 ## Waiting on
 - Ashley Fredericks (LRN) - Screen held Fri 9/25; thank-you + 30-60-90 day plan sent same day. Awaiting her decision (since 2026-09-25)
@@ -20,7 +19,6 @@ Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; d
 - Edward, Founder (Dropzone AI) - Contacted 9/25; no reply yet (since 2026-09-25)
 
 ## Calendar, next 7 days
-- Mon 9/28 9:00am - Email doctor for updated prescription
 - Mon 9/28 12:45pm - Memory test
 - Mon 9/28 1:00pm - Doctor's appointment
 - Mon 9/28 2:00pm - Call the pharmacy
