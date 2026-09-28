@@ -9,11 +9,9 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 ## 🔥 Today
 <!-- Must know today. Keep to 3. -->
 
-_(none open)_
+- [ ] Call NYC HRA at 929-273-1872 for your required Cash Assistance interview, and upload documents via the ACCESS HRA app — due TODAY 2026-09-28, per an official HRA email received 9/28 12:35 AM ET ("To do on your case," noreply_ahra@hra.nyc.gov). Note: this is a different date than the existing 9/29 all-day calendar block from your 9/26 capture — that block is still on your calendar, untouched · #task · #priority · #urgent
 
 ## ⏭ This Week
-
-- [ ] Call New York City about documents — due 2026-09-29 (all-day block on calendar) — captured 2026-09-26 · #task · #priority
 
 ## 📋 Backlog
 - [ ] Fix Ellie morning email workflow — Google token likely expired — captured 2026-09-27 · #task
@@ -21,6 +19,8 @@ _(none open)_
 
 - [ ] Triage LinkedIn job alert — Director, People Business Partner @ Wiley, up to $213K (LinkedIn alert, 9/26 11:05 PM ET) · #sourcing
 - [ ] Triage LinkedIn job alert — Director, HR Business Partner - Technology @ The New York Times (LinkedIn alert, 9/27 7:05 PM ET) · #sourcing
+- [ ] Triage Indeed job alert — Manager, Human Resources Business Partner @ LVMH Perfumes & Cosmetics, $115–140K (Indeed alert, 9/28 4:26 AM ET, landed in swm3016@) · #sourcing
+- [ ] Triage LinkedIn job alert — Senior Director, Human Resources @ InterVarsity Christian Fellowship/USA, remote USA, no comp given (LinkedIn alert, 9/27 11:05 PM ET) · #sourcing
 - [ ] Triage LinkedIn job alert — Human Resources Director @ Artemis Wax, up to $145K (LinkedIn alert, 9/27 5:05 PM ET) · #sourcing
 - [ ] Triage job link sent to self 9/25 11:39 PM ET — Head of People @ Nametag (Jobright.ai) — https://jobright.ai/jobs/info/6a65512187cef057612ce4c1 · #sourcing
 - [ ] Triage job link sent to self 9/25 11:45–11:46 PM ET (sent twice, ~15 sec apart) — Head of Talent & People @ RoboStrategy Advisors (Jobright.ai) — https://jobright.ai/jobs/info/6ab6c89d81e327c4bf201274 · #sourcing
@@ -72,7 +72,6 @@ _(none open)_
 
 ## ❓ Needs Melissa
 
-- [ ] Calendar check — the "Add Mahjong to calendar tomorrow 9 AM to 1 PM" event (created 9/26 10:35 PM ET, for 9/27) actually shows 9:00–10:00 AM, not 9 AM–1 PM as captured. Left untouched (Ellie never edits existing events). Tell Ellie the correct end time to fix it, or tell Ellie to drop it — doing nothing leaves it at 9–10 AM · #calendar
 - [ ] Flu shot — your 9/27 2:39 PM capture said "I think this Wednesday" and asked Ellie to confirm the day. No flu shot event exists anywhere on your calendar this week. Hair appointment confirmed: "Elle-Hair," Wed 9/30, 9:30–10:30 AM ET. "Friday meet up" from the same capture has been added to your calendar as an all-day event, Fri 10/2 (no time was given). Tell Ellie the flu shot date/time to add it, or tell Ellie to drop it · #calendar
 - [ ] Doctor's appointment time mismatch — your 9/27 2:30 PM capture said "tomorrow at 12 PM" (9/28). Your calendar already has an event titled "Doctor's appointment" on 9/28, but at 1:00–5:30 PM, not 12 PM. Ellie never edits existing events, so nothing was changed. Tell Ellie the correct time, or tell Ellie to drop this · #calendar
 - [ ] CAI Software (Don Underwood, Sr. Talent Acquisition Partner) — a Teams meeting was booked via his bookings page 9/27 4:20 PM ET ("Discuss Career Opportunities at CAI Software," re: Global HR Director Consultant, req GLOBA002936). The confirmation's calendar invite (.ics) isn't readable by Ellie and no matching event was found on your Google Calendar. Filed to Applications.md as Screen. Check your calendar app directly for the confirmed date/time, or tell Ellie the date/time to log it · #jobsearch
@@ -93,6 +92,7 @@ _(none open)_
 ## ✅ Done
 <!-- Cleared during /start and /wrap-up. Archive monthly. -->
 
+- [x] Mahjong 9/27 calendar time flag resolved — the "Add Mahjong to calendar tomorrow 9 AM to 1 PM" event now shows 1:00–5:00 PM (updated 9/27 1:09 PM ET, after the original flag was raised; Ellie did not make this edit). The date has passed — no longer actionable — 2026-09-28
 - [x] Git automation failure, root-caused and fixed — the 4:30 PM ET "Ellie phone sync" failure (commit 4aacbfa) was a push race: the script ran fine but `git push` got rejected because another commit landed on `main` first, and unlike the other two cron workflows this one had no retry logic. Added the same pull-rebase-and-retry loop morning-briefing.yml and wrap-up.yml already use, and merged it to `main` so it's live for the next scheduled run (4:30 PM ET today). Also added the "Waiting On" dashboard panel — the data (`DATA.waiting`) was already there, just never rendered — 2026-09-27
 - [x] KSF Recruit (Tristen Murch) — Head of People, fast-growing consumer-electronics startup — inbound lead 9/24. You asked for JD/location/comp; Tristen replied it's a hands-on startup role and offered to keep in touch for opportunities more aligned to your background. You pushed back (comfortable with startups) but no further movement since — closed for pattern-spotting — 2026-09-26
 - [x] Send résumé to Nasreen Bharoocha (Conduit Health) — moot. Nasreen rejected the role 9/23 1:58 PM ET (pivoting away from People-background candidates, per her email — verified directly). That reply, plus your 9/25 5:06 PM "didn't hear back" chase and her 9/25 9:14 PM reply pointing back to the rejection, had all landed unread in Trash — rescued this morning. A closing-reply draft (acknowledging you saw the rejection) is sitting in Gmail Drafts, not sent. The 9/18 résumé-placeholder draft in the same thread is now moot too — your call to delete or leave it — 2026-09-26
