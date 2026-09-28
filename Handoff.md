@@ -1,4 +1,4 @@
-# Handoff - 2026-09-28 2:13PM ET
+# Handoff - 2026-09-28 4:30PM ET
 Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; do not hand-edit.
 
 ## Filed this run
@@ -21,7 +21,6 @@ Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; d
 ## Calendar, next 7 days
 - Mon 9/28 12:45pm - Memory test
 - Mon 9/28 1:00pm - Doctor's appointment
-- Mon 9/28 2:00pm - Call the pharmacy
 - Tue 9/29 all day - Call New York City about documents
 - Tue 9/29 9:50am - Walgreens Appointment
 - Tue 9/29 9:50am - Walgreens Appointment
