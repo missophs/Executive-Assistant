@@ -1,8 +1,10 @@
-# Handoff - 2026-09-28 4:30PM ET
+# Handoff - 2026-09-28 evening (Claude cloud phone sync)
 Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; do not hand-edit.
 
 ## Filed this run
-- (none)
+- Bertelsmann (VP, HR): cold outreach to Evan Friednash replied 9/28 — early in process, she confirmed she'd applied. Awaiting next steps.
+- AXA XL (Senior HR Business Partner, Americas), new: cold outreach to Debbi Kritzman replied 9/28 — generic, no interview confirmed.
+- Trashed 1 promo email (CVS).
 
 ## Closed today
 - Mahjong 9/27 calendar time flag resolved — the "Add Mahjong to calendar tomorrow 9 AM to 1 PM" event now shows 1:00–5:00 PM (updated 9/27 1:09 PM ET, after the original flag was raised; Ellie did not make this edit). The date has passed — no longer actionable — 2026-09-28
@@ -17,6 +19,8 @@ Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; d
 - Ashley Fredericks (LRN) - Screen held Fri 9/25; thank-you + 30-60-90 day plan sent same day. Awaiting her decision (since 2026-09-25)
 - Andre Bokhoor & Natali Rodriguez (Mellon Foundation) - Andre contacted 9/24, Natali 9/25; no reply from either yet (since 2026-09-24)
 - Edward, Founder (Dropzone AI) - Contacted 9/25; no reply yet (since 2026-09-25)
+- Evan Friednash (Bertelsmann) - replied 9/28, early in process, awaiting next steps (since 2026-09-28)
+- Debbi Kritzman (AXA XL) - generic reply received 9/28, no next step confirmed (since 2026-09-28)
 
 ## Calendar, next 7 days
 - Mon 9/28 12:45pm - Memory test
