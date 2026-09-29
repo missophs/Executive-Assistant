@@ -1,12 +1,9 @@
-# Handoff - 2026-09-29 4:30PM ET
+# Handoff - 2026-09-29 7:53PM ET
 Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; do not hand-edit.
 
 ## Filed this run
-- Calendar: Dr Hollander 2026-11-17
-- https://www.aihr.com/blog/claude-for-hr/?utm_source=linkedin&utm_medium=social&utm_campaign=blog&utm_term=acxx-claude-for-hr-one-pager&utm_content=acxx-claude-for-hr-one-pager
-- https://lnkd.in/p/gSqjCznJ
-- Coding with Claude: Build complete production applications, understand & refactor codebases, debug complex problems
-- https://lnkd.in/p/gbBuJYXa
+- Call New York City
+- Calendar reminder: Call New York City 2026-09-30 12:00
 
 ## Closed today
 - LRN (Vice President of People) — Ashley Fredericks rejected 9/29 12:14 PM ET, "specific needs of the role," not a knock on your experience per her email. Video screen held 9/25, thank-you + 30-60-90 day plan sent same day. Patsy Doerr (second LRN contact) never replied. Moved to Closed in Applications.md — 2026-09-29
@@ -15,7 +12,7 @@ Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; d
 - Call NYC HRA at 929-273-1872 for your required Cash Assistance interview, and upload documents via the ACCESS HRA app — due TODAY 2026-09-28, per an official HRA email received 9/28 12:35 AM ET ("To do on your case," noreply_ahra@hra.nyc.gov). Note: this is a different date than the existing 9/29 all-day calendar block from your 9/26 capture — that block is still on your calendar, untouched · #task · #priority · #urgent
 
 ## Open: This week
-- (none)
+- Call New York City — due 2026-09-30 — captured 2026-09-29 · #task
 
 ## Waiting on
 - Andre Bokhoor & Natali Rodriguez (Mellon Foundation) - Andre contacted 9/24, Natali 9/25; no reply from either yet (since 2026-09-24)
@@ -29,6 +26,7 @@ Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; d
 - Wed 9/30 8:30am - Vaccine at 9:50 AM, then Target and Ulta
 - Wed 9/30 9:30am - Elle-Hair
 - Wed 9/30 12:00pm - HR Networking & Job Search Group - 2 Zoom
+- Wed 9/30 12:00pm - Call New York City
 - Wed 9/30 12:00pm - Network 
 - Wed 9/30 2:30pm - Melissa Weiss - Discuss Career Opportunities at CAI Software
 - Thu 10/1 9:00am - Executive Roundtable
