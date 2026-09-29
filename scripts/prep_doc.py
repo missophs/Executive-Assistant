@@ -1,6 +1,7 @@
 """Builds a Meetings/<date> <title>.md prep doc from the vault only (no AI, no web). Anything not in the vault says "not in vault".
 Pure function; phone_sync.py passes in the capture text, the calendar event it found (or None), Applications.md and Memory.md.
 """
+import html
 import re
 
 STOP = {"prep", "prepare", "for", "interview", "with", "tomorrow", "today", "the", "my", "a", "an", "call", "meeting", "screen", "to", "on", "at",
@@ -46,6 +47,27 @@ def build_prep(text: str, day: str, event: dict | None, apps_md: str, memory_md:
     return title, "\n".join(md)
 
 
+def to_html(md: str) -> str:
+    """Prep markdown -> simple email HTML (headings, bullets, bold), so the doc can be read on a phone."""
+    out, in_ul = [], False
+    inline = lambda t: re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", html.escape(t, quote=False))
+    for l in md.splitlines():
+        if l.startswith("- "):
+            out.append(("" if in_ul else "<ul>") + f"<li>{inline(l[2:])}</li>")
+            in_ul = True
+            continue
+        if in_ul:
+            out.append("</ul>")
+            in_ul = False
+        if l.startswith("# "):
+            out.append(f'<h2 style="font-family:Georgia,serif;color:#3B1B8F;">{inline(l[2:])}</h2>')
+        elif l.startswith("## "):
+            out.append(f'<h3 style="font-family:Helvetica,Arial,sans-serif;color:#6D21C9;margin-bottom:4px;">{inline(l[3:])}</h3>')
+        elif l.strip():
+            out.append(f"<p>{inline(l)}</p>")
+    return '<div style="font-family:Helvetica,Arial,sans-serif;font-size:14px;line-height:21px;color:#12233C;max-width:600px;">' + "\n".join(out) + ("</ul>" if in_ul else "") + "</div>"
+
+
 if __name__ == "__main__":  # runnable check: python scripts/prep_doc.py — synthetic data only
     apps = "| Company | Role | Stage | Applied | Last contact | Notes | Contact |\n|---|---|---|---|---|---|---|\n" \
            "| Acme Corp | HR Director (Req X) | Screen | unknown | 2026-09-27 | Teams booked | Jane Roe, Recruiter |\n"
@@ -58,4 +80,6 @@ if __name__ == "__main__":  # runnable check: python scripts/prep_doc.py — syn
     assert build_prep("prep for interview with Zzz", "2026-09-30", None, apps, mem) is None
     ev = {"summary": "Acme call", "start": {"dateTime": "2026-09-30T14:00:00-04:00"}, "hangoutLink": "https://teams/x", "attendees": [{"email": "j@acme.com", "displayName": "Jane R"}]}
     assert "2026-09-30 14:00" in build_prep("prep Acme", "2026-09-30", ev, apps, mem)[1]
+    h = to_html(r[1])
+    assert h.startswith("<div") and "<li>" in h and "<h2" in h and "Jane Roe" in h
     print("ok")

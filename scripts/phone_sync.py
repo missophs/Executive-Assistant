@@ -13,7 +13,7 @@ from googleapiclient.discovery import build
 from googleapiclient.http import MediaIoBaseUpload
 
 from midday_email import build_midday
-from prep_doc import build_prep, keywords
+from prep_doc import build_prep, keywords, to_html
 
 NY = ZoneInfo("America/New_York")
 DRY = os.environ.get("DRY_RUN") == "1"
@@ -238,6 +238,12 @@ for item in plan:
             os.makedirs("Meetings", exist_ok=True)
             if not DRY:
                 open(f"Meetings/{day} {re.sub(r'[^A-Za-z0-9 &-]', '', built[0])}.md", "w", encoding="utf-8").write(built[1])
+            if not DRY:  # the vault is private, so the prep doc has to reach her phone by email
+                subj_p = f"Ellie - Prep - {built[0].removesuffix(' prep')} - {day}"
+                if not gmail.users().messages().list(userId="me", q=f'in:sent newer_than:2d subject:"{subj_p}"').execute().get("messages"):
+                    msg_p = MIMEText(to_html(built[1]), "html", "utf-8")
+                    msg_p["To"], msg_p["From"], msg_p["Subject"] = ME, ME, subj_p
+                    gmail.users().messages().send(userId="me", body={"raw": base64.urlsafe_b64encode(msg_p.as_bytes()).decode()}).execute()
             added.append(f"Prep doc: {built[0]} ({day})")
             filed_notes.append(f"Prep doc ready: {built[0]} for {day} (in the Prepare section of your next morning email)")
         else:  # nothing in the vault or on the calendar for it: say so instead of guessing
