@@ -17,7 +17,7 @@ from zoneinfo import ZoneInfo
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 
-from morning_briefing_email import build_morning
+from morning_briefing_email import CATS, build_morning
 
 NY = ZoneInfo("America/New_York")
 DRY = os.environ.get("DRY_RUN") == "1"
@@ -90,50 +90,68 @@ dnr_m = re.search(r"^## Do Not Rescue[^\n]*\n(.*?)(?=^## |\Z)", memory, re.M | r
 do_not_rescue = [c[0].lower() for l in (dnr_m.group(1).splitlines() if dnr_m else []) if l.startswith("|")
                  for c in [[x.strip() for x in l.strip().strip("|").split("|")]] if c and c[0] not in ("Sender / domain", "---") and not c[0].startswith("-")]
 
-# --- inbox triage (own cache; deliberately not phone_sync.py's .ellie-state.json — see STATE comment above)
-mail_cache = state.setdefault("mail", {})
-kept: list[tuple[str, str, str, str]] = []  # (thread id, from, subject, snippet)
+# --- inbox triage + full-day review (own cache; deliberately not phone_sync.py's .ellie-state.json — see STATE comment above)
+# Every email from the last day (inbox, archived, Trash, Spam) is sorted into one category so the email can account for all of them.
+mail_cache = state.setdefault("mail", {})  # thread id -> [needs, line, reply, why, category]
+allmail: list[tuple[str, str, str, str, str]] = []  # (thread id, from, subject, snippet, location)
+kept: list[tuple[str, str, str, str, str]] = []  # the inbox subset, same shape
 protected_ids: set[str] = set()
-for t in gmail.users().threads().list(userId="me", q="in:inbox newer_than:1d").execute().get("threads", []):
+for t in gmail.users().threads().list(userId="me", maxResults=100, q="in:anywhere newer_than:1d -in:sent -in:drafts -from:me").execute().get("threads", []):
     th = gmail.users().threads().get(userId="me", id=t["id"], format="metadata", metadataHeaders=["From", "Subject"]).execute()
     hd = {h["name"]: h["value"] for h in th["messages"][0]["payload"]["headers"]}
     frm, subj = hd.get("From", "").lower(), hd.get("Subject", "")
-    hay = f"{subj} {th['messages'][0].get('snippet', '')}".lower()
+    labels = set(th["messages"][-1].get("labelIds", []))
+    loc = "trash" if "TRASH" in labels else "spam" if "SPAM" in labels else "inbox" if "INBOX" in labels else "other"
+    row = (t["id"], hd.get("From", ""), subj, th["messages"][0].get("snippet", ""), loc)
+    allmail.append(row)
+    if loc != "inbox":
+        continue
+    hay = f"{subj} {row[3]}".lower()
     if any(p in frm for p in protected) or any(n in hay for n in never_subj):
         protected_ids.add(t["id"])
-        kept.append((t["id"], hd.get("From", ""), subj, th["messages"][0].get("snippet", "")))
+        kept.append(row)
         continue
     if any(a in frm for a in always_l):
         continue  # deterministic always-trash senders are handled by the wrap-up/phone-sync triage already; this email only reports, it never trashes a protected/never list
-    kept.append((t["id"], hd.get("From", ""), subj, th["messages"][0].get("snippet", "")))
+    kept.append(row)
 
-fresh = [k for k in kept if k[0] not in mail_cache]
+fresh = [k for k in allmail if len(mail_cache.get(k[0], [])) < 5]
 if fresh and os.environ.get("ANTHROPIC_API_KEY"):
-    try:
-        out = ask_haiku(f"Today is {today}. Melissa is a senior HR executive job searching. For each inbox email return a JSON array, same order: "
-                        '{"i":<n>,"needs":true|false,"trash":true|false,"reply":true|false,"line":"one plain line, max 14 words, what it is and any amount or deadline",'
-                        '"why":"if reply=true, one short line on why a reply is owed and to whom, else empty"}. '
-                        "needs=true ONLY when a real person is waiting on her, a recruiter or interviewer wrote directly, there is a hard deadline, or a security or money problem. Automated job alerts, job digests, newsletters, receipts, statements, promos and deposits are needs=false. "
-                        "trash=true ONLY for clearly unimportant bulk mail: marketing and promotions, product or feature announcements, newsletters, webinar or event promos, surveys, social-network notifications. trash=false for anything from a real person, recruiters, job applications or acknowledgments, job alerts and digests, interviews, receipts, statements, banking, health or insurance, security alerts, government, or anything you are unsure about. "
-                        "reply=true ONLY when a real person (recruiter, interviewer, hiring manager, networking contact) is owed a reply from Melissa and no automated sender. Never invent facts. JSON only.\n\n" +
-                        "\n".join(f"{n}. From: {f[:60]} | Subject: {sb[:90]} | {sn[:160]}" for n, (_, f, sb, sn) in enumerate(fresh, 1)), 1800)
-        for r in json.loads(out[out.index("["):out.rindex("]") + 1]):
-            if 1 <= r.get("i", 0) <= len(fresh):
-                k = fresh[r["i"] - 1]
-                mail_cache[k[0]] = [bool(r.get("needs")), str(r.get("line", ""))[:140], bool(r.get("reply")), str(r.get("why", ""))[:160]]
-    except Exception as exc:
-        print("AI mail triage failed:", exc)
-for k in kept:
-    mail_cache.setdefault(k[0], [False, "", False, ""])
+    where = {"inbox": "in inbox", "trash": "in Trash", "spam": "in Spam", "other": "archived"}
+    for i in range(0, len(fresh), 40):
+        chunk = fresh[i:i + 40]
+        try:
+            out = ask_haiku(f"Today is {today}. Melissa is a senior HR executive job searching. For each email return a JSON array, same order: "
+                            '{"i":<n>,"needs":true|false,"reply":true|false,"cat":"<one category>","line":"one plain line, max 14 words, what it is and any amount or deadline",'
+                            '"why":"if reply=true, one short line on why a reply is owed and to whom, else empty"}. '
+                            f"cat must be exactly one of: {' | '.join(CATS)}. Phishing / Scam = fake or spoofed senders, fake payment or account threats. Security / Risk = REAL alerts from her banks, accounts or logins. "
+                            "needs=true ONLY when a real person is waiting on her, a recruiter or interviewer wrote directly, there is a hard deadline, or a security or money problem, and the email is in her inbox. Automated job alerts, job digests, newsletters, receipts, statements, promos and deposits are needs=false. "
+                            "reply=true ONLY when a real person (recruiter, interviewer, hiring manager, networking contact) is owed a reply from Melissa and no automated sender, and the email is in her inbox. Never invent facts. JSON only.\n\n" +
+                            "\n".join(f"{n}. ({where[k[4]]}) From: {k[1][:60]} | Subject: {k[2][:90]} | {k[3][:160]}" for n, k in enumerate(chunk, 1)), 4000)
+            for r in json.loads(out[out.index("["):out.rindex("]") + 1]):
+                if 1 <= r.get("i", 0) <= len(chunk):
+                    k = chunk[r["i"] - 1]
+                    inbox_ = k[4] == "inbox"
+                    mail_cache[k[0]] = [bool(r.get("needs")) and inbox_, str(r.get("line", ""))[:140], bool(r.get("reply")) and inbox_,
+                                        str(r.get("why", ""))[:160], r.get("cat") if r.get("cat") in CATS else "Other"]
+        except Exception as exc:
+            print("AI mail triage failed:", exc)
+for k in allmail:
+    c = mail_cache.get(k[0])
+    if not c:
+        mail_cache[k[0]] = [False, "", False, "", "Other"]
+    elif len(c) < 5:
+        c.append("Other")
 inbox_rows = [(mail_cache[k[0]][0], re.sub(r"<.*?>|\"", "", k[1]).split("@")[0][:40], k[2][:80], mail_cache[k[0]][1] or k[3][:120]) for k in kept]
 inbox_rows.sort(key=lambda r: not r[0])
 draft_candidates = [(re.sub(r"<.*?>|\"", "", k[1]).split("@")[0][:40], k[2][:100], mail_cache[k[0]][3])
                     for k in kept if mail_cache[k[0]][2] and k[0] not in protected_ids][:5]
-for k in list(mail_cache)[:-200]:
+for k in list(mail_cache)[:-300]:
     del mail_cache[k]
 
 # --- rescue from trash: same high bar as phone_sync.py. Report only — this email never trashes.
 rescued: list[tuple[str, str]] = []
+rescued_ids: set[str] = set()
 judged = set(state.get("trashjudged", []))
 try:
     cands = []
@@ -157,6 +175,7 @@ try:
                 k = cands[r["i"] - 1]
                 if not DRY:
                     gmail.users().threads().modify(userId="me", id=k[0], body={"addLabelIds": ["INBOX", "STARRED", "IMPORTANT"], "removeLabelIds": ["TRASH"]}).execute()
+                rescued_ids.add(k[0])
                 rescued.append((re.sub(r".*<|>.*", "", k[1]).strip() or k[1], k[2]))
 except Exception as exc:
     print("trash rescue failed:", exc)
@@ -168,8 +187,13 @@ day0 = now.replace(hour=0, minute=0, second=0, microsecond=0)
 events = cal.events().list(calendarId="primary", timeMin=day0.isoformat(), timeMax=(day0 + timedelta(days=7)).isoformat(),
                            singleEvents=True, orderBy="startTime", timeZone="America/New_York").execute().get("items", [])
 by_day: dict[str, list[dict]] = {}
+seen_ev: set[tuple[str, str]] = set()  # same start + same title = one appointment entered twice (e.g. Walgreens with two address spellings)
 for e in events:
     s = e["start"].get("dateTime")
+    key = (s or e["start"].get("date", ""), e.get("summary", "(no title)").strip().lower())
+    if key in seen_ev:
+        continue
+    seen_ev.add(key)
     summary = e.get("summary", "(no title)")
     if e.get("location"):
         summary += f" ({e['location']})"
@@ -208,14 +232,18 @@ PREP_WORDS = re.compile(r"\b(interview|screen|phone screen|video screen|panel|ca
 apps_rows = [[x.strip() for x in l.strip().strip("|").split("|")] for l in apps.splitlines() if l.startswith("|") and not l.startswith("|---")]
 apps_rows = [c for c in apps_rows if len(c) >= 7 and c[0] not in ("Company", "---")]
 prepare_items: list[tuple[str, str, list[str]]] = []
-for day in calendar_days:
-    for _, what, _, _ in day["events"]:
-        if not PREP_WORDS.search(what):
+for i, day in enumerate(calendar_days):
+    rel = "TODAY" if i == 0 else f"TOMORROW ({day['label'].split()[-1]})" if i == 1 else day["label"]
+    for when, what, conflict, rsvp in day["events"]:
+        if not (i < 2 or PREP_WORDS.search(what)):  # today and tomorrow: every event gets a card; later days only prep-worthy ones
             continue
         match = next((c for c in apps_rows if c[0].lower() and c[0].lower() in what.lower()), None)
-        checklist = ([f"Stage / last contact: {match[2]}, {match[4]}", f"What you owe them: {match[5][:200]}", f"Contact: {match[6]}"]
-                     if match else ["not in vault"])
-        prepare_items.append((day["label"], what, checklist))
+        checklist = ([f"Stage / last contact: {match[2]}, {match[4]}", f"What you owe them: {match[5][:200]}", f"Contact: {match[6]}"] if match else [])
+        if conflict:
+            checklist.append("⚠️ Potential time conflict — review timing before it starts")
+        if rsvp:
+            checklist.append("RSVP still needed")
+        prepare_items.append((rel, f"{what} @ {when}" if when != "all day" else f"{what} (all day)", checklist or ["Nothing extra in the vault for this one"]))
 if os.path.isdir("Meetings"):
     for fn in sorted(os.listdir("Meetings")):
         m = re.match(r"(\d{4}-\d{2}-\d{2}) (.+)\.md$", fn)
@@ -252,15 +280,21 @@ role_count = len({c[0] for c in apps_rows if c[2] != "Closed"})
 awaiting_count = len(waiting)
 open_count = len(focus) + len(section(board, "📋 Backlog"))
 
+mail_records = [{"frm": re.sub(r"<.*?>|\"", "", k[1]).strip()[:40] or k[1][:40], "subj": k[2][:90], "line": mail_cache[k[0]][1], "cat": mail_cache[k[0]][4],
+                 "loc": "rescued" if k[0] in rescued_ids else k[4], "needs": mail_cache[k[0]][0]} for k in allmail]
+FIT = {"Offer": "High", "Final": "High", "Interview": "High", "Screen": "Medium", "Applied": "Low"}  # ponytail: fit is by stage only, no real scoring
+pipeline = [(f"{c[0]} - {c[1]}", f"{c[2]} · last contact {c[4]}: {c[5].replace('**', '')[:140]}", FIT[c[2]])
+            for c in sorted((c for c in apps_rows if c[2] in FIT), key=lambda c: list(FIT).index(c[2]))]
+
 subject, body = build_morning(now, calendar_days, rescued, [], inbox_rows, prepare_items, draft_candidates, focus, waiting,
-                              role_count, awaiting_count, open_count, action_items, rsvp_needed)
+                              role_count, awaiting_count, open_count, action_items, rsvp_needed, mail_records, pipeline)
 assert body.startswith("<table") and "$(" not in body and "/tmp/" not in body, "bad email body"
 
 if DRY:
     open("morning-preview.html", "w", encoding="utf-8").write(body)
     print(f"DRY RUN: subject={subject!r} inbox={len(inbox_rows)} rescued={len(rescued)} drafts={len(draft_candidates)} "
           f"prepare={len(prepare_items)} focus={len(focus)} waiting={len(waiting)} roles={role_count} "
-          f"action_items={len(action_items)} rsvp_needed={len(rsvp_needed)} ai_tokens={usage}")
+          f"action_items={len(action_items)} rsvp_needed={len(rsvp_needed)} mail={len(mail_records)} pipeline={len(pipeline)} ai_tokens={usage}")
     for r in inbox_rows:
         print("  inbox:", r)
     for r in rescued:

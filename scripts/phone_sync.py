@@ -13,6 +13,7 @@ from googleapiclient.discovery import build
 from googleapiclient.http import MediaIoBaseUpload
 
 from midday_email import build_midday
+from prep_doc import build_prep, keywords
 
 NY = ZoneInfo("America/New_York")
 DRY = os.environ.get("DRY_RUN") == "1"
@@ -127,7 +128,7 @@ def classify(items: list[tuple[str, str]], open_tasks: list[str]) -> list[dict]:
               "kind meanings: task=something to do or a reminder; application=company/role/recruiter/stage news; memory=person, preference or decision; "
               "link=bare link with no action; done=says something is finished, cancelled, or that she heard back from someone and no longer needs to wait "
               '(e.g. "Nasreen replied", "stop waiting on Chime", "mark the dentist done") — set match to the item number, whether it is a task or a waiting-on item below; '
-              "calendar=explicit request to put something on the calendar (needs date); prep=starts with Prep:; trash=always trash a sender; unclear=cannot tell. "
+              "calendar=explicit request to put something on the calendar (needs date); prep=asks for prep or a prep doc for an interview or meeting (e.g. prep for interview with Acme tomorrow; Prep: Acme Thursday) — set text to the company and date to the meeting day; trash=always trash a sender; unclear=cannot tell. "
               "Never invent facts. Output only the JSON array.\n\nOPEN TASKS AND WAITING-ON ITEMS (say done to close either):\n" +
               "\n".join(f"{n}. {t[:110]}" for n, t in enumerate(open_tasks, 1)) + "\n\nNOTES:\n" +
               "\n".join(f"{n}. {t[:600]}" for n, (_, t) in enumerate(items, 1)))
@@ -227,7 +228,21 @@ for item in plan:
         if item.get("priority"):  # a calendar block she also called a priority is a task too
             board = add_after(board, "🔥 Today" if day == today else "⏭ This Week", f"- [ ] {text} — due {day} — captured {today} · #task · #priority")
     elif kind == "prep":
-        board = add_after(board, "Needs Melissa", f"- [ ] Prep requested: {text} (Ellie prep docs not automated yet) — {today}")
+        day = item.get("date") if re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(item.get("date"))) else (now + timedelta(days=1)).strftime("%Y-%m-%d")
+        kws = [k.lower() for k in keywords(text)]
+        evs = cal.events().list(calendarId="primary", timeMin=f"{day}T00:00:00-04:00", timeMax=f"{day}T23:59:59-04:00", singleEvents=True,
+                                orderBy="startTime", timeZone="America/New_York").execute().get("items", [])
+        ev = next((e for e in evs if any(k in (e.get("summary", "") + " " + e.get("description", "")).lower() for k in kws)), None)
+        built = build_prep(text, day, ev, apps, memory)
+        if built:
+            os.makedirs("Meetings", exist_ok=True)
+            if not DRY:
+                open(f"Meetings/{day} {re.sub(r'[^A-Za-z0-9 &-]', '', built[0])}.md", "w", encoding="utf-8").write(built[1])
+            added.append(f"Prep doc: {built[0]} ({day})")
+            filed_notes.append(f"Prep doc ready: {built[0]} for {day} (in the Prepare section of your next morning email)")
+        else:  # nothing in the vault or on the calendar for it: say so instead of guessing
+            board = add_after(board, "Needs Melissa", f"- [ ] Prep requested: {text} — no calendar event or Applications row found; tell Ellie the company and time — {today}")
+            needs_call.append(f"Prep for \"{text}\": couldn't find it on your calendar or in Applications. Reply with the company name and time.")
     else:  # unclear or unsorted
         board = add_after(board, "📥 Captured (unsorted)", f"- [ ] {src[:400]} — captured {today} · #unsorted")
         added.append(src[:80])
