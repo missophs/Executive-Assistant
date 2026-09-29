@@ -1,9 +1,8 @@
-# Handoff - 2026-09-29 9:40AM ET
+# Handoff - 2026-09-29 12:36PM ET
 Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; do not hand-edit.
 
 ## Filed this run
-- Emailed you: CAI talking points - Wed 9-30 2:30pm
-- https://lnkd.in/p/gGy9R3Tb
+- (none)
 
 ## Closed today
 - (none)
@@ -24,8 +23,6 @@ Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; d
 
 ## Calendar, next 7 days
 - Tue 9/29 all day - Call New York City about documents
-- Tue 9/29 9:50am - Walgreens Appointment
-- Tue 9/29 9:50am - Walgreens Appointment
 - Wed 9/30 8:30am - Vaccine at 9:50 AM, then Target and Ulta
 - Wed 9/30 9:30am - Elle-Hair
 - Wed 9/30 12:00pm - HR Networking & Job Search Group - 2 Zoom
