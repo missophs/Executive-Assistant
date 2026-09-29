@@ -90,6 +90,9 @@ _Last updated: 2026-09-29 morning (phone sync — Claude cloud routine)_
 _(Rita Ramakrishnan/AIChE follow-up: outcome arrived 9/16 — see People above, closed. Kristen Ramerini/HSO follow-up removed from tracking 2026-09-14 per Tell Ellie capture 9/13 9:27 PM ET — "those are done already." No outcome recorded.)_
 
 ## Saved Links
+- 2026-09-29: https://lnkd.in/p/gbBuJYXa
+- 2026-09-29: https://lnkd.in/p/gSqjCznJ
+- 2026-09-29: https://www.aihr.com/blog/claude-for-hr/?utm_source=linkedin&utm_medium=social&utm_campaign=blog&utm_term=acxx-claude-for-hr-one-pager&utm_content=acxx-claude-for-hr-one-pager
 - 2026-09-29: https://lnkd.in/p/gGy9R3Tb
 - 2026-09-28: https://learnaiwithmariah.com/challenge
 - 2026-09-27: Vice President, Human Resources - Bertelsmann | Built In
@@ -186,6 +189,7 @@ _(Rita Ramakrishnan/AIChE follow-up: outcome arrived 9/16 — see People above, 
 - Google Search: "it is telling me to add a bash permission rule in my Claude code settings how do you do that step-by-step" — sent to self 9/25 10:58 AM ET, to melweiss212@
 
 ## Decisions & Context
+- 2026-09-29: Coding with Claude: Build complete production applications, understand & refactor codebases, debug complex problems
 
 - Told Bryce you are flexible on comp — anchored at low-to-mid $200Ks rather than naming a hard floor. He said that works given bonus/equity potential.
 - Declined the recurring Executive Roundtable (Thu 9am, John Madigan / ETS HR). The 9/3 date passed with no reconsideration — stayed declined by default. Still worth revisiting for a future date; it is an exec-level room.

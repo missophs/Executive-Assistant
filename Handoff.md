@@ -1,11 +1,15 @@
-# Handoff - 2026-09-29 12:36PM ET
+# Handoff - 2026-09-29 4:30PM ET
 Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; do not hand-edit.
 
 ## Filed this run
-- (none)
+- Calendar: Dr Hollander 2026-11-17
+- https://www.aihr.com/blog/claude-for-hr/?utm_source=linkedin&utm_medium=social&utm_campaign=blog&utm_term=acxx-claude-for-hr-one-pager&utm_content=acxx-claude-for-hr-one-pager
+- https://lnkd.in/p/gSqjCznJ
+- Coding with Claude: Build complete production applications, understand & refactor codebases, debug complex problems
+- https://lnkd.in/p/gbBuJYXa
 
 ## Closed today
-- (none)
+- LRN (Vice President of People) — Ashley Fredericks rejected 9/29 12:14 PM ET, "specific needs of the role," not a knock on your experience per her email. Video screen held 9/25, thank-you + 30-60-90 day plan sent same day. Patsy Doerr (second LRN contact) never replied. Moved to Closed in Applications.md — 2026-09-29
 
 ## Open: Today
 - Call NYC HRA at 929-273-1872 for your required Cash Assistance interview, and upload documents via the ACCESS HRA app — due TODAY 2026-09-28, per an official HRA email received 9/28 12:35 AM ET ("To do on your case," noreply_ahra@hra.nyc.gov). Note: this is a different date than the existing 9/29 all-day calendar block from your 9/26 capture — that block is still on your calendar, untouched · #task · #priority · #urgent
@@ -14,7 +18,6 @@ Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; d
 - (none)
 
 ## Waiting on
-- Ashley Fredericks (LRN) - Screen held Fri 9/25; thank-you + 30-60-90 day plan sent same day. Awaiting her decision (since 2026-09-25)
 - Andre Bokhoor & Natali Rodriguez (Mellon Foundation) - Andre contacted 9/24, Natali 9/25; no reply from either yet (since 2026-09-24)
 - Edward, Founder (Dropzone AI) - Contacted 9/25; no reply yet (since 2026-09-25)
 - Evan Friednash (Bertelsmann) - Contacted 9/28 10:56 AM ET; he replied same day — early in process, she confirmed she'd applied (since 2026-09-28)
@@ -33,6 +36,7 @@ Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; d
 - Thu 10/1 12:00pm - HR Networking & Job Search: Open Office Hours - Zoom 2
 - Thu 10/1 6:30pm - Mah-jongg
 - Fri 10/2 all day - Meet up
+- Mon 10/5 3:00pm - M&M
 
 ## Where things live
 - Vault: GitHub missophs/Executive-Assistant (Task Board.md, Applications.md, Memory.md, Standing Instructions.md, routines/README.md changelog).
