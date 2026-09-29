@@ -121,7 +121,7 @@ _(Rita Ramakrishnan/AIChE follow-up: outcome arrived 9/16 — see People above, 
 - The Agent Skills Directory — https://www.skills.sh/ — sent to self 9/6
 - claude-complete-setup-guide.md (file) — sent to self 9/6
 - THE AUTOMATION GUY (file) — sent to self 9/6
-- Research Any Stock Like a Wall Street Analyst, with Claude — https://www.valuebyraph.com/equity-research-with-claude/ — sent to self 9/7
+- Research Any Stock Like a Wall Street Analyst, with Claude — https://www.valuebyraph.com/equity-research-with-claude/ — sent to self 9/6
 - Build 2 HR dashboards using the CHRO (.skill) inside Claude in 10 minutes — https://thehroffice.substack.com/p/build-2-hr-dashboards-using-the-chro — sent to self 9/7
 - "Become a Member" (Founders Club) — malformed ad-tracking link, unresolved template variables ({{campaign_name}} etc.) — https://go.foundersclubofficial.com/intro-fc-meta-form — sent to self 9/8, looks broken/accidental rather than a real save
 - ChatGPT share (untitled) — https://chatgpt.com/share/6aa1e3c4-b640-83ea-9905-12e1cb53aac3 — sent to self 9/9
@@ -262,6 +262,8 @@ Root cause: raw `git push origin main` is denied by this environment's permissio
 Keep spot-checking `git log`/the actual file after any email claiming "filed"/"added"/"pushed" for a while longer before trusting it unchecked again.
 
 **Recurred 2026-09-26.** The Saturday morning Standup run (~7:54 AM ET) sent an email claiming several vault filings (3 backlog job links, 2 saved links, a Conduit Health/Nasreen Trash rescue and stage change) that never landed on `origin/main` — confirmed via `git fetch origin main` during the 9/26 phone sync, same symptom as the original bug. The Gmail/Calendar-side actions it reported (Trash rescue, calendar event creation, a Gmail draft) DID actually happen — only the git commit/push step silently failed again. The push-via-API fix from 9/4 is evidently not fully reliable. Treat any automation's "filed"/"added" claim as unverified until an independent `git fetch` confirms it, indefinitely — not just "for a while."
+
+**Recurred again 2026-09-29 evening: this run's own first push_files call for Memory.md returned a Cloudflare 502 error but had actually landed server-side (confirmed via `git fetch origin main` immediately after) — and separately, manually retyping the full 68KB Memory.md file into that push call introduced one single-character transcription error (a Saved Links date, 9/6 miswritten as 9/7), caught and corrected the same run via a byte-for-byte diff against the locally-committed original. Two lessons: (1) a tool-level error from push_files does not necessarily mean the write failed — always verify with `git fetch` before assuming failure or retrying; (2) never hand-retype a large file's full content for a push — diff the result against a known-good source (a local git commit, `git show`) before trusting it.**
 
 ## How Melissa Captures Things
 
