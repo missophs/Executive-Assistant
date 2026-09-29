@@ -4,7 +4,7 @@ Rolling context between sessions. Read at the start of every session, updated du
 
 **Keep this short.** Quick-reference, not a journal. Prune anything resolved or stale.
 
-_Last updated: 2026-09-28 evening (phone sync — Claude cloud routine)_
+_Last updated: 2026-09-29 morning (phone sync — Claude cloud routine)_
 
 ---
 
@@ -39,6 +39,7 @@ _Last updated: 2026-09-28 evening (phone sync — Claude cloud routine)_
 - Comp target: low-to-mid $200Ks base, flexible on total package (bonus/equity in play at Intalegence).
 - Based in NY. Raised it with Bryce as a possible blocker; he confirmed it is not.
 - The 9/15 "Interview at 1pm" calendar block (1:00–2:00 PM ET, self-added 9/14 11:15 PM after a Tell Ellie capture) remains unresolved — no company/role ever identified, nothing in sent mail ties back to it. Distinct from Conduit Health (different company, different provenance) unless Melissa says otherwise.
+- Phone sync 9/29 (this Claude cloud routine, morning — running after the 6:34am Git run): verified two real developments in her own sent mail that the Git routines hadn't filed. (1) **Rocket Software** — new cold outreach 9/28 ~7:14–7:17 PM ET, Vice President People Business Partners (Vertica integration), to Julie Law (bounced, invalid address) and Tara Gallone (delivered). Filed to Applications.md as a new row and to People/Follow-Ups. (2) **AXA XL** — Melissa followed up Debbi Kritzman herself 9/28 8:41 PM ET asking to connect further, after Debbi's earlier generic reply; Applications.md next action and the Follow-Ups table updated. Also caught a likely date bug: her 9/28 11:57 PM "remind me at 8:30 tomorrow morning" vaccine/Target/Ulta capture should mean today (9/29, matching the existing duplicated "Walgreens Appointment" 9:50 AM entries), but the 6:34am Git run instead created a new event for tomorrow, Wed 9/30 8:30 AM — flagged on the Task Board, not touched (never edits/deletes existing events). 3 job links and 2 new LinkedIn job alerts (Relativity Space, Coinbase) filed to Task Board Backlog. No completion or Waiting-On-closing captures. Inbox triage: nothing matched trash-rules.md, nothing trashed.
 
 ## People
 
@@ -67,7 +68,9 @@ _Last updated: 2026-09-28 evening (phone sync — Claude cloud routine)_
 - **Tristen Murch** — KSF Recruit. Inbound 9/24 re: Head of People at a fast-growing consumer-electronics startup. You asked for JD/comp; he said it's a hands-on startup role, offered to keep in touch for better-aligned opportunities. You pushed back (comfortable with startups). No further movement. Closed.
 - **Don Underwood** — Sr. Talent Acquisition Partner, CAI HR Team, CAI Software. Emailed 9/27 2:57 PM ET (to melhr212@) re: Global HR Director Consultant (req GLOBA002936), inviting a call via his Microsoft Bookings page. A Teams meeting was booked 9/27 4:20 PM ET (confirmation to melissaw212@) — exact date/time not visible to Ellie (ICS unreadable, no matching Calendar event found). Applications.md: Screen.
 - **Evan Friednash** — Talent Acquisition (BINC), Bertelsmann Corporate, re: VP, Human Resources. Cold outreach sent 9/28 10:56 AM ET. Replied 12:45 PM ET: still early in the process, role open, pointed to the SmartRecruiters posting. She replied 12:51 PM ET confirming she already applied and is very interested. Awaiting next steps.
-- **Debbi Kritzman** — Head of Talent Acquisition, Americas, AXA XL (a division of AXA), re: Senior HR Business Partner, Americas. Cold outreach sent 9/28 8:01 AM ET. Replied 9/28 2:21 PM ET with a generic response — recruiters will follow up if her experience matches, compared against other candidates. No interview confirmed.
+- **Debbi Kritzman** — Head of Talent Acquisition, Americas, AXA XL (a division of AXA), re: Senior HR Business Partner, Americas. Cold outreach sent 9/28 8:01 AM ET. Replied 9/28 2:21 PM ET with a generic response — recruiters will follow up if her experience matches, compared against other candidates. Melissa followed up herself 9/28 8:41 PM ET asking to connect and discuss further. Awaiting her response.
+- **Julie Law** — Rocket Software, re: Vice President, People Business Partners (role reports to her). Cold outreach sent 9/28 7:14 PM ET — bounced, address not found (julie.law@rocketsoftware.com invalid).
+- **Tara Gallone** — Rocket Software, second contact re: the same VP, People Business Partners opening. Cold outreach sent 9/28 7:17 PM ET, delivered. No reply yet.
 
 ## Follow-Ups
 
@@ -81,7 +84,8 @@ _Last updated: 2026-09-28 evening (phone sync — Claude cloud routine)_
 | No reply to your outreach yet (you sent it, waiting on them) | Andre Bokhoor & Natali Rodriguez (Mellon Foundation) | 2026-09-24 | Andre contacted 9/24, Natali 9/25; no reply from either yet |
 | No reply to your outreach yet (you sent it, waiting on them) | Edward, Founder (Dropzone AI) | 2026-09-25 | Contacted 9/25; no reply yet |
 | Awaiting next steps (early in process) | Evan Friednash (Bertelsmann) | 2026-09-28 | Contacted 9/28 10:56 AM ET; he replied same day — early in process, she confirmed she'd applied |
-| Generic reply received, no next step confirmed | Debbi Kritzman (AXA XL) | 2026-09-28 | Contacted 9/28 8:01 AM ET; she replied same day — generic, no interview confirmed |
+| Awaiting her response to the follow-up | Debbi Kritzman (AXA XL) | 2026-09-28 | Contacted 9/28 8:01 AM ET, generic reply same day; Melissa followed up 9/28 8:41 PM ET asking to connect — awaiting reply |
+| No reply to your outreach yet (you sent it, waiting on them) | Tara Gallone (Rocket Software) | 2026-09-28 | Contacted 9/28 7:17 PM ET; no reply yet. (Julie Law, second contact, bounced — invalid address) |
 
 _(Rita Ramakrishnan/AIChE follow-up: outcome arrived 9/16 — see People above, closed. Kristen Ramerini/HSO follow-up removed from tracking 2026-09-14 per Tell Ellie capture 9/13 9:27 PM ET — "those are done already." No outcome recorded.)_
 
@@ -369,9 +373,29 @@ Items Ellie has already triaged. Format: `<id> | <latest-message-date> | <what w
 1a0e377c3749310e | 2026-09-27 | Anthropic receipt — protected sender, no action needed
 1a0e35cf07ab70e7 | 2026-09-27 | Anthropic receipt — protected sender, no action needed
 1a0da309040756c2 | 2026-09-28 | Bertelsmann/Evan Friednash thread — real recruiter reply to cold outreach, verified and filed to Applications.md (next action, contact) and Memory People/Follow-Ups
-1a0e51207907788b | 2026-09-28 | AXA XL/Debbi Kritzman thread — new cold outreach + reply, not previously tracked, filed to Applications.md as Applied and Memory People/Follow-Ups
 1a0e9b633837377e | 2026-09-28 | CVS "Extra Big Deals" promo — trashed, bulk marketing, not on any protected list
 1a0e9a3b8a201911 | 2026-09-28 | Citi/Best Buy Visa marketing email — protected sender (citi.com), not trashed, no action needed
 1a0e90313fc9ab73 | 2026-09-28 | LinkedIn "apply to your saved jobs" digest — protected sender, generic digest, no action needed
 1a0e8e7374c8afc5 | 2026-09-28 | Spectrum Neuroscience (Emily Ridge) OOO reply re: Refill — personal correspondence, no action needed
 1a0e8e04a20fcb98 | 2026-09-28 | 303 East 83rd 4th-floor construction notice — building notice, no action needed
+1a0ea74073d9e425 | 2026-09-28 | Daily Job Search Sweep automation email — not a capture, no action
+1a0ea73c3aadc384 | 2026-09-28 | "Add Sephora to that" capture — already on Task Board backlog, not duplicated
+1a0ea73a0e036846 | 2026-09-28 | Vaccine/Target/Ulta reminder capture — vaccine matches existing (duplicated) Walgreens Appointment 9:50 AM today; the Git routine instead created a new event for tomorrow 9/30 8:30 AM, likely a date bug — flagged to her on Task Board, not touched
+1a0ea1dfceb0eacc | 2026-09-28 | Midday email — automation, no action
+1a0e9b6393c56e52 | 2026-09-28 | Wrap-up email — automation, no action
+1a0e7b06c4a120d7 | 2026-09-28 | Melissa Daily Briefing — automation, no action
+1a0e7acb8146b600 | 2026-09-28 | Morning briefing email — automation, no action
+1a0ea0bcd4a9b71f | 2026-09-28 | Job link (linkedin.com/jobs/view/4472761056) — filed to Task Board backlog
+1a0ea0b144e0dd10 | 2026-09-28 | Job link (linkedin.com/jobs/view/4472777495) — filed to Task Board backlog
+1a0ea0ae060a087e | 2026-09-28 | Duplicate send of 4472777495 above, ~13 sec apart — not filed again
+1a0ea09d1773ac56 | 2026-09-28 | Job link (linkedin.com/jobs/view/4471545190) — filed to Task Board backlog
+1a0ec6c5f857532f | 2026-09-29 | Match.com profile-view notice — protected sender, no action needed
+1a0ec4d279997580 | 2026-09-29 | Inclusively job-recommendations digest (swm3016@) — not trash, no action needed
+1a0eba8dbc0533a5 | 2026-09-29 | Robinhood trade confirmations — financial, protected, no action
+1a0e968a85ea54bf | 2026-09-29 | Legal Defense Fund (Head of People & Culture) LinkedIn alert, resent 3x — duplicate of already-tracked NAACP LDF backlog item, protected sender, skipped
+1a0eb20218272208 | 2026-09-29 | Relativity Space (Staff People Business Partner) LinkedIn alert — filed to Task Board backlog
+1a0eab23f393c208 | 2026-09-29 | Coinbase (HR Business Partner) LinkedIn alert — filed to Task Board backlog
+1a0ea3cd01420a8b | 2026-09-28 | Rocket Software cold outreach to Julie Law (bounced) — verified and filed to Applications.md as a new row (VP, People Business Partners)
+1a0ea4e41b668fc0 | 2026-09-28 | Rocket Software cold outreach to Tara Gallone (delivered) — same new row, filed together
+1a0e51207907788b | 2026-09-29 | AXA XL/Debbi Kritzman thread — new message (Melissa's own 8:41 PM follow-up asking to connect) — verified and Applications.md/Follow-Ups updated
+1a0e8e8c7e1b5b90 | 2026-09-28 | Email to NYU Langone (Dr. Ayala) re: memory/word-recall symptoms — personal correspondence, no vault action
