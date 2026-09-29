@@ -273,8 +273,15 @@ for item in plan:
                 gmail.users().messages().send(userId="me", body={"raw": base64.urlsafe_b64encode(msg_s.as_bytes()).decode()}).execute()
             added.append(f"Emailed you: {f0['name']}")
             filed_notes.append(f"Emailed you the document: {f0['name']}" + (f" (other matches: {', '.join(x['name'] for x in hits[1:])})" if len(hits) > 1 else ""))
-        else:
-            needs_call.append(f"Send \"{text}\": no Google Drive file matched that name (or it was over 15 MB). Reply with the exact document name.")
+        else:  # no match: email her her recent docs so she can just text back a name
+            recent = drive.files().list(q="trashed=false and mimeType!='application/vnd.google-apps.folder'", orderBy="modifiedTime desc", pageSize=10,
+                                        fields="files(name)").execute().get("files", [])
+            if not DRY:
+                msg_s = MIMEText(f"<p>I couldn't find a Drive file matching \"{html.escape(text)}\". Your most recent documents:</p><ul>" +
+                                 "".join(f"<li>{html.escape(r['name'])}</li>" for r in recent) + "</ul><p>Text me <b>send</b> and the name of one and I'll email it.</p>", "html", "utf-8")
+                msg_s["To"], msg_s["From"], msg_s["Subject"] = ME, ME, "Ellie - Doc - which one?"
+                gmail.users().messages().send(userId="me", body={"raw": base64.urlsafe_b64encode(msg_s.as_bytes()).decode()}).execute()
+            filed_notes.append(f"No Drive file matched \"{text}\" - emailed you a list of recent documents to pick from")
     else:  # unclear or unsorted
         board = add_after(board, "📥 Captured (unsorted)", f"- [ ] {src[:400]} — captured {today} · #unsorted")
         added.append(src[:80])
