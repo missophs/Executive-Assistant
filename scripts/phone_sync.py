@@ -5,6 +5,8 @@ Env: GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GOOGLE_REFRESH_TOKEN. DRY_RUN=1 cha
 """
 import base64, hashlib, html, io, json, os, re, sys
 from datetime import datetime, timedelta
+from email.mime.application import MIMEApplication
+from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from zoneinfo import ZoneInfo
 
@@ -122,13 +124,13 @@ def ask_haiku(prompt: str, max_tokens: int) -> str:
 def classify(items: list[tuple[str, str]], open_tasks: list[str]) -> list[dict]:
     prompt = (f"Today is {now.strftime('%A')} {today} (America/New_York). Melissa, a senior HR executive job searching, sent these notes to her assistant.\n"
               "For EACH note return one JSON object in an array, same order: "
-              '{"i":<note number>,"kind":"task|application|memory|link|done|calendar|prep|trash|unclear","text":"short clean version",'
+              '{"i":<note number>,"kind":"task|application|memory|link|done|calendar|prep|send|trash|unclear","text":"short clean version",'
               '"match":<open task number or null, for done>,"date":"YYYY-MM-DD or null","time":"HH:MM start or null","end":"HH:MM end or null","sender":"for trash"}.\n'
               'For calendar and for reminders, text is ONLY the short subject (e.g. "Mahjong", "Call New York City about documents"), never words like "add to calendar", "remind me" or "tomorrow".\n'
               "kind meanings: task=something to do or a reminder; application=company/role/recruiter/stage news; memory=person, preference or decision; "
               "link=bare link with no action; done=says something is finished, cancelled, or that she heard back from someone and no longer needs to wait "
               '(e.g. "Nasreen replied", "stop waiting on Chime", "mark the dentist done") — set match to the item number, whether it is a task or a waiting-on item below; '
-              "calendar=explicit request to put something on the calendar (needs date); prep=asks for prep or a prep doc for an interview or meeting (e.g. prep for interview with Acme tomorrow; Prep: Acme Thursday) — set text to the company and date to the meeting day; trash=always trash a sender; unclear=cannot tell. "
+              "calendar=explicit request to put something on the calendar (needs date); prep=asks for prep or a prep doc for an interview or meeting (e.g. prep for interview with Acme tomorrow; Prep: Acme Thursday) — set text to the company and date to the meeting day; send=asks Ellie to email or send her a document from Google Drive (e.g. send CAI talking points; email me the Cprime notes) — set text to the document name only; trash=always trash a sender; unclear=cannot tell. "
               "Never invent facts. Output only the JSON array.\n\nOPEN TASKS AND WAITING-ON ITEMS (say done to close either):\n" +
               "\n".join(f"{n}. {t[:110]}" for n, t in enumerate(open_tasks, 1)) + "\n\nNOTES:\n" +
               "\n".join(f"{n}. {t[:600]}" for n, (_, t) in enumerate(items, 1)))
@@ -249,6 +251,30 @@ for item in plan:
         else:  # nothing in the vault or on the calendar for it: say so instead of guessing
             board = add_after(board, "Needs Melissa", f"- [ ] Prep requested: {text} — no calendar event or Applications row found; tell Ellie the company and time — {today}")
             needs_call.append(f"Prep for \"{text}\": couldn't find it on your calendar or in Applications. Reply with the company name and time.")
+    elif kind == "send":  # email a Drive document to Melissa (she cannot open the vault, and the Drive app is slow on a phone)
+        words = [w for w in keywords(text) if w.lower() not in ("send", "email", "document", "doc", "file", "drive", "google", "here", "it")]
+        q_ = " and ".join(f"name contains '{w}'" for w in words) + " and trashed=false and mimeType!='application/vnd.google-apps.folder'"
+        hits = drive.files().list(q=q_, orderBy="modifiedTime desc", pageSize=3, fields="files(id,name,mimeType,size)").execute().get("files", []) if words else []
+        f0 = hits[0] if hits else None
+        if f0 and f0["mimeType"] == "application/vnd.google-apps.document":
+            body_ = drive.files().export_media(fileId=f0["id"], mimeType="text/html").execute()
+            msg_s = MIMEText(body_.decode("utf-8", "replace"), "html", "utf-8")
+        elif f0 and int(f0.get("size") or 0) <= 15_000_000:  # non-Doc files (docx, pdf) go as an attachment
+            msg_s = MIMEMultipart()
+            msg_s.attach(MIMEText(f"Attached: {f0['name']}", "plain", "utf-8"))
+            part = MIMEApplication(drive.files().get_media(fileId=f0["id"]).execute(), Name=f0["name"])
+            part["Content-Disposition"] = f'attachment; filename="{f0["name"]}"'
+            msg_s.attach(part)
+        else:
+            msg_s = None
+        if msg_s:
+            if not DRY:
+                msg_s["To"], msg_s["From"], msg_s["Subject"] = ME, ME, f"Ellie - Doc - {f0['name']}"
+                gmail.users().messages().send(userId="me", body={"raw": base64.urlsafe_b64encode(msg_s.as_bytes()).decode()}).execute()
+            added.append(f"Emailed you: {f0['name']}")
+            filed_notes.append(f"Emailed you the document: {f0['name']}" + (f" (other matches: {', '.join(x['name'] for x in hits[1:])})" if len(hits) > 1 else ""))
+        else:
+            needs_call.append(f"Send \"{text}\": no Google Drive file matched that name (or it was over 15 MB). Reply with the exact document name.")
     else:  # unclear or unsorted
         board = add_after(board, "📥 Captured (unsorted)", f"- [ ] {src[:400]} — captured {today} · #unsorted")
         added.append(src[:80])
