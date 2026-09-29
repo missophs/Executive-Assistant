@@ -96,7 +96,7 @@ mail_cache = state.setdefault("mail", {})  # thread id -> [needs, line, reply, w
 allmail: list[tuple[str, str, str, str, str]] = []  # (thread id, from, subject, snippet, location)
 kept: list[tuple[str, str, str, str, str]] = []  # the inbox subset, same shape
 protected_ids: set[str] = set()
-for t in gmail.users().threads().list(userId="me", maxResults=100, q="in:anywhere newer_than:1d -in:sent -in:drafts -from:me").execute().get("threads", []):
+for t in gmail.users().threads().list(userId="me", maxResults=200, q="in:anywhere newer_than:1d -in:sent -in:drafts -from:me").execute().get("threads", []):
     th = gmail.users().threads().get(userId="me", id=t["id"], format="metadata", metadataHeaders=["From", "Subject"]).execute()
     hd = {h["name"]: h["value"] for h in th["messages"][0]["payload"]["headers"]}
     frm, subj = hd.get("From", "").lower(), hd.get("Subject", "")
@@ -187,8 +187,13 @@ day0 = now.replace(hour=0, minute=0, second=0, microsecond=0)
 events = cal.events().list(calendarId="primary", timeMin=day0.isoformat(), timeMax=(day0 + timedelta(days=7)).isoformat(),
                            singleEvents=True, orderBy="startTime", timeZone="America/New_York").execute().get("items", [])
 by_day: dict[str, list[dict]] = {}
+seen_ev: set[tuple[str, str]] = set()  # same start + same title = one appointment entered twice (e.g. Walgreens with two address spellings)
 for e in events:
     s = e["start"].get("dateTime")
+    key = (s or e["start"].get("date", ""), e.get("summary", "(no title)").strip().lower())
+    if key in seen_ev:
+        continue
+    seen_ev.add(key)
     summary = e.get("summary", "(no title)")
     if e.get("location"):
         summary += f" ({e['location']})"
