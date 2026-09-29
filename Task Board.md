@@ -70,6 +70,9 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 - [ ] Suspected phishing email in Trash, NOT rescued — "We have been trying to reach you - melissaw212" (9/22 10:34 AM ET), sender domain fakes MyChart ("...quantumstrivenow.info"), fake prize/"Emergency Kit" hook. Same pattern as the dentsu phish still open above — spoofing a real service you use (NYU Langone/MyChart). Left in Trash, no action needed unless you want it reported · #security
 - [ ] Triage job link sent to self 9/22 10:51 PM ET — ADP job posting, no company or role given in the capture — https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=5cd5c82a-9265-495c-8abc-b4756df8f809&ccId=19000101_000001&lang=en_US&jobId=9201041965798_1&source=EN · #sourcing
 - [ ] Clarify "pA" capture sent 9/24 8:32–8:42 AM ET (to melweiss212@, subject "pA -", three chained replies) — three fragments with no stated task: "Evicore 866-417-2345", "Medication", "Home health 1856-417-2345". Looks insurance/prior-authorization related but unclear what action is needed or which matter it ties to. Tell Ellie what this refers to, or tell Ellie to drop it · #personal
+- [ ] Triage 3 job links sent to self 9/28 6:01–6:04 PM ET, no company or role given in captures — https://www.linkedin.com/jobs/view/4471545190/ ; https://www.linkedin.com/jobs/view/4472777495/ (sent twice, ~13 sec apart) ; https://www.linkedin.com/jobs/view/4472761056/ · #sourcing
+- [ ] Triage LinkedIn job alert — Staff People Business Partner @ Relativity Space (LinkedIn alert, 9/28 11:05 PM ET) · #sourcing
+- [ ] Triage LinkedIn job alert — HR Business Partner @ Coinbase (LinkedIn alert, 9/28 9:05 PM ET) · #sourcing
 
 ## ❓ Needs Melissa
 
@@ -77,6 +80,7 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 - [ ] Doctor's appointment time mismatch — your 9/27 2:30 PM capture said "tomorrow at 12 PM" (9/28). Your calendar already has an event titled "Doctor's appointment" on 9/28, but at 1:00–5:30 PM, not 12 PM. Ellie never edits existing events, so nothing was changed. Tell Ellie the correct time, or tell Ellie to drop this · #calendar
 - [ ] CAI Software (Don Underwood, Sr. Talent Acquisition Partner) — a Teams meeting was booked via his bookings page 9/27 4:20 PM ET ("Discuss Career Opportunities at CAI Software," re: Global HR Director Consultant, req GLOBA002936). The confirmation's calendar invite (.ics) isn't readable by Ellie and no matching event was found on your Google Calendar. Filed to Applications.md as Screen. Check your calendar app directly for the confirmed date/time, or tell Ellie the date/time to log it · #jobsearch
 - [ ] Minor: your calendar shows "Walgreens Appointment" twice at the identical time (Tue 9/29, 9:50 AM) — looks like a duplicate. Ellie didn't create either and won't touch existing events. Tell Ellie if you want it noted for cleanup, or ignore it · #calendar
+- [ ] Calendar bug, likely: your 9/28 11:57 PM capture ("Remind me at 8:30 tomorrow morning that I have my vaccine at 9:50 AM and then I need to go to target and Ulta") should mean today, Tue 9/29 — which already has your 9:50 AM vaccine appointment on the calendar (the duplicated "Walgreens Appointment" entries flagged above). Instead, this morning's automation created a new event, "Vaccine at 9:50 AM, then Target and Ulta," for tomorrow, Wed 9/30, 8:30–9:00 AM — a day off. Ellie never edits or deletes existing events. Delete the wrong 9/30 entry yourself if you don't want it, or Tell Ellie to leave it · #calendar
 
 **Vault audit 2026-09-27**
 
