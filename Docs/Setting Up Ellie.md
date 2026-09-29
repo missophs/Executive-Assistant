@@ -148,3 +148,6 @@ Checked at time of writing: all three workflows green, zero open failures. Only 
 
 ## Update 2026-09-29: email design and prep
 All three Ellie emails share one look (`scripts/ellie_ui.py`, Ellie purple). The morning email has every section the old Melissa Daily Briefing had. Wrap-up and midday: design only, no inbox triage. To get a prep doc, tell Ellie from your phone: "prep for interview with <company> tomorrow" — it appears in the next morning email's Prepare section. Rollback for this change: `git revert -m 1 90a4c7a` on main.
+
+## Update 2026-09-29 (later): ask Ellie to email you a document
+From your phone, email yourself `Tell Ellie: send CAI talking points` (or add a line to the Tell Ellie doc). On her next check (about 6:34am, 1:04pm, 4:34pm ET) Ellie emails you the matching Google Drive document as `Ellie - Doc - <name>`. If she cannot find it she emails a list of your recent documents; text her `send` and a name from the list. Only Google Drive files work (not iCloud). CAI prep files are in Ellie Files / Meetings & Prep.

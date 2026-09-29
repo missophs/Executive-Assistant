@@ -158,3 +158,8 @@ Built `scripts/morning_briefing.py` + `scripts/morning_briefing_email.py` + `.gi
 - `morning_briefing.py` reviews all mail from the last day (max 100, inbox/archive/Trash/Spam), sorts each into a category with Haiku (cache `.morning-briefing-state.json` now stores 5 fields), merges duplicate calendar entries, builds the job pipeline from Applications.md.
 - `prep_doc.py` + `phone_sync.py` prep branch: "prep for X" capture -> `Meetings/` prep doc (vault + calendar only).
 - Rollback: `git revert -m 1 90a4c7a && git push origin main`.
+
+## 2026-09-29 changelog (phone: send a Drive doc)
+- `phone_sync.py`: new capture kind `send`. Finds a Drive file by name words (Google Doc -> HTML email body, other files <=15 MB -> attachment), emails it to Melissa only, subject `Ellie - Doc - <name>`. No match -> emails the 10 most recent Drive docs (`Ellie - Doc - which one?`). Dry runs send nothing. Drive scope was already full `drive`.
+- Known: a real run on 9/29 hit a transient Google read timeout writing the "Ellie" status doc (existing code, `replace_doc`); the re-run succeeded, so one CAI doc email was sent twice.
+- Rollback: revert commits 6811b71 and 63b2149.
