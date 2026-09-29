@@ -96,7 +96,7 @@ mail_cache = state.setdefault("mail", {})  # thread id -> [needs, line, reply, w
 allmail: list[tuple[str, str, str, str, str]] = []  # (thread id, from, subject, snippet, location)
 kept: list[tuple[str, str, str, str, str]] = []  # the inbox subset, same shape
 protected_ids: set[str] = set()
-for t in gmail.users().threads().list(userId="me", maxResults=200, q="in:anywhere newer_than:1d -in:sent -in:drafts -from:me").execute().get("threads", []):
+for t in gmail.users().threads().list(userId="me", maxResults=100, q="in:anywhere newer_than:1d -in:sent -in:drafts -from:me").execute().get("threads", []):
     th = gmail.users().threads().get(userId="me", id=t["id"], format="metadata", metadataHeaders=["From", "Subject"]).execute()
     hd = {h["name"]: h["value"] for h in th["messages"][0]["payload"]["headers"]}
     frm, subj = hd.get("From", "").lower(), hd.get("Subject", "")
