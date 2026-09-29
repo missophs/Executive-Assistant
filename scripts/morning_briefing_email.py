@@ -9,6 +9,8 @@ import html
 import re
 from datetime import datetime
 
+from ellie_ui import box as _box, header
+
 F = "font-family:Helvetica,Arial,sans-serif;"
 B = "@B@"  # row border placeholder: filled for every row except the last of a box
 
@@ -34,11 +36,14 @@ def _title(title: str, detail: str = "") -> str:
 
 
 def _prep(date_label: str, what: str, checklist: list[str]) -> str:
-    """Like a TITLE row, but the detail is a bulleted checklist instead of one line."""
-    items = "<br>".join(f"&#8226;&nbsp;{_e(c)}" for c in checklist) if checklist else _e("not in vault")
-    return (f'<tr><td bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:14px 16px;{B}">'
+    """Blue card like the old briefing's Prepare: date label + event, then a check-marked list."""
+    items = "".join(f'<div style="padding:3px 0 3px 8px;">&#9989;&nbsp;{_e(c)}</div>' for c in checklist) if checklist else _e("not in vault")
+    return (f'<tr><td bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:10px 12px;{B}">'
+            '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>'
+            '<td width="4" bgcolor="#2F6BFF" style="background-color:#2F6BFF;font-size:0;line-height:0;">&nbsp;</td>'
+            f'<td bgcolor="#EAF2FB" style="background-color:#EAF2FB;padding:12px 14px;">'
             f'<div style="{F}font-size:14px;font-weight:bold;color:#12233C;">{_e(date_label)} &mdash; {_e(what)}</div>'
-            f'<div style="{F}font-size:13px;line-height:19px;color:#5C6B7F;padding-top:4px;">{items}</div></td></tr>')
+            f'<div style="{F}font-size:13px;line-height:19px;color:#33404F;padding-top:6px;">{items}</div></td></tr></table></td></tr>')
 
 
 def _priority(action: str, why: str, due: str, bar: str) -> str:
@@ -62,23 +67,6 @@ def _time(when: str, what: str, conflict: bool = False, rsvp: bool = False) -> s
             f'<td bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:12px 16px 12px 10px;{F}font-size:13px;color:#33404F;{B}">{_e(what)}{tag}</td></tr>')
 
 
-def _triage_rows(inbox_rows: list[tuple[bool, str, str, str]]) -> list[str]:
-    """Email Triage Quick List as an actual table (ported from missophs/daily-briefing, was a plain
-    list here before 2026-09-27)."""
-    hcell = f'style="{F}font-size:10px;font-weight:bold;letter-spacing:0.6px;text-transform:uppercase;color:#8994A3;padding:8px 12px;background-color:#F5F7FA;"'
-    rows = [f'<tr><td bgcolor="#F5F7FA" {hcell}>From</td><td bgcolor="#F5F7FA" {hcell}>Subject</td><td bgcolor="#F5F7FA" {hcell}>Note</td></tr>']
-    for needs, frm, subj, line in inbox_rows[:15]:
-        bg = "#FDEDED" if needs else "#FFFFFF"
-        badge = '<span style="color:#FF3B3B;font-weight:bold;">NEEDS YOU</span>&nbsp;' if needs else ""
-        cell = f'bgcolor="{bg}" style="background-color:{bg};padding:10px 12px;{F}font-size:12px;border-bottom:1px solid #E9EDF2;"'
-        rows.append(f'<tr><td {cell}font-weight:bold;color:#12233C;">{badge}{_e(frm)}</td>'
-                    f'<td {cell}color:#33404F;">{_e(subj)}</td>'
-                    f'<td {cell}color:#5C6B7F;">{_e(line)}</td></tr>')
-    if len(rows) > 1:
-        rows[-1] = rows[-1].replace("border-bottom:1px solid #E9EDF2;", "")
-    return rows
-
-
 def _stale(who: str, what: str, days: int) -> str:
     bg, ink = ("#F2D6D7", "#8A2B30") if days >= 10 else ("#F5E9CB", "#7A5A18") if days >= 5 else ("#DCE6F5", "#24456F")
     return (f'<tr><td bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:12px 10px 12px 16px;{B}">'
@@ -88,18 +76,6 @@ def _stale(who: str, what: str, days: int) -> str:
             '<table role="presentation" cellpadding="0" cellspacing="0" border="0" align="right"><tr>'
             f'<td bgcolor="{bg}" style="background-color:{bg};border-radius:3px;padding:4px 9px;{F}font-size:11px;font-weight:bold;color:{ink};">{days}d</td>'
             "</tr></table></td></tr>")
-
-
-def _box(title: str, accent: str, rows: list[str], first: bool, colspan: bool = False) -> str:
-    border = "border-bottom:1px solid #E9EDF2;"
-    rows = [r.replace(B, border) for r in rows[:-1]] + [rows[-1].replace(B, "")]
-    span = ' colspan="2"' if colspan else ""
-    return (f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #D7DEE7;border-radius:6px;{"" if first else "margin-top:16px;"}">'
-            f'<tr><td{span} bgcolor="#F5F7FA" style="background-color:#F5F7FA;padding:10px 16px;border-bottom:1px solid #D7DEE7;border-radius:5px 5px 0 0;">'
-            '<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>'
-            f'<td bgcolor="{accent}" width="9" height="9" style="background-color:{accent};font-size:0;line-height:0;">&nbsp;</td>'
-            f'<td style="padding-left:9px;{F}font-size:10px;font-weight:bold;letter-spacing:1.8px;text-transform:uppercase;color:#44546B;">{title}</td>'
-            "</tr></table></td></tr>" + "".join(rows) + "</table>")
 
 
 def _parse(task: str) -> tuple[str, str, str, str]:
@@ -122,72 +98,108 @@ EA_COMMANDS = [
 ]  # ported from missophs/daily-briefing generate_briefing.py; /ea:inbox dropped per Standing Instructions ("skip /ea:inbox as a command — the briefing triages")
 
 
+
+
+CATS = ["Security / Risk", "Phishing / Scam", "Job Search", "Recruiters / Networking", "Calendar / Events", "Medical / Health", "Financial / Billing",
+        "Professional Development", "Personal", "Newsletters / Subscriptions", "Promotional / Retail", "Other"]
+CAT_ACTION = {"Security / Risk": "Confirm it was you; call the company if not.", "Phishing / Scam": "Delete. Do not click anything.", "Job Search": "Review alerts, apply to strong fits.",
+              "Recruiters / Networking": "Reply if a person is waiting on you.", "Calendar / Events": "Check the date, RSVP if needed.", "Medical / Health": "Check for appointments or bills.",
+              "Financial / Billing": "Confirm amounts and deadlines.", "Professional Development": "Read if useful.", "Personal": "Read when free.",
+              "Newsletters / Subscriptions": "Keep or unsubscribe.", "Promotional / Retail": "Ignore or delete.", "Other": "Skim, then delete."}
+KEEP_CATS = {"Security / Risk", "Job Search", "Recruiters / Networking", "Calendar / Events", "Medical / Health", "Financial / Billing", "Professional Development", "Personal"}
+LOC_LABEL = {"inbox": "📥 Inbox", "rescued": "✅ Rescued", "trash": "🗑 Trash", "spam": "🚫 Spam", "other": "🗂 Archived"}
+CELL = f"background-color:#FFFFFF;padding:10px 12px;{F}font-size:12px;color:#33404F;vertical-align:top;{B}"
+
+
+def _grid(headers: list[str], rows: list[list[str]]) -> list[str]:
+    """Table rows for a box: header row then data rows; cells are already-escaped HTML."""
+    hc = f"background-color:#F5F7FA;padding:8px 12px;{F}font-size:10px;font-weight:bold;letter-spacing:0.6px;text-transform:uppercase;color:#8994A3;{B}"
+    out = ["<tr>" + "".join(f'<td bgcolor="#F5F7FA" style="{hc}">{h}</td>' for h in headers) + "</tr>"]
+    out += ["<tr>" + "".join(f'<td bgcolor="#FFFFFF" style="{CELL}">{c}</td>' for c in r) + "</tr>" for r in rows]
+    return out
+
+
+def _wide(text: str, cols: int, bg: str = "#F3F1FB") -> str:
+    return f'<tr><td colspan="{cols}" bgcolor="{bg}" style="background-color:{bg};padding:10px 12px;{F}font-size:12px;color:#44546B;{B}">{text}</td></tr>'
+
+
+def _senders(items: list[dict], n: int = 4) -> str:
+    names = list(dict.fromkeys(_e(m["frm"]) for m in items))
+    return ", ".join(names[:n]) + (f" +{len(names) - n} more" if len(names) > n else "")
+
+
 def build_morning(now: datetime, calendar_days: list[dict], rescued: list[tuple[str, str]], inbox_trashed: list[tuple[str, str]],
                   inbox_rows: list[tuple[bool, str, str, str]], prepare_items: list[tuple[str, str, list[str]]],
                   draft_candidates: list[tuple[str, str, str]], top3: list[str], waiting: list[tuple[str, str, int]],
                   role_count: int, awaiting_count: int, open_count: int,
-                  action_items: list[str] | None = None, rsvp_needed: list[tuple[str, str]] | None = None) -> tuple[str, str]:
+                  action_items: list[str] | None = None, rsvp_needed: list[tuple[str, str]] | None = None,
+                  mail: list[dict] | None = None, pipeline: list[tuple[str, str, str]] | None = None) -> tuple[str, str]:
     """calendar_days = [{"label": "Sat 9/27", "events": [("9:00am", "Mahjong", conflict, rsvp), ...]}, ...] for 7 days,
     today first, every day included even with an empty events list. inbox_rows = (needs_her, from, subject, one-line
     summary), needs-first. prepare_items = (date label, what, checklist lines — vault-only, "not in vault" if
     missing). draft_candidates = (who, subject, why a reply is owed), highest value first, max 5. top3 = board lines,
     Today then This Week, board order. waiting = (who, what she's waiting on, days since). action_items = board
     lines with an explicit due date, any section, due-date order (not capped at 3 like top3). rsvp_needed =
-    (day label, what) for events where she hasn't responded."""
+    (day label, what) for events where she hasn't responded. mail = every email from the last day, each
+    {"frm","subj","line","cat","loc","needs"} with cat one of CATS and loc inbox|rescued|trash|spam|other.
+    pipeline = (company - role, detail, High|Medium|Low fit)."""
     action_items = action_items or []
     rsvp_needed = rsvp_needed or []
+    mail = mail or []
+    pipeline = pipeline or []
     subject = f"Ellie - EA - {now.strftime('%A, %B')} {now.day}"
     boxes: list[str] = []
 
-    def add(title: str, accent: str, rows: list[str], colspan: bool = False) -> None:
+    def add(title: str, accent: str, rows: list[str], colspan: bool | int = False) -> None:
         boxes.append(_box(title, accent, rows, first=not boxes, colspan=colspan))
 
+    by_cat = {c: [m for m in mail if m["cat"] == c] for c in CATS}
+    n_mail, phishing, sec = len(mail), len(by_cat["Phishing / Scam"]), len(by_cat["Security / Risk"])
+    n_events = sum(len(d["events"]) for d in calendar_days)
     conflict_count = sum(1 for day in calendar_days for e in day["events"] if e[2])
-    needs_you_count = sum(1 for r in inbox_rows if r[0])
-    summary_lines = []
-    if top3:
-        summary_lines.append(f"Top priority: {_parse(top3[0])[0]}")
-    if needs_you_count:
-        summary_lines.append(f"{needs_you_count} inbox item{'s' if needs_you_count != 1 else ''} need your call today")
-    if waiting:
-        summary_lines.append(f"Longest open wait: {waiting[0][0]} ({waiting[0][2]}d)")
-    if rsvp_needed:
-        summary_lines.append(f"{len(rsvp_needed)} event{'s' if len(rsvp_needed) != 1 else ''} awaiting your RSVP")
+    needs_you = [r for r in inbox_rows if r[0]]
+    in_trash = [m for m in mail if m["loc"] in ("trash", "spam")]
+    review = [m for m in in_trash if m["cat"] in KEEP_CATS]
+
+    def days_left(due: str) -> int:
+        try:
+            return (datetime.strptime(due, "%Y-%m-%d").date() - now.date()).days
+        except ValueError:
+            return 99
+
+    # 1. triage quick list
+    tri: list[list[str]] = [['<b style="color:#12233C;">✅ RESCUED</b>', _e(who), _e(subj), "Rescued from Trash — back in your inbox, starred."] for who, subj in rescued[:10]]
+    tri += [['<b style="color:#FF3B3B;">🚨 NEEDS YOU</b>' if needs else "📥 INBOX", _e(frm), _e(subj), _e(line)] for needs, frm, subj, line in inbox_rows[:15]]
+    rows_tri = _grid(["Status", "From", "Subject", "Summary"], tri)
+    if in_trash:
+        rows_tri.append(_wide(f"🗑 <b>{len(in_trash)}</b> email{'s' if len(in_trash) != 1 else ''} in Trash/Spam — see Trash Review", 4, "#FDF6EC"))
+    add("Inbox Triage — Quick List", "#2F6BFF", rows_tri if (tri or in_trash) else [_empty("Nothing new in the inbox.")], colspan=4)
+
+    # 2. executive summary: exactly three cards
+    today_ev = calendar_days[0]["events"] if calendar_days else []
+    job_alerts = [m for m in by_cat["Job Search"] if m["loc"] in ("inbox", "rescued")]
+    recruiters = [m for m in by_cat["Recruiters / Networking"] if m["loc"] in ("inbox", "rescued")]
+    risk = (f"{phishing} phishing/scam email{'s' if phishing != 1 else ''} caught; {sec} security/account alert{'s' if sec != 1 else ''} to confirm were you."
+            if (phishing or sec) else "No security issues in the last 24 hours.")
+    if needs_you:
+        risk += f" {len(needs_you)} inbox item{'s' if len(needs_you) != 1 else ''} need your call today."
+    job = (f"{pipeline[0][0]} — {pipeline[0][1]}. " if pipeline else "") + \
+        f"{len(job_alerts)} job alert{'s' if len(job_alerts) != 1 else ''}, {len(recruiters)} recruiter/networking message{'s' if len(recruiters) != 1 else ''} today."
+    cal = f"{len(today_ev)} event{'s' if len(today_ev) != 1 else ''} today" + (f", first at {today_ev[0][0]}: {today_ev[0][1]}" if today_ev else "") + "."
     if conflict_count:
-        summary_lines.append(f"{conflict_count} calendar conflict{'s' if conflict_count != 1 else ''} this week — see Calendar")
-    if not summary_lines:
-        summary_lines.append("Nothing urgent. Light day.")
-    add("Executive Summary", "#6D21C9", [_plain([f"&#8226;&nbsp;{_e(l)}" for l in summary_lines])])
+        cal += f" {conflict_count} calendar conflict{'s' if conflict_count != 1 else ''} this week."
+    if rsvp_needed:
+        cal += f" {len(rsvp_needed)} RSVP{'s' if len(rsvp_needed) != 1 else ''} pending."
+    add("Executive Summary", "#6D21C9", [_priority("🔴 Security", risk, "", "#FF3B3B"), _priority("🟢 Job Search", job, "", "#12A06B"), _priority("🔵 Calendar", cal, "", "#2F6BFF")])
 
-    if rescued:
-        add("Rescued From Trash", "#FF3B3B", [_title(f, s) for f, s in rescued[:10]])
-
-    add("Inbox Triage — Quick List", "#2F6BFF", _triage_rows(inbox_rows) if inbox_rows else [_empty("Nothing new in the inbox.")], colspan=True)
-
-    if inbox_trashed:
-        add("Inbox Trash (undo from Gmail Trash if wrong)", "#8994A3", [_plain([f"&#8226;&nbsp;{_e(f)} &mdash; {_e(s)}" for f, s in inbox_trashed[:15]])])
-
+    # 3. action required
     if action_items:
         def bar_for(due: str) -> str:
-            try:
-                days = (datetime.strptime(due, "%Y-%m-%d").date() - now.date()).days
-            except ValueError:
-                days = 99
-            return "#FF3B3B" if days <= 0 else "#FFAA00" if days <= 3 else "#2F6BFF"
+            d = days_left(due)
+            return "#FF3B3B" if d <= 0 else "#FFAA00" if d <= 3 else "#2F6BFF"
         add("Action Required", "#FF3B3B", [_priority(*_parse(t)[:3], bar_for(_parse(t)[2])) for t in action_items[:12]])
 
-    cal_rows: list[str] = []
-    for day in calendar_days:
-        events = day["events"]
-        cal_rows.append(_title(day["label"], "Nothing scheduled." if not events else ""))
-        cal_rows.extend(_time(t, w, c, r) for t, w, c, r in events)
-    add("Calendar — Next 7 Days", "#2F6BFF", cal_rows, colspan=True)
-
-    if prepare_items:
-        add("Prepare", "#2F6BFF", [_prep(d, w, c) for d, w, c in prepare_items])
-    else:
-        add("Prepare", "#2F6BFF", [_empty("Nothing to prepare this week.")])
-
+    # 3A. drafts
     if draft_candidates:
         add("Draft Replies — Awaiting Your OK", "#A239FF",
             [_title(f"{i}. {who} — {subj}"[:140], why) for i, (who, subj, why) in enumerate(draft_candidates[:5], 1)])
@@ -198,6 +210,78 @@ def build_morning(now: datetime, calendar_days: list[dict], rescued: list[tuple[
     else:
         add("Draft Replies — Awaiting Your OK", "#A239FF", [_empty("No replies owed today.")])
 
+    # 4. calendar, 4A prepare
+    cal_rows: list[str] = []
+    for day in calendar_days:
+        events = day["events"]
+        cal_rows.append(_title(day["label"], "Nothing scheduled." if not events else ""))
+        cal_rows.extend(_time(t, w, c, r) for t, w, c, r in events)
+    add("Full 7-Day Calendar", "#2F6BFF", cal_rows, colspan=True)
+    add("Prepare", "#2F6BFF", [_prep(d, w, c) for d, w, c in prepare_items] if prepare_items else [_empty("Nothing to prepare this week.")])
+
+    # 5. job search pipeline
+    job_rows = [_title(t, f"{fit} fit · {d}"[:240]) for t, d, fit in pipeline[:10]]
+    job_rows += [_title(m["subj"][:100], f"Job alert · {m['line'] or m['frm']}"[:200]) for m in job_alerts[:5]]
+    job_rows += [_title(m["subj"][:100], f"{m['frm']} · {m['line']}"[:200]) for m in recruiters[:5]]
+    add("Job Search &amp; Interview Pipeline", "#00D68F", job_rows or [_empty("No open roles or new alerts.")])
+
+    # 6. full email review by category (every email in exactly one category)
+    cat_rows: list[str] = []
+    for c in CATS:
+        items = by_cat[c]
+        if not items:
+            continue
+        cat_rows.append(_wide(f"<b>{_e(c)}</b> — {len(items)} email{'s' if len(items) != 1 else ''} · {_e(CAT_ACTION[c])}", 3))
+        for m in items[:8]:
+            cells = (_e(m["frm"]), _e(m["subj"][:90]), f'{LOC_LABEL.get(m["loc"], "")} — {_e(m["line"] or CAT_ACTION[c])}')
+            cat_rows.append("<tr>" + "".join(f'<td bgcolor="#FFFFFF" style="{CELL}">{x}</td>' for x in cells) + "</tr>")
+        if len(items) > 8:
+            cat_rows.append(_wide(f"+{len(items) - 8} more in this category", 3, "#FFFFFF"))
+    add("Full Email Review by Category", "#6D21C9", cat_rows or [_empty("No mail in the last 24 hours.")], colspan=3)
+
+    # 7. trash review
+    restore = [f"{w} — {s}" for w, s in rescued]
+    safe = [m for m in in_trash if m not in review]
+    add("Trash Review", "#8994A3", [
+        _title("Restore", "; ".join(restore)[:300] if restore else "Nothing to restore."),
+        _title("Review", (f"{len(review)}: " + _senders(review) + " — look before they are gone.").replace("&amp;", "&") if review else "Nothing in Trash needs a second look."),
+        _title("Safe to Delete", (f"{len(safe)}: " + _senders(safe) + ". Ellie never deletes permanently.").replace("&amp;", "&") if safe else "Nothing.")])
+
+    # 8/9. promotional + newsletters, grouped by sender
+    def group_rows(cat: str, keep_label: str) -> list[list[str]]:
+        out = []
+        for name in dict.fromkeys(m["frm"] for m in by_cat[cat]):
+            g = [m for m in by_cat[cat] if m["frm"] == name]
+            out.append([_e(name), str(len(g)), _e(g[0]["subj"][:80]), "Delete" if all(m["loc"] in ("trash", "spam") for m in g) else keep_label])
+        return out
+    promo = group_rows("Promotional / Retail", "Ignore")
+    add("Promotional / Retail Summary", "#E0860B", _grid(["Sender", "Count", "Subject / theme", "Recommendation"], promo) if promo else [_empty("No promotional mail.")], colspan=4)
+    news = group_rows("Newsletters / Subscriptions", "Keep or unsubscribe")
+    add("Newsletters &amp; Subscriptions", "#A239FF", _grid(["Sender", "Count", "Subject / topic", "Recommendation"], news) if news else [_empty("No newsletters.")], colspan=4)
+
+    # 10. accounting: counts add up to the total
+    acct = [[_e(c), str(len(by_cat[c])), _e(CAT_ACTION[c])] for c in CATS if by_cat[c]] + [["<b>Total Emails Reviewed</b>", f"<b>{n_mail}</b>", ""]]
+    add("Email Accounting", "#44546B", _grid(["Category", "Count", "Recommendation"], acct) if n_mail else [_empty("No mail in the last 24 hours.")], colspan=3)
+
+    # 11. dashboard
+    interviews = sum(1 for d in calendar_days for e in d["events"] if re.search(r"interview|screen", e[1], re.I))
+    due_week = sum(1 for t in action_items if days_left(_parse(t)[2]) <= 7) + len(by_cat["Financial / Billing"])
+    dash = [["Important unread (need your call)", str(len(needs_you))], ["Security alerts", str(sec)], ["Action items", str(len(action_items))],
+            ["Upcoming meetings (7 days)", str(n_events)], ["Open job leads", str(role_count)], ["Interviews scheduled", str(interviews)],
+            ["Bills / deadlines this week", str(due_week)], ["Trash items to review", str(len(review))], ["Awaiting reply", str(awaiting_count)], ["Open tasks", str(open_count)]]
+    add("Dashboard", "#2F6BFF", _grid(["Item", "Now"], dash), colspan=2)
+
+    # 12. action items table
+    ai_rows = []
+    for t in action_items[:15]:
+        a, _w, due, _c = _parse(t)
+        d = days_left(due)
+        ai_rows.append(["HIGH" if d <= 0 else "MEDIUM" if d <= 3 else "LOW", _e(a), "Task Board", _e(due)])
+    ai_rows += [["HIGH", _e(f"Reply / decide: {r[2]}"[:120]), _e(r[1]), "Today"] for r in needs_you[:5]]
+    ai_rows.sort(key=lambda r: ["HIGH", "MEDIUM", "LOW"].index(r[0]))
+    add("Action Items", "#00D68F", _grid(["Priority", "Action", "Source", "Due"], ai_rows) if ai_rows else [_empty("Nothing due.")], colspan=4)
+
+    # 13. top 3 & follow up, then commands
     t3_rows: list[str] = []
     if top3:
         bars = ["#FF3B3B", "#FFAA00", "#2F6BFF"]
@@ -205,57 +289,55 @@ def build_morning(now: datetime, calendar_days: list[dict], rescued: list[tuple[
     if waiting:
         t3_rows.extend(_stale(w, d, n) for w, d, n in waiting[:10])
     add("Top 3 &amp; Follow Up", "#FFAA00", t3_rows if t3_rows else [_empty("Nothing today, nothing waiting.")])
-
     add("Ellie Commands", "#44546B", [_title(c, d) for c, d in EA_COMMANDS])
 
     mast = "#6D21C9"
+    tiles = [("📧", str(n_mail), "Emails reviewed"), ("📅", str(n_events), "Calendar events"), ("🚨", str(len(action_items)), "Action required"),
+             ("⚠️", str(phishing + sec), "Security / phishing"), ("🗓", str(len(rsvp_needed)), "RSVPs pending")]
     body = (
         '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#F3F1FB" style="background-color:#F3F1FB;"><tr><td align="center" style="padding:26px 10px;">'
         '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" style="width:100%;max-width:600px;background-color:#FFFFFF;border:1px solid #E5E0F5;border-radius:8px;">'
-        f'<tr><td bgcolor="{mast}" style="background-color:{mast};padding:28px 26px 24px 26px;border-radius:7px 7px 0 0;">'
-        '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">'
-        f'<tr><td style="{F}font-size:10px;font-weight:bold;letter-spacing:2.4px;text-transform:uppercase;color:#FFAA00;padding-bottom:9px;">Ellie &nbsp;&middot;&nbsp; Morning</td></tr>'
-        f'<tr><td style="font-family:Georgia,\'Times New Roman\',serif;font-size:28px;line-height:33px;color:#FFFFFF;">{now.strftime("%A, %B")} {now.day}</td></tr>'
-        f'<tr><td style="{F}font-size:12px;line-height:18px;color:#F5E9FF;padding-top:10px;">{role_count} active roles &nbsp;&middot;&nbsp; {awaiting_count} awaiting reply &nbsp;&middot;&nbsp; {open_count} open tasks</td></tr>'
-        '</table></td></tr>'
+        + header("Ellie &nbsp;&middot;&nbsp; Morning", now, "Good morning, Melissa 👋", "Here is your executive briefing — prepared and ready before your day begins.", tiles, mast) +
         f'<tr><td style="padding:22px;">{"".join(boxes)}</td></tr>'
         '<tr><td bgcolor="#F5F7FA" style="background-color:#F5F7FA;border-top:1px solid #D7DEE7;padding:14px;text-align:center;font-family:Georgia,\'Times New Roman\',serif;font-size:13px;font-style:italic;color:#8994A3;border-radius:0 0 7px 7px;">Ellie</td></tr>'
         "</table></td></tr></table>")
     return subject, body
 
 
-if __name__ == "__main__":  # runnable check: python scripts/morning_briefing_email.py
+if __name__ == "__main__":  # runnable check: python scripts/morning_briefing_email.py (synthetic data only)
     n = datetime(2026, 9, 27, 7, 30)
     days = [{"label": "Sun 9/27", "events": [("9:00am", "Mahjong", False, False), ("9:30am", "Overlap test", True, False)]},
             {"label": "Mon 9/28", "events": [("1:00pm", "Doctor's appointment", False, True)]},
-            {"label": "Tue 9/29", "events": [("all day", "Call New York City about documents", False, False)]},
-            {"label": "Wed 9/30", "events": []},
-            {"label": "Thu 10/1", "events": []},
-            {"label": "Fri 10/2", "events": []},
-            {"label": "Sat 10/3", "events": []}]
+            {"label": "Tue 9/29", "events": [("all day", "Call about documents", False, False)]},
+            {"label": "Wed 9/30", "events": []}, {"label": "Thu 10/1", "events": []}, {"label": "Fri 10/2", "events": []}, {"label": "Sat 10/3", "events": []}]
+    mail = [{"frm": "Ashley F", "subj": "Re: screen", "line": "Awaiting her decision", "cat": "Recruiters / Networking", "loc": "inbox", "needs": True},
+            {"frm": "LinkedIn", "subj": "New jobs", "line": "Weekly digest", "cat": "Job Search", "loc": "inbox", "needs": False},
+            {"frm": "Cash App", "subj": "Payment declined", "line": "Fake", "cat": "Phishing / Scam", "loc": "trash", "needs": False},
+            {"frm": "Bank", "subj": "Withdrawal", "line": "Confirm", "cat": "Financial / Billing", "loc": "trash", "needs": False},
+            {"frm": "Retailer", "subj": "50% off", "line": "", "cat": "Promotional / Retail", "loc": "spam", "needs": False},
+            {"frm": "Daily Skimm", "subj": "News", "line": "", "cat": "Newsletters / Subscriptions", "loc": "inbox", "needs": False}]
     s, h = build_morning(
-        n, days,
-        rescued=[("Nasreen Bharoocha", "Re: Conduit Health")],
-        inbox_trashed=[("email.openai.com", "Look what you can do now")],
-        inbox_rows=[(True, "Ashley Fredericks", "Re: LRN screen", "Awaiting her decision after the video screen"),
-                    (False, "LinkedIn", "New jobs for you", "Weekly digest, no action needed")],
-        prepare_items=[],
-        draft_candidates=[("Ashley Fredericks", "Re: LRN screen", "Screen held 9/25, thank-you sent — she may reply, watch for it")],
-        top3=["Call New York City about documents — due 2026-09-29 — captured 2026-09-26 · #task · #priority"],
-        waiting=[("Ashley Fredericks (LRN)", "Awaiting her decision after the video screen", 2),
-                 ("Patsy Doerr (LRN)", "No reply to your outreach yet", 11)],
+        n, days, rescued=[("Nasreen B", "Re: Acme")], inbox_trashed=[],
+        inbox_rows=[(True, "Ashley F", "Re: screen", "Awaiting her decision"), (False, "LinkedIn", "New jobs", "Weekly digest")],
+        prepare_items=[("Mon 9/28", "Acme prep", ["Stage: Screen"])],
+        draft_candidates=[("Ashley F", "Re: screen", "She may reply")],
+        top3=["Call about documents — due 2026-09-29 — captured 2026-09-26 · #task"],
+        waiting=[("Ashley F (Acme)", "Awaiting decision", 2), ("Patsy D", "No reply yet", 11)],
         role_count=14, awaiting_count=7, open_count=41,
-        action_items=["Call New York City about documents — due 2026-09-29 — captured 2026-09-26 · #task",
-                     "Renew notary bond — due 2026-09-26 — captured 2026-09-20 · #task"],
-        rsvp_needed=[("Mon 9/28", "Doctor's appointment")],
-    )
-    assert s == "Ellie - EA - Sunday, September 27" and h.startswith("<table") and "$(" not in h and "/tmp/" not in h and "gradient" not in h.replace("background-image:linear-gradient", "")
-    for needle in ("Executive Summary", "Top priority: Call New York City", "awaiting your RSVP", "calendar conflict", "Rescued From Trash",
-                   "Nasreen Bharoocha", "Inbox Triage — Quick List", "NEEDS YOU", "Inbox Trash", "Action Required", "Renew notary bond",
-                   "Calendar — Next 7 Days", "Mahjong", "CONFLICT", "RSVP NEEDED", "Nothing scheduled.", "Prepare",
-                   "Nothing to prepare this week.", "Draft Replies", "Tell Ellie: draft 1 and 3",
-                   "Top 3 &amp; Follow Up", "Call New York City", "Patsy Doerr", "11d", "Ellie Commands", "/ea:setup"):
+        action_items=["Call about documents — due 2026-09-29 — captured 2026-09-26 · #task", "Renew bond — due 2026-09-26 — captured 2026-09-20 · #task"],
+        rsvp_needed=[("Mon 9/28", "Doctor's appointment")], mail=mail,
+        pipeline=[("Acme - HR Director", "Screen · last contact 2026-09-25", "Medium")])
+    assert s == "Ellie - EA - Sunday, September 27" and h.startswith("<table") and "$(" not in h and "/tmp/" not in h
+    for needle in ("Good morning, Melissa", "Emails reviewed", "Executive Summary", "1 phishing/scam email caught", "RSVP pending", "calendar conflict",
+                   "Inbox Triage — Quick List", "NEEDS YOU", "RESCUED", "in Trash/Spam", "Action Required", "Renew bond", "Full 7-Day Calendar", "CONFLICT",
+                   "RSVP NEEDED", "Prepare", "Draft Replies", "Tell Ellie: draft 1 and 3", "Job Search &amp; Interview Pipeline", "Medium fit",
+                   "Full Email Review by Category", "Trash Review", "Restore", "Safe to Delete", "Promotional / Retail Summary", "Retailer",
+                   "Newsletters &amp; Subscriptions", "Email Accounting", "Total Emails Reviewed", "Dashboard", "Action Items", "HIGH",
+                   "Top 3 &amp; Follow Up", "Patsy D", "11d", "Ellie Commands", "/ea:setup"):
         assert needle in h, needle
+    assert "<b>6</b>" in h  # accounting total equals mail count
     s2, h2 = build_morning(n, [{"label": "Sun 9/27", "events": []}] * 7, [], [], [], [], [], [], [], 0, 0, 0)
-    assert "Nothing new in the inbox." in h2 and "No replies owed today." in h2 and "Nothing today, nothing waiting." in h2 and "Nothing to prepare this week." in h2 and "Nothing urgent. Light day." in h2
+    for needle in ("Nothing new in the inbox.", "No replies owed today.", "Nothing today, nothing waiting.", "Nothing to prepare this week.",
+                   "No security issues in the last 24 hours.", "No mail in the last 24 hours.", "Nothing due.", "No open roles or new alerts."):
+        assert needle in h2, needle
     print("ok")

@@ -7,6 +7,8 @@ import html
 import re
 from datetime import datetime
 
+from ellie_ui import box as _box, header
+
 F = "font-family:Helvetica,Arial,sans-serif;"
 B = "@B@"  # row border placeholder: filled for every row except the last of a box
 
@@ -43,18 +45,6 @@ def _priority(action: str, why: str, due: str, bar: str) -> str:
 def _time(when: str, what: str, color: str = "#2F6BFF") -> str:
     return (f'<tr><td width="150" bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:12px 0 12px 16px;{F}font-size:12px;font-weight:bold;color:{color};white-space:nowrap;{B}">{_e(when)}</td>'
             f'<td bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:12px 16px 12px 10px;{F}font-size:13px;color:#33404F;{B}">{_e(what)}</td></tr>')
-
-
-def _box(title: str, accent: str, rows: list[str], first: bool, colspan: bool = False) -> str:
-    border = "border-bottom:1px solid #E9EDF2;"
-    rows = [r.replace(B, border) for r in rows[:-1]] + [rows[-1].replace(B, "")]
-    span = ' colspan="2"' if colspan else ""
-    return (f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #D7DEE7;border-radius:6px;{"" if first else "margin-top:16px;"}">'
-            f'<tr><td{span} bgcolor="#F5F7FA" style="background-color:#F5F7FA;padding:10px 16px;border-bottom:1px solid #D7DEE7;border-radius:5px 5px 0 0;">'
-            '<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>'
-            f'<td bgcolor="{accent}" width="9" height="9" style="background-color:{accent};font-size:0;line-height:0;">&nbsp;</td>'
-            f'<td style="padding-left:9px;{F}font-size:10px;font-weight:bold;letter-spacing:1.8px;text-transform:uppercase;color:#44546B;">{title}</td>'
-            "</tr></table></td></tr>" + "".join(rows) + "</table>")
 
 
 def _parse(task: str) -> tuple[str, str, str, str]:
@@ -118,15 +108,13 @@ def build_wrapup(now: datetime, done_today: list[str], filed: list[str], cal_add
         "To capture something: write it in the Drive file <b>Tell Ellie</b> or email yourself."])])
 
     mast = "#3B1B8F"
+    n_week = len(week) if week else 0
+    tiles = [("✅", str(len(done_today)), "Done today"), ("📋", str(len(focus)), "Open this week"), ("🗂", str(n_backlog), "Backlog"),
+             ("⏳", str(len(waiting)), "Awaiting reply"), ("📅", str(n_week), "Events ahead")]
     body = (
         '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#F3F1FB" style="background-color:#F3F1FB;"><tr><td align="center" style="padding:26px 10px;">'
         '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" style="width:100%;max-width:600px;background-color:#FFFFFF;border:1px solid #E5E0F5;border-radius:8px;">'
-        f'<tr><td bgcolor="{mast}" style="background-color:{mast};padding:28px 26px 24px 26px;border-radius:7px 7px 0 0;">'
-        '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">'
-        f'<tr><td style="{F}font-size:10px;font-weight:bold;letter-spacing:2.4px;text-transform:uppercase;color:#FFAA00;padding-bottom:9px;">Ellie &nbsp;&middot;&nbsp; End of Day</td></tr>'
-        f'<tr><td style="font-family:Georgia,\'Times New Roman\',serif;font-size:28px;line-height:33px;color:#FFFFFF;">{now.strftime("%A, %B")} {now.day}</td></tr>'
-        f'<tr><td style="{F}font-size:12px;line-height:18px;color:#F5E9FF;padding-top:10px;">{len(done_today)} done today &nbsp;&middot;&nbsp; {len(focus)} open this week &nbsp;&middot;&nbsp; {n_backlog} in backlog &nbsp;&middot;&nbsp; {len(waiting)} awaiting reply</td></tr>'
-        '</table></td></tr>'
+        + header("Ellie &nbsp;&middot;&nbsp; End of Day", now, "Good evening, Melissa 👋", "Here is how your day closed out and what carries into tomorrow.", tiles, mast) +
         f'<tr><td style="padding:22px;">{"".join(boxes)}</td></tr>'
         '<tr><td bgcolor="#F5F7FA" style="background-color:#F5F7FA;border-top:1px solid #D7DEE7;padding:14px;text-align:center;font-family:Georgia,\'Times New Roman\',serif;font-size:13px;font-style:italic;color:#8994A3;border-radius:0 0 7px 7px;">Ellie</td></tr>'
         "</table></td></tr></table>")
@@ -143,7 +131,7 @@ if __name__ == "__main__":  # runnable check: python scripts/wrapup_email.py
                         [("Sun 9/27 · 9:00am", "Standup"), ("Mon 9/28 · all day", "Doctor")])
     assert s == "Ellie - EA Wrap-Up - Saturday, September 26" and h.startswith("<table") and "$(" not in h and "/tmp/" not in h and "gradient" not in h
     for needle in ("Overdue since 2026-09-20", "Standup", "Call NYC about documents", "Marsh CPO", "Calendar - Week Ahead", "Also Open This Week",
-                   "Fourth thing", "Waiting On", "Ashley Fredericks", "Reminders - Next 7 Days", "Job Pipeline", "Where To Look", "1 awaiting reply"):
+                   "Fourth thing", "Waiting On", "Ashley Fredericks", "Reminders - Next 7 Days", "Job Pipeline", "Where To Look", "Awaiting reply", "Good evening, Melissa"):
         assert needle in h, needle
     s2, h2 = build_wrapup(n, [], [], [], [], 0, [], [], [], None)
     assert "Nothing closed today." in h2 and "Calendar could not be checked." in h2 and "Carrying Into Tomorrow" not in h2 and "Waiting On" not in h2

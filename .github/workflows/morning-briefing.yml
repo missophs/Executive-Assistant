@@ -51,6 +51,12 @@ jobs:
           GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python -u scripts/morning_briefing.py
+      - name: Save dry-run preview
+        if: inputs.dry_run == '1'
+        uses: actions/upload-artifact@v4
+        with:
+          name: morning-preview
+          path: morning-preview.html
       - name: Commit guard file and mail cache
         if: steps.guard.outputs.skip != 'true' && inputs.dry_run != '1'
         run: |
