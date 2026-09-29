@@ -1,9 +1,9 @@
-# Handoff - 2026-09-29 6:30AM ET
+# Handoff - 2026-09-29 9:40AM ET
 Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; do not hand-edit.
 
 ## Filed this run
-- Tell Ellie: Add Sephora to that
-- Calendar: Vaccine at 9:50 AM, then Target and Ulta 2026-09-30
+- Emailed you: CAI talking points - Wed 9-30 2:30pm
+- https://lnkd.in/p/gGy9R3Tb
 
 ## Closed today
 - (none)
@@ -19,7 +19,8 @@ Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; d
 - Andre Bokhoor & Natali Rodriguez (Mellon Foundation) - Andre contacted 9/24, Natali 9/25; no reply from either yet (since 2026-09-24)
 - Edward, Founder (Dropzone AI) - Contacted 9/25; no reply yet (since 2026-09-25)
 - Evan Friednash (Bertelsmann) - Contacted 9/28 10:56 AM ET; he replied same day — early in process, she confirmed she'd applied (since 2026-09-28)
-- Debbi Kritzman (AXA XL) - Contacted 9/28 8:01 AM ET; she replied same day — generic, no interview confirmed (since 2026-09-28)
+- Debbi Kritzman (AXA XL) - Contacted 9/28 8:01 AM ET, generic reply same day; Melissa followed up 9/28 8:41 PM ET asking to connect — awaiting reply (since 2026-09-28)
+- Tara Gallone (Rocket Software) - Contacted 9/28 7:17 PM ET; no reply yet. (Julie Law, second contact, bounced — invalid address) (since 2026-09-28)
 
 ## Calendar, next 7 days
 - Tue 9/29 all day - Call New York City about documents
@@ -29,6 +30,7 @@ Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; d
 - Wed 9/30 9:30am - Elle-Hair
 - Wed 9/30 12:00pm - HR Networking & Job Search Group - 2 Zoom
 - Wed 9/30 12:00pm - Network 
+- Wed 9/30 2:30pm - Melissa Weiss - Discuss Career Opportunities at CAI Software
 - Thu 10/1 9:00am - Executive Roundtable
 - Thu 10/1 12:00pm - Pt
 - Thu 10/1 12:00pm - HR Networking & Job Search: Open Office Hours - Zoom 2
