@@ -152,3 +152,9 @@ Built `scripts/morning_briefing.py` + `scripts/morning_briefing_email.py` + `.gi
 - cron-job.org job still needs to be created by Melissa (or a future session) — see the "one email" entry in `Standing Instructions.md` for the exact job spec. Not wired up by this session.
 
 **Flag — likely still-live old cloud trigger:** the old "Ellie — Morning Standup" Claude cloud trigger (`trig_01GfvypZDLQZRM9F7Kphsnp8`, `30 11 * * *` UTC = 7:30am ET) is a fully working routine (`routines/morning-standup.md`) that sends its own email, subject `Ellie - EA Morning - <Weekday>, <Month> <Day>`, with its own send-once guard. Nothing in this repo's docs confirms it was ever actually disabled — Standing Instructions.md says only that it's meant to be paused once proven, and the most recent Memory.md entries (9/26 evening, 9/27 morning) show the *phone-sync* cloud routine was still confirmed live well after its Git replacement was working, with no changelog entry anywhere recording an actual pause action for Standup, Midday, or Wrap-Up either. If `trig_01GfvypZDLQZRM9F7Kphsnp8` is still enabled, Melissa will get three separate emails some mornings (old Standup + new "Ellie - EA" + Melissa Daily Briefing) until she disables it herself — this session did not attempt to touch it.
+
+## 2026-09-29 changelog
+- Added `scripts/ellie_ui.py` (shared section bars, icons, header tiles). `morning_briefing_email.py`, `wrapup_email.py`, `midday_email.py` now import it.
+- `morning_briefing.py` reviews all mail from the last day (max 100, inbox/archive/Trash/Spam), sorts each into a category with Haiku (cache `.morning-briefing-state.json` now stores 5 fields), merges duplicate calendar entries, builds the job pipeline from Applications.md.
+- `prep_doc.py` + `phone_sync.py` prep branch: "prep for X" capture -> `Meetings/` prep doc (vault + calendar only).
+- Rollback: `git revert -m 1 90a4c7a && git push origin main`.

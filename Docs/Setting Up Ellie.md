@@ -145,3 +145,6 @@ Melissa asked directly whether every bug tonight was fixed, after two failure-no
 2. `morning_briefing.py` Prepare section crashed (`ValueError`, tuple-unpacking mismatch from the conflict/RSVP change) on its first-ever run. Fixed, verified live with a second successful run.
 
 Checked at time of writing: all three workflows green, zero open failures. Only remaining unknown is `morning-briefing.yml`'s first real (non-dry) send, tomorrow ~7am ET.
+
+## Update 2026-09-29: email design and prep
+All three Ellie emails share one look (`scripts/ellie_ui.py`, Ellie purple). The morning email has every section the old Melissa Daily Briefing had. Wrap-up and midday: design only, no inbox triage. To get a prep doc, tell Ellie from your phone: "prep for interview with <company> tomorrow" — it appears in the next morning email's Prepare section. Rollback for this change: `git revert -m 1 90a4c7a` on main.

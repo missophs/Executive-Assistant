@@ -191,3 +191,13 @@ Melissa reported the midday email arrived after 6pm ET instead of 1pm, the calen
 - **Midday crons also moved off round numbers** for the same GitHub-delay reason: `phone-sync.yml`'s three daily crons shifted a few minutes off the hour/half-hour (6:34am/1:04pm/4:34pm ET instead of 6:30/1:00/4:30). cron-job.org's own on-time triggers (6:30am, 1pm, 4:30pm) were not touched — they already fire on time.
 - Morning briefing was explicitly left untouched this round (Melissa: "right now we don't need to touch the morning briefing") — noted but not acted on: cron-job.org's morning trigger is currently set to 7:00am ET, not the 7:30am the workflow's own comments assume.
 - All changes pushed to `missophs/Executive-Assistant` main: commits `018dba6` and `89564c1`.
+
+## 2026-09-29 — Ellie emails match the Melissa Daily Briefing design (Melissa)
+- Ellie replaces Melissa's Daily Briefing once Ellie is confirmed issue-free; Melissa stops the old one herself.
+- All Ellie emails (morning, midday, wrap-up) share the briefing's design: icon section bars, greeting header with stat tiles, cards, tables — **keep Ellie's purple colors**. Shared file: `scripts/ellie_ui.py`.
+- Morning email carries every briefing section: Inbox Triage, Executive Summary (3 cards), Action Required, Draft Replies, Full 7-Day Calendar, Prepare (blue TODAY/TOMORROW cards), Job Search & Interview Pipeline, Full Email Review by Category, Trash Review, Promo, Newsletters, Email Accounting, Dashboard, Action Items, Top 3 & Follow Up.
+- **No email triage at night** (costs money). Wrap-up and midday get the design only, zero new AI.
+- Email review cap stays at **100** (Melissa: if 200 costs more, leave it at 100). Duplicate calendar entries (same start + title) are merged.
+- Prep from the phone: "prep for interview with X tomorrow" builds `Meetings/<date> <Company> prep.md` from the vault + calendar only (no AI, "not in vault" where unknown). Runs **only when she asks**.
+- Company history / About Me / STAR questions prep: approved as **on-demand only** ("prep for X"). Not built yet. Source for her background: iCloud Drive (resume/profile PDFs; folder `Melissa res/2025/2026/cai` exists but is empty). She said NOT to use "Melissa Profile".
+- Live on `missophs/Executive-Assistant` main (merge commit 90a4c7a). Dry run on real data passed 9/29: 100 emails, 24 pipeline roles, ~19k in / 4k out Haiku tokens. First real send: 9/30 morning.
