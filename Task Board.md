@@ -14,6 +14,7 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 ## ⏭ This Week
 
 ## 📋 Backlog
+- [ ] Tell Ellie: Add Sephora to that — captured 2026-09-29 · #task
 - [ ] Fix Ellie morning email workflow — Google token likely expired — captured 2026-09-27 · #task
 - [ ] Director of Human Resources @ Hanger, Inc. (LinkedIn job alert) — captured 2026-09-27 · #jobsearch
 

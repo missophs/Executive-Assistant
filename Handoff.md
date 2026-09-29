@@ -1,14 +1,12 @@
-# Handoff - 2026-09-28 6:23PM ET
+# Handoff - 2026-09-29 6:30AM ET
 Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; do not hand-edit.
 
 ## Filed this run
-- https://www.linkedin.com/jobs/view/4472761056/
-- https://www.linkedin.com/jobs/view/4472777495/
-- https://www.linkedin.com/jobs/view/4472777495/
-- https://www.linkedin.com/jobs/view/4471545190/
+- Tell Ellie: Add Sephora to that
+- Calendar: Vaccine at 9:50 AM, then Target and Ulta 2026-09-30
 
 ## Closed today
-- Mahjong 9/27 calendar time flag resolved — the "Add Mahjong to calendar tomorrow 9 AM to 1 PM" event now shows 1:00–5:00 PM (updated 9/27 1:09 PM ET, after the original flag was raised; Ellie did not make this edit). The date has passed — no longer actionable — 2026-09-28
+- (none)
 
 ## Open: Today
 - Call NYC HRA at 929-273-1872 for your required Cash Assistance interview, and upload documents via the ACCESS HRA app — due TODAY 2026-09-28, per an official HRA email received 9/28 12:35 AM ET ("To do on your case," noreply_ahra@hra.nyc.gov). Note: this is a different date than the existing 9/29 all-day calendar block from your 9/26 capture — that block is still on your calendar, untouched · #task · #priority · #urgent
@@ -27,6 +25,7 @@ Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; d
 - Tue 9/29 all day - Call New York City about documents
 - Tue 9/29 9:50am - Walgreens Appointment
 - Tue 9/29 9:50am - Walgreens Appointment
+- Wed 9/30 8:30am - Vaccine at 9:50 AM, then Target and Ulta
 - Wed 9/30 9:30am - Elle-Hair
 - Wed 9/30 12:00pm - HR Networking & Job Search Group - 2 Zoom
 - Wed 9/30 12:00pm - Network 
