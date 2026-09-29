@@ -21,7 +21,7 @@ jobs:
       - name: Check if morning email already sent today
         id: guard
         run: |
-          git pull origin main --quiet
+          git pull --no-rebase origin main --quiet
           TODAY=$(TZ=America/New_York date +'%Y-%m-%d')
           echo "today=$TODAY" >> "$GITHUB_OUTPUT"
           if [ "${{ inputs.dry_run }}" = "1" ]; then
