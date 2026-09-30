@@ -1,12 +1,28 @@
-# Handoff - 2026-09-30 6:30AM ET
+# Handoff - 2026-09-30 12:29PM ET
 Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; do not hand-edit.
 
 ## Filed this run
-- Calendar: Tour of Westminster Heritage House 2026-10-10
-- Tell Ellie. I want what&#39;s closed out and the people that you&#39;re putting 
+- Director, People Experience, Digital | Pfizer
+- Senior People Partner, G&A | Horizon3.ai
+- Staff People Partner, EPD | Horizon3.ai
+- Vice President - People & Culture | Greenbox Capital
+- Human Resources Director (Remote) | 7Seventy Recruiting
+- motion.md - Write videos in Markdown. Render them with code.
+- Claude hr dashboard
+- LinkedIn job
+- LinkedIn job
 
 ## Closed today
-- (none)
+- CUNY (Vice Chancellor for Human Resources) — closed per your 9/29 11:35 PM ET capture ("we could close out Cuney and remove that Cuney CUNY"). Interview held Fri 9/11 (panel: Elisa Russo & Sujata Malhotra), no word since — closing per your instruction, not asserting a rejection. Applications.md moved to Closed — 2026-09-30
+- No longer waiting on Patsy Doerr (LRN) — cleared per your 9/29 11:34 PM ET capture ("close out all the people were waiting on") — 2026-09-30
+- No longer waiting on Sarah Wagener & Matt Valentino (Chime) — same capture — 2026-09-30
+- No longer waiting on Shira Blumenstein, Katie Bunker & Kerri Toninoeskin (Cotiviti) — same capture — 2026-09-30
+- No longer waiting on Jill Keller & Lisa Gibson (Thomson Reuters) — same capture — 2026-09-30
+- No longer waiting on Andre Bokhoor & Natali Rodriguez (Mellon Foundation) — same capture — 2026-09-30
+- No longer waiting on Edward, Founder (Dropzone AI) — same capture — 2026-09-30
+- No longer waiting on Evan Friednash (Bertelsmann) — same capture. Note: this one had an active reply ("still early in process") — flagging in case you meant to keep chasing this one specifically; the application itself is untouched in Applications.md — 2026-09-30
+- No longer waiting on Debbi Kritzman (AXA XL) — same capture. Note: same flag as Bertelsmann — she'd replied and Melissa had just followed up 9/28; application untouched in Applications.md — 2026-09-30
+- No longer waiting on Tara Gallone (Rocket Software) — same capture — 2026-09-30
 
 ## Open: Today
 - Call NYC HRA at 929-273-1872 for your required Cash Assistance interview, and upload documents via the ACCESS HRA app — due TODAY 2026-09-28, per an official HRA email received 9/28 12:35 AM ET ("To do on your case," noreply_ahra@hra.nyc.gov). Note: this is a different date than the existing 9/29 all-day calendar block from your 9/26 capture — that block is still on your calendar, untouched · #task · #priority · #urgent
@@ -15,14 +31,9 @@ Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; d
 - Call New York City — due 2026-09-30 — captured 2026-09-29 · #task
 
 ## Waiting on
-- Edward, Founder (Dropzone AI) - Contacted 9/25; no reply yet (since 2026-09-25)
-- Evan Friednash (Bertelsmann) - Contacted 9/28 10:56 AM ET; he replied same day — early in process, she confirmed she'd applied (since 2026-09-28)
-- Debbi Kritzman (AXA XL) - Contacted 9/28 8:01 AM ET, generic reply same day; Melissa followed up 9/28 8:41 PM ET asking to connect — awaiting reply (since 2026-09-28)
-- Tara Gallone (Rocket Software) - Contacted 9/28 7:17 PM ET; no reply yet. (Julie Law, second contact, bounced — invalid address) (since 2026-09-28)
+- (none)
 
 ## Calendar, next 7 days
-- Wed 9/30 8:30am - Vaccine at 9:50 AM, then Target and Ulta
-- Wed 9/30 9:30am - Elle-Hair
 - Wed 9/30 12:00pm - HR Networking & Job Search Group - 2 Zoom
 - Wed 9/30 12:00pm - Call New York City
 - Wed 9/30 12:00pm - Network 

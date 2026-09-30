@@ -82,6 +82,15 @@ _(none open — cleared 2026-09-30 per Melissa's 9/29 11:34 PM ET capture, "clos
 _(Rita Ramakrishnan/AIChE follow-up: outcome arrived 9/16 — see People above, closed. Kristen Ramerini/HSO follow-up removed from tracking 2026-09-14 per Tell Ellie capture 9/13 9:27 PM ET — "those are done already." No outcome recorded.)_
 
 ## Saved Links
+- 2026-09-30: LinkedIn job
+- 2026-09-30: LinkedIn job
+- 2026-09-30: Claude hr dashboard
+- 2026-09-30: motion.md - Write videos in Markdown. Render them with code.
+- 2026-09-30: Human Resources Director (Remote) | 7Seventy Recruiting
+- 2026-09-30: Vice President - People & Culture | Greenbox Capital
+- 2026-09-30: Staff People Partner, EPD | Horizon3.ai
+- 2026-09-30: Senior People Partner, G&A | Horizon3.ai
+- 2026-09-30: Director, People Experience, Digital | Pfizer
 - 2026-09-29: https://lnkd.in/p/gbBuJYXa
 - 2026-09-29: https://lnkd.in/p/gSqjCznJ
 - 2026-09-29: https://www.aihr.com/blog/claude-for-hr/?utm_source=linkedin&utm_medium=social&utm_campaign=blog&utm_term=acxx-claude-for-hr-one-pager&utm_content=acxx-claude-for-hr-one-pager
