@@ -17,6 +17,7 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 ## 📋 Backlog
 - [ ] Tell Ellie: Add Sephora to that — captured 2026-09-29 · #task
 - [ ] Fix Ellie morning email workflow — Google token likely expired — captured 2026-09-27 · #task
+- [ ] Bug in `scripts/phone_sync.py`: two 9/29 11:34-11:35 PM ET captures phrased "close out Cuney CUNY" and "close out all the people were waiting on" were misread by the git routine's send-a-document feature as Drive-doc search requests ("Ellie - Doc - which one?" emails sent, no doc found) instead of completion/waiting-on captures. Caught and actually filed by this run 9/30. Needs a fix so "close out X" doesn't route to document search · #task
 - [ ] Director of Human Resources @ Hanger, Inc. (LinkedIn job alert) — captured 2026-09-27 · #jobsearch
 
 - [ ] Triage LinkedIn job alert — Director, People Business Partner @ Wiley, up to $213K (LinkedIn alert, 9/26 11:05 PM ET) · #sourcing
@@ -87,8 +88,8 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 **Vault audit 2026-09-27**
 
 1. MSG Entertainment Holdings and Hudson River Trading are still open in the Backlog, but each one's own line already says "Filed to Applications.md as Applied" — same pattern as the Done items right below them (SimplePractice, Oscar Health). Looks like they were filed but never checked off. Tell Ellie: do 1 — to move both to Done. Doing nothing leaves them sitting in Backlog as if unfiled.
-2. CUNY (Vice Chancellor for HR) in Applications.md still lists its next action as "Interview confirmed: Fri 9/11, 3:00–4:00 PM ET" — that interview was 16 days ago and last contact is dated 9/3, with no outcome recorded since. Tell Ellie: do 2 — to update the row to "awaiting decision, no word since the 9/11 interview" (a status note, not a new outreach). Doing nothing leaves the stale "confirmed" wording in place.
-3. Three cold-outreach threads have had no reply for 10+ days: Patsy Doerr (LRN, contacted 9/16–9/17), Sarah Wagener & Matt Valentino (Chime, contacted 9/17), Jill Keller & Lisa Gibson (Thomson Reuters, contacted 9/16, one auto-reply only). Tell Ellie: do 3 — to draft a one-line second follow-up to each (for your approval before sending), or tell Ellie to drop one or all of them. Doing nothing leaves them open with no further action.
+2. CUNY (Vice Chancellor for HR) in Applications.md still lists its next action as "Interview confirmed: Fri 9/11, 3:00–4:00 PM ET" — that interview was 16 days ago and last contact is dated 9/3, with no outcome recorded since. Tell Ellie: do 2 — to update the row to "awaiting decision, no word since the 9/11 interview" (a status note, not a new outreach). Doing nothing leaves the stale "confirmed" wording in place. **Moot as of 2026-09-30 — CUNY closed per Melissa's instruction, see Done below.**
+3. Three cold-outreach threads have had no reply for 10+ days: Patsy Doerr (LRN, contacted 9/16–9/17), Sarah Wagener & Matt Valentino (Chime, contacted 9/17), Jill Keller & Lisa Gibson (Thomson Reuters, contacted 9/16, one auto-reply only). Tell Ellie: do 3 — to draft a one-line second follow-up to each (for your approval before sending), or tell Ellie to drop one or all of them. Doing nothing leaves them open with no further action. **Moot as of 2026-09-30 — all cleared from Follow-Ups per Melissa's instruction, see Done below.**
 4. Four applications have sat 3+ weeks with only an auto-ack and no human contact: Dropbox (applied 8/22), Superhuman (8/29), RWT Consulting (8/31), Teleport (9/1). Tell Ellie: do 4 — to move these to Closed for pattern-spotting, or tell Ellie to leave them open. Doing nothing leaves them open in Applications.md as-is.
 
 ## ⏳ Waiting On
@@ -99,6 +100,16 @@ _(none open)_
 ## ✅ Done
 <!-- Cleared during /start and /wrap-up. Archive monthly. -->
 
+- [x] CUNY (Vice Chancellor for Human Resources) — closed per your 9/29 11:35 PM ET capture ("we could close out Cuney and remove that Cuney CUNY"). Interview held Fri 9/11 (panel: Elisa Russo & Sujata Malhotra), no word since — closing per your instruction, not asserting a rejection. Applications.md moved to Closed — 2026-09-30
+- [x] No longer waiting on Patsy Doerr (LRN) — cleared per your 9/29 11:34 PM ET capture ("close out all the people were waiting on") — 2026-09-30
+- [x] No longer waiting on Sarah Wagener & Matt Valentino (Chime) — same capture — 2026-09-30
+- [x] No longer waiting on Shira Blumenstein, Katie Bunker & Kerri Toninoeskin (Cotiviti) — same capture — 2026-09-30
+- [x] No longer waiting on Jill Keller & Lisa Gibson (Thomson Reuters) — same capture — 2026-09-30
+- [x] No longer waiting on Andre Bokhoor & Natali Rodriguez (Mellon Foundation) — same capture — 2026-09-30
+- [x] No longer waiting on Edward, Founder (Dropzone AI) — same capture — 2026-09-30
+- [x] No longer waiting on Evan Friednash (Bertelsmann) — same capture. Note: this one had an active reply ("still early in process") — flagging in case you meant to keep chasing this one specifically; the application itself is untouched in Applications.md — 2026-09-30
+- [x] No longer waiting on Debbi Kritzman (AXA XL) — same capture. Note: same flag as Bertelsmann — she'd replied and Melissa had just followed up 9/28; application untouched in Applications.md — 2026-09-30
+- [x] No longer waiting on Tara Gallone (Rocket Software) — same capture — 2026-09-30
 - [x] LRN (Vice President of People) — Ashley Fredericks rejected 9/29 12:14 PM ET, "specific needs of the role," not a knock on your experience per her email. Video screen held 9/25, thank-you + 30-60-90 day plan sent same day. Patsy Doerr (second LRN contact) never replied. Moved to Closed in Applications.md — 2026-09-29
 - [x] Mahjong 9/27 calendar time flag resolved — the "Add Mahjong to calendar tomorrow 9 AM to 1 PM" event now shows 1:00–5:00 PM (updated 9/27 1:09 PM ET, after the original flag was raised; Ellie did not make this edit). The date has passed — no longer actionable — 2026-09-28
 - [x] Git automation failure, root-caused and fixed — the 4:30 PM ET "Ellie phone sync" failure (commit 4aacbfa) was a push race: the script ran fine but `git push` got rejected because another commit landed on `main` first, and unlike the other two cron workflows this one had no retry logic. Added the same pull-rebase-and-retry loop morning-briefing.yml and wrap-up.yml already use, and merged it to `main` so it's live for the next scheduled run (4:30 PM ET today). Also added the "Waiting On" dashboard panel — the data (`DATA.waiting`) was already there, just never rendered — 2026-09-27
@@ -144,7 +155,6 @@ _(none open)_
 - [x] Rescued the AIChE invite from Trash and accepted it — Thu 9/3 10:00 ET — 2026-08-29
 
 ## 📥 Captured (unsorted)
-- [ ] Tell Ellie. I want what&#39;s closed out and the people that you&#39;re putting in the update and wrap up we can close those out and them get rid of it from the update and wrap up — captured 2026-09-30 · #unsorted
 - [ ] Tell Ellie. — captured 2026-09-27 · #unsorted
 - [ ] Tell Ellie. — captured 2026-09-27 · #unsorted
 - [ ] Tell Ellie. — captured 2026-09-27 · #unsorted
