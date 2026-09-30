@@ -144,6 +144,7 @@ _(none open)_
 - [x] Rescued the AIChE invite from Trash and accepted it — Thu 9/3 10:00 ET — 2026-08-29
 
 ## 📥 Captured (unsorted)
+- [ ] Tell Ellie. I want what&#39;s closed out and the people that you&#39;re putting in the update and wrap up we can close those out and them get rid of it from the update and wrap up — captured 2026-09-30 · #unsorted
 - [ ] Tell Ellie. — captured 2026-09-27 · #unsorted
 - [ ] Tell Ellie. — captured 2026-09-27 · #unsorted
 - [ ] Tell Ellie. — captured 2026-09-27 · #unsorted
