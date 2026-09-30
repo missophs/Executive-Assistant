@@ -163,3 +163,9 @@ Built `scripts/morning_briefing.py` + `scripts/morning_briefing_email.py` + `.gi
 - `phone_sync.py`: new capture kind `send`. Finds a Drive file by name words (Google Doc -> HTML email body, other files <=15 MB -> attachment), emails it to Melissa only, subject `Ellie - Doc - <name>`. No match -> emails the 10 most recent Drive docs (`Ellie - Doc - which one?`). Dry runs send nothing. Drive scope was already full `drive`.
 - Known: a real run on 9/29 hit a transient Google read timeout writing the "Ellie" status doc (existing code, `replace_doc`); the re-run succeeded, so one CAI doc email was sent twice.
 - Rollback: revert commits 6811b71 and 63b2149.
+
+## 2026-09-30 changelog (Ellie matches the Melissa Daily Briefing)
+- New `scripts/briefing_cards.py`: Inbox Triage list (with AUTO-TRASHED and TRASH counts), Executive Summary as three cards (Biggest Risk / Job Search / Calendar), Action Required cards (Source, Why it matters, Next step, Due) for RSVP Pending, declined invites, and financial/security/medical mail.
+- Wired into the morning email (`morning_briefing_email.py`, `morning_briefing.py`) and the wrap-up (`wrapup_email.py`, `wrap_up.py`). `phone_sync.py` saves `state["wrap"]`; the morning run saves `state["review"]` in `.morning-briefing-state.json`; the wrap-up reads both.
+- Morning run now rescues financial/security/medical/order mail from Trash itself (never phishing, never Do Not Rescue senders, never the same thread twice) and writes a per-email next step and due date.
+- Rollback: revert commits c899826 and the follow-up "Ellie auto-rescues financial/security/medical mail" commit.
