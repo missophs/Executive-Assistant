@@ -128,7 +128,11 @@ STATUS = {"accepted": ("✔", "Confirmed", "#1C4DC4"), "declined": ("✖", "DECL
           "tentative": ("❔", "Tentative", "#B26A00")}
 
 
-def rich_events(events: list[dict], now: datetime, prep: dict[str, str] | None = None) -> dict[str, list[dict]]:
+def _pv(v: "str | dict", key: str) -> str:
+    return v.get(key, "") if isinstance(v, dict) else (v if key == "prep" else "")
+
+
+def rich_events(events: list[dict], now: datetime, prep: dict[str, "str | dict"] | None = None) -> dict[str, list[dict]]:
     """Calendar API events -> {YYYY-MM-DD: [detail dicts]} sorted by start, same start+title collapsed, conflicts named."""
     prep = prep or {}
     out: dict[str, list[dict]] = {}
@@ -158,7 +162,7 @@ def rich_events(events: list[dict], now: datetime, prep: dict[str, str] | None =
             "size": "No attendees" if n <= 1 else f"{n // 10 * 10}+ attendees" if n >= 10 else f"{n} attendees",
             "loc": "" if (not loc or "zoom" in loc.lower() or loc.startswith("http")) else loc, "zoom": link,
             "mid": (mid.group(1).strip() if mid else (re.search(r"/j/(\d+)", link).group(1) if re.search(r"/j/(\d+)", link) else "")),
-            "pw": pw.group(1) if pw else "", "prep": prep.get(e.get("id", ""), ""), "conflict": ""})
+            "pw": pw.group(1) if pw else "", "prep": _pv(prep.get(e.get("id", ""), ""), "prep"), "warn": _pv(prep.get(e.get("id", ""), ""), "warn"), "conflict": ""})
     for evs in out.values():
         evs.sort(key=lambda x: (x["start"] is None, x["start"] or now))
         timed = [x for x in evs if x["start"] and x["status"][1] != "DECLINED"]
@@ -199,8 +203,8 @@ def calendar_rows(days: list[tuple[str, bool, list[dict]]]) -> list[str]:
                 det.append(f'<div style="{F}font-size:12px;line-height:18px;color:#33404F;padding-top:4px;"><b>Prep:</b> {_e(ev["prep"])}</div>')
             if ev["status"][1] == "DECLINED":
                 det.append(f'<div style="{F}font-size:12px;color:#33404F;padding-top:4px;"><b>Note:</b> You declined this event. Confirm the declination was intentional.</div>')
-            if ev["conflict"]:
-                det.append(f'<div style="{F}font-size:12px;font-weight:bold;color:#C62828;padding-top:4px;">⚠️ {_e(ev["conflict"])}</div>')
+            for warn in dict.fromkeys(w for w in (ev["conflict"], ev.get("warn", "")) if w):
+                det.append(f'<div style="{F}font-size:12px;font-weight:bold;color:#C62828;padding-top:4px;">⚠️ {_e(warn)}</div>')
             rows.append(f'<tr><td valign="top" width="120" bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:12px 0 12px 16px;{F}font-size:12px;font-weight:bold;color:#1C62A8;white-space:nowrap;{B}">{ev["range"]}</td>'
                         f'<td bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:12px 16px 12px 10px;{B}">{"".join(det)}</td></tr>')
     return rows
