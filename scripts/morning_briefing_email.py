@@ -218,7 +218,7 @@ def build_morning(now: datetime, calendar_days: list[dict], rescued: list[tuple[
         cal_rows.append(_title(day["label"], "Nothing scheduled." if not events else ""))
         cal_rows.extend(_time(t, w, c, r) for t, w, c, r in events)
     add("Full 7-Day Calendar", "#2F6BFF", calendar_rows(cal_rich) if cal_rich else cal_rows, colspan=True)
-    add("Prepare", "#2F6BFF", [_prep(d, w, c) for d, w, c in prepare_items] if prepare_items else [_empty("Nothing to prepare this week.")])
+    add("Prepare — Next 7 Days", "#2F6BFF", [_prep(d, w, c) for d, w, c in prepare_items] if prepare_items else [_empty("Nothing to prepare this week.")])
 
     # 5. job search pipeline
     job_rows = [_title(t, f"{fit} fit · {d}"[:240]) for t, d, fit in pipeline[:10]]
@@ -293,12 +293,13 @@ def build_morning(now: datetime, calendar_days: list[dict], rescued: list[tuple[
     add("Ellie Commands", "#44546B", [_title(c, d) for c, d in EA_COMMANDS])
 
     mast = "#6D21C9"
-    tiles = [("📧", str(n_mail), "Emails reviewed"), ("📅", str(n_events), "Calendar events"), ("🚨", str(len(action_items)), "Action required"),
-             ("⚠️", str(phishing + sec), "Security / phishing"), ("🗓", str(len(rsvp_needed)), "RSVPs pending")]
+    interviews_today = sum(1 for e in (calendar_days[0]["events"] if calendar_days else []) if re.search(r"interview|screen", e[1], re.I))
+    tiles = [("", str(n_mail), "Emails Reviewed"), ("", str(n_events), "Calendar Events (7-day window)"), ("", str(phishing), "Auto-Trashed (Phishing)"),
+             ("", str(len(rescued)), "Rescued from Trash"), ("", str(interviews_today), "Interview Today"), ("⚠️", str(len(rsvp_needed)), "RSVPs Pending")]
     body = (
         '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#F3F1FB" style="background-color:#F3F1FB;"><tr><td align="center" style="padding:26px 10px;">'
         '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" style="width:100%;max-width:600px;background-color:#FFFFFF;border:1px solid #E5E0F5;border-radius:8px;">'
-        + header("Ellie &nbsp;&middot;&nbsp; Morning", now, "Good morning, Melissa 👋", "Here is your executive briefing — prepared and ready before your day begins.", tiles, mast) +
+        + header("Ellie &nbsp;&middot;&nbsp; Morning", now, 'Good morning, <b style="color:#E0C97F;font-weight:bold;">Melissa</b> ☀️', "Executive Daily Briefing", tiles, mast) +
         f'<tr><td style="padding:22px;">{"".join(boxes)}</td></tr>'
         '<tr><td bgcolor="#F5F7FA" style="background-color:#F5F7FA;border-top:1px solid #D7DEE7;padding:14px;text-align:center;font-family:Georgia,\'Times New Roman\',serif;font-size:13px;font-style:italic;color:#8994A3;border-radius:0 0 7px 7px;">Ellie</td></tr>'
         "</table></td></tr></table>")
@@ -329,7 +330,7 @@ if __name__ == "__main__":  # runnable check: python scripts/morning_briefing_em
         rsvp_needed=[("Mon 9/28", "Doctor's appointment")], mail=mail,
         pipeline=[("Acme - HR Director", "Screen · last contact 2026-09-25", "Medium")])
     assert s == "Ellie - EA - Sunday, September 27" and h.startswith("<table") and "$(" not in h and "/tmp/" not in h
-    for needle in ("Good morning, Melissa", "Emails reviewed", "Executive Summary", "1 phishing/scam email caught", "RSVP pending", "calendar conflict",
+    for needle in ("Good morning,", "Emails Reviewed", "Executive Summary", "1 phishing/scam email caught", "RSVP pending", "calendar conflict",
                    "Inbox Triage — Quick List", "NEEDS YOU", "RESCUED", "in Trash/Spam", "AUTO-TRASHED", "BIGGEST RISK / URGENT", "BIGGEST JOB SEARCH / OPPORTUNITY", "BIGGEST CALENDAR / DEADLINE", "Why it matters:", "Review Withdrawal", "Action Required", "Renew bond", "Full 7-Day Calendar", "CONFLICT",
                    "RSVP NEEDED", "Prepare", "Draft Replies", "Tell Ellie: draft 1 and 3", "Job Search &amp; Interview Pipeline", "Medium fit",
                    "Full Email Review by Category", "Trash Review", "Restore", "Safe to Delete", "Promotional / Retail Summary", "Retailer",

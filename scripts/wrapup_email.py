@@ -120,12 +120,12 @@ def build_wrapup(now: datetime, done_today: list[str], filed: list[str], cal_add
 
     mast = "#3B1B8F"
     n_week = len(week) if week else 0
-    tiles = [("✅", str(len(done_today)), "Done today"), ("📋", str(len(focus)), "Open this week"), ("🗂", str(n_backlog), "Backlog"),
-             ("⏳", str(len(waiting)), "Awaiting reply"), ("📅", str(n_week), "Events ahead")]
+    tiles = [("", str(len(done_today)), "Done Today"), ("", str(len(focus)), "Open This Week"), ("", str(n_backlog), "Backlog"),
+             ("", str(len(waiting)), "Awaiting Reply"), ("", str(n_week), "Events Ahead")]
     body = (
         '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#F3F1FB" style="background-color:#F3F1FB;"><tr><td align="center" style="padding:26px 10px;">'
         '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" style="width:100%;max-width:600px;background-color:#FFFFFF;border:1px solid #E5E0F5;border-radius:8px;">'
-        + header("Ellie &nbsp;&middot;&nbsp; End of Day", now, "Good evening, Melissa 👋", "Here is how your day closed out and what carries into tomorrow.", tiles, mast) +
+        + header("Ellie &nbsp;&middot;&nbsp; End of Day", now, 'Good evening, <b style="color:#E0C97F;font-weight:bold;">Melissa</b> 🌙', "End-of-Day Briefing — how your day closed out and what carries into tomorrow", tiles, mast) +
         f'<tr><td style="padding:22px;">{"".join(boxes)}</td></tr>'
         '<tr><td bgcolor="#F5F7FA" style="background-color:#F5F7FA;border-top:1px solid #D7DEE7;padding:14px;text-align:center;font-family:Georgia,\'Times New Roman\',serif;font-size:13px;font-style:italic;color:#8994A3;border-radius:0 0 7px 7px;">Ellie</td></tr>'
         "</table></td></tr></table>")
@@ -142,7 +142,7 @@ if __name__ == "__main__":  # runnable check: python scripts/wrapup_email.py
                         [("Sun 9/27 · 9:00am", "Standup"), ("Mon 9/28 · all day", "Doctor")])
     assert s == "Ellie - EA Wrap-Up - Saturday, September 26" and h.startswith("<table") and "$(" not in h and "/tmp/" not in h and "gradient" not in h
     for needle in ("Overdue since 2026-09-20", "Standup", "Call NYC about documents", "Marsh CPO", "Calendar - Week Ahead", "Also Open This Week",
-                   "Fourth thing", "Waiting On", "Ashley Fredericks", "Reminders - Next 7 Days", "Job Pipeline", "Where To Look", "Awaiting reply", "Good evening, Melissa"):
+                   "Fourth thing", "Waiting On", "Ashley Fredericks", "Reminders - Next 7 Days", "Job Pipeline", "Where To Look", "Awaiting Reply", "Good evening,"):
         assert needle in h, needle
     s2, h2 = build_wrapup(n, [], [], [], [], 0, [], [], [], None)
     assert "Nothing closed today." in h2 and "Calendar could not be checked." in h2 and "Carrying Into Tomorrow" not in h2 and "Waiting On" not in h2
