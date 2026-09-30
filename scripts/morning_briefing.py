@@ -17,7 +17,7 @@ from zoneinfo import ZoneInfo
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 
-from briefing_cards import calendar_action_cards
+from briefing_cards import REVIEW_CATS, calendar_action_cards
 from morning_briefing_email import CATS, build_morning
 
 NY = ZoneInfo("America/New_York")
@@ -116,7 +116,7 @@ for t in gmail.users().threads().list(userId="me", maxResults=100, q="in:anywher
         continue  # deterministic always-trash senders are handled by the wrap-up/phone-sync triage already; this email only reports, it never trashes a protected/never list
     kept.append(row)
 
-fresh = [k for k in allmail if len(mail_cache.get(k[0], [])) < 5]
+fresh = [k for k in allmail if len(mail_cache.get(k[0], [])) < 5 or (mail_cache[k[0]][4] in REVIEW_CATS and len(mail_cache[k[0]]) < 7)]  # review mail also needs next step + due
 if fresh and os.environ.get("ANTHROPIC_API_KEY"):
     where = {"inbox": "in inbox", "trash": "in Trash", "spam": "in Spam", "other": "archived"}
     for i in range(0, len(fresh), 40):
@@ -124,7 +124,10 @@ if fresh and os.environ.get("ANTHROPIC_API_KEY"):
         try:
             out = ask_haiku(f"Today is {today}. Melissa is a senior HR executive job searching. For each email return a JSON array, same order: "
                             '{"i":<n>,"needs":true|false,"reply":true|false,"cat":"<one category>","line":"one plain line, max 14 words, what it is and any amount or deadline",'
-                            '"why":"if reply=true, one short line on why a reply is owed and to whom, else empty"}. '
+                            '"why":"if reply=true, one short line on why a reply is owed and to whom, else empty",'
+                            '"next":"if cat is Financial / Billing, Security / Risk or Medical / Health: the concrete next step in one sentence (what to open, click, pay, save or confirm), else empty",'
+                            '"due":"if cat is one of those: when it is due, e.g. Today, This week, Within 7 days, By Friday, October 30, 2026 (use a real deadline from the email if it has one), else empty"}. '
+                            "Financial / Billing also covers bank, card, brokerage and investment notices, tax and statement mail, and orders, returns or deliveries with a deadline. "
                             f"cat must be exactly one of: {' | '.join(CATS)}. Phishing / Scam = fake or spoofed senders, fake payment or account threats. Security / Risk = REAL alerts from her banks, accounts or logins. "
                             "needs=true ONLY when a real person is waiting on her, a recruiter or interviewer wrote directly, there is a hard deadline, or a security or money problem, and the email is in her inbox. Automated job alerts, job digests, newsletters, receipts, statements, promos and deposits are needs=false. "
                             "reply=true ONLY when a real person (recruiter, interviewer, hiring manager, networking contact) is owed a reply from Melissa and no automated sender, and the email is in her inbox. Never invent facts. JSON only.\n\n" +
@@ -134,7 +137,8 @@ if fresh and os.environ.get("ANTHROPIC_API_KEY"):
                     k = chunk[r["i"] - 1]
                     inbox_ = k[4] == "inbox"
                     mail_cache[k[0]] = [bool(r.get("needs")) and inbox_, str(r.get("line", ""))[:140], bool(r.get("reply")) and inbox_,
-                                        str(r.get("why", ""))[:160], r.get("cat") if r.get("cat") in CATS else "Other"]
+                                        str(r.get("why", ""))[:160], r.get("cat") if r.get("cat") in CATS else "Other",
+                                        str(r.get("next", ""))[:200], str(r.get("due", ""))[:60]]
         except Exception as exc:
             print("AI mail triage failed:", exc)
 for k in allmail:
@@ -181,6 +185,20 @@ try:
 except Exception as exc:
     print("trash rescue failed:", exc)
 state["trashjudged"] = sorted(judged)[-300:]
+
+# --- financial / security / medical / order mail that landed in Trash: Ellie brings it back herself (Melissa, 2026-09-30: "ellie should be doing that").
+# Never the same thread twice (if she trashes it again that is her call), never Do Not Rescue / always-trash senders, never the Phishing category.
+fin_done = set(state.get("fin_rescued", []))
+for k in allmail:
+    c = mail_cache[k[0]]
+    if (k[4] == "trash" and len(c) >= 5 and c[4] in REVIEW_CATS and k[0] not in fin_done and k[0] not in rescued_ids
+            and not any(d in k[1].lower() for d in do_not_rescue + always_l if d)):
+        if not DRY:
+            gmail.users().threads().modify(userId="me", id=k[0], body={"addLabelIds": ["INBOX", "STARRED", "IMPORTANT"], "removeLabelIds": ["TRASH"]}).execute()
+        fin_done.add(k[0])
+        rescued_ids.add(k[0])
+        rescued.append((re.sub(r".*<|>.*", "", k[1]).strip() or k[1], k[2]))
+state["fin_rescued"] = sorted(fin_done)[-300:]
 
 # --- calendar, 7 days, every day shown (same shape the old Melissa Daily Briefing used), plus
 # overlap detection and RSVP-needed flags (ported from missophs/daily-briefing, missing here before 2026-09-27)
@@ -283,7 +301,9 @@ awaiting_count = len(waiting)
 open_count = len(focus) + len(section(board, "📋 Backlog"))
 
 mail_records = [{"frm": re.sub(r"<.*?>|\"", "", k[1]).strip()[:40] or k[1][:40], "subj": k[2][:90], "line": mail_cache[k[0]][1], "cat": mail_cache[k[0]][4],
-                 "loc": "rescued" if k[0] in rescued_ids else k[4], "needs": mail_cache[k[0]][0]} for k in allmail]
+                 "loc": "rescued" if k[0] in rescued_ids else k[4], "needs": mail_cache[k[0]][0],
+                 "next": mail_cache[k[0]][5] if len(mail_cache[k[0]]) > 5 else "", "due": mail_cache[k[0]][6] if len(mail_cache[k[0]]) > 6 else ""} for k in allmail]
+state["review"] = {"date": today, "mail": [m for m in mail_records if m["cat"] in REVIEW_CATS and m["loc"] in ("inbox", "rescued", "trash")]}  # wrap_up.py reads this
 FIT = {"Offer": "High", "Final": "High", "Interview": "High", "Screen": "Medium", "Applied": "Low"}  # ponytail: fit is by stage only, no real scoring
 pipeline = [(f"{c[0]} - {c[1]}", f"{c[2]} · last contact {c[4]}: {c[5].replace('**', '')[:140]}", FIT[c[2]])
             for c in sorted((c for c in apps_rows if c[2] in FIT), key=lambda c: list(FIT).index(c[2]))]

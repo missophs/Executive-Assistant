@@ -117,5 +117,5 @@ def mail_action_cards(mail: list[dict], cat_action: dict[str, str]) -> list[str]
         if m["cat"] in REVIEW_CATS and m["loc"] in ("inbox", "rescued", "trash"):
             icon, bar, due = REVIEW_CATS[m["cat"]]
             where = {"inbox": "In your inbox", "rescued": "Rescued from Trash", "trash": "In Trash — restore if you need it"}[m["loc"]]
-            cards.append(action_card(icon, f"Review {m['subj'][:80]}", f"{m['frm']} · {where}", m["line"] or m["subj"], cat_action[m["cat"]], due, bar))
+            cards.append(action_card(icon, f"Review {m['subj'][:80]}", f"{m['frm']} · {where}", m["line"] or m["subj"], m.get("next") or cat_action[m["cat"]], m.get("due") or due, bar))
     return cards[:6]

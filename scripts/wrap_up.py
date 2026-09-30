@@ -12,7 +12,8 @@ from zoneinfo import ZoneInfo
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 
-from briefing_cards import action_card, calendar_action_cards, summary_cards, triage_rows
+from briefing_cards import action_card, calendar_action_cards, mail_action_cards, summary_cards, triage_rows
+from morning_briefing_email import CAT_ACTION
 from wrapup_email import _parse, build_wrapup
 
 NY = ZoneInfo("America/New_York")
@@ -126,7 +127,9 @@ tmr = [w for w in (week or []) if w[0].startswith((now + timedelta(days=1)).strf
 cal_txt = (f"Tomorrow: " + " → ".join(f"{w.split(' · ')[-1]} {s}" for w, s in tmr[:6]) + ". " if tmr else "Nothing on the calendar tomorrow. ") + \
     (f"Next deadline: {due_soon[0][0]} (due {due_soon[0][1]})." if due_soon else "")
 summary = summary_cards(risk, job, cal_txt.strip())
-actions = cal_cards + [action_card("🔵" if due > today else "🔴", a, "Task Board", why or "Open task on your board.", "Finish it or tell Ellie it is done.", due,
+mst = json.load(open(".morning-briefing-state.json")) if os.path.exists(".morning-briefing-state.json") else {}
+review = mst.get("review", {}).get("mail", []) if mst.get("review", {}).get("date") == today else []  # this morning's financial/security/medical mail
+actions = cal_cards + mail_action_cards(review, CAT_ACTION) + [action_card("🔵" if due > today else "🔴", a, "Task Board", why or "Open task on your board.", "Finish it or tell Ellie it is done.", due,
                                    "#FF3B3B" if due <= today else "#FFAA00") for a, due, why in due_soon[:8]]
 subject, body = build_wrapup(now, done_today, filed, cal_added, focus, n_backlog, waiting, reminders, pipeline, week, triage, summary, actions or None)
 assert body.startswith("<table") and "$(" not in body and "/tmp/" not in body, "bad email body"
