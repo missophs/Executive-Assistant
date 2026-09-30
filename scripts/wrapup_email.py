@@ -59,7 +59,7 @@ def _parse(task: str) -> tuple[str, str, str, str]:
 def build_wrapup(now: datetime, done_today: list[str], filed: list[str], cal_added: list[str], focus: list[str], n_backlog: int,
                  waiting: list[tuple[str, str]], reminders: list[tuple[str, str]], pipeline: list[tuple[str, str]],
                  week: list[tuple[str, str]] | None, triage: list[str] | None = None, summary: list[str] | None = None,
-                 actions: list[str] | None = None) -> tuple[str, str]:
+                 actions: list[str] | None = None, cal_rows: list[str] | None = None, drafts: list[str] | None = None) -> tuple[str, str]:
     """focus = open tasks from Today then This Week, board order. filed = everything captured into Ellie today.
     waiting = (who, detail). reminders = (YYYY-MM-DD, text) for the next 7 days. pipeline = (company - role, detail).
     week = (when, title) for the days ahead; None means the calendar could not be checked."""
@@ -96,13 +96,17 @@ def build_wrapup(now: datetime, done_today: list[str], filed: list[str], cal_add
             slipping.append(_title(a, f"Captured {cap}, no movement in {age} days"))
     if slipping:
         add("Slipping", "#FF3B3B", slipping[:5])
-    if week is None:
+    if cal_rows:
+        rows = cal_rows
+    elif week is None:
         rows = [_empty("Calendar could not be checked.")]
     elif week:
         rows = [_time(w, s) for w, s in week]
     else:
         rows = [_empty("Calendar is clear.")]
-    add("Calendar - Week Ahead", "#2F6BFF", rows, colspan=bool(week))
+    add("Calendar - Week Ahead", "#2F6BFF", rows, colspan=bool(week or cal_rows))
+    if drafts:
+        add("Draft Replies — Awaiting Your OK", "#12A06B", drafts)
     if reminders:
         add("Reminders - Next 7 Days", "#FFAA00", [_time(datetime.strptime(d, "%Y-%m-%d").strftime("%a %-m/%-d"), t[:160], "#B26A00") for d, t in reminders])
     if waiting:

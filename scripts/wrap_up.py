@@ -12,7 +12,7 @@ from zoneinfo import ZoneInfo
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 
-from briefing_cards import action_card, calendar_action_cards, mail_action_cards, summary_cards, triage_rows
+from briefing_cards import action_card, calendar_action_cards, calendar_rows, draft_rows, mail_action_cards, rich_events, summary_cards, triage_rows
 from morning_briefing_email import CAT_ACTION
 from wrapup_email import _parse, build_wrapup
 
@@ -131,7 +131,16 @@ mst = json.load(open(".morning-briefing-state.json")) if os.path.exists(".mornin
 review = mst.get("review", {}).get("mail", []) if mst.get("review", {}).get("date") == today else []  # this morning's financial/security/medical mail
 actions = cal_cards + mail_action_cards(review, CAT_ACTION) + [action_card("🔵" if due > today else "🔴", a, "Task Board", why or "Open task on your board.", "Finish it or tell Ellie it is done.", due,
                                    "#FF3B3B" if due <= today else "#FFAA00") for a, due, why in due_soon[:8]]
-subject, body = build_wrapup(now, done_today, filed, cal_added, focus, n_backlog, waiting, reminders, pipeline, week, triage, summary, actions or None)
+try:
+    rich = rich_events(cal_events, now, mst.get("prep", {}))
+    cal_days = [((day0 + timedelta(days=i)).strftime("%A, %B %-d, %Y"), False, rich.get((day0 + timedelta(days=i)).strftime("%Y-%m-%d"), [])) for i in range(1, 8)]
+except Exception as exc:
+    print("rich calendar failed:", exc)
+    cal_days = []
+dr = mst.get("drafts", {})
+drafts = draft_rows([tuple(d) for d in dr.get("items", [])], 'Tell Ellie the numbers you want drafted, e.g. "Tell Ellie: draft 1 and 3." Nothing is sent. Doing nothing drafts nothing.') if dr.get("date") == today and dr.get("items") else None
+subject, body = build_wrapup(now, done_today, filed, cal_added, focus, n_backlog, waiting, reminders, pipeline, week, triage, summary, actions or None,
+                             calendar_rows(cal_days) if cal_days else None, drafts)
 assert body.startswith("<table") and "$(" not in body and "/tmp/" not in body, "bad email body"
 
 if DRY:

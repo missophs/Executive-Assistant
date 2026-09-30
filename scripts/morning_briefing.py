@@ -17,7 +17,7 @@ from zoneinfo import ZoneInfo
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 
-from briefing_cards import REVIEW_CATS, calendar_action_cards
+from briefing_cards import REVIEW_CATS, calendar_action_cards, rich_events
 from morning_briefing_email import CATS, build_morning
 
 NY = ZoneInfo("America/New_York")
@@ -247,6 +247,25 @@ for i in range(7):
     calendar_days.append({"label": d.strftime("%a %-m/%-d"),
                           "events": [(ev["when"], ev["what"], ev["conflict"], ev["rsvp"]) for ev in day_events]})
 
+# --- calendar in the Daily Briefing layout (status, host, Zoom, Prep, named conflicts). Prep lines: one cached Haiku call for new events in the next 3 days.
+prep_cache = state.setdefault("prep", {})  # event id -> one-line prep, only from the event's own title/description/location
+need_prep = [e for e in events if e.get("id") and e["id"] not in prep_cache and e.get("status") != "cancelled"
+             and datetime.fromisoformat(e["start"].get("dateTime") or e["start"]["date"] + "T00:00:00+00:00").astimezone(NY) < day0 + timedelta(days=3)]
+if need_prep and os.environ.get("ANTHROPIC_API_KEY"):
+    try:
+        out = ask_haiku("For each calendar event give ONE practical prep line, max 22 words, using ONLY its title, description and location (what to bring, confirm or read). "
+                        'If the event gives nothing to prepare, return "". Never invent people, places, facts or documents. Return a JSON array, same order: {"i":<n>,"prep":"..."} JSON only.\n\n' +
+                        "\n".join(f"{n}. {e.get('summary', '')} | {(e.get('description') or '')[:200]} | {e.get('location', '')}" for n, e in enumerate(need_prep, 1)), 1500)
+        for r in json.loads(out[out.index("["):out.rindex("]") + 1]):
+            if 1 <= r.get("i", 0) <= len(need_prep):
+                prep_cache[need_prep[r["i"] - 1]["id"]] = str(r.get("prep", ""))[:200]
+    except Exception as exc:
+        print("prep lines failed:", exc)
+for k in list(prep_cache)[:-200]:
+    del prep_cache[k]
+rich = rich_events(events, now, prep_cache)
+cal_rich = [((day0 + timedelta(days=i)).strftime("%A, %B %-d, %Y"), i == 0, rich.get((day0 + timedelta(days=i)).strftime("%Y-%m-%d"), [])) for i in range(7)]
+
 # --- prepare: interviews/screens/prep-worthy events in the next 7 days, checklist from the vault only
 PREP_WORDS = re.compile(r"\b(interview|screen|phone screen|video screen|panel|call with|meeting with|appointment|prep)\b", re.I)
 apps_rows = [[x.strip() for x in l.strip().strip("|").split("|")] for l in apps.splitlines() if l.startswith("|") and not l.startswith("|---")]
@@ -309,7 +328,8 @@ pipeline = [(f"{c[0]} - {c[1]}", f"{c[2]} · last contact {c[4]}: {c[5].replace(
             for c in sorted((c for c in apps_rows if c[2] in FIT), key=lambda c: list(FIT).index(c[2]))]
 
 subject, body = build_morning(now, calendar_days, rescued, [], inbox_rows, prepare_items, draft_candidates, focus, waiting,
-                              role_count, awaiting_count, open_count, action_items, rsvp_needed, mail_records, pipeline, cal_cards)
+                              role_count, awaiting_count, open_count, action_items, rsvp_needed, mail_records, pipeline, cal_cards, cal_rich)
+state["drafts"] = {"date": today, "items": [list(d) for d in draft_candidates]}  # wrap_up.py shows the same list
 assert body.startswith("<table") and "$(" not in body and "/tmp/" not in body, "bad email body"
 
 if DRY:

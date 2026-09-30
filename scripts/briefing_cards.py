@@ -119,3 +119,100 @@ def mail_action_cards(mail: list[dict], cat_action: dict[str, str]) -> list[str]
             where = {"inbox": "In your inbox", "rescued": "Rescued from Trash", "trash": "In Trash — restore if you need it"}[m["loc"]]
             cards.append(action_card(icon, f"Review {m['subj'][:80]}", f"{m['frm']} · {where}", m["line"] or m["subj"], m.get("next") or cat_action[m["cat"]], m.get("due") or due, bar))
     return cards[:6]
+
+
+# ---- Calendar in the Daily Briefing layout: day banner, time range, title, status, host, Zoom, Prep, red conflict line
+_MID = re.compile(r"Meeting ID:?\s*([\d ]{6,})", re.I)
+_PWD = re.compile(r"(?:Passcode|Password):?\s*(\w+)", re.I)
+STATUS = {"accepted": ("✔", "Confirmed", "#1C4DC4"), "declined": ("✖", "DECLINED", "#C62828"), "needsAction": ("⚠️", "RSVP PENDING (needsAction)", "#B26A00"),
+          "tentative": ("❔", "Tentative", "#B26A00")}
+
+
+def rich_events(events: list[dict], now: datetime, prep: dict[str, str] | None = None) -> dict[str, list[dict]]:
+    """Calendar API events -> {YYYY-MM-DD: [detail dicts]} sorted by start, same start+title collapsed, conflicts named."""
+    prep = prep or {}
+    out: dict[str, list[dict]] = {}
+    seen: set[tuple[str, str]] = set()
+    for e in events:
+        if e.get("status") == "cancelled":
+            continue
+        s, en = e["start"].get("dateTime"), e["end"].get("dateTime") if e.get("end") else None
+        title = e.get("summary", "(no title)")
+        if (s or e["start"].get("date", ""), title.strip().lower()) in seen:
+            continue
+        seen.add((s or e["start"].get("date", ""), title.strip().lower()))
+        d = datetime.fromisoformat(s).astimezone(now.tzinfo) if s else datetime.fromisoformat(e["start"]["date"]).replace(tzinfo=now.tzinfo)
+        d2 = datetime.fromisoformat(en).astimezone(now.tzinfo) if en else d
+        me = next((a for a in e.get("attendees", []) if a.get("self")), None)
+        n = len(e.get("attendees", []))
+        link = _join_link(e)
+        blob = f"{e.get('location', '')} {e.get('description', '')}"
+        mid = _MID.search(blob)
+        pw = _PWD.search(blob)
+        loc = e.get("location", "")
+        out.setdefault(d.strftime("%Y-%m-%d"), []).append({
+            "id": e.get("id", ""), "start": d if s else None, "end": d2 if s else None,
+            "range": f"{d.strftime('%-I:%M')}–{d2.strftime('%-I:%M %p')}".upper() if s else "ALL DAY", "title": title,
+            "status": STATUS.get(me["responseStatus"] if me else "accepted", STATUS["accepted"]),
+            "host": "" if (not me or e.get("organizer", {}).get("self")) else (e.get("organizer", {}).get("displayName") or e.get("organizer", {}).get("email", "")),
+            "size": "No attendees" if n <= 1 else f"{n // 10 * 10}+ attendees" if n >= 10 else f"{n} attendees",
+            "loc": "" if (not loc or "zoom" in loc.lower() or loc.startswith("http")) else loc, "zoom": link,
+            "mid": (mid.group(1).strip() if mid else (re.search(r"/j/(\d+)", link).group(1) if re.search(r"/j/(\d+)", link) else "")),
+            "pw": pw.group(1) if pw else "", "prep": prep.get(e.get("id", ""), ""), "conflict": ""})
+    for evs in out.values():
+        evs.sort(key=lambda x: (x["start"] is None, x["start"] or now))
+        timed = [x for x in evs if x["start"] and x["status"][1] != "DECLINED"]
+        for i, a in enumerate(timed):
+            for b in timed[i + 1:]:
+                if b["start"] < a["end"]:
+                    a["conflict"] = a["conflict"] or f"Conflicts with {b['title']} (also {b['range']}). Resolve which to attend."
+                    b["conflict"] = b["conflict"] or f"Conflicts with {a['title']} (also {a['range']}). Resolve which to attend."
+    return out
+
+
+def calendar_rows(days: list[tuple[str, bool, list[dict]]]) -> list[str]:
+    """days = (banner text, is_today, events). Two-column rows: time | details. Banner rows span both columns."""
+    rows: list[str] = []
+    for label, today, evs in days:
+        bg = "#0D3F73" if today else "#1C62A8"
+        rows.append(f'<tr><td colspan="2" bgcolor="{bg}" style="background-color:{bg};padding:10px 16px;{F}font-size:14px;font-weight:bold;color:#FFFFFF;{B}">{"⭐ TODAY — " if today else ""}{_e(label)}</td></tr>')
+        if not evs:
+            rows.append(f'<tr><td colspan="2" bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:12px 16px;{F}font-size:13px;color:#93A0AF;{B}">Nothing scheduled.</td></tr>')
+        for ev in evs:
+            ic, st, col = ev["status"]
+            bits = [f'<b style="color:{col};">{ic} {st}</b>']
+            if ev["host"]:
+                bits.append(f"Host: {_e(ev['host'])}")
+            bits.append(ev["size"] if ev["host"] else (_e(ev["loc"]) if ev["loc"] else "No location listed"))
+            if ev["host"] and ev["loc"]:
+                bits.append(_e(ev["loc"]))
+            det = [f'<div style="{F}font-size:15px;font-weight:bold;color:#12233C;">{_e(ev["title"])}</div>',
+                   f'<div style="{F}font-size:12px;color:#5C6B7F;padding-top:4px;">{" &nbsp;|&nbsp; ".join(bits)}</div>']
+            if ev["zoom"]:
+                z = [f'<a href="{ev["zoom"]}" style="color:#2F6BFF;">{"Zoom Link" if "zoom" in ev["zoom"] else "Join"} →</a>']
+                if ev["mid"]:
+                    z.append(f"Meeting ID: {_e(ev['mid'])}")
+                if ev["pw"]:
+                    z.append(f"Password: {_e(ev['pw'])}")
+                det.append(f'<div style="{F}font-size:12px;color:#5C6B7F;padding-top:3px;">{" &nbsp;|&nbsp; ".join(z)}</div>')
+            if ev["prep"]:
+                det.append(f'<div style="{F}font-size:12px;line-height:18px;color:#33404F;padding-top:4px;"><b>Prep:</b> {_e(ev["prep"])}</div>')
+            if ev["status"][1] == "DECLINED":
+                det.append(f'<div style="{F}font-size:12px;color:#33404F;padding-top:4px;"><b>Note:</b> You declined this event. Confirm the declination was intentional.</div>')
+            if ev["conflict"]:
+                det.append(f'<div style="{F}font-size:12px;font-weight:bold;color:#C62828;padding-top:4px;">⚠️ {_e(ev["conflict"])}</div>')
+            rows.append(f'<tr><td valign="top" width="120" bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:12px 0 12px 16px;{F}font-size:12px;font-weight:bold;color:#1C62A8;white-space:nowrap;{B}">{ev["range"]}</td>'
+                        f'<td bgcolor="#FFFFFF" style="background-color:#FFFFFF;padding:12px 16px 12px 10px;{B}">{"".join(det)}</td></tr>')
+    return rows
+
+
+def draft_rows(items: list[tuple[str, str, str]], footer: str) -> list[str]:
+    """Daily Briefing 'Draft Replies' look: intro line, one bordered card of numbered bold names, italic footer."""
+    if not items:
+        return [f'<tr><td bgcolor="#F0FBF6" style="background-color:#F0FBF6;padding:14px 16px;{F}font-size:13px;color:#93A0AF;">No replies owed today.</td></tr>']
+    body = "".join(f'<div style="{F}font-size:14px;line-height:21px;color:#12233C;padding:8px 0;"><b>{i}. {_e(who)}</b> — <i>"{_e(subj)}"</i> — {_e(why)}</div>'
+                   for i, (who, subj, why) in enumerate(items, 1))
+    return [f'<tr><td bgcolor="#F0FBF6" style="background-color:#F0FBF6;padding:16px;{F}">'
+            f'<div style="font-size:14px;color:#33404F;padding-bottom:10px;">The following real people are waiting for or deserve a reply from you:</div>'
+            f'<div style="background-color:#FFFFFF;border:1px solid #BFE3CF;border-radius:6px;padding:6px 16px;">{body}</div>'
+            f'<div style="font-size:13px;line-height:19px;font-style:italic;color:#5C6B7F;padding-top:12px;">{_e(footer)}</div></td></tr>']

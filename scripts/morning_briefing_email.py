@@ -10,7 +10,7 @@ import re
 from datetime import datetime
 
 from ellie_ui import box as _box, header
-from briefing_cards import mail_action_cards, summary_cards, triage_rows
+from briefing_cards import calendar_rows, draft_rows, mail_action_cards, summary_cards, triage_rows
 
 F = "font-family:Helvetica,Arial,sans-serif;"
 B = "@B@"  # row border placeholder: filled for every row except the last of a box
@@ -135,7 +135,7 @@ def build_morning(now: datetime, calendar_days: list[dict], rescued: list[tuple[
                   role_count: int, awaiting_count: int, open_count: int,
                   action_items: list[str] | None = None, rsvp_needed: list[tuple[str, str]] | None = None,
                   mail: list[dict] | None = None, pipeline: list[tuple[str, str, str]] | None = None,
-                  cal_cards: list[str] | None = None) -> tuple[str, str]:
+                  cal_cards: list[str] | None = None, cal_rich: list[tuple[str, bool, list[dict]]] | None = None) -> tuple[str, str]:
     """calendar_days = [{"label": "Sat 9/27", "events": [("9:00am", "Mahjong", conflict, rsvp), ...]}, ...] for 7 days,
     today first, every day included even with an empty events list. inbox_rows = (needs_her, from, subject, one-line
     summary), needs-first. prepare_items = (date label, what, checklist lines — vault-only, "not in vault" if
@@ -206,16 +206,10 @@ def build_morning(now: datetime, calendar_days: list[dict], rescued: list[tuple[
     if act_rows:
         add("Action Required", "#FF3B3B", act_rows)
 
-    # 3A. drafts
-    if draft_candidates:
-        add("Draft Replies — Awaiting Your OK", "#A239FF",
-            [_title(f"{i}. {who} — {subj}"[:140], why) for i, (who, subj, why) in enumerate(draft_candidates[:5], 1)])
-        boxes.append('<div style="font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#93A0AF;padding:7px 2px 0 2px;">'
-                     'Tell Ellie the numbers you want drafted, e.g. &quot;Tell Ellie: draft 1 and 3.&quot; Nothing is sent — '
-                     'drafts run through a humanize pass and land only in Gmail Drafts, only once you say which numbers. '
-                     'Doing nothing drafts nothing.</div>')
-    else:
-        add("Draft Replies — Awaiting Your OK", "#A239FF", [_empty("No replies owed today.")])
+    # 3A. drafts (Daily Briefing look)
+    add("Draft Replies — Awaiting Your OK", "#12A06B", draft_rows(
+        [(who, subj, why) for who, subj, why in draft_candidates[:5]],
+        'Tell Ellie the numbers you want drafted, e.g. "Tell Ellie: draft 1 and 3." Nothing is sent. Drafts run through a humanize pass and land only in your Gmail Drafts folder, only once you say which numbers. Doing nothing drafts nothing.'))
 
     # 4. calendar, 4A prepare
     cal_rows: list[str] = []
@@ -223,7 +217,7 @@ def build_morning(now: datetime, calendar_days: list[dict], rescued: list[tuple[
         events = day["events"]
         cal_rows.append(_title(day["label"], "Nothing scheduled." if not events else ""))
         cal_rows.extend(_time(t, w, c, r) for t, w, c, r in events)
-    add("Full 7-Day Calendar", "#2F6BFF", cal_rows, colspan=True)
+    add("Full 7-Day Calendar", "#2F6BFF", calendar_rows(cal_rich) if cal_rich else cal_rows, colspan=True)
     add("Prepare", "#2F6BFF", [_prep(d, w, c) for d, w, c in prepare_items] if prepare_items else [_empty("Nothing to prepare this week.")])
 
     # 5. job search pipeline
