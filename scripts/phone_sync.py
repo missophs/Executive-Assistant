@@ -508,7 +508,7 @@ page = [f"<h1>ELLIE - LIVE BOARD</h1><p>Melissa Weiss, Senior HR executive, New 
          "".join(f"<tr><td style='color:{COLORS['red' if n else 'gray']}'>{'NEEDS YOU' if n else 'INBOX'}</td><td>{html.escape(f)}</td><td>{html.escape(sb)}</td><td>{html.escape(ln)}</td></tr>"
                  for n, f, sb, ln in mail_rows) + "</table>") if mail_rows else "<p>Nothing new in the inbox.</p>",
         h("Rescued from Trash (Ellie thought you would want these; back in your inbox, starred)", "green"), ul([f"{f} | {sb}" for f, sb in rescued]),
-        h("Inbox trash (undo from Gmail Trash if wrong)", "red"), ul([f"{f} | {s}" for f, s in trashed]),
+        h(f"Auto-trashed: {len(trashed)} email{'s' if len(trashed) != 1 else ''} (undo from Gmail Trash if wrong)", "red"), ul([f"{f} | {s}" for f, s in trashed]),
         h("Current priorities", "green"), ul([trunc(x, 420) for x in section(memory, "Current Priorities") if _priority_fresh(x)][:5]),
         h("Today", "red"), ul(section(board, "🔥 Today")),
         h("This week", "amber"), ul(section(board, "⏭ This Week")),
@@ -580,6 +580,7 @@ open("Handoff.md", "w", encoding="utf-8").write("\n".join(
        "- Vault: GitHub missophs/Executive-Assistant (Task Board.md, Applications.md, Memory.md, Standing Instructions.md, routines/README.md changelog).",
        "- Phone: Drive Ellie Files / Ellie (live board), Tell Ellie (capture), Where we left off - <Topic> files in the topic folders.",
        "- Email: wrap-up 4:45pm ET from this repo (wrap-up.yml); Melissa Daily Briefing 7am ET from missophs/daily-briefing (branch webhooks).", ""]))
+state["wrap"] = {"date": today, "rows": [list(r) for r in mail_rows], "rescued": [list(r) for r in rescued], "trashed": [list(r) for r in trashed]}  # read by wrap_up.py for the Inbox Triage box
 state["seen"] = sorted(seen)[-300:]
 state["trashjudged"] = sorted(judged)[-300:]
 state["ourtrash"] = sorted(ourtrash)[-300:]

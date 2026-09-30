@@ -4,7 +4,7 @@
 Env: GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GOOGLE_REFRESH_TOKEN. DRY_RUN=1 writes wrapup-preview.html instead of sending.
 `python scripts/wrap_up.py alert` sends the plain-text failure notice the workflow uses.
 """
-import base64, os, re, sys
+import base64, json, os, re, sys
 from datetime import datetime, timedelta
 from email.mime.text import MIMEText
 from zoneinfo import ZoneInfo
@@ -12,7 +12,8 @@ from zoneinfo import ZoneInfo
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 
-from wrapup_email import build_wrapup
+from briefing_cards import action_card, calendar_action_cards, summary_cards, triage_rows
+from wrapup_email import _parse, build_wrapup
 
 NY = ZoneInfo("America/New_York")
 ME = "melissaw212@gmail.com"
@@ -102,7 +103,32 @@ for l in open("Applications.md", encoding="utf-8").read().splitlines():
         rows.append((STAGES.index(c[2]), f"{c[0]} - {c[1]}", f"{c[2]} · last contact {c[4]}: {c[5].replace('**', '')}"))
 pipeline = [(t, d) for _, t, d in sorted(rows)]
 
-subject, body = build_wrapup(now, done_today, filed, cal_added, focus, n_backlog, waiting, reminders, pipeline, week)
+# --- Inbox Triage / Executive Summary / Action Required (same format as the 7am Daily Briefing, Melissa 2026-09-30)
+st = json.load(open(".ellie-state.json")) if os.path.exists(".ellie-state.json") else {}
+wrap = st.get("wrap", {}) if st.get("wrap", {}).get("date") == today else {}  # written by the 4:30 phone sync; stale = not today's
+mail_rows = [tuple(r) for r in wrap.get("rows", [])]
+try:
+    n_bin = sum(gmail.users().messages().list(userId="me", q=f"in:{box} newer_than:1d", maxResults=100).execute().get("resultSizeEstimate", 0) for box in ("trash", "spam"))
+    cal_events = cal.events().list(calendarId="primary", timeMin=now.isoformat(), timeMax=(day0 + timedelta(days=8)).isoformat(), singleEvents=True,
+                                   orderBy="startTime", timeZone="America/New_York").execute().get("items", [])
+    cal_cards = calendar_action_cards(cal_events, now)
+except Exception as exc:
+    print("triage/calendar extras failed:", exc)
+    n_bin, cal_cards = 0, []
+n_auto = len(wrap.get("trashed", []))
+triage = triage_rows([tuple(r) for r in wrap.get("rescued", [])], mail_rows, [(n_auto, "unimportant or always-trash senders")], max(0, n_bin - n_auto)) if (mail_rows or n_bin or n_auto) else None
+needs = [r for r in mail_rows if r[0]]
+due_soon = [(a, due, why) for t in focus for a, why, due, _ in [_parse(t)] if due and due <= week_end]
+risk = (f"{len(needs)} inbox item{'s' if len(needs) != 1 else ''} need your call: {needs[0][1]} — {needs[0][3]}." if needs else "Nothing in your inbox needs you right now.") + \
+    f" {n_auto} email{'s' if n_auto != 1 else ''} auto-trashed today."
+job = f"{pipeline[0][0]} — {pipeline[0][1]}" if pipeline else "No role at screen stage or later right now."
+tmr = [w for w in (week or []) if w[0].startswith((now + timedelta(days=1)).strftime('%a %-m/%-d'))]
+cal_txt = (f"Tomorrow: " + " → ".join(f"{w.split(' · ')[-1]} {s}" for w, s in tmr[:6]) + ". " if tmr else "Nothing on the calendar tomorrow. ") + \
+    (f"Next deadline: {due_soon[0][0]} (due {due_soon[0][1]})." if due_soon else "")
+summary = summary_cards(risk, job, cal_txt.strip())
+actions = cal_cards + [action_card("🔵" if due > today else "🔴", a, "Task Board", why or "Open task on your board.", "Finish it or tell Ellie it is done.", due,
+                                   "#FF3B3B" if due <= today else "#FFAA00") for a, due, why in due_soon[:8]]
+subject, body = build_wrapup(now, done_today, filed, cal_added, focus, n_backlog, waiting, reminders, pipeline, week, triage, summary, actions or None)
 assert body.startswith("<table") and "$(" not in body and "/tmp/" not in body, "bad email body"
 
 if DRY:

@@ -17,6 +17,7 @@ from zoneinfo import ZoneInfo
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 
+from briefing_cards import calendar_action_cards
 from morning_briefing_email import CATS, build_morning
 
 NY = ZoneInfo("America/New_York")
@@ -186,6 +187,7 @@ state["trashjudged"] = sorted(judged)[-300:]
 day0 = now.replace(hour=0, minute=0, second=0, microsecond=0)
 events = cal.events().list(calendarId="primary", timeMin=day0.isoformat(), timeMax=(day0 + timedelta(days=7)).isoformat(),
                            singleEvents=True, orderBy="startTime", timeZone="America/New_York").execute().get("items", [])
+cal_cards = calendar_action_cards(events, now)  # RSVP pending + declined invites, shown under Action Required
 by_day: dict[str, list[dict]] = {}
 seen_ev: set[tuple[str, str]] = set()  # same start + same title = one appointment entered twice (e.g. Walgreens with two address spellings)
 for e in events:
@@ -287,7 +289,7 @@ pipeline = [(f"{c[0]} - {c[1]}", f"{c[2]} · last contact {c[4]}: {c[5].replace(
             for c in sorted((c for c in apps_rows if c[2] in FIT), key=lambda c: list(FIT).index(c[2]))]
 
 subject, body = build_morning(now, calendar_days, rescued, [], inbox_rows, prepare_items, draft_candidates, focus, waiting,
-                              role_count, awaiting_count, open_count, action_items, rsvp_needed, mail_records, pipeline)
+                              role_count, awaiting_count, open_count, action_items, rsvp_needed, mail_records, pipeline, cal_cards)
 assert body.startswith("<table") and "$(" not in body and "/tmp/" not in body, "bad email body"
 
 if DRY:

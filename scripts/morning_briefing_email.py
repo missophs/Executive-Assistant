@@ -10,6 +10,7 @@ import re
 from datetime import datetime
 
 from ellie_ui import box as _box, header
+from briefing_cards import mail_action_cards, summary_cards, triage_rows
 
 F = "font-family:Helvetica,Arial,sans-serif;"
 B = "@B@"  # row border placeholder: filled for every row except the last of a box
@@ -133,7 +134,8 @@ def build_morning(now: datetime, calendar_days: list[dict], rescued: list[tuple[
                   draft_candidates: list[tuple[str, str, str]], top3: list[str], waiting: list[tuple[str, str, int]],
                   role_count: int, awaiting_count: int, open_count: int,
                   action_items: list[str] | None = None, rsvp_needed: list[tuple[str, str]] | None = None,
-                  mail: list[dict] | None = None, pipeline: list[tuple[str, str, str]] | None = None) -> tuple[str, str]:
+                  mail: list[dict] | None = None, pipeline: list[tuple[str, str, str]] | None = None,
+                  cal_cards: list[str] | None = None) -> tuple[str, str]:
     """calendar_days = [{"label": "Sat 9/27", "events": [("9:00am", "Mahjong", conflict, rsvp), ...]}, ...] for 7 days,
     today first, every day included even with an empty events list. inbox_rows = (needs_her, from, subject, one-line
     summary), needs-first. prepare_items = (date label, what, checklist lines — vault-only, "not in vault" if
@@ -168,11 +170,11 @@ def build_morning(now: datetime, calendar_days: list[dict], rescued: list[tuple[
             return 99
 
     # 1. triage quick list
-    tri: list[list[str]] = [['<b style="color:#12233C;">✅ RESCUED</b>', _e(who), _e(subj), "Rescued from Trash — back in your inbox, starred."] for who, subj in rescued[:10]]
-    tri += [['<b style="color:#FF3B3B;">🚨 NEEDS YOU</b>' if needs else "📥 INBOX", _e(frm), _e(subj), _e(line)] for needs, frm, subj, line in inbox_rows[:15]]
-    rows_tri = _grid(["Status", "From", "Subject", "Summary"], tri)
-    if in_trash:
-        rows_tri.append(_wide(f"🗑 <b>{len(in_trash)}</b> email{'s' if len(in_trash) != 1 else ''} in Trash/Spam — see Trash Review", 4, "#FDF6EC"))
+    tri = rescued or inbox_rows
+    auto_phish = [m for m in in_trash if m["cat"] == "Phishing / Scam"]
+    auto_bulk = [m for m in in_trash if m["cat"] in ("Newsletters / Subscriptions", "Promotional / Retail")]
+    rows_tri = triage_rows(rescued, inbox_rows, [(len(auto_phish), "phishing/scams"), (len(auto_bulk), "newsletters/promotions")],
+                           len(in_trash) - len(auto_phish) - len(auto_bulk))
     add("Inbox Triage — Quick List", "#2F6BFF", rows_tri if (tri or in_trash) else [_empty("Nothing new in the inbox.")], colspan=4)
 
     # 2. executive summary: exactly three cards
@@ -183,21 +185,26 @@ def build_morning(now: datetime, calendar_days: list[dict], rescued: list[tuple[
             if (phishing or sec) else "No security issues in the last 24 hours.")
     if needs_you:
         risk += f" {len(needs_you)} inbox item{'s' if len(needs_you) != 1 else ''} need your call today."
-    job = (f"{pipeline[0][0]} — {pipeline[0][1]}. " if pipeline else "") + \
+    iv_today = [e for e in today_ev if re.search(r"interview|screen", e[1], re.I)]
+    job = (f"{iv_today[0][1]} TODAY at {iv_today[0][0]}. " if iv_today else (f"{pipeline[0][0]} — {pipeline[0][1]}. " if pipeline else "")) + \
         f"{len(job_alerts)} job alert{'s' if len(job_alerts) != 1 else ''}, {len(recruiters)} recruiter/networking message{'s' if len(recruiters) != 1 else ''} today."
-    cal = f"{len(today_ev)} event{'s' if len(today_ev) != 1 else ''} today" + (f", first at {today_ev[0][0]}: {today_ev[0][1]}" if today_ev else "") + "."
+    cal = (f"Today: " + " → ".join(f"{t} {w}" for t, w, *_ in today_ev[:6]) + ". ") if today_ev else "Nothing on the calendar today. "
     if conflict_count:
-        cal += f" {conflict_count} calendar conflict{'s' if conflict_count != 1 else ''} this week."
+        cal += f"{conflict_count} calendar conflict{'s' if conflict_count != 1 else ''} this week. "
     if rsvp_needed:
-        cal += f" {len(rsvp_needed)} RSVP{'s' if len(rsvp_needed) != 1 else ''} pending."
-    add("Executive Summary", "#6D21C9", [_priority("🔴 Security", risk, "", "#FF3B3B"), _priority("🟢 Job Search", job, "", "#12A06B"), _priority("🔵 Calendar", cal, "", "#2F6BFF")])
+        cal += f"{len(rsvp_needed)} RSVP{'s' if len(rsvp_needed) != 1 else ''} pending. "
+    if action_items:
+        cal += f"Next deadline: {_parse(action_items[0])[0]} ({_parse(action_items[0])[2]})."
+    cal = cal.strip()
+    add("Executive Summary", "#6D21C9", summary_cards(risk, job, cal))
 
     # 3. action required
-    if action_items:
-        def bar_for(due: str) -> str:
-            d = days_left(due)
-            return "#FF3B3B" if d <= 0 else "#FFAA00" if d <= 3 else "#2F6BFF"
-        add("Action Required", "#FF3B3B", [_priority(*_parse(t)[:3], bar_for(_parse(t)[2])) for t in action_items[:12]])
+    def bar_for(due: str) -> str:
+        d = days_left(due)
+        return "#FF3B3B" if d <= 0 else "#FFAA00" if d <= 3 else "#2F6BFF"
+    act_rows = (cal_cards or []) + mail_action_cards(mail, CAT_ACTION) + [_priority(*_parse(t)[:3], bar_for(_parse(t)[2])) for t in action_items[:12]]
+    if act_rows:
+        add("Action Required", "#FF3B3B", act_rows)
 
     # 3A. drafts
     if draft_candidates:
@@ -329,7 +336,7 @@ if __name__ == "__main__":  # runnable check: python scripts/morning_briefing_em
         pipeline=[("Acme - HR Director", "Screen · last contact 2026-09-25", "Medium")])
     assert s == "Ellie - EA - Sunday, September 27" and h.startswith("<table") and "$(" not in h and "/tmp/" not in h
     for needle in ("Good morning, Melissa", "Emails reviewed", "Executive Summary", "1 phishing/scam email caught", "RSVP pending", "calendar conflict",
-                   "Inbox Triage — Quick List", "NEEDS YOU", "RESCUED", "in Trash/Spam", "Action Required", "Renew bond", "Full 7-Day Calendar", "CONFLICT",
+                   "Inbox Triage — Quick List", "NEEDS YOU", "RESCUED", "in Trash/Spam", "AUTO-TRASHED", "BIGGEST RISK / URGENT", "BIGGEST JOB SEARCH / OPPORTUNITY", "BIGGEST CALENDAR / DEADLINE", "Why it matters:", "Review Withdrawal", "Action Required", "Renew bond", "Full 7-Day Calendar", "CONFLICT",
                    "RSVP NEEDED", "Prepare", "Draft Replies", "Tell Ellie: draft 1 and 3", "Job Search &amp; Interview Pipeline", "Medium fit",
                    "Full Email Review by Category", "Trash Review", "Restore", "Safe to Delete", "Promotional / Retail Summary", "Retailer",
                    "Newsletters &amp; Subscriptions", "Email Accounting", "Total Emails Reviewed", "Dashboard", "Action Items", "HIGH",

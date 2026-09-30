@@ -58,7 +58,8 @@ def _parse(task: str) -> tuple[str, str, str, str]:
 
 def build_wrapup(now: datetime, done_today: list[str], filed: list[str], cal_added: list[str], focus: list[str], n_backlog: int,
                  waiting: list[tuple[str, str]], reminders: list[tuple[str, str]], pipeline: list[tuple[str, str]],
-                 week: list[tuple[str, str]] | None) -> tuple[str, str]:
+                 week: list[tuple[str, str]] | None, triage: list[str] | None = None, summary: list[str] | None = None,
+                 actions: list[str] | None = None) -> tuple[str, str]:
     """focus = open tasks from Today then This Week, board order. filed = everything captured into Ellie today.
     waiting = (who, detail). reminders = (YYYY-MM-DD, text) for the next 7 days. pipeline = (company - role, detail).
     week = (when, title) for the days ahead; None means the calendar could not be checked."""
@@ -74,6 +75,12 @@ def build_wrapup(now: datetime, done_today: list[str], filed: list[str], cal_add
         add("Filed Into Ellie Today", "#A239FF", [_plain([f"&#8226;&nbsp;{_e(f[:200])}" for f in filed])])
     if cal_added:
         add("Added To Your Calendar", "#2F6BFF", [_plain([_e(c.removeprefix("Calendar: ")) for c in cal_added])])
+    if triage:
+        add("Inbox Triage — Quick List", "#2F6BFF", triage, colspan=4)
+    if summary:
+        add("Executive Summary", "#6D21C9", summary)
+    if actions:
+        add("Action Required", "#FF3B3B", actions)
     if focus:
         bars = ["#FF3B3B", "#FFAA00", "#2F6BFF"]
         add("Carrying Into Tomorrow", "#FFAA00", [_priority(*_parse(t)[:1], _parse(t)[1], _parse(t)[2], bars[i]) for i, t in enumerate(focus[:3])])

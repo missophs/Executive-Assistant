@@ -183,3 +183,10 @@ Headline `[WEEKDAY], [MONTH] [DAY]`. Subline `[N] done today &nbsp;&middot;&nbsp
 | 2 | Carrying Into Tomorrow | `#FFAA00` | PRIORITY, up to 3 | always |
 | 3 | Slipping | `#FF3B3B` | TITLE | something is 3+ days stale |
 | 4 | Tomorrow | `#2F6BFF` | TIME | always — EMPTY ROW "Calendar is clear." |
+
+### Added 2026-09-30 (Morning and Wrap-Up)
+Sections added 2026-09-30 (Melissa: Ellie must match the Melissa Daily Briefing). Shared code: `scripts/briefing_cards.py`.
+  - INBOX TRIAGE - QUICK LIST: table Status / From / Subject / Summary. Rows: RESCUED, NEEDS YOU / INBOX, then one AUTO-TRASHED row with the COUNT per group (phishing/scams, newsletters/promotions) and a TRASH row with the count still in Trash/Spam.
+  - EXECUTIVE SUMMARY: exactly three labelled cards: BIGGEST RISK / URGENT, BIGGEST JOB SEARCH / OPPORTUNITY, BIGGEST CALENDAR / DEADLINE. Concrete, names the actual interview, event or deadline.
+  - ACTION REQUIRED: one card per item: icon + title, Source, Why it matters, Next step (with join link), Due. Includes RSVP Pending (needsAction invites, "180+ attendees", Zoom link, due before it starts), invites she DECLINED today/tomorrow ("verify this was intentional"), financial/security/medical mail to review, and board items with due dates.
+Morning order: Inbox Triage, Executive Summary, Action Required first. Wrap-Up: after Added To Your Calendar. Wrap data: the 4:30 phone sync writes `state["wrap"]` in `.ellie-state.json`; wrap_up.py reads it.

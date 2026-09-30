@@ -96,3 +96,8 @@ RULES:
 - The only Drive files you may trash are the previous `Ellie` board and the previous `Tell Ellie` note.
 - If a vault task looks already done based on her sent mail, say so instead of telling her to redo it.
 - No greeting, no sign-off, no filler, no praise in the standup content.
+
+SECTIONS ADDED 2026-09-30 (Melissa: Ellie must match the Melissa Daily Briefing). Shared code: `scripts/briefing_cards.py`.
+  - INBOX TRIAGE - QUICK LIST: table Status / From / Subject / Summary. Rows: RESCUED, NEEDS YOU / INBOX, then one AUTO-TRASHED row with the COUNT per group (phishing/scams, newsletters/promotions) and a TRASH row with the count still in Trash/Spam.
+  - EXECUTIVE SUMMARY: exactly three labelled cards: BIGGEST RISK / URGENT, BIGGEST JOB SEARCH / OPPORTUNITY, BIGGEST CALENDAR / DEADLINE. Concrete, names the actual interview, event or deadline.
+  - ACTION REQUIRED: one card per item: icon + title, Source, Why it matters, Next step (with join link), Due. Includes RSVP Pending (needsAction invites, "180+ attendees", Zoom link, due before it starts), invites she DECLINED today/tomorrow ("verify this was intentional"), financial/security/medical mail to review, and board items with due dates.
