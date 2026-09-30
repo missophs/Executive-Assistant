@@ -6,7 +6,6 @@ Job search pipeline. One row per role. `/sync` updates this from the Scratch Pad
 
 | Company | Role | Stage | Applied | Last contact | Next action | Contact |
 |---|---|---|---|---|---|---|
-| CUNY (City University of New York) | Vice Chancellor for Human Resources | Interview | 2026-08-31 | 2026-09-03 | **Interview confirmed: Fri 9/11, 3:00–4:00 PM ET, Microsoft Teams.** Panel: Elisa Russo & Sujata Malhotra | Elisa Russo, Lead Recruiter; Jonathan Campbell (scheduling) |
 | HSO | Strategic HR Business Partner | Applied | 2026-08-25 | 2026-08-26 | Nothing owed — Kristen has it | Kristen Ramerini |
 | Dropbox | (applied via posting) | Applied | 2026-08-22 | 2026-08-22 | Auto-ack only, no human contact yet | — |
 | Superhuman | Senior People Partner | Applied | 2026-08-29 | 2026-08-29 | Auto-ack only, no human contact yet. Confirmation from Ashby has landed in Trash repeatedly — mail triage is re-trashing it after rescue | Ashby (ATS, auto) |
@@ -49,4 +48,5 @@ Job search pipeline. One row per role. `/sync` updates this from the Scratch Pad
 | Stryker | Senior Manager, HR Business Partner (req R570964) | Closed | unknown | 2026-09-22 | Rejected via automated Workday notice, landed unread in melhr212@ inbox — not previously tracked, applied date unknown. No human contact, pattern-spotting only |
 | Conduit Health | Chief of Staff / People Ops | Closed | — | 2026-09-23 | Nasreen Bharoocha rejected 9/23 1:58 PM ET — pivoting away from People-background candidates toward organization/strategy background; said she'd reach back out if that changes. The rejection, your 9/25 "didn't hear back" follow-up, and her reply pointing back to it had all landed unread in Trash — rescued 9/26 morning. Closing-reply draft sitting in Gmail Drafts, not sent. Two thank-yous were sent post-interview (9/17, 9/18); résumé never sent — now moot |
 | LRN | Vice President of People | Closed | 2026-09-16 | 2026-09-29 | Ashley Fredericks rejected 9/29 12:14 PM ET — "specific needs of the role," not a knock on your experience, per her email. 30-minute video screen held 9/25, thank-you + 30-60-90 day plan sent same day. Patsy Doerr (second LRN contact) never replied |
+| CUNY (City University of New York) | Vice Chancellor for Human Resources | Closed | 2026-08-31 | 2026-09-30 | Closed per your 9/29 11:35 PM ET capture ("we could close out Cuney and remove that Cuney CUNY"). Interview held Fri 9/11, 3:00–4:00 PM ET (panel: Elisa Russo & Sujata Malhotra); no word from either after that. Closing per your instruction — no rejection or other outcome was ever received |
 - 2026-09-27: Director of Human Resources @ Hanger, Inc. (LinkedIn job alert)
