@@ -1,16 +1,8 @@
-# Handoff - 2026-09-30 12:29PM ET
+# Handoff - 2026-09-30 4:31PM ET
 Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; do not hand-edit.
 
 ## Filed this run
-- Director, People Experience, Digital | Pfizer
-- Senior People Partner, G&A | Horizon3.ai
-- Staff People Partner, EPD | Horizon3.ai
-- Vice President - People & Culture | Greenbox Capital
-- Human Resources Director (Remote) | 7Seventy Recruiting
-- motion.md - Write videos in Markdown. Render them with code.
-- Claude hr dashboard
-- LinkedIn job
-- LinkedIn job
+- (none)
 
 ## Closed today
 - CUNY (Vice Chancellor for Human Resources) — closed per your 9/29 11:35 PM ET capture ("we could close out Cuney and remove that Cuney CUNY"). Interview held Fri 9/11 (panel: Elisa Russo & Sujata Malhotra), no word since — closing per your instruction, not asserting a rejection. Applications.md moved to Closed — 2026-09-30
@@ -34,10 +26,6 @@ Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; d
 - (none)
 
 ## Calendar, next 7 days
-- Wed 9/30 12:00pm - HR Networking & Job Search Group - 2 Zoom
-- Wed 9/30 12:00pm - Call New York City
-- Wed 9/30 12:00pm - Network 
-- Wed 9/30 2:30pm - Melissa Weiss - Discuss Career Opportunities at CAI Software
 - Thu 10/1 9:00am - Executive Roundtable
 - Thu 10/1 12:00pm - Pt
 - Thu 10/1 12:00pm - HR Networking & Job Search: Open Office Hours - Zoom 2
