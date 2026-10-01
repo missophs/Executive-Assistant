@@ -20,6 +20,7 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 - [ ] Fix Ellie morning email workflow — Google token likely expired — captured 2026-09-27 · #task
 - [ ] Bug in `scripts/phone_sync.py`: two 9/29 11:34-11:35 PM ET captures phrased "close out Cuney CUNY" and "close out all the people were waiting on" were misread by the git routine's send-a-document feature as Drive-doc search requests ("Ellie - Doc - which one?" emails sent, no doc found) instead of completion/waiting-on captures. Caught and actually filed by this run 9/30. Needs a fix so "close out X" doesn't route to document search · #task
 - [ ] Director of Human Resources @ Hanger, Inc. (LinkedIn job alert) — captured 2026-09-27 · #jobsearch
+- [ ] Suspected phishing lure in a self-sent capture — "claude skill" thread, 10/1 1:49–1:52 PM ET (melissaw212@ to melissaw212@gmail.com). Promises a free "Claude Skills library" at skillsclau.de (not an Anthropic domain) and walks through entering your email and verifying with an OTP to download a zip file — a classic credential-phishing pattern, same category as the dentsu/MyChart phish already flagged above. The link itself is already in Saved Links for the record; this just flags the content as unsafe to act on. Nothing clicked, nothing entered · #security
 
 - [ ] Triage LinkedIn job alert — Director, People Business Partner @ Wiley, up to $213K (LinkedIn alert, 9/26 11:05 PM ET) · #sourcing
 - [ ] Triage LinkedIn job alert — Director, HR Business Partner - Technology @ The New York Times (LinkedIn alert, 9/27 7:05 PM ET) · #sourcing
