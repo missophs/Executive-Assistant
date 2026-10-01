@@ -472,3 +472,14 @@ Items Ellie has already triaged. Format: `<id> | <latest-message-date> | <what w
 1a0d47bcd01293f9 | 2026-09-30 | Elevator complaint thread (jnewton@eqr.com) — management replied with an apology 9/30; personal correspondence, no vault action needed
 1a0f29bb0c82d6aa | 2026-09-30 | "Your free month of ChatGPT Plus" (dhwconsulting3@) — trashed, matches ALWAYS TRASH (email.openai.com)
 1a0f3592a1a983e5 | 2026-09-30 | Verndale cold outreach to Chris Pisapia (CPO role) — new, not previously tracked, found in sent mail; filed to Applications.md and People
+1a0f839897710718 | 2026-10-01 | "Columbia -Meghan" contact capture (1212-304-5794) — already filed to Decisions & Context by the Git midday routine (commit 4607052), not duplicated
+1a0f82f23c3291e9 | 2026-10-01 | servicetrade.com job link — already filed to Saved Links by the Git midday routine, not duplicated
+1a0f827feed4df60 | 2026-10-01 | LinkedIn job link (4474145080) — already filed to Saved Links by the Git midday routine, not duplicated
+1a0f82731d43161a | 2026-10-01 | LinkedIn job link (4472767974) — already filed to Saved Links by the Git midday routine, not duplicated
+1a0f825b52d29aa0 | 2026-10-01 | LinkedIn job link (4472345754) — already filed to Saved Links by the Git midday routine, not duplicated
+1a0f81ebca1a8686 | 2026-10-01 | Andersen (Senior Manager, Human Resources) job link — already filed to Saved Links by the Git midday routine, not duplicated
+1a0f869a96e25673 | 2026-10-01 | Ellie - EA Midday email (Git routine's own send) — automation, no action
+1a0f7236690e7cc2 | 2026-10-01 | Melissa Daily Briefing — automation, no action
+1a0f720d1b54bab1 | 2026-10-01 | Morning briefing email — automation, no action
+1a0f41e7f8999113 | 2026-09-30 | Wrap-up email — automation, no action
+1a0f383c3812a21d | 2026-09-30 | Daily Job Search Sweep — automation, no action
