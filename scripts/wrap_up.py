@@ -109,7 +109,7 @@ st = json.load(open(".ellie-state.json")) if os.path.exists(".ellie-state.json")
 wrap = st.get("wrap", {}) if st.get("wrap", {}).get("date") == today else {}  # written by the 4:30 phone sync; stale = not today's
 mail_rows = [tuple(r) for r in wrap.get("rows", [])]
 try:
-    n_bin = sum(gmail.users().messages().list(userId="me", q=f"in:{box} newer_than:1d", maxResults=100).execute().get("resultSizeEstimate", 0) for box in ("trash", "spam"))
+    n_bin = sum(gmail.users().messages().list(userId="me", q=f"in:{box} newer_than:1d", maxResults=100).execute().get("resultSizeEstimate", 0) for box in ("trash",))
     cal_events = cal.events().list(calendarId="primary", timeMin=now.isoformat(), timeMax=(day0 + timedelta(days=8)).isoformat(), singleEvents=True,
                                    orderBy="startTime", timeZone="America/New_York").execute().get("items", [])
     cal_cards = calendar_action_cards(cal_events, now)

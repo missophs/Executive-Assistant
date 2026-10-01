@@ -147,7 +147,7 @@ def build_morning(now: datetime, calendar_days: list[dict], rescued: list[tuple[
     pipeline = (company - role, detail, High|Medium|Low fit)."""
     action_items = action_items or []
     rsvp_needed = rsvp_needed or []
-    mail = mail or []
+    mail = [m for m in (mail or []) if m["loc"] != "spam"]  # Melissa 2026-10-01: nothing in Spam is reported
     pipeline = pipeline or []
     subject = f"Ellie - EA - {now.strftime('%A, %B')} {now.day}"
     boxes: list[str] = []
@@ -177,7 +177,7 @@ def build_morning(now: datetime, calendar_days: list[dict], rescued: list[tuple[
                            len(in_trash) - len(auto_phish) - len(auto_bulk))
     add("Inbox Triage — Quick List", "#2F6BFF", rows_tri if (tri or in_trash) else [_empty("Nothing new in the inbox.")], colspan=4)
 
-    # 2. executive summary: exactly three cards
+    # 2. executive summary: three cards, then the email-by-category list
     today_ev = calendar_days[0]["events"] if calendar_days else []
     job_alerts = [m for m in by_cat["Job Search"] if m["loc"] in ("inbox", "rescued")]
     recruiters = [m for m in by_cat["Recruiters / Networking"] if m["loc"] in ("inbox", "rescued")]
@@ -196,7 +196,20 @@ def build_morning(now: datetime, calendar_days: list[dict], rescued: list[tuple[
     if action_items:
         cal += f"Next deadline: {_parse(action_items[0])[0]} ({_parse(action_items[0])[2]})."
     cal = cal.strip()
-    add("Executive Summary", "#6D21C9", summary_cards(risk, job, cal))
+    # by category under the three cards (every non-spam email in exactly one category)
+    cat_rows: list[str] = []
+    for c in CATS:
+        items = by_cat[c]
+        if not items:
+            continue
+        cat_rows.append(_wide(f"<b>{_e(c)}</b> — {len(items)} email{'s' if len(items) != 1 else ''} · {_e(CAT_ACTION[c])}", 3))
+        for m in items[:8]:
+            cells = (_e(m["frm"]), _e(m["subj"][:90]), f'{LOC_LABEL.get(m["loc"], "")} — {_e(m["line"] or CAT_ACTION[c])}')
+            cat_rows.append("<tr>" + "".join(f'<td bgcolor="#FFFFFF" style="{CELL}">{x}</td>' for x in cells) + "</tr>")
+        if len(items) > 8:
+            cat_rows.append(_wide(f"+{len(items) - 8} more in this category", 3, "#FFFFFF"))
+    cards = [c.replace("<tr><td ", '<tr><td colspan="3" ', 1) for c in summary_cards(risk, job, cal)]
+    add("Executive Summary", "#6D21C9", cards + ([_wide("<b>EMAIL BY CATEGORY</b>", 3, "#EDE7F8")] + cat_rows if cat_rows else [_empty("No mail in the last 24 hours.")]), colspan=3)
 
     # 3. action required
     def bar_for(due: str) -> str:
@@ -225,20 +238,6 @@ def build_morning(now: datetime, calendar_days: list[dict], rescued: list[tuple[
     job_rows += [_title(m["subj"][:100], f"Job alert · {m['line'] or m['frm']}"[:200]) for m in job_alerts[:5]]
     job_rows += [_title(m["subj"][:100], f"{m['frm']} · {m['line']}"[:200]) for m in recruiters[:5]]
     add("Job Search &amp; Interview Pipeline", "#00D68F", job_rows or [_empty("No open roles or new alerts.")])
-
-    # 6. full email review by category (every email in exactly one category)
-    cat_rows: list[str] = []
-    for c in CATS:
-        items = by_cat[c]
-        if not items:
-            continue
-        cat_rows.append(_wide(f"<b>{_e(c)}</b> — {len(items)} email{'s' if len(items) != 1 else ''} · {_e(CAT_ACTION[c])}", 3))
-        for m in items[:8]:
-            cells = (_e(m["frm"]), _e(m["subj"][:90]), f'{LOC_LABEL.get(m["loc"], "")} — {_e(m["line"] or CAT_ACTION[c])}')
-            cat_rows.append("<tr>" + "".join(f'<td bgcolor="#FFFFFF" style="{CELL}">{x}</td>' for x in cells) + "</tr>")
-        if len(items) > 8:
-            cat_rows.append(_wide(f"+{len(items) - 8} more in this category", 3, "#FFFFFF"))
-    add("Full Email Review by Category", "#6D21C9", cat_rows or [_empty("No mail in the last 24 hours.")], colspan=3)
 
     # 7. trash review
     restore = [f"{w} — {s}" for w, s in rescued]
@@ -316,7 +315,8 @@ if __name__ == "__main__":  # runnable check: python scripts/morning_briefing_em
             {"frm": "LinkedIn", "subj": "New jobs", "line": "Weekly digest", "cat": "Job Search", "loc": "inbox", "needs": False},
             {"frm": "Cash App", "subj": "Payment declined", "line": "Fake", "cat": "Phishing / Scam", "loc": "trash", "needs": False},
             {"frm": "Bank", "subj": "Withdrawal", "line": "Confirm", "cat": "Financial / Billing", "loc": "trash", "needs": False},
-            {"frm": "Retailer", "subj": "50% off", "line": "", "cat": "Promotional / Retail", "loc": "spam", "needs": False},
+            {"frm": "Retailer", "subj": "50% off", "line": "", "cat": "Promotional / Retail", "loc": "trash", "needs": False},
+            {"frm": "SpamCo", "subj": "Casino bonus", "line": "", "cat": "Promotional / Retail", "loc": "spam", "needs": False},
             {"frm": "Daily Skimm", "subj": "News", "line": "", "cat": "Newsletters / Subscriptions", "loc": "inbox", "needs": False}]
     s, h = build_morning(
         n, days, rescued=[("Nasreen B", "Re: Acme")], inbox_trashed=[],
@@ -331,13 +331,13 @@ if __name__ == "__main__":  # runnable check: python scripts/morning_briefing_em
         pipeline=[("Acme - HR Director", "Screen · last contact 2026-09-25", "Medium")])
     assert s == "Ellie - EA - Sunday, September 27" and h.startswith("<table") and "$(" not in h and "/tmp/" not in h
     for needle in ("Good morning,", "Emails Reviewed", "Executive Summary", "1 phishing/scam email caught", "RSVP pending", "calendar conflict",
-                   "Inbox Triage — Quick List", "NEEDS YOU", "RESCUED", "in Trash/Spam", "AUTO-TRASHED", "BIGGEST RISK / URGENT", "BIGGEST JOB SEARCH / OPPORTUNITY", "BIGGEST CALENDAR / DEADLINE", "Why it matters:", "Review Withdrawal", "Action Required", "Renew bond", "Full 7-Day Calendar", "CONFLICT",
+                   "Inbox Triage — Quick List", "NEEDS YOU", "RESCUED", "in Trash —", "AUTO-TRASHED", "BIGGEST RISK / URGENT", "BIGGEST JOB SEARCH / OPPORTUNITY", "BIGGEST CALENDAR / DEADLINE", "Why it matters:", "Review Withdrawal", "Action Required", "Renew bond", "Full 7-Day Calendar", "CONFLICT",
                    "RSVP NEEDED", "Prepare", "Draft Replies", "Tell Ellie: draft 1 and 3", "Job Search &amp; Interview Pipeline", "Medium fit",
-                   "Full Email Review by Category", "Trash Review", "Restore", "Safe to Delete", "Promotional / Retail Summary", "Retailer",
+                   "EMAIL BY CATEGORY", "Trash Review", "Restore", "Safe to Delete", "Promotional / Retail Summary", "Retailer",
                    "Newsletters &amp; Subscriptions", "Email Accounting", "Total Emails Reviewed", "Dashboard", "Action Items", "HIGH",
                    "Top 3 &amp; Follow Up", "Patsy D", "11d", "Ellie Commands", "/ea:setup"):
         assert needle in h, needle
-    assert "<b>6</b>" in h  # accounting total equals mail count
+    assert "<b>6</b>" in h and "SpamCo" not in h and "Full Email Review by Category" not in h  # spam excluded; accounting total equals mail count
     s2, h2 = build_morning(n, [{"label": "Sun 9/27", "events": []}] * 7, [], [], [], [], [], [], [], 0, 0, 0)
     for needle in ("Nothing new in the inbox.", "No replies owed today.", "Nothing today, nothing waiting.", "Nothing to prepare this week.",
                    "No security issues in the last 24 hours.", "No mail in the last 24 hours.", "Nothing due.", "No open roles or new alerts."):

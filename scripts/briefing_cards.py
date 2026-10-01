@@ -52,7 +52,7 @@ _CELL = f"background-color:#FFFFFF;padding:10px 12px;{F}font-size:12px;color:#33
 
 def triage_rows(rescued: list[tuple[str, str]], inbox_rows: list[tuple[bool, str, str, str]], auto: list[tuple[int, str]], trash_left: int) -> list[str]:
     """Status / From / Subject / Summary table. auto = (count, what) per auto-trashed group, e.g. (5, "phishing/scams").
-    trash_left = other emails sitting in Trash/Spam. Empty inbox + nothing trashed -> caller shows its own empty row."""
+    trash_left = other emails sitting in Trash. Empty inbox + nothing trashed -> caller shows its own empty row."""
     def tr(cells: list[str], bg: str = "#FFFFFF") -> str:
         return "<tr>" + "".join(f'<td bgcolor="{bg}" style="{_CELL}">{c}</td>' for c in cells) + "</tr>"
 
@@ -63,7 +63,7 @@ def triage_rows(rescued: list[tuple[str, str]], inbox_rows: list[tuple[bool, str
     out += [tr(['<b style="color:#FF3B3B;">🚨 NEEDS YOU</b>' if n else "📥 INBOX", _e(f), _e(s), _e(ln)]) for n, f, s, ln in inbox_rows[:15]]
     out += [wide(f'🗑 <b style="color:#FF3B3B;">AUTO-TRASHED</b> &nbsp; <b>{n}</b> email{"s" if n != 1 else ""} auto-trashed ({_e(what)}) — see Trash Review', "#FDF0EE") for n, what in auto if n]
     if trash_left:
-        out.append(wide(f'📁 <b>TRASH</b> &nbsp; <b>{trash_left}</b> email{"s" if trash_left != 1 else ""} in Trash/Spam — see Trash Review', "#FDF6EC"))
+        out.append(wide(f'📁 <b>TRASH</b> &nbsp; <b>{trash_left}</b> email{"s" if trash_left != 1 else ""} in Trash — see Trash Review', "#FDF6EC"))
     return out
 
 
