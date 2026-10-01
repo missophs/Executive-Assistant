@@ -76,6 +76,8 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 - [ ] Triage 3 job links sent to self 9/28 6:01–6:04 PM ET, no company or role given in captures — https://www.linkedin.com/jobs/view/4471545190/ ; https://www.linkedin.com/jobs/view/4472777495/ (sent twice, ~13 sec apart) ; https://www.linkedin.com/jobs/view/4472761056/ · #sourcing
 - [ ] Triage LinkedIn job alert — Staff People Business Partner @ Relativity Space (LinkedIn alert, 9/28 11:05 PM ET) · #sourcing
 - [ ] Triage LinkedIn job alert — HR Business Partner @ Coinbase (LinkedIn alert, 9/28 9:05 PM ET) · #sourcing
+- [ ] Triage Indeed job alert — Sr. HR Business Partner/Manager @ LexisNexis, $126,900–$230,700 (Indeed alert, 10/1 8:26 AM ET, landed in swm3016@) · #sourcing
+- [ ] Check LinkedIn message from "Alan" — unread, content not visible in email digest, needs the LinkedIn app to read · #sourcing
 
 ## ❓ Needs Melissa
 

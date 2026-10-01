@@ -443,3 +443,23 @@ Items Ellie has already triaged. Format: `<id> | <latest-message-date> | <what w
 1a0e8e7238537ede | 2026-09-30 | Spectrum Neuroscience/Emily Ridge thread, newer messages — just her own confirmation of the Dr Hollander appointment already on calendar, no new action
 1a0ef965237a14f2 | 2026-09-30 | Ellie's own "Ellie - Doc - which one?" auto-reply (no match for "Close out all waiting-on people") — automation output, not a capture; explains the misrouting bug filed to Task Board
 1a0ef964fb9e10a2 | 2026-09-30 | Ellie's own "Ellie - Doc - which one?" auto-reply (no match for "Close out Cuney CUNY job") — same misrouting bug
+1a0f49c7c6beda5d | 2026-09-30 | "Remind me to call Verizon tomorrow at about 10:30 AM" — Google Calendar event "Call Verizon" already existed for 10/1 10:30-11:00 AM ET (created earlier today's run), not duplicated; matching Task Board item untouched
+1a0f66ae7153b5f2 | 2026-10-01 | "SPARK — 10 Projects You Can Build in 1 Weekend" link — already filed to Saved Links, not duplicated
+1a0f2a9d7abd178e | 2026-09-30 | Pfizer (Director, People Experience, Digital) job link — already filed to Saved Links, not duplicated
+1a0f2a8a4b7a8434 | 2026-09-30 | Horizon3.ai (Senior People Partner, G&A) job link — already filed to Saved Links, not duplicated
+1a0f2a851d48fc14 | 2026-09-30 | Horizon3.ai (Staff People Partner, EPD) job link — already filed to Saved Links, not duplicated
+1a0f2a708df87c86 | 2026-09-30 | Greenbox Capital (VP, People & Culture) job link — already filed to Saved Links, not duplicated
+1a0f2a666a64b60e | 2026-09-30 | 7Seventy Recruiting (HR Director, Remote) job link — already filed to Saved Links, not duplicated
+1a0f2a50c8a0fcdd | 2026-09-30 | motion.md link — already filed to Saved Links, not duplicated
+1a0f29e853dc53a7 | 2026-09-30 | "Claude hr dashboard" link — already filed to Saved Links, not duplicated
+1a0f29c9dad4acf5 | 2026-09-30 | Bare LinkedIn job link (4471947034) — already filed to Saved Links, not duplicated
+1a0f29af24063a9a | 2026-09-30 | Bare LinkedIn job link (4471996270) — already filed to Saved Links, not duplicated
+1a0f6d4f1ab030cf | 2026-10-01 | SHEIN order confirmation — purchase receipt, not trashed (not a marketing/promo match), no action needed
+1a0d8a5c020aff89 | 2026-10-01 | Anthropic Support thread ("Re: Accept") — protected sender, new reply confirms she was not charged (was purchasing credits); informational, no action needed
+1a0f6928cd2b16cd | 2026-10-01 | LexisNexis (Sr. HR Business Partner/Manager) Indeed alert, landed in swm3016@ — filed to Task Board backlog
+1a0f68d34e08833e | 2026-10-01 | LinkedIn message notice, "Alan" — filed to Task Board backlog (check in LinkedIn app)
+1a0f4fb2605ea455 | 2026-10-01 | Walgreens/Duane Reade Rx ready for pickup — personal notice, no vault action needed
+1a0cf3c660aa98a9 | 2026-10-01 | Mahjong thread, newer messages — she confirmed filling in for a lesson today 6:30 PM (matches existing Mah-jongg calendar event), no new action
+1a0f3677d0228a18 | 2026-10-01 | "Welcome to ChatGPT Plus" (melissaw212@) — trashed, matches ALWAYS TRASH (email.openai.com)
+1a0d47bcd01293f9 | 2026-09-30 | Elevator complaint thread (jnewton@eqr.com) — management replied with an apology 9/30; personal correspondence, no vault action needed
+1a0f29bb0c82d6aa | 2026-09-30 | "Your free month of ChatGPT Plus" (dhwconsulting3@) — trashed, matches ALWAYS TRASH (email.openai.com)
