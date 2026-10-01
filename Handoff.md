@@ -1,8 +1,13 @@
-# Handoff - 2026-10-01 6:30AM ET
+# Handoff - 2026-10-01 1:00PM ET
 Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; do not hand-edit.
 
 ## Filed this run
-- SPARK — 10 Projects You Can Build in 1 Weekend
+- Columbia contact: Meghan, 1212-304-5794
+- https://servicetrade.com/company/careers/careers-posting/?gh_jid=7985820003
+- https://www.linkedin.com/jobs/view/4474145080/
+- https://www.linkedin.com/jobs/view/4472767974/
+- https://www.linkedin.com/jobs/view/4472345754/
+- https://careers.andersen.com/jobs/7613?lang=en-us
 
 ## Closed today
 - (none)
@@ -18,13 +23,10 @@ Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; d
 - (none)
 
 ## Calendar, next 7 days
-- Thu 10/1 9:00am - Executive Roundtable
-- Thu 10/1 10:30am - Call Verizon
-- Thu 10/1 12:00pm - Pt
-- Thu 10/1 12:00pm - HR Networking & Job Search: Open Office Hours - Zoom 2
 - Thu 10/1 6:30pm - Mah-jongg
 - Fri 10/2 all day - Meet up
 - Mon 10/5 3:00pm - M&M
+- Tue 10/6 12:00pm - PT
 - Wed 10/7 all day - State farm bill
 - Wed 10/7 12:00pm - HR Networking & Job Search Group - 2 Zoom
 - Wed 10/7 12:00pm - Network 

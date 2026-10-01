@@ -84,6 +84,11 @@ _(none open — cleared 2026-09-30 per Melissa's 9/29 11:34 PM ET capture, "clos
 _(Rita Ramakrishnan/AIChE follow-up: outcome arrived 9/16 — see People above, closed. Kristen Ramerini/HSO follow-up removed from tracking 2026-09-14 per Tell Ellie capture 9/13 9:27 PM ET — "those are done already." No outcome recorded.)_
 
 ## Saved Links
+- 2026-10-01: https://careers.andersen.com/jobs/7613?lang=en-us
+- 2026-10-01: https://www.linkedin.com/jobs/view/4472345754/
+- 2026-10-01: https://www.linkedin.com/jobs/view/4472767974/
+- 2026-10-01: https://www.linkedin.com/jobs/view/4474145080/
+- 2026-10-01: https://servicetrade.com/company/careers/careers-posting/?gh_jid=7985820003
 - 2026-10-01: SPARK — 10 Projects You Can Build in 1 Weekend
 - 2026-09-30: LinkedIn job
 - 2026-09-30: LinkedIn job
@@ -193,6 +198,7 @@ _(Rita Ramakrishnan/AIChE follow-up: outcome arrived 9/16 — see People above, 
 - Google Search: "it is telling me to add a bash permission rule in my Claude code settings how do you do that step-by-step" — sent to self 9/25 10:58 AM ET, to melweiss212@
 
 ## Decisions & Context
+- 2026-10-01: Columbia contact: Meghan, 1212-304-5794
 - 2026-09-29: Coding with Claude: Build complete production applications, understand & refactor codebases, debug complex problems
 
 - Told Bryce you are flexible on comp — anchored at low-to-mid $200Ks rather than naming a hard floor. He said that works given bonus/equity potential.
