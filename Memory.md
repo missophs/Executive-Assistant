@@ -82,6 +82,7 @@ _(none open — cleared 2026-09-30 per Melissa's 9/29 11:34 PM ET capture, "clos
 _(Rita Ramakrishnan/AIChE follow-up: outcome arrived 9/16 — see People above, closed. Kristen Ramerini/HSO follow-up removed from tracking 2026-09-14 per Tell Ellie capture 9/13 9:27 PM ET — "those are done already." No outcome recorded.)_
 
 ## Saved Links
+- 2026-10-01: SPARK — 10 Projects You Can Build in 1 Weekend
 - 2026-09-30: LinkedIn job
 - 2026-09-30: LinkedIn job
 - 2026-09-30: Claude hr dashboard
