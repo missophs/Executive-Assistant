@@ -1,8 +1,10 @@
-# Handoff - 2026-10-01 1:07PM ET
+# Handoff - 2026-10-01 4:30PM ET
 Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; do not hand-edit.
 
 ## Filed this run
-- (none)
+- https://fromsmash.com/HR-and-AI-Final.mp4
+- Claude Skills library: /grill-me (10-15 questions before building), /humanizer (removes AI giveaways), /fact-checker (verifies claims), /prompt-master (incomplete note)
+- https://skillsclau.de
 
 ## Closed today
 - (none)

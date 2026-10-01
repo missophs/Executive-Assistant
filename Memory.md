@@ -84,6 +84,8 @@ _(none open — cleared 2026-09-30 per Melissa's 9/29 11:34 PM ET capture, "clos
 _(Rita Ramakrishnan/AIChE follow-up: outcome arrived 9/16 — see People above, closed. Kristen Ramerini/HSO follow-up removed from tracking 2026-09-14 per Tell Ellie capture 9/13 9:27 PM ET — "those are done already." No outcome recorded.)_
 
 ## Saved Links
+- 2026-10-01: https://skillsclau.de
+- 2026-10-01: https://fromsmash.com/HR-and-AI-Final.mp4
 - 2026-10-01: https://careers.andersen.com/jobs/7613?lang=en-us
 - 2026-10-01: https://www.linkedin.com/jobs/view/4472345754/
 - 2026-10-01: https://www.linkedin.com/jobs/view/4472767974/
@@ -198,6 +200,7 @@ _(Rita Ramakrishnan/AIChE follow-up: outcome arrived 9/16 — see People above, 
 - Google Search: "it is telling me to add a bash permission rule in my Claude code settings how do you do that step-by-step" — sent to self 9/25 10:58 AM ET, to melweiss212@
 
 ## Decisions & Context
+- 2026-10-01: Claude Skills library: /grill-me (10-15 questions before building), /humanizer (removes AI giveaways), /fact-checker (verifies claims), /prompt-master (incomplete note)
 - 2026-10-01: Columbia contact: Meghan, 1212-304-5794
 - 2026-09-29: Coding with Claude: Build complete production applications, understand & refactor codebases, debug complex problems
 
