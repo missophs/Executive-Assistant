@@ -1,8 +1,9 @@
-# Handoff - 2026-09-30 4:31PM ET
+# Handoff - 2026-09-30 8:03PM ET
 Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; do not hand-edit.
 
 ## Filed this run
-- (none)
+- Call Verizon
+- Calendar reminder: Call Verizon 2026-10-01 10:30
 
 ## Closed today
 - CUNY (Vice Chancellor for Human Resources) — closed per your 9/29 11:35 PM ET capture ("we could close out Cuney and remove that Cuney CUNY"). Interview held Fri 9/11 (panel: Elisa Russo & Sujata Malhotra), no word since — closing per your instruction, not asserting a rejection. Applications.md moved to Closed — 2026-09-30
@@ -20,6 +21,7 @@ Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; d
 - Call NYC HRA at 929-273-1872 for your required Cash Assistance interview, and upload documents via the ACCESS HRA app — due TODAY 2026-09-28, per an official HRA email received 9/28 12:35 AM ET ("To do on your case," noreply_ahra@hra.nyc.gov). Note: this is a different date than the existing 9/29 all-day calendar block from your 9/26 capture — that block is still on your calendar, untouched · #task · #priority · #urgent
 
 ## Open: This week
+- Call Verizon — due 2026-10-01 — captured 2026-09-30 · #task
 - Call New York City — due 2026-09-30 — captured 2026-09-29 · #task
 
 ## Waiting on
@@ -27,6 +29,7 @@ Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; d
 
 ## Calendar, next 7 days
 - Thu 10/1 9:00am - Executive Roundtable
+- Thu 10/1 10:30am - Call Verizon
 - Thu 10/1 12:00pm - Pt
 - Thu 10/1 12:00pm - HR Networking & Job Search: Open Office Hours - Zoom 2
 - Thu 10/1 6:30pm - Mah-jongg

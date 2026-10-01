@@ -12,6 +12,7 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 - [ ] Call NYC HRA at 929-273-1872 for your required Cash Assistance interview, and upload documents via the ACCESS HRA app — due TODAY 2026-09-28, per an official HRA email received 9/28 12:35 AM ET ("To do on your case," noreply_ahra@hra.nyc.gov). Note: this is a different date than the existing 9/29 all-day calendar block from your 9/26 capture — that block is still on your calendar, untouched · #task · #priority · #urgent
 
 ## ⏭ This Week
+- [ ] Call Verizon — due 2026-10-01 — captured 2026-09-30 · #task
 - [ ] Call New York City — due 2026-09-30 — captured 2026-09-29 · #task
 
 ## 📋 Backlog
