@@ -1,13 +1,8 @@
-# Handoff - 2026-10-01 1:00PM ET
+# Handoff - 2026-10-01 1:07PM ET
 Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; do not hand-edit.
 
 ## Filed this run
-- Columbia contact: Meghan, 1212-304-5794
-- https://servicetrade.com/company/careers/careers-posting/?gh_jid=7985820003
-- https://www.linkedin.com/jobs/view/4474145080/
-- https://www.linkedin.com/jobs/view/4472767974/
-- https://www.linkedin.com/jobs/view/4472345754/
-- https://careers.andersen.com/jobs/7613?lang=en-us
+- (none)
 
 ## Closed today
 - (none)
