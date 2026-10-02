@@ -4,7 +4,7 @@ Rolling context between sessions. Read at the start of every session, updated du
 
 **Keep this short.** Quick-reference, not a journal. Prune anything resolved or stale.
 
-_Last updated: 2026-10-01 afternoon (phone sync — Claude cloud routine)_
+_Last updated: 2026-10-02 morning (phone sync — Claude cloud routine)_
 
 ---
 
@@ -45,6 +45,7 @@ _Last updated: 2026-10-01 afternoon (phone sync — Claude cloud routine)_
 - Phone sync 10/1 (this Claude cloud routine, morning, ~6:52 AM ET — running alongside the Git `phone-sync.yml` which had already rebuilt the Drive `Ellie` board at 6:30 AM ET): caught one real new development the Git run missed — **Verndale**, a new cold outreach sent 9/30 5:30 PM ET to Chris Pisapia re: Chief People Officer (reports to him), filed to Applications.md and People. Confirmed her "Remind me to call Verizon tomorrow at 10:30 AM" capture already has a matching Google Calendar event (created earlier). 2 new job-alert/networking items filed to Task Board Backlog (LexisNexis Sr. HR BP/Manager via Indeed; a LinkedIn message from "Alan"). Trashed 2 ChatGPT Plus promo emails matching ALWAYS TRASH (email.openai.com) that the Git run's inbox triage had left sitting in INBOX. No completion or Waiting-On captures. Drive "Tell Ellie" note in its default empty state.
 - Phone sync 10/1 (this Claude cloud routine, afternoon/silent run, ~5 PM ET — running after the Git midday run at 1:01 PM ET): caught one new item the Git routines hadn't surfaced — a self-sent "claude skill" capture thread (1:49–1:52 PM ET) carries a likely phishing lure: a link to skillsclau.de (not an Anthropic domain) with a full pitch to enter her email and verify with an OTP to download a "Claude Skills library" zip. The bare link was already filed to Saved Links by an earlier run; flagged the phishing content itself on the Task Board under security, nothing clicked or entered. Everything else from the last 24h (fromsmash.com link, Columbia/Meghan contact, 3 LinkedIn job links, Andersen/servicetrade/SPARK links) was already filed by the Git midday routine — confirmed, not duplicated. Inbox triage: nothing matched trash-rules.md (a Robinhood "Robinhood Social" feature promo is financial-category, excluded from trash by rule; two Equity Residential delivery/balance notices and a Mahjong bootcamp-referral email from msgmahjong@gmail.com are personal/building notices, not bulk marketing) — nothing trashed. No completion, Waiting-On, or calendar captures this run.
 - Phone sync 9/29 (this Claude cloud routine, evening/silent run, ~4:47 PM ET): CAI Software meeting date/time is now confirmed directly on Google Calendar — "Melissa Weiss - Discuss Career Opportunities at CAI Software," Wed 9/30, 2:30–3:00 PM ET (created by some other process between the midday check and this run). Updated Task Board and Applications.md to drop the stale "no matching event found" wording; she still needs to confirm the Teams link herself since the .ics remains unreadable to Ellie. One calendar capture, "Add to my calendar November 17 at 6 PM Dr Hollander" (20:28 ET) — matches her own Spectrum Neuroscience/Emily Ridge email thread booking a Nov 17 6pm follow-up visit; the event ("Dr Hollander," 6:00–7:00 PM ET, Nov 17) already existed on the calendar by the time this run checked (created 2 minutes after the capture, presumably by another automation) — not duplicated. New Task Board item: a Google Drive share request from Monte Montoya for "HR and AI.mp4" (9/29 3:35 PM ET) — Ellie does not grant access on her behalf, needs her own call. Inbox triage: trashed 3 clearly promotional/bulk emails matching or fitting ALWAYS TRASH — Quince ($20 off promo, matches "quince"), Experteer ("Confirm your resume critique," matches "experteer"), OpenAI ("free month of ChatGPT Plus," matches "email.openai.com") — plus a LinkedIn Editors webinar/content promo ("the hiring rules no one tells you," editors-noreply@linkedin.com, not on the explicit list but a clear bulk marketing send, judged the same way). Left untouched: a Bilt Points/Walgreens rewards notice (not marketing), a Bank of America statement (protected), a Sephora receipt (purchase notice) — none need action. No new job links, saved links (all self-sends today were already filed by earlier runs), completions, or Waiting-On closures this run. Drive "Tell Ellie" note in its default empty state.
+- Phone sync 10/2 (this Claude cloud routine, silent run): one new capture — a bare Instagram link sent to self 1:50 AM ET, no caption, filed to Saved Links. A resent Andersen (Senior Manager, HR) job link from the same batch was a duplicate of the 10/1 save — not re-filed. Everything else in the last 24h was either an automation email (Wrap-Up, Midday, Morning Briefing, Daily Job Search Sweep — all already in Seen Cache) or already filed by earlier 10/1 runs (claude skill phishing thread, Columbia/Meghan, servicetrade.com, 3 LinkedIn job links). No completion, Waiting-On, or calendar captures. Drive "Tell Ellie" note in its default empty state — nothing to file or clear. Pruned 3 Seen Cache lines older than 7 days (2026-09-24).
 
 ## People
 
@@ -85,8 +86,7 @@ _(none open — cleared 2026-09-30 per Melissa's 9/29 11:34 PM ET capture, "clos
 _(Rita Ramakrishnan/AIChE follow-up: outcome arrived 9/16 — see People above, closed. Kristen Ramerini/HSO follow-up removed from tracking 2026-09-14 per Tell Ellie capture 9/13 9:27 PM ET — "those are done already." No outcome recorded.)_
 
 ## Saved Links
-- 2026-10-02: 
-- 2026-10-02: 
+- 2026-10-02: https://www.instagram.com/p/Dd62DsUjNJM/ — sent to self 10/2 1:50 AM ET, no caption
 - 2026-10-01: https://skillsclau.de
 - 2026-10-01: https://fromsmash.com/HR-and-AI-Final.mp4
 - 2026-10-01: https://careers.andersen.com/jobs/7613?lang=en-us
@@ -335,10 +335,7 @@ Items Ellie has already triaged. Format: `<id> | <latest-message-date> | <what w
 1a0d9eddfabca926 | 2026-09-25 | Dropzone AI (Director of HR) Greenhouse ack — verified and filed to Applications.md as Applied
 1a0d9f09c018918d | 2026-09-25 | Dropzone AI cold outreach to Edward (founder) — verified and filed
 1a0daccc24f3adb0 | 2026-09-25 | Sensiba LLP (Director, HR) Pinpoint ack — verified and filed to Applications.md as Applied
-1a0d0ef732ca8a4d | 2026-09-24 | Mellon Foundation (Director, HRBP) ADP application ack — verified and filed to Applications.md as Applied
-1a0d0f0bf5464441 | 2026-09-24 | Mellon Foundation cold outreach to Andre Bokhoor — verified and filed
 1a0d9688eb876ca6 | 2026-09-25 | Mellon Foundation cold outreach to Natali Rodriguez — verified and filed
-1a0d0e5251663521 | 2026-09-24 | KSF Recruit/Tristen Murch thread (Head of People, consumer-electronics startup) — closed, verified and filed to Task Board Done
 1a0de8636f285b45 | 2026-09-26 | "Add a priority from Tuesday to call New York City about my documents" — already filed to Task Board This Week (due 2026-09-29) and Standing Instructions.md by a direct dev-session commit (c1204bd, 12:25 PM ET) minutes after the capture; not duplicated
 1a0de2bc609d93cb | 2026-09-26 | OpenAI "Look what you can do now" product-update newsletter — trashed, sender matches ALWAYS TRASH (email.openai.com)
 1a0df57887d7ac1a | 2026-09-26 | Building elevator-outage notice (Ella@eqr-resident.com) — not a capture, no action needed, left in inbox
@@ -497,3 +494,6 @@ Items Ellie has already triaged. Format: `<id> | <latest-message-date> | <what w
 1a0f8c686c5be7fa | 2026-10-01 | Equity Residential "You have a delivery!" notices (x2) — building/personal notice, not trashed, no action needed
 1a0f7f8c1ab8a751 | 2026-10-01 | Equity Residential "Your balance is available on MyEquity" — personal/financial notice, not trashed, no action needed
 1a0f54ba2d56efaf | 2026-09-30 | Mahjong bootcamp-referral email (msgmahjong@gmail.com) — personal correspondence, not trashed, no vault action needed
+1a0fb29e96436760 | 2026-10-02 | Instagram link (no caption) — filed to Saved Links
+1a0fa20529ec6259 | 2026-10-02 | Andersen (Senior Manager, HR) job link, resent — same URL already in Saved Links (10/1), not duplicated
+1a0f944d9f4196a7 | 2026-10-01 | Wrap-up email (Thursday Oct 1) — automation, no action
