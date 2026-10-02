@@ -92,6 +92,7 @@ _(Cleared 2026-09-30 per Melissa's 9/29 11:34 PM ET capture, "close out all the 
 _(Rita Ramakrishnan/AIChE follow-up: outcome arrived 9/16 — see People above, closed. Kristen Ramerini/HSO follow-up removed from tracking 2026-09-14 per Tell Ellie capture 9/13 9:27 PM ET — "those are done already." No outcome recorded.)_
 
 ## Saved Links
+- 2026-10-02: 28 Claude Code installs
 - 2026-10-02: https://www.instagram.com/p/Dd62DsUjNJM/ — sent to self 10/2 1:50 AM ET, no caption
 - 2026-10-01: https://skillsclau.de
 - 2026-10-01: https://fromsmash.com/HR-and-AI-Final.mp4
