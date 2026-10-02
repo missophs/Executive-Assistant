@@ -1,10 +1,8 @@
-# Handoff - 2026-10-01 4:30PM ET
+# Handoff - 2026-10-01 8:02PM ET
 Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; do not hand-edit.
 
 ## Filed this run
-- https://fromsmash.com/HR-and-AI-Final.mp4
-- Claude Skills library: /grill-me (10-15 questions before building), /humanizer (removes AI giveaways), /fact-checker (verifies claims), /prompt-master (incomplete note)
-- https://skillsclau.de
+- (none)
 
 ## Closed today
 - (none)
@@ -20,7 +18,6 @@ Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; d
 - (none)
 
 ## Calendar, next 7 days
-- Thu 10/1 6:30pm - Mah-jongg
 - Fri 10/2 all day - Meet up
 - Mon 10/5 3:00pm - M&M
 - Tue 10/6 12:00pm - PT
