@@ -10,6 +10,7 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 <!-- Must know today. Keep to 3. -->
 
 - [ ] Call NYC HRA at 929-273-1872 for your required Cash Assistance interview, and upload documents via the ACCESS HRA app — due TODAY 2026-09-28, per an official HRA email received 9/28 12:35 AM ET ("To do on your case," noreply_ahra@hra.nyc.gov). Note: this is a different date than the existing 9/29 all-day calendar block from your 9/26 capture — that block is still on your calendar, untouched · #task · #priority · #urgent
+- [ ] NYC HRA — a second, separate "To do on your case" email (same sender, received 10/2 12:50 AM ET) says you have an Eligibility Review appointment with the Bureau of Eligibility Verification (BEV) at 11:00 AM on TODAY 2026-10-02. No phone number or location given in the email itself — check the ACCESS HRA app directly for how to attend. A related auto-ack ("Your City of New York Correspondence Number is #1-1-5521708," agencymail@customercare.nyc.gov, 10/2 2:12 AM ET) confirms an earlier inquiry to the city was received and routed, but gives no new details · #task · #priority · #urgent
 
 ## ⏭ This Week
 - [ ] Call Verizon — due 2026-10-01 — captured 2026-09-30 · #task
@@ -79,6 +80,8 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 - [ ] Triage LinkedIn job alert — HR Business Partner @ Coinbase (LinkedIn alert, 9/28 9:05 PM ET) · #sourcing
 - [ ] Triage Indeed job alert — Sr. HR Business Partner/Manager @ LexisNexis, $126,900–$230,700 (Indeed alert, 10/1 8:26 AM ET, landed in swm3016@) · #sourcing
 - [ ] Check LinkedIn message from "Alan" — unread, content not visible in email digest, needs the LinkedIn app to read · #sourcing
+- [ ] Check LinkedIn message from "Shan Parsan, Director of Sales, Global" — "still want to connect," unread, content not visible in email digest, needs the LinkedIn app to read · #sourcing
+- [ ] Suspected phishing email, NOT trashed — "Payment declined: Update your information so we can ship your order" (payments-update@amazon.com, landed in dhwconsulting3@, 10/2 5:43 AM ET). Classic phishing template (urgent payment-update hook); not on the ALWAYS TRASH list and not clearly bulk marketing, so left in inbox per policy rather than auto-trashed. Nothing clicked, nothing entered — same pattern as the dentsu/MyChart phishing already flagged above · #security
 
 ## ❓ Needs Melissa
 
@@ -100,7 +103,7 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 ## ⏳ Waiting On
 <!-- Blocked on someone else. Note who and since when. -->
 
-_(none open)_
+- Mary Rizzuti (Partner, Eisner Advisory Group / Compensation Resources) — introduced by Neil Axler (EisnerAmper) 10/1 9:00 PM ET ("Intro: Mary & Melissa"). Mary replied 10/1 9:22 PM ET; her assistant Kio Pszczolkowski will schedule a call. You replied 10/2 12:34 AM ET, "look forward to speaking." Waiting on Kio to schedule — since 2026-10-02
 
 ## ✅ Done
 <!-- Cleared during /start and /wrap-up. Archive monthly. -->
