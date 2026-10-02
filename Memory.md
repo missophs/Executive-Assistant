@@ -85,6 +85,8 @@ _(none open — cleared 2026-09-30 per Melissa's 9/29 11:34 PM ET capture, "clos
 _(Rita Ramakrishnan/AIChE follow-up: outcome arrived 9/16 — see People above, closed. Kristen Ramerini/HSO follow-up removed from tracking 2026-09-14 per Tell Ellie capture 9/13 9:27 PM ET — "those are done already." No outcome recorded.)_
 
 ## Saved Links
+- 2026-10-02: 
+- 2026-10-02: 
 - 2026-10-01: https://skillsclau.de
 - 2026-10-01: https://fromsmash.com/HR-and-AI-Final.mp4
 - 2026-10-01: https://careers.andersen.com/jobs/7613?lang=en-us

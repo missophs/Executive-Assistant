@@ -1,8 +1,9 @@
-# Handoff - 2026-10-01 8:02PM ET
+# Handoff - 2026-10-02 6:30AM ET
 Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; do not hand-edit.
 
 ## Filed this run
-- (none)
+- 
+- 
 
 ## Closed today
 - (none)
@@ -27,6 +28,8 @@ Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; d
 - Thu 10/8 9:00am - Executive Roundtable
 - Thu 10/8 12:00pm - Endocrinology  dr macuade
 - Thu 10/8 12:00pm - HR Networking & Job Search: Open Office Hours - Zoom 2
+- Fri 10/9 all day - Jackie anniversary
+- Fri 10/9 all day - Jackie’s  anniversary 
 
 ## Where things live
 - Vault: GitHub missophs/Executive-Assistant (Task Board.md, Applications.md, Memory.md, Standing Instructions.md, routines/README.md changelog).
