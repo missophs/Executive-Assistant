@@ -1,11 +1,12 @@
-# Handoff - 2026-10-03 6:30AM ET
+# Handoff - 2026-10-03 10:50AM ET
 Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; do not hand-edit.
 
 ## Filed this run
 - (none)
 
 ## Closed today
-- CAI Software (Don Underwood, Sr. Talent Acquisition Partner) — screen was held Wed 9/30, 2:30–3:00 PM ET, Teams. Date has passed; the earlier "confirm — done 2026-10-03
+- CAI Software (Don Underwood, Sr. Talent Acquisition Partner) — screen was held Wed 9/30, 2:30–3:00 PM ET, Teams. Date has passed; the earlier "confirm the Teams link" ask is moot, reworded to ask whether she'd heard back from Don since the screen — no outcome had shown up in Gmail yet — done 2026-10-03
+- CAI talking points — no longer needed, per her 10/2 10:08 PM ET capture ("close out the talking points for CAI, we don't need them anymore"). No matching open task on the board (the CAI screen itself is closed above); the prep docs (CAI talking points, CAI STAR questions — Drive + git `Meetings/`) stay as a record, just no longer open — done 2026-10-03
 
 ## Open: Today
 - Call NYC HRA at 929-273-1872 for your required Cash Assistance interview, and upload documents via the ACCESS HRA app — due TODAY 2026-09-28, per an official HRA email received 9/28 12:35 AM ET ("To do on your case," noreply_ahra@hra.nyc.gov). Note: this is a different date than the existing 9/29 all-day calendar block from your 9/26 capture — that block is still on your calendar, untouched · #task · #priority · #urgent
