@@ -546,3 +546,4 @@ Items Ellie has already triaged. Format: `<id> | <latest-message-date> | <what w
 1a0feddd03fd8985 | 2026-10-02 | Regional Chief People Officer, Americas, via a "Ladders" listing, up to $350K, LinkedIn job alert — filed to Task Board backlog, flagged as a possible duplicate of the existing Marsh listing for the same title
 1a0fea43a0e3b395 | 2026-10-02 | Amazon refund confirmation (dhwconsulting3@) — purchase notice, no action needed
 1a0fe6b2890c6ea1 | 2026-10-02 | Ellie Wrap-Up email (Fri Oct 2) — automation, no action
+1a1016d583e9bf17 | 2026-10-03 | Ellie - EA - Saturday, October 3 (morning briefing, self-sent) — automation, no action
