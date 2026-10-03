@@ -84,6 +84,9 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 - [ ] Suspected phishing email, NOT trashed — "Payment declined: Update your information so we can ship your order" (payments-update@amazon.com, landed in dhwconsulting3@, 10/2 5:43 AM ET). Classic phishing template (urgent payment-update hook); not on the ALWAYS TRASH list and not clearly bulk marketing, so left in inbox per policy rather than auto-trashed. Nothing clicked, nothing entered — same pattern as the dentsu/MyChart phishing already flagged above · #security
 - [ ] New billing statement available in Catholic Health MyChart (account ending 8164) — notification only, no amount/content in the email itself, log in to view — 10/2 1:50 PM ET · #admin
 - [ ] New letter in Catholic Health MyChart, account ending 8164 — reason given as "Information needed," no further content in the email itself, log in to view — 10/1 10:47 PM ET · #admin
+- [ ] Triage LinkedIn job alert — Head of People @ American Terawatt (LinkedIn alert, sent twice 10/2 9:05 PM & 10/3 1:05 AM ET) · #sourcing
+- [ ] Triage LinkedIn job alert — Head of People @ Crisp, up to $140K (LinkedIn alert, 10/2 11:11 PM ET) · #sourcing
+- [ ] Triage LinkedIn job alert — Regional Chief People Officer, Americas @ Ladders listing, up to $350K (LinkedIn alert, 10/2 11:05 PM ET) — possible duplicate of the Marsh listing for the same title already in Backlog above; not merged since the source/comp differ and the connection isn't confirmed · #sourcing
 
 ## ❓ Needs Melissa
 
@@ -107,7 +110,8 @@ Format: `- [ ] Task — owner · due YYYY-MM-DD · #project`
 - Mary Rizzuti (Partner, Eisner Advisory Group / Compensation Resources) — introduced by Neil Axler (EisnerAmper) 10/1 9:00 PM ET ("Intro: Mary & Melissa"). Mary replied 10/1 9:22 PM ET; her assistant Kio Pszczolkowski will schedule a call. You replied 10/2 12:34 AM ET, "look forward to speaking." Waiting on Kio to schedule — since 2026-10-02
 
 ## ✅ Done
-- [x] CAI Software (Don Underwood, Sr. Talent Acquisition Partner) — screen was held Wed 9/30, 2:30–3:00 PM ET, Teams. Date has passed; the earlier "confirm — done 2026-10-03
+- [x] CAI Software (Don Underwood, Sr. Talent Acquisition Partner) — screen was held Wed 9/30, 2:30–3:00 PM ET, Teams. Date has passed; the earlier "confirm the Teams link" ask is moot, reworded to ask whether she'd heard back from Don since the screen — no outcome had shown up in Gmail yet — done 2026-10-03
+- [x] CAI talking points — no longer needed, per her 10/2 10:08 PM ET capture ("close out the talking points for CAI, we don't need them anymore"). No matching open task on the board (the CAI screen itself is closed above); the prep docs (CAI talking points, CAI STAR questions — Drive + git `Meetings/`) stay as a record, just no longer open — done 2026-10-03
 <!-- Cleared during /start and /wrap-up. Archive monthly. -->
 
 - [x] CUNY (Vice Chancellor for Human Resources) — closed per your 9/29 11:35 PM ET capture ("we could close out Cuney and remove that Cuney CUNY"). Interview held Fri 9/11 (panel: Elisa Russo & Sujata Malhotra), no word since — closing per your instruction, not asserting a rejection. Applications.md moved to Closed — 2026-09-30
