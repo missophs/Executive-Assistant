@@ -1,11 +1,11 @@
-# Handoff - 2026-10-02 7:57PM ET
+# Handoff - 2026-10-03 6:30AM ET
 Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; do not hand-edit.
 
 ## Filed this run
 - (none)
 
 ## Closed today
-- (none)
+- CAI Software (Don Underwood, Sr. Talent Acquisition Partner) — screen was held Wed 9/30, 2:30–3:00 PM ET, Teams. Date has passed; the earlier "confirm — done 2026-10-03
 
 ## Open: Today
 - Call NYC HRA at 929-273-1872 for your required Cash Assistance interview, and upload documents via the ACCESS HRA app — due TODAY 2026-09-28, per an official HRA email received 9/28 12:35 AM ET ("To do on your case," noreply_ahra@hra.nyc.gov). Note: this is a different date than the existing 9/29 all-day calendar block from your 9/26 capture — that block is still on your calendar, untouched · #task · #priority · #urgent
@@ -19,7 +19,6 @@ Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; d
 - Mary Rizzuti (Partner, Eisner Advisory Group / Compensation Resources) — introduced by Neil Axler (EisnerAmper) 10/1 9:00 PM ET ("Intro: Mary & Melissa"). Mary replied 10/1 9:22 PM ET; her assistant Kio Pszczolkowski will schedule a call. You replied 10/2 12:34 AM ET, "look forward to speaking." Waiting on Kio to schedule — since 2026-10-02
 
 ## Calendar, next 7 days
-- Fri 10/2 all day - Meet up
 - Mon 10/5 3:00pm - M&M
 - Tue 10/6 12:00pm - PT
 - Wed 10/7 all day - State farm bill
@@ -30,6 +29,7 @@ Read this first in a new chat. Rebuilt by scripts/phone_sync.py at every sync; d
 - Thu 10/8 12:00pm - HR Networking & Job Search: Open Office Hours - Zoom 2
 - Fri 10/9 all day - Jackie anniversary
 - Fri 10/9 all day - Jackie’s  anniversary 
+- Sat 10/10 2:30pm - Tour of Westminster Heritage House
 
 ## Where things live
 - Vault: GitHub missophs/Executive-Assistant (Task Board.md, Applications.md, Memory.md, Standing Instructions.md, routines/README.md changelog).
